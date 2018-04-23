@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.ContentMap">
+
+	<insert id="insertContent" parameterType="com.test.Builder.dto.Content">
+		insert into content_tb (user_id, type, skin, top_title, top_img_file, top_img_align, top_font_color, top_font_align)
+		values (#{userId}, #{type}, #{skin}, #{topTitle}, #{topImgFile}, #{topImgAlign}, #{topFontColor}, #{topFontAlign});
+	</insert>
+
+</mapper>
