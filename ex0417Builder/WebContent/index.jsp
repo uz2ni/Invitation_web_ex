@@ -11,7 +11,7 @@
 
 <!-- input radio 일 때,input-id랑 label-for이랑 같아야 함, name=value -->
 	<div class="col-4 mx-auto mt-5">
-		<form action="/ex0417Builder/ContentController" method="get">
+		<form action="/ex0417Builder/ContentController" method="post" enctype="Multipart/form-data"/>
 			<div class="form-group">
 				<div class="alert alert-info text-center" role="alert">스킨선택</div>
 				<!--스킨선택 - 행사 종류 -->
@@ -59,14 +59,12 @@
 				<br>
 				<!-- 상단정보 - 이미지 -->
 				<label>상단 이미지</label><br>
-				<input type="text" class="form-control" name="top-img-file">
-				<!-- 
+				<!-- <input type="text" class="form-control" name="top-img-file"> -->
 				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="top-img-file">
-					<input type="text" class="form-control" id="top-img-file" name="top-img-file">
+					<input type="file" class="custom-file-input" id="top-img-file" name="top-img-file">
+					<!-- <input type="text" class="form-control" id="top-img-file" name="top-img-file"> -->
 					<label class="custom-file-label" for="top-img-file">선택</label>
 				</div>
-				-->
 				<br><br>
 				<!-- 상단정보 - 상단이미지 방향 -->
 				<label>상단 이미지 방향 </label><br>
@@ -132,8 +130,6 @@
 						class="form-check-label" for="top-font-align-03">오른쪽</label>
 				</div>
 			</div>
-			
-			
 
 			<button type="submit" class="btn btn-primary btn-block">완료하기</button>
 		</form>

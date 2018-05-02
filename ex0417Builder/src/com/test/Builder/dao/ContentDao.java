@@ -10,8 +10,8 @@ public class ContentDao implements ContentMapper {
 	
 	private static ContentDao instance;
 	
-	// 싱글톤 패턴
 	private ContentDao() {}
+	// 싱글톤 패턴
 	public static ContentDao getInstance() {
 		if(instance == null)
 			instance = new ContentDao();

@@ -1,0 +1,25 @@
+0. Project명 : ex0417Builder
+
+1. 제목 : 편집화면 폼에서 mybatis로 insert하는 기능 (mvc고려)
+2. 저자 : 송유진
+
+3. 목적 : 편집화면에서 넘어오는 데이터를 테이블에 저장하기 위함
+ - SqlSessionManager.java : sqlsession 설정 파일
+ - builder-config.xml : jdbc, mybatis 디비관련 설정 파일
+ - ContentController : get으로 url에서 파라미터 받고 insert 넘겨줄 작업 수행할 컨트롤러 기능의 서블릿
+ - ContentMapper, ContentDao.java : 쿼리 별 기능 구현할 인터페이스와 구현 클래스 (insert 기능)
+ - Content.java : 디비와 url과 서로 매핑시킬 객체 클래스
+ - ContentMap.xml : sql 매핑 파일
+ 
+4. 사용법 : index.jsp에서 폼을 입력하면 url로 값이 넘어오고 db 삽입이 성공하면 result.jsp페이지에서 성공화면 출력
+5. 참조 : 
+ - 서블릿 페이지 전환 개념 (http://egipyo21.tistory.com/19)
+ - mvc 구조 참고 (http://iotsw.tistory.com/65)
+ - jsp, mybatis mvc로 구현 참고 (http://webfortj.blogspot.kr/2012/07/jsp-mybatis-mysql.html)
+ - mybatis 구문 예제 참고 (http://devsh.tistory.com/entry/MyBatis-%EA%B8%B0%EB%B3%B8-insertdeleteupdate)
+
+6. 개정 히스토리 : 2018년 4월 22일 일요일 - 2018년 4월 23일 월요일
+
+7. 오류 수정 내용
+- url -> db insert시 한글 오류 (http://yuja-kong.tistory.com/11)
+- 논리적으로 구현 후 대부분의 오류는 경로설정 오타였음. 참고했던 사이트의 경로와 비교하며 다시 매칭함.

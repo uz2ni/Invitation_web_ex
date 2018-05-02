@@ -4,9 +4,5 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>MyBatisInitializer</servlet-name>
-    <servlet-class>com.sample.mybatis.config.MyBatisConfig</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+
 </web-app>
