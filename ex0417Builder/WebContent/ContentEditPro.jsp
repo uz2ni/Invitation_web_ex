@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>
-index
-</div>
+ContentEditPro.jsp
 </body>
 </html>
