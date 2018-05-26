@@ -8,9 +8,104 @@
 
 <mapper namespace="com.test.Builder.sqlmap.ContentMap">
 
+
+	<resultMap type="com.test.Builder.dto.Content" id="contentResult">
+		<result property="urlId" column="url_id" />
+		<result property="memberId" column="member_id" />
+		<result property="urlName" column="url_name" />
+		<result property="type" column="type" />
+		<result property="payDate" column="pay_date" />
+		<result property="lastDate" column="last_date" />
+		<result property="skin" column="skin" />
+		<result property="topTitle" column="top_title" />
+		<result property="topImgFile" column="top_img_file" />
+		<result property="topImgAlign" column="top_img_align" />
+		<result property="topFontColor" column="top_font_color" />
+		<result property="topFontAlign" column="top_font_align" />
+		<result property="infoDateStart" column="info_date_start" />
+		<result property="infoDateEnd" column="info_date_end" />
+		<result property="infoDdayChk" column="info_dday_chk" />
+		<result property="infoTime" column="info_time" />
+		<result property="infoPlace" column="info_place" />
+		<result property="addInfoWelcome" column="add_info_welcome" />
+		<result property="addInfoImgName" column="add_info_img_name" />
+		<result property="addInfoImgProfile" column="add_info_img_profile" />
+		<result property="addInfoImgSit" column="add_info_img_sit" />
+		<result property="addInfoCallName" column="add_info_call_name" />
+		<result property="addInfoCallNumber" column="add_info_call_number" />
+		<result property="addInfoLogoHoldName" column="add_info_logo_hold_name" />
+		<result property="addInfoHoldImg" column="add_info_hold_img" />
+		<result property="addInfoLogoHelpName" column="add_info_logo_help_name" />
+		<result property="addInfoHelpImg" column="add_info_help_img" />
+		<result property="infoAddress" column="info_address" />
+		<result property="infoNavi" column="info_navi" />
+		<result property="infoFind" column="info_find" />
+		<result property="infoLoadImgChk" column="info_load_img_chk" />
+		<result property="infoLoadImg" column="info_load_img" />
+		<result property="infoBus" column="info_bus" />
+		<result property="infoSubway" column="info_subway" />
+		<result property="infoParking" column="info_parking" />
+		<result property="galleryChk" column="gallery_chk" />
+		<result property="galleryType" column="gallery_type" />
+		<result property="galleryUploadImg" column="gallery_upload_img" />
+		<result property="videoChk" column="video_chk" />
+		<result property="videoLink" column="video_link" />
+		<result property="accountChk" column="account_chk" />
+		<result property="accountSelect" column="account_select" />
+		<result property="accountMoney" column="account_money" />
+		<result property="attendChk" column="attend_chk" />
+		<result property="commentChk" column="comment_chk" />
+		<result property="snsShareChk" column="sns_share_chk" />
+		<result property="selectSns" column="select_sns" />
+		<result property="snsMsgChk" column="sns_msg_chk" />
+		<result property="snsMsgContent" column="sns_msg_content" />
+	</resultMap>
+ 
+	<!-- 
 	<insert id="insertContent" parameterType="com.test.Builder.dto.Content">
 		insert into content_tb (user_id, type, skin, top_title, top_img_file, top_img_align, top_font_color, top_font_align)
 		values (#{userId}, #{type}, #{skin}, #{topTitle}, #{topImgFile}, #{topImgAlign}, #{topFontColor}, #{topFontAlign});
 	</insert>
+	 -->
+	
+	
+	<select id="contentSelectOne" parameterType="int" resultMap="contentResult">
+		select * from url where url_id = #{urlId};
+	</select>
+	
+	<!-- 
+	<update id="contentUpdate" parameterType="com.test.Builder.dto.Content">
+		update url
+		   set (#{urlId}, #{memberId}, #{urlName}, #{type}, str_to_date(#{payDate}, '%Y-%m-%d %H:%i:%s'), str_to_date(#{lastDate}, '%Y-%m-%d %H:%i:%s'),
+		   		#{skin}, #{topTitle}, #{topImgFile}, #{topImgAlign}, #{topFontColor}, #{topFontAlign},
+		   		str_to_date(#{infoDateStart}, '%Y-%m-%d'), str_to_date(#{infoDateEnd}, '%Y-%m-%d'), #{infoDdayChk}, #{infoTime}, #{infoPlace},
+		   		#{addInfoWelcome}, #{addInfoImgName}, #{addInfoImgProfile}, #{addInfoImgSit}, #{addInfoCallName}, #{addInfoCallNumber}, #{addInfoLogoHoldName}, #{addInfoHoldImg}, #{addInfoLogoHelpName}, #{addInfoHelpImg},
+		   		#{infoAddress}, #{infoNavi}, #{infoFind}, #{infoLoadImgChk}, #{infoLoadImg}, #{infoBus}, #{infoSubway}, #{infoParking},
+		   		#{galleryChk}, #{galleryType}, #{galleryUploadImg},
+		   		#{videoChk}, #{videoLink},
+		   		#{accountChk}, #{accountSelect}, #{accountMoney},
+		   		#{attendChk}, #{commentChk}, #{snsShareChk}, #{selectSns}, #{snsMsgChk}, #{snsMsgContent})
+		 where member_id = #{memberId};
+	</update>
+	 -->
+	 
+	<update id="contentUpdate" parameterType="com.test.Builder.dto.Content">
+	update url
+	   set 		   		
+	   		skin = #{skin},
+	   		top_title = #{topTitle}, top_img_file = #{topImgFile}, top_img_align = #{topImgAlign}, top_font_color = #{topFontColor}, top_font_align = #{topFontAlign},
+	   		info_date_start = str_to_date(#{infoDateStart}, '%Y-%m-%d'), info_date_end = str_to_date(#{infoDateEnd}, '%Y-%m-%d'), info_dday_chk = #{infoDdayChk}, info_time = #{infoTime}, info_place = #{infoPlace},
+	   		add_info_welcome = #{addInfoWelcome}, add_info_img_name = #{addInfoImgName}, add_info_img_profile = #{addInfoImgProfile}, add_info_img_sit = #{addInfoImgSit}, add_info_call_name = #{addInfoCallName}, add_info_call_number =  #{addInfoCallNumber},
+	   		add_info_logo_hold_name = #{addInfoLogoHoldName}, add_info_hold_img = #{addInfoHoldImg}, add_info_logo_help_name = #{addInfoLogoHelpName}, add_info_help_img = #{addInfoHelpImg},
+	   		info_address = #{infoAddress}, info_navi = #{infoNavi}, info_find = #{infoFind}, info_load_img_chk = #{infoLoadImgChk}, info_load_img = #{infoLoadImg}, info_bus = #{infoBus}, info_subway = #{infoSubway}, info_parking = #{infoParking},
+	   		gallery_chk = #{galleryChk}, gallery_type = #{galleryType}, gallery_upload_img = #{galleryUploadImg},
+	   		video_chk = #{videoChk},video_link = #{videoLink},
+	   		account_chk = #{accountChk}, account_select = #{accountSelect}, account_money = #{accountMoney},
+	   		attend_chk = #{attendChk}, comment_chk = #{commentChk}, sns_share_chk = #{snsShareChk}, select_sns = #{selectSns}, sns_msg_chk = #{snsMsgChk}, sns_msg_content = #{snsMsgContent}
+	 where url_id = #{urlId};
+</update>
+
+	
+	
 
 </mapper>
