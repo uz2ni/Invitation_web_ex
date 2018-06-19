@@ -4,7 +4,7 @@ package com.test.Builder.dto;
 public class Content {
 //	기본 정보
 	private int urlId;
-	private int memberId;
+	private int userId;
 	private String urlName;
 	private int type;
 	private String payDate;
@@ -71,11 +71,11 @@ public class Content {
 	public void setUrlId(int urlId) {
 		this.urlId = urlId;
 	}
-	public int getMemberId() {
-		return memberId;
+	public int getUserId() {
+		return userId;
 	}
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getUrlName() {
 		return urlName;
@@ -362,7 +362,7 @@ public class Content {
 	}
 	@Override
 	public String toString() {
-		return "Content [urlId=" + urlId + ", memberId=" + memberId + ", urlName=" + urlName + ", type=" + type
+		return "Content [urlId=" + urlId + ", userId=" + userId + ", urlName=" + urlName + ", type=" + type
 				+ ", payDate=" + payDate + ", lastDate=" + lastDate + ", skin=" + skin + ", topTitle=" + topTitle
 				+ ", topImgFile=" + topImgFile + ", topImgAlign=" + topImgAlign + ", topFontColor=" + topFontColor
 				+ ", topFontAlign=" + topFontAlign + ", infoDateStart=" + infoDateStart + ", infoDateEnd=" + infoDateEnd

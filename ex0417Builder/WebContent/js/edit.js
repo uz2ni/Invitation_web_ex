@@ -3,24 +3,36 @@
 	  // Form 내용 Json 형태로 담기
 	  var formJson = $("#editForm").serializeObject();
 	  
-	  previewImg();
+	  //previewImg(); // 이미지 업로드 시 미리보기 제공 
 
 	  // iframe 접근해서 텍스트 변경하기
 //	  $('#preview_iframe').contents().find('.text-box').text('안녕하세요');
 	  
 //	  var labels = JSON.parse(formJson);
 	  
-	// Form Json 값들 iframe 에서 출력하기
+	// 기능 : Form Json 값들 iframe 에서 출력하기
+	  
+	  /*
 	  for(key in formJson) {
 		  console.log("form[" + key + "] : " + formJson[key]);
 		  $('#preview_iframe').contents().find('.text-box').append("<h3>" + key + ":" + formJson[key] + "</h3>");
+		  if(key == 'top-img-file-str'){
+			  var s3Url = "https://s3.ap-northeast-2.amazonaws.com/invitecontent";
+			  var url = s3Url + '/' + formJson[key];
+			  formJson[key]
+			  $('#preview_iframe').contents().find('.text-box').append("<img src=' " + url + "' height='200'>");
+		  }
+			
 	  }
+	  */
 
   });
-
-
-//form 값 받아와서 json형태로 출력
-// 코드 출처 : http://cofs.tistory.com/184
+  
+  
+// 날짜 : 18.05.26
+// 작성자 : 송유진
+// 기능 : form 값 받아와서 json형태로 출력
+// 코드 참조 : http://cofs.tistory.com/184
 	jQuery.fn.serializeObject = function() {
 		  var obj = null;
 		  try {
@@ -92,12 +104,16 @@ function readURL(input) {
 	}
 }
 
-// 함수 기능 : 이미지 미리보기 (최초 이미지)
+//생성일 : 18.05.26
+//작성자 : 송유진
+// 함수 기능 : 이미지 미리보기 (최초 이미지 불러올 때)
+/*
 function previewImg(){
-	var uploadPath = $('#top-img-file-addr').val(); // 이미지 경로 주소 위치
+	var uploadPath = "https://s3.ap-northeast-2.amazonaws.com/invitecontent"; //이미지 경로 주소 위치(aws s3)	
 	var str = $('#top-img-file-str').val(); // 이미지 이름
 	var src = uploadPath + "/" + str;
 	console.log(src);
 	
-	$('.top-img-preview-wrap').append("<img src='" + src + "'>");
+	$('.top-img-preview-wrap').append("<img src='" + src + "' height='150'>"); //이미지 미리보기 추가
 }
+*/

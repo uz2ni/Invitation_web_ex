@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+
+/* writing css */
+
+.bootstrap-tagsinput {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: block;
+    padding: 4px 6px;
+    color: #555;
+    vertical-align: middle;
+    border-radius: 4px;
+    max-width: 100%;
+    line-height: 22px;
+    cursor: text;
+}
+.bootstrap-tagsinput input {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0 6px;
+    margin: 0;
+    width: auto;
+    max-width: inherit;
+}
+.nav-item-side a {
+    font-size: 15px !important;;
+    font-weight: bold;
+    color:black;
+    background: #F2CE82;
+    border-color:#f2f2f2;
+    border-width:2px;
+}
+
+.container {
+  position: relative;
+/*     width: 50%; */ 
+	cursor:pointer;
+}
+.card-img-top{
+    opacity: 1.0;
+    transition:0.1s ease;
+}
+.overlay {
+  position: absolute;  
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:black;
+  overflow: hidden;
+  width: 100%;
+  height: 0%;
+  transition: .0.1s ease;
+}
+.container:hover .card-img-top {
+    opacity: 0.5;
+    transition:0.1s;
+}
+.container:hover .overlay {
+  height: 100%; 
+  opacity: 0.5;
+}
+.text {
+  color: white; 
+  font-size: 15px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* url 리스트 radio checked */
+
+.select-content {
+	display: none;
+}
+.select-content:checked+label .card-img-top { /* 가짜 라디오버튼 체크했을 때 */
+    opacity: 0.5;
+    transition:0.1s;
+}
+.select-content:checked+label .overlay { /* 가짜 라디오버튼 체크했을 때 */
+  height: 100%; 
+  opacity: 0.5;
+}

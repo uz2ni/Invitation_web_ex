@@ -4,14 +4,17 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.HTMLDocument.HTMLReader.ParagraphAction;
 
-import com.mysql.fabric.xmlrpc.base.Param;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.test.Builder.controller.CommandAction;
 import com.test.Builder.dao.ContentEditDBBean;
 import com.test.Builder.dto.Content;
+
+//기능 : 폼에서 전송된 값을 받아서 이미지는 톰캣경로에 업로드 시키고, 나머지 값들은 db에 업데이트 한다.
+//      모든 값들은 null처리를 해서 모두 입력하지 않아도 에러가 안나도록 함.
+//작성자 : 송유진
+//날짜 : ~ 18.05.26
 
 public class ContentEditProAction implements CommandAction {
 
@@ -53,25 +56,41 @@ public class ContentEditProAction implements CommandAction {
 	            String fileName = (String)files.nextElement();
 	            newFileName = multi.getFilesystemName(fileName);
 	            
+	            String key = "";
+	            String imgLink = "";
+	            
 	            // input Name 검사해서 맞게 삽입
 	            if((fileName.equals("top-img-file"))) {
 	            	content.setTopImgFile(newFileName==null ? "" : newFileName);
+		            key = ImgUpload(content.getTopImgFile(), newFileName, uploadPath);
+		            imgLink = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/" + key;
+		            content.setTopImgFile(newFileName==null ? "" : imgLink);
+
 	            }else if(fileName.equals("add-info-img-profile")) {
 	            	content.setAddInfoImgProfile(newFileName==null ? "" : newFileName);
+		            ImgUpload(content.getAddInfoImgProfile(), newFileName, uploadPath);
 	            }else if(fileName.equals("add-info-img-sit")) {
 	            	content.setAddInfoImgSit(newFileName==null ? "" : newFileName);
+		            ImgUpload(content.getAddInfoImgSit(), newFileName, uploadPath);
 	            }else if(fileName.equals("add-info-hold-img")) {
 	            	content.setAddInfoHoldImg(newFileName==null ? "" : newFileName);
+		            ImgUpload(content.getAddInfoHoldImg(), newFileName, uploadPath);
 	            }else if(fileName.equals("add-info-help-img")) {
 	            	content.setAddInfoHelpImg(newFileName==null ? "" : newFileName);
+		            ImgUpload(content.getAddInfoHelpImg(), newFileName, uploadPath);
 	            }else if(fileName.equals("info-load-img")) {
 	            	content.setInfoLoadImg(newFileName==null ? "" : newFileName);
+		            ImgUpload(content.getInfoLoadImg(), newFileName, uploadPath);
 	            }else if(fileName.equals("gallery-upload-img")) {
 	            	content.setGalleryUploadImg(newFileName==null ? "" : newFileName);
+		            ImgUpload(content.getGalleryUploadImg(), newFileName, uploadPath);
 	            }
 	            
-//	            System.out.println(fileName + " : " + newFileName);
+	            System.out.println(fileName + " : " + newFileName);
+
 	        }
+	        
+	        
 	    }catch(Exception e){
 	        e.printStackTrace();
 	    }
@@ -79,12 +98,12 @@ public class ContentEditProAction implements CommandAction {
         // 나머지 내용 저장
         // 사용자 정보
         content.setUrlId(Integer.parseInt(multi.getParameter("url-id")));
-        content.setMemberId(Integer.parseInt(multi.getParameter("member-id")));
+        content.setUserId(Integer.parseInt(multi.getParameter("user-id")));
         content.setUrlName(multi.getParameter("url-name"));
         content.setType(Integer.parseInt(multi.getParameter("type")));
         content.setPayDate(multi.getParameter("pay-date"));
         content.setLastDate(multi.getParameter("last-date"));
-        System.out.println("url-id:"+content.getUrlId()+", member-id:"+content.getMemberId()+", url-name:"+content.getUrlName()+", type:"+content.getType()+", pay-date:"+content.getPayDate()+", last-date:"+content.getLastDate());
+        System.out.println("url-id:"+content.getUrlId()+", user-id:"+content.getUserId()+", url-name:"+content.getUrlName()+", type:"+content.getType()+", pay-date:"+content.getPayDate()+", last-date:"+content.getLastDate());
         // edit form
         // 스킨 선택
         content.setSkin(multi.getParameter("skin")==null ? "" : multi.getParameter("skin"));
@@ -166,14 +185,15 @@ public class ContentEditProAction implements CommandAction {
 
         
         // to string
-//        System.out.println(content.toString());
+        System.out.println(content.toString());
 		
 		// DB 연동 - 넘어온 정보를 테이블의 레코드로 추가
 		ContentEditDBBean ContentProcess = ContentEditDBBean.getInstance();
 		ContentProcess.update(content);
 		request.setAttribute("content", content);
 		
-	    return "/contentEditForm.jsp";
+		
+	    return "contentEditComplete.jsp";
 	}
 	
 	// checkbox 0, 1 처리	 함수
@@ -186,5 +206,17 @@ public class ContentEditProAction implements CommandAction {
 			return -1;	
 		}
 	}
+	
+    // 파일이 null이 아닐 경우 aws s3에 업로드 수행
+    String ImgUpload(String contentImgName, String newFileName, String uploadPath) {
+    	if(newFileName != null) {
+	        ContentEditProS3Action proS3 = new ContentEditProS3Action();
+	        String key = proS3.Upload(uploadPath, contentImgName);
+	        return key;
+    	}else {
+    		return "null";
+    	}
+    }
+	
 
 }

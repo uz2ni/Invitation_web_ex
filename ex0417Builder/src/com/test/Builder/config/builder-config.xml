@@ -23,6 +23,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- mybatis sql문 쿼리파일 매핑 -->
 	<mappers>
 		<mapper resource="com/test/Builder/sqlmap/ContentMap.xml" />
+		<mapper resource="com/test/Builder/sqlmap/UserMap.xml" />
+		<mapper resource="com/test/Builder/sqlmap/PaymentMap.xml" />
+		<mapper resource="com/test/Builder/sqlmap/LookMap.xml" />
 	</mappers>
 
 </configuration>  

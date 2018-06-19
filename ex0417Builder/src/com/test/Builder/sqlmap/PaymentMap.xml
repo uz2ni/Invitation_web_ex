@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.PaymentMap">
+
+<!-- 결제 시 insert -->
+<insert id="paymentInsert" parameterType="com.test.Builder.dto.Payment">
+	insert into payment(user_id, merchant_uid, payment_style, payment_name, payment_month, payment_type, payment_amount, payment_url_name, payment_date)
+	values(#{userId}, #{merchantUid}, #{paymentStyle}, #{paymentName}, #{paymentMonth}, #{paymentType}, #{paymentAmount}, #{paymentUrlName}, date_format(#{paymentDate}, '%Y-%m-%d %H:%i:%s'));
+</insert>
+
+<!-- 결제창 후 update -->
+<update id="paymentUpdate" parameterType="com.test.Builder.dto.Payment">
+	update payment
+	   set 		   		
+	   		payment_at = date_format(#{paymentAt}, '%Y-%m-%d %H:%i:%s'),
+	   		payment_imp_uid = #{paymentImpUid},
+	   		payment_status = #{paymentStatus},
+	   		payment_pg = #{paymentPg},
+	   		payment_pay_method = #{paymentPayMethod},
+	   		payment_receipt_url = #{paymentReceiptUrl}
+	 where merchant_uid = #{merchantUid};
+</update>
+
+
+</mapper>

@@ -1,0 +1,19 @@
+.container {
+    height: 100px;
+    background-color: #F2CE82;
+    font-weight: bold;
+}
+
+.side-back {
+    background-color: #f2f2f2;
+}
+.center {
+    background-color: white;
+}
+.table {
+    margin-top: 10px;
+}
+
+.selectBtn {
+    background-color: #b0afaf
+}

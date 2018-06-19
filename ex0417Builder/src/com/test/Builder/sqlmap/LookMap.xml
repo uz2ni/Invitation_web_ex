@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.LookMap">
+
+<resultMap type="com.test.Builder.dto.Look" id="LookList">
+	<result property="lookId" column="look_id" />
+	<result property="userId" column="user_id" />
+	<result property="lookTitle" column="look_title" />
+	<result property="lookHashTag" column="look_hash_tag" />
+	<result property="lookUrlName" column="look_url_name" />
+	<result property="lookImg" column="look_img" />
+	<result property="lookHit" column="look_hit" />
+	<result property="lookHeart" column="look_heart" />
+	<result property="lookRegTime" column="look_reg_time" />
+</resultMap>
+
+<!-- 전체글 select - 최신순 -->
+<select id="lookSelectList1" resultMap="LookList">
+	select * from look order by look_id desc;
+</select>
+
+<!-- 전체글 select - 하트순 -->
+<select id="lookSelectList2" resultMap="LookList">
+	select * from look order by look_heart desc look_id desc;
+</select>
+
+<!-- 사용자 id와 글 내용 insert -->
+<insert id="lookInsert" parameterType="com.test.Builder.dto.Look">
+	insert into look(user_id, url_id, look_title, look_hash_tag, look_url_name, look_img)
+	values(#{userId}, #{urlId}, #{lookTitle},#{lookHashTag}, #{lookUrlName}, #{lookImg});
+</insert>
+
+<!-- 글 번호에 맞는 게시글 update -->
+<update id="lookUpdate" parameterType="com.test.Builder.dto.Look">
+	update look
+	   set 		   		
+	   		look_hash_tag = #{lookHashTag}
+	 where look_id = #{lookId};
+</update>
+
+<!-- 글 번호에 맞는 게시글 delete -->
+<delete id="lookDelete" parameterType="int">
+	delete from look where look_id = #{lookId};
+</delete>
+
+</mapper>

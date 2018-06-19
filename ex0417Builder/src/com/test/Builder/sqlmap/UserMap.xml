@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.UserMap">
+
+<resultMap type="com.test.Builder.dto.User" id="UserResult">
+	<result property="userId" column="user_id" />
+	<result property="userEmail" column="user_email" />
+	<result property="userPw" column="user_pw" />
+	<result property="userName" column="user_name" />
+	<result property="userPhone" column="user_phone" />
+	<result property="userBirth" column="user_birth" />
+	<result property="userProfile" column="user_profile" />
+	<result property="userAccount" column="user_account" />
+</resultMap>
+
+<!-- 회원가입 시 insert -->
+<insert id="userInsert" parameterType="com.test.Builder.dto.User">
+	insert into user(user_email, user_pw, user_name, user_phone, user_birth)
+	values(#{userEmail}, #{userPw}, #{userName}, #{userPhone}, #{userBirth});
+</insert>
+
+<!-- login 시 id에 해당하는 pw select -->
+<select id="userSelectPw" parameterType="String" resultType="String">
+	select user_pw from user where user_email = #{email};
+</select>
+
+<!-- User select -->
+<select id="userSelectOne" parameterType="String" resultMap="UserResult">
+	select * from user where user_email = #{email};
+</select>
+
+
+
+</mapper>

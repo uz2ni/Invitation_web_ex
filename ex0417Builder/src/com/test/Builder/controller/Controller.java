@@ -24,7 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(
 		urlPatterns = { 
 				"/Controller", 
-				"*.do"
+				"*.do",
+//				"/payments/*"
 		}, 
 		initParams = { 
 				@WebInitParam(name = "propertyConfig", value = "commandMapping.properties")
@@ -127,13 +128,10 @@ public class Controller extends HttpServlet {
 			if(command.indexOf(request.getContextPath()) == 0)
 				command = command.substring(request.getContextPath().length());
 			System.out.println("command:"+command);
-			System.out.println("if되나");
 			com = (CommandAction)commandMap.get(command);
-			System.out.println("com되나");
 			System.out.println("com:"+com);
 			// commandAction의 requestPro 메소드 호출
 			view = com.requestPro(request, response);
-			System.out.println("view 끝");
 			System.out.println("view:"+view);
 		}catch (Throwable e) {
 			e.printStackTrace();

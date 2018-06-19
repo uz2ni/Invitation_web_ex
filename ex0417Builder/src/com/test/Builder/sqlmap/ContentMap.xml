@@ -11,7 +11,7 @@
 
 	<resultMap type="com.test.Builder.dto.Content" id="contentResult">
 		<result property="urlId" column="url_id" />
-		<result property="memberId" column="member_id" />
+		<result property="userId" column="user_id" />
 		<result property="urlName" column="url_name" />
 		<result property="type" column="type" />
 		<result property="payDate" column="pay_date" />
@@ -60,18 +60,26 @@
 		<result property="snsMsgChk" column="sns_msg_chk" />
 		<result property="snsMsgContent" column="sns_msg_content" />
 	</resultMap>
- 
-	<!-- 
-	<insert id="insertContent" parameterType="com.test.Builder.dto.Content">
-		insert into content_tb (user_id, type, skin, top_title, top_img_file, top_img_align, top_font_color, top_font_align)
-		values (#{userId}, #{type}, #{skin}, #{topTitle}, #{topImgFile}, #{topImgAlign}, #{topFontColor}, #{topFontAlign});
+
+	<!-- 결제 시 URL insert -->
+	<!-- 수정 : 18.06.11 -->
+	<insert id="contentInsert" parameterType="com.test.Builder.dto.Content">
+		insert into url(user_id, url_name, type, pay_date, last_date)
+		values(#{userId}, #{urlName}, #{type}, date_format(#{payDate}, '%Y-%m-%d %H:%i:%s'), date_format(#{lastDate}, '%Y-%m-%d %H:%i:%s'));
 	</insert>
-	 -->
+
 	
-	
+	<!-- urlId로 원하는 url select -->
 	<select id="contentSelectOne" parameterType="int" resultMap="contentResult">
 		select * from url where url_id = #{urlId};
 	</select>
+	
+	<!-- userId로 url 리스트 select -->
+	<select id="contentSelectList" parameterType="int" resultMap="contentResult">
+		select * from url where user_id = #{userId};
+	</select>
+	
+	
 	
 	<!-- 
 	<update id="contentUpdate" parameterType="com.test.Builder.dto.Content">

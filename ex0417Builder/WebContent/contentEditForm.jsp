@@ -19,11 +19,11 @@
   <title>초대해U 편집 페이지</title>
 </head>
 <body>
-<form id="editForm" action="/ex0417Builder/contentEditPro.do" method="post" enctype="Multipart/form-data">
+<form id="editForm" action="contentEditPro.do" method="POST" enctype="Multipart/form-data">
 
 <!-- 사용자 정보 같이 보냄 -->
 	<input type="hidden" name="url-id" value="${content.urlId}">
-	<input type="hidden" name="member-id" value="${content.memberId}">
+	<input type="hidden" name="user-id" value="${content.userId}">
 	<input type="hidden" name="url-name" value="${content.urlName}">
 	<input type="hidden" name="type" value="${content.type}">
 	<input type="hidden" name="pay-date" value="${content.payDate}">
@@ -32,7 +32,11 @@
   <div class="container-fluid">
     <header class="row justify-content-between border">
       <div class="d-flex align-items-center">
-        <button type="button" class="btn btn-danger disabled p-1 m-1 header-btn">${content_type}</button>
+        <button type="button" class="btn btn-danger disabled p-1 m-1 header-btn">
+	        <c:if test="${content.type == 1}">모임</c:if>
+	        <c:if test="${content.type == 2}">발표회</c:if>
+	        <c:if test="${content.type == 3}">종교 행사</c:if>
+        </button>
         <button type="button" class="btn btn-info disabled p-1 m-1 header-btn">유료형</button>
         <div class="alert alert-secondary m-1 py-1 px-2 url-info" role="alert"><a href="#">http://webpage/<strong>${content.urlName}</strong></a></div>
       </div>
@@ -40,8 +44,8 @@
         <a href="#" class="d-flex"><img src="http://via.placeholder.com/40x40"></a>
       </div>
       <div class="d-flex align-items-center">
-        <div class="alert alert-light border py-1 px-2 mx-3 my-1 use-period" role="alert">서비스 종료일 : 2018-03-21 [잔여일 : -48일]</div> 
-        <a href="#" class="d-flex align-items-center btn-exit">
+        <div class="alert alert-light border py-1 px-2 mx-3 my-1 use-period" role="alert">서비스 종료일 : ${content.lastDate} [잔여일 : ${diffDays}일]</div> 
+        <a href="index.do" class="d-flex align-items-center btn-exit">
                     <i class="fas fa-sign-out-alt fa-2x p-1"></i>
                     <span class="pr-2">나가기</span>
         </a>
@@ -258,7 +262,7 @@
                           <label class="custom-file-label" for="top-img-file">선택</label>
                         </div>
                         <div class="top-img-preview-wrap">
-                        	<!-- <img src="#" class="top-img-preview" alt="상단 이미지 미리보기" height="150"> -->
+                        	<img src="#" class="top-img-preview" alt="상단 이미지 미리보기" height="150">
                         </div>
                       </div>
                     </div>
@@ -668,6 +672,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- custom javsScript -->
   <script type="text/javascript" src="js/edit.js?v=<%=System.currentTimeMillis() %>"></script>
+  <script type="text/javascript" src="js/common.js?v=<%=System.currentTimeMillis() %>"></script>
   <!-- jquery-ui.js -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
