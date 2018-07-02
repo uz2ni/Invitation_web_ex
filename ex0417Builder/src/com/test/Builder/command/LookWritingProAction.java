@@ -26,8 +26,7 @@ public class LookWritingProAction implements CommandAction {
             e.printStackTrace();
         }
        response.setContentType("text/html;charset=UTF-8");
-
-		
+       
 		int userId = Integer.parseInt(request.getParameter("user-id"));
 		int urlId = Integer.parseInt(request.getParameter("url-id"));
 		String title = request.getParameter("title");
@@ -50,6 +49,7 @@ public class LookWritingProAction implements CommandAction {
 		// DB 연동
 		LookDBBean lookProcess = LookDBBean.getInstance();
 		int cnt = lookProcess.insert(look);
+		
 
 		
 		return "lookList.jsp";

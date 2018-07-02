@@ -40,6 +40,7 @@ public class LoginProAction implements CommandAction {
     	   HttpSession session = request.getSession();
     	   session.setAttribute("user",user);
     	   request.setAttribute("name", user.getUserName());
+    	   request.setAttribute("point", user.getUserPoint());
     	   msg = "로그인 성공, email:"+email;
     	   url = "index.jsp";
        }else if(chk == 0) { // 비밀번호가 틀릴 경우

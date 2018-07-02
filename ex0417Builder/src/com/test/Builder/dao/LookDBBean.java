@@ -1,5 +1,6 @@
 package com.test.Builder.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -49,8 +50,37 @@ public class LookDBBean {
 
 		return cnt++;
 
-	}    
-    
+	}
+	
+	// search
+	public List<Look> search(String query) {
+		
+		// mapper에 접근하기 위한 SQLsession
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		List<Look> list = new ArrayList<Look>(); 
+		Look look = new Look();
+		int cnt = -1;
+    	try { 
+    		// db에 쿼리에 맞는 row가 존재하나 확인
+    		cnt = sqlSession.selectOne("com.test.Builder.sqlmap.LookMap.lookSelectCnt", query);
+    		
+    		if(cnt > 0) { // 존재 한다면
+        		list = sqlSession.selectList("com.test.Builder.sqlmap.LookMap.lookSelectSearch1", query);
+    		}else { // 존재하지 않는다면 (cnt=0)
+    			look.setLookId(-1);
+    			System.out.println("look:"+look.toString());
+    			list.add(look);
+    		}
+        	
+    	} finally {
+    		sqlSession.close();
+    	}
+    		
+    		return list;
+		
+		
+	}
     
 
 }

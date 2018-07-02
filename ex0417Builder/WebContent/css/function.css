@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+
+/*
+.nav-link {
+    background-image:url(/Image/button_1.png);
+    
+}
+*/
+.nav-item a {
+    color:white;
+    font-size: 15px !important;;
+    font-weight: bold;
+}
+
+.side-back-left{
+    padding:0px;
+}
+
+.nav-item-side a {
+    font-size: 15px !important;;
+    font-weight: bold;
+    color:black;
+    background: #F2CE82;
+    border-color:#f2f2f2;
+    border-width:2px;
+}
+
+.banner a {
+    font-weight: bold;
+    color:#2d62cd;
+}
+
+.part1 h5 {
+    font-weight: bold;
+    color:#369ea2;
+    margin:-5px;
+}
+.part2 h5 {
+    font-weight: bold;
+    color: white;
+    margin:-5px;
+}
+.part3 h5 {
+    font-weight: bold;
+    color:#369ea2;
+    margin:-5px;
+}
+.part4 h5 {
+    font-weight: bold;
+    color: white;
+    margin:-5px;
+}
+.part5 h5 {
+    font-weight: bold;
+    color:#369ea2;
+    margin:-5px;
+}
+/*service_1*/
+.rounded-circle {
+    position: absolute; 
+    border-radius:50%; 
+    height:250px; 
+    width:250px; 
+    overflow: hidden;
+}
+.rounded-circle img {
+    width:250px; 
+    height:250px;
+}
+.rounded-circle-inner {
+    position: absolute; 
+    border-radius:50%; 
+    height:250px; 
+    width:250px; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    background:rgba(0,0,0,0.7);
+}
+.rounded-circle-inner img {
+    margin-top:45px; 
+    width:100px; 
+    height:100px;
+}
+.rounded-circle-inner p {
+    color:white; 
+    font-weight:bold;
+    margin-top: 15px;
+}

@@ -55,7 +55,7 @@
   height: 0%;
   transition: .0.1s ease;
 }
-.container:hover .card-img-top {
+.container:hover .card-img-top{
     opacity: 0.5;
     transition:0.1s;
 }
@@ -72,6 +72,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.table thead {
+    border-top:2px solid black;
+}
+.control-label {
+  font-weight:bold;
+}
+.card-name {
+  border: 1px solid #dcd9d9; 
+  height:20%; 
+  background:#f2f2f2; 
+  border-radius: 0% 0% 5% 5%;
+}
+.container{
+  border: 1px solid #dcd9d9; 
+  border-radius: 5% 5% 0% 0%;
+
+}
+
+.form-control {
+  cursor:pointer;
+}
+
+
 
 /* url 리스트 radio checked */
 

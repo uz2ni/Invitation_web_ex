@@ -71,5 +71,18 @@ private static UserDBBean instance = new UserDBBean();
 		}
 		return user;
 	}
+	
+    // 포인트 업데이트
+    public void updatePoint(User user) {
+    	int i = -1;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try {
+    		i = sqlSession.update("com.test.Builder.sqlmap.UserMap.userUpdatePoint", user);
+    		System.out.println("i:"+i);
+    	} finally {
+    		sqlSession.commit();
+    		sqlSession.close();
+    	}
+    }
     
 }

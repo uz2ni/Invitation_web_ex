@@ -1,4 +1,7 @@
 /* ui 기능적인 부분 js */
+$(document).ready(function(){
+	insertSelected(1); // 처음 페이지 켰을 때 기능탭1 선택되도록 함.
+});
 
 function btn(){
     document.getElementById('show_2').innerHTML = '';

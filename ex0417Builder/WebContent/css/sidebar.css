@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/*180614 모든 페이지 사이드 메뉴바 송다원*/
+* {margin: 0; padding: 0;}
+body{
+    background:#0000 repeat top left;
+	font-family: 'Oswald', Arial, sans-serif;
+	font-size: 13px;
+}
+.container{
+	position:relative;
+}
+/*site 마다 설정*/
+a {
+	text-decoration:none;
+	-webkit-transition:all ease-in 0.2s;
+	-moz-transition:all ease-in 0.2s;
+	-ms-transition:all ease-in 0.2s;
+	-o-transition:all ease-in 0.2s;
+	transition:all ease-in 0.2s;
+}
+h2 a:link {
+	color:#333;
+	text-decoration:none;
+}
+h2 a:visited {
+	color:#333;
+	text-decoration:none;
+}
+h2 a:hover {
+	color:#44a0c0;
+	text-decoration:none;
+	/* border-bottom:1px solid #f66; */
+}
+h1{
+	margin:3px 0 0 0;
+	padding:3px 3px 3px 3px;
+	font-size:34px;
+	color:#333;
+    text-shadow:1px 1px 1px #fff;
+	text-align:left;
+	font-weight:400;
+    text-align:center;
+}
+/* h2 {
+	font-family: 'Droid Serif', serif;
+	font-weight: normal;
+	font-size:14px;
+	margin:0 auto;
+	text-align:center;
+}
+ */
+img {
+	max-width:100%;
+}
+/* 메인 스타일 */
+
+/*클릭하고 나오는 곳*/
+#accordian {
+	width: 200px;
+	margin: 50px auto 0 auto;
+	color:  #525252;
+}
+#accordian-menu1:hover {
+	background:rgba(0,0,0,0.1);
+}
+#accordian-menu2:hover {
+	background:rgba(0,0,0,0.1);
+}
+#accordian-menu3:hover {
+	background:rgba(0,0,0,0.1);
+}
+#accordian-menu4:hover {
+	background:rgba(0,0,0,0.1);
+}
+/*제일 상단 촤락*/
+#accordian h3 {
+	font-size: 14px;
+	line-height: 40px;
+	margin:0px;
+	cursor: pointer;
+	font-weight:bold;
+	width:200px;
+	/* border:1px solid  #e7e7e7; */
+	background:#ffffff;
+	color:#7a7a7a;/*#959494;*/
+}
+#accordian h3:hover {
+	font-weight:bold;
+}
+#accordian h3 span {
+	margin-right: 10px;
+}
+#accordian li {
+	list-style-type: none;
+	background:#f7f7f7;
+}
+#accordian ul ul li a {
+	color: #909090;/*#bdbdbd;*/
+	text-decoration: none;
+	font-size: 14px;
+	line-height: 25px;
+	display: block;
+	padding: 0 25px;
+	-webkit-transition: all 0.15s;
+	-moz-transition: all 0.15s;
+	-o-transition: all 0.15s;
+	-ms-transition: all 0.15s;
+	transition: all 0.15s;
+}
+/*마우스 호버 했을때 촤락 나오게끔*/
+#accordian ul ul li a:hover {
+	background: #f05228;
+	color:#ffffff;
+}
+#accordian ul ul {
+	display: none;
+}
+/*처음 부터 펴지도록*/
+#accordian li.active ul {
+	display: block;
+}

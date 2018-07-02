@@ -9,8 +9,8 @@
 <mapper namespace="com.test.Builder.sqlmap.LookMap">
 
 <resultMap type="com.test.Builder.dto.Look" id="LookList">
-	<result property="lookId" column="look_id" />
-	<result property="userId" column="user_id" />
+	<result property="lookId" column="look_id"/>
+	<result property="userId" column="user_id"/>
 	<result property="lookTitle" column="look_title" />
 	<result property="lookHashTag" column="look_hash_tag" />
 	<result property="lookUrlName" column="look_url_name" />
@@ -28,6 +28,26 @@
 <!-- 전체글 select - 하트순 -->
 <select id="lookSelectList2" resultMap="LookList">
 	select * from look order by look_heart desc look_id desc;
+</select>
+
+<!-- 검색 select - 최신순 -->
+<select id="lookSelectSearch1" resultMap="LookList" parameterType="String">
+	select * from look
+	where look_hash_tag like CONCAT('%',#{query},'%')
+	 order by look_id desc;
+</select>
+
+<!-- 검색 select - 최신순 -->
+<select id="lookSelectSearch2" resultMap="LookList" parameterType="String">
+	select * from look
+	where look_hash_tag like CONCAT('%',#{query},'%')
+	 order by look_heart desc look_id desc;
+</select>
+
+<!-- row 개수 반환 -->
+<select id="lookSelectCnt" resultType="int" parameterType="String">
+	select count(*) from look
+	where look_hash_tag like CONCAT('%',#{query},'%')
 </select>
 
 <!-- 사용자 id와 글 내용 insert -->

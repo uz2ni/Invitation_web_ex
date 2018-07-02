@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+#report td { 
+    padding:12px 15px; 
+}
+#report tr.odd td { 
+    background:#fff; 
+    cursor:pointer; 
+}
+#report div.arrow { 
+    background:transparent url(../img/info/faq/arrows.png) no-repeat scroll 0px -16px; 
+    width:16px; 
+    height:16px; 
+    display:block;
+}
+.part {
+    background: #f2f2f2; 
+    border-radius: 5px; 
+    background-size: cover; 
+    border: 1px solid #d1d0d0;
+}
+.Q_1:hover {
+    color:#f0771f;
+    font-weight:bold;
+}
+.Q_2:hover {
+    color:#f0771f;
+    font-weight:bold;
+}
+.A{
+    font-weight:bold;
+    color:#f0771f;
+}
+strong {
+    color:#f0771f;
+}

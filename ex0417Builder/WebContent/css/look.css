@@ -2,6 +2,7 @@
 
 /* service_2 css */ 
 
+
 /*버튼 클릭시 하트 색상 채워지기*/
 .checkbox input[type='checkbox'] {
 	display: none; /* 실제 라디오버튼 없애기 */
@@ -26,28 +27,38 @@
 
 .container {
   position: relative;
-/*   width: 50%; */
-  cursor:pointer;
-  overflow: hidden;
+/*   width: 50%; 
+ */
+ 	cursor:pointer;
+	overflow: hidden;
 }
 .card-img-top{
     opacity: 1.0;
     transition:0.1s ease;
+}
+.check-mark {
+  opacity: 0.0;
+  position: absolute;  
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.container:hover .check-mark {
+  opacity: 1.0;
 }
 .overlay {
   position: absolute;  
   top: 0;
   left: 0;
   right: 0;
-  background:rgba(0,0,0,0.6);
-  opacity:0.5;
+  background:rgba(0,0,0,0.7);
   overflow: hidden;
   width: 100%;
   height: 0;
   transition: .0.1s ease;
 }
 .container:hover .card-img-top{
-    opacity: 0.5;
+    opacity: 0.8;
     transition:0.1s;
 }
 .container:hover .overlay {
@@ -57,8 +68,9 @@
 }
 .invite-name {
   color: white; 
-  font-size: 15px;
-  /* position: absolute; */
+/*   font-size: 15px;
+  position: absolute;
+ */
   overflow: hidden;
   top: 50%;
   left: 50%;
@@ -70,7 +82,7 @@
 }
 
 .extag {
-  height:40px;
+  height:40px; 
 }
 
 .exbadge {
@@ -79,7 +91,9 @@
   height:30px; 
   font-size:20px;
 }
-
+.badge {
+  color:white;
+}
 .nav-item-side a {
     font-size: 15px !important;;
     font-weight: bold;
@@ -115,5 +129,49 @@
   text-align: left;
   vertical-align: middle; 
 }
+.form-control {
+  cursor:pointer;
+}
+/*말풍선*/
+a.tooltips {
+	position: relative;
+	display: inline;
+}
+a.tooltips span {
+	position: absolute;
+	width: 160px;
+	color: #FFFFFF;
+	background: #f05228;
+	height: 45px;
+	line-height: 20px;
+	text-align: center;
+	display: none;
+	border-radius: 6px;
+	font-weight:bold;
+	font-size:14px;
+}
+a.tooltips span:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+	width: 0;
+	height: 0;
+	border-top: 8px solid #f05228;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+a:hover.tooltips span {
+	display: block;
+	opacity: 1.0;
+	bottom: 30px;
+	left: 50%;
+	margin-left: -257px;
+	z-index: 999;
+}
+
+
+
 
 

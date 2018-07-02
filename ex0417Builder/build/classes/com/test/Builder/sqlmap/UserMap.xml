@@ -17,6 +17,7 @@
 	<result property="userBirth" column="user_birth" />
 	<result property="userProfile" column="user_profile" />
 	<result property="userAccount" column="user_account" />
+	<result property="userPoint" column="user_point" />
 </resultMap>
 
 <!-- 회원가입 시 insert -->
@@ -35,6 +36,11 @@
 	select * from user where user_email = #{email};
 </select>
 
-
+<update id="userUpdatePoint" parameterType="com.test.Builder.dto.User">
+	update user
+	   set 		   		
+	   		user_point = #{userPoint}
+	 where user_id = #{userId};
+</update>
 
 </mapper>

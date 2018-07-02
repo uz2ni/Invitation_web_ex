@@ -10,6 +10,7 @@ public class User {
 	private String userBirth;
 	private String userProfile;
 	private String userAccount;
+	private int userPoint;
 	
 	public int getUserId() {
 		return userId;
@@ -58,6 +59,12 @@ public class User {
 	}
 	public void setUserAccount(String userAccount) {
 		this.userAccount = userAccount;
+	}
+	public int getUserPoint() {
+		return userPoint;
+	}
+	public void setUserPoint(int userPoint) {
+		this.userPoint = userPoint;
 	}
 
 }

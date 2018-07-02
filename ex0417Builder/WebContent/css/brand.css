@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.item-box {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+.shop-item {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.shop-item-name{
+    font-size:1.5em;
+    font-weight:bold;
+    color:black;
+    padding-top:10px;
+}
+.shop-item-price{
+    margin-bottom:30px; 
+    color:#888; 
+    font-size:1.2em;
+}
+.item-img {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}

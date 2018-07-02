@@ -8,8 +8,8 @@ public class Look {
 	String lookHashTag;
 	String lookUrlName;
 	String lookImg;
-	String lookHit;
-	String lookHeart;
+	int lookHit;
+	int lookHeart;
 	String lookRegTime;
 	
 	public int getLookId() {
@@ -54,16 +54,16 @@ public class Look {
 	public void setLookImg(String lookImg) {
 		this.lookImg = lookImg;
 	}
-	public String getLookHit() {
+	public int getLookHit() {
 		return lookHit;
 	}
-	public void setLookHit(String lookHit) {
+	public void setLookHit(int lookHit) {
 		this.lookHit = lookHit;
 	}
-	public String getLookHeart() {
+	public int getLookHeart() {
 		return lookHeart;
 	}
-	public void setLookHeart(String lookHeart) {
+	public void setLookHeart(int lookHeart) {
 		this.lookHeart = lookHeart;
 	}
 	public String getLookRegTime() {

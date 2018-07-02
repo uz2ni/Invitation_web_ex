@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.statistics-ul {
+    margin:5px;
+}
+.list1 {
+    border:1px solid #f2f2f2;
+    background:#f5f5f5;;
+}
+.list2{
+    border:1px solid #f2f2f2;
+    background:#f5f5f5;;
+}
+.address-list h4{
+    font-weight:bold;
+}
+.message-list h4{
+    font-weight:bold;
+}
+.list1:hover{
+    background-color:#fecb05; 
+    color:white;
+}
+.list2:hover{
+    background-color:#fecb05; 
+    color:white;
+}
