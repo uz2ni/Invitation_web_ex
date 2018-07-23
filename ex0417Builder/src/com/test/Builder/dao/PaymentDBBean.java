@@ -1,5 +1,7 @@
 package com.test.Builder.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -53,6 +55,18 @@ public class PaymentDBBean {
     		sqlSession.commit();
     		sqlSession.close();
     	}
+    }
+    
+    // 서비스 신청 내역 select
+    public List<Payment> selectList(int userId) {
+    	List<Payment> list;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try { 
+    		list = sqlSession.selectList("com.test.Builder.sqlmap.PaymentMap.paymentSelectList", userId);
+    	} finally {
+    		sqlSession.close();
+    	}
+    	return list;
     }
 
 

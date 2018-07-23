@@ -22,12 +22,12 @@
 <form id="editForm" action="contentEditPro.do" method="POST" enctype="Multipart/form-data">
 
 <!-- 사용자 정보 같이 보냄 -->
-	<input type="hidden" name="url-id" value="${content.urlId}">
-	<input type="hidden" name="user-id" value="${content.userId}">
-	<input type="hidden" name="url-name" value="${content.urlName}">
-	<input type="hidden" name="type" value="${content.type}">
-	<input type="hidden" name="pay-date" value="${content.payDate}">
-	<input type="hidden" name="last-date" value="${content.lastDate}">
+	<input type="hidden" name="url-id" value="${content.urlId}" class="urlId">
+	<input type="hidden" name="user-id" value="${content.userId}" class="userId">
+	<input type="hidden" name="url-name" value="${content.urlName}" class="urlName">
+	<input type="hidden" name="type" value="${content.type}" class="type">
+	<input type="hidden" name="pay-date" value="${content.payDate}" class="payDate">
+	<input type="hidden" name="last-date" value="${content.lastDate}" class="lastDate">
 	
   <div class="container-fluid">
     <header class="row justify-content-between border">
@@ -56,25 +56,25 @@
         <div class="preview-wrap d-flex justify-content-center align-items-center position-relative">
           <img src="img/content/edit_img/page_img/preview_mobile.png" alt="preview-phone">
           <div class="position-absolute border privew_frame" id="preview_frame">
-<!--           <%= request.getAttribute("content").toString() %> -->
           	<iframe src="skin/skin1/index.html" width="100%" height="100%" frameborder="0" scroll="auto" id="preview_iframe">
           	</iframe>
           </div>
         </div>
       </article>
-      <article id="tabs" class="position-fixed bg-success border edit-block d-flex">
+      <article id="tabs" class="position-fixed border edit-block d-flex">
         <div class="edit-block-tab">
         <!-- menu button list -->
           <ul class="p-0 pt-5">
-            <li class="border"><a href="#tabs-1"><span>스킨선택</span></a></li>
-            <li class="border"><a href="#tabs-2"><span>상단정보</span></a></li>
-            <li class="border"><a href="#tabs-3"><span>상세정보</span></a></li>
-            <li class="border"><a href="#tabs-4"><span>멀티미디어</span></a></li>
-            <li class="border"><a href="#tabs-5"><span>계좌연동</span></a></li>
-            <li class="border"><a href="#tabs-6"><span>추가기능</span></a></li>
+            <li class="border"><a href="#tabs-1"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_1.png');">스킨선택</span></a></li>
+            <li class="border"><a href="#tabs-2"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_2.png');">상단정보</span></a></li>
+            <li class="border"><a href="#tabs-3"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_3.png');">상세정보</span></a></li>
+            <li class="border"><a href="#tabs-4"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_4.png');">멀티미디어</span></a></li>
+            <li class="border"><a href="#tabs-5"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_5.png');">계좌연동</span></a></li>
+            <li class="border"><a href="#tabs-6"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_6.png');">추가기능</span></a></li>
           </ul>
           <!-- complete button -->
           <ul class="p-0">
+            <li class="py-2"><button type="submit" class="btn btn-muted w-100">초기화</button></li>
           	<li class="border"><button type="submit" class="btn btn-warning w-100">완료</button></li>
           </ul>
         </div>
@@ -92,40 +92,41 @@
                 <!-- 1 스킨 선택 - 하위 탭 -->
                 <div class="sub-tab-section border mb-5">
                   <!-- 하위 탭 1-1 -->
-                  <div id="tabs-1-1">
-                    <ul class="d-flex flex-wrap p-0 pt-2">
+                  <div class="form cf" id="tabs-1-1">
+                    <ul class="d-flex flex-wrap p-0 pt-2 plan cf">
                       <li class="col-6 p-2">
-                        <input type="radio" name="skin" value="skin1" ${content.skin == 'skin1' ? 'checked' : ""}>
                         <div class="hovereffect rounded img-thumbnail">
-                          <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-                              <div class="overlay">
+                          <img class="img-responsive" src="http://placehold.it/200x200" alt="">
+                              <div class="skin1 overlay">
                                  <h2>skin1</h2>
-                                 <a class="info" href="javascript:void(0);" onclick="selectSkin('skin', 'skin1'); return false;">적용하기</a>
+                                 <input type="radio" id="skin1" name="skin" value="skin1" ${content.skin == 'skin1' ? 'checked' : ""} class="skin free-label four col">
+                                 <label class="free-label four col" for="skin1">적용하기1</label>       
                               </div>
                         </div>
                       </li>
                       <li class="col-6 p-2">
-                        <input type="radio" name="skin" value="skin2" ${content.skin == 'skin2' ? 'checked' : ""}>
                         <div class="hovereffect rounded img-thumbnail">
-                          <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-                              <div class="overlay">
+                          <img class="img-responsive" src="http://placehold.it/200x200" alt="">
+                              <div class="skin2 overlay">
                                  <h2>skin2</h2>
-                                 <a class="info" href="javascript:void(0);" onclick="selectSkin('skin', 'skin2'); return false;">적용하기</a>
-                              </div>
+				                 <input type="radio" id="skin2" name="skin" value="skin2" ${content.skin == 'skin2' ? 'checked' : ""} class="skin free-label four col">
+				                 <label class="free-label four col" for="skin2">적용하기2</label> 
+				              </div>
                         </div>
                       </li>
                       <li class="col-6 p-2">
-                        <input type="radio" name="skin" value="skin3" ${content.skin == 'skin3' ? 'checked' : ""}>
                         <div class="hovereffect rounded img-thumbnail">
-                          <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-                              <div class="overlay">
+                          <img class="img-responsive" src="http://placehold.it/200x200" alt="">
+                              <div class="skin3 overlay">
                                  <h2>skin3</h2>
-                                 <a class="info" href="javascript:void(0);" onclick="selectSkin('skin', 'skin3'); return false;">적용하기</a>
+                                 <input type="radio" id="skin3" name="skin" value="skin3" ${content.skin == 'skin3' ? 'checked' : ""} class="skin free-label four col">
+                                 <label class="free-label four col" for="skin3">적용하기3</label>
                               </div>
                         </div>
                       </li>
                     </ul>
                   </div>
+                </div>
                   <!-- 하위 탭 1-2 -->
                   <div id="tabs-1-2">
                     <ul class="d-flex flex-wrap p-0 pt-2">
@@ -185,70 +186,91 @@
                     <div class="tabs-2-0-topTitle pb-3 border">
                       <h3 class="section-title">초대장 제목</h3>
                       <div class="section-content">
-                        <input type="text" class="form-control" name="top-title" value="${content.topTitle}" >
+                        <input type="text" class="form-control topTitle" name="top-title" value="${content.topTitle}">
                       </div>
                     </div>
                     <div class="tabs-2-0-topFontColor pb-3 border">
                       <h3 class="section-title">제목 색상</h3>
                       <div class="section-content">
                         <div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-font-color"
-                						id="top-font-color-01" value="white"
-                						${content.topFontColor == 'white' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-font-color-01">흰색</label>
+                					<input class="color-check-input topFontcolorWhite" type="radio" name="top-font-color"
+                						id="toggle top-font-color-01" value="white"
+                						${content.topFontColor == 'white' ? 'checked' : ""}>
+                					<div class="color-box">
+                						<label class="color-white form-check-label" for="toggle top-font-color-01" ></label>
+                					</div>
                 				</div>
                 				<div class="=form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-font-color"
-                						id="top-font-color-02" value="pink"
-                						${content.topFontColor == 'pink' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-font-color-02">핑크</label>
+                					<input class="color-check-input topFontColorRed" type="radio" name="top-font-color"
+                						id="toggle top-font-color-02" value="red"
+                						${content.topFontColor == 'red' ? 'checked' : ""}>
+                					<div class="color-box">
+                						<label class="color-red form-check-label" for="toggle top-font-color-02" ></label>
+                					</div>
                 				</div>
                 				<div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-font-color"
-                						id="top-font-color-03" value="yellow"
-                						${content.topFontColor == 'yellow' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-font-color-03">노랑</label>
+                					<input class="color-check-input topFontColorYellow" type="radio" name="top-font-color"
+                						id="toggle top-font-color-03" value="yellow"
+                						${content.topFontColor == 'yellow' ? 'checked' : ""}>
+                					<div class="color-box">
+                						<label class="color-yellow form-check-label" for="toggle top-font-color-03" ></label>
+                					</div>
                 				</div>
                 				<div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-font-color"
-                						id="top-font-color-04" value="green"
-                						${content.topFontColor == 'green' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-font-color-04">초록</label>
+                					<input class="color-check-input topFontColorGreen" type="radio" name="top-font-color"
+                						id="toggle top-font-color-04" value="green"
+                						${content.topFontColor == 'green' ? 'checked' : ""}>
+                					<div class="color-box">
+                						<label class="color-green form-check-label" for="toggle top-font-color-04" ></label>
+                					</div>
                 				</div>
                 				<div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-font-color"
-                						id="top-font-color-05" value="blue"
-                						${content.topFontColor == 'blue' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-font-color-05">파랑</label>
+                					<input class="color-check-input topFontColorBlue" type="radio" name="top-font-color"
+                						id="toggle top-font-color-05" value="blue"
+                						${content.topFontColor == 'blue' ? 'checked' : ""}>
+                					<div class="color-box">
+                						<label class="color-blue form-check-label" for="toggle top-font-color-05" ></label>
+                					</div>
                 				</div>
                 				<div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-font-color"
-                						id="top-font-color-06" value="black"
-                						${content.topFontColor == 'black' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-font-color-06">검정</label>
+                					<input class="color-check-input topFontColorBlack" type="radio" name="top-font-color"
+                						id="toggle top-font-color-06" value="black"
+                						${content.topFontColor == 'black' ? 'checked' : ""}>
+                					<div class="color-box">
+                						<label class="color-black form-check-label" for="toggle top-font-color-06" ></label>
+                					</div>
                 				</div>
                       </div>
                     </div>
                     <div class="tabs-2-0-topFontAlign pb-3 border">
                       <h3 class="section-title">제목 정렬</h3>
-                      <div class="section-content">
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="top-font-align"
-                            id="top-font-align-01" value="left"
-                            ${content.topFontAlign == 'left' ? 'checked' : ""}> <label
-                            class="form-check-label" for="top-font-align-01">왼쪽</label>
+                      <div class="section-content" style="margin-bottom:25px; margin-top:-20px;">
+                        <div class="form-check form-check-inline pr-2">
+                          <input class="name-position topFontAlign" type="radio" name="top-font-align"
+                            id="top-font-align-01 toggle" value="left"
+                            ${content.topFontAlign == 'left' ? 'checked' : ""}>
+                            <div class="name-position-box">
+								<a class="tooltips">
+							  		<label class="name-position-check" for="top-font-align-01 toggle"></label>
+							  		<span>좌측 기준 정렬</span>
+							  	</a>
+							</div>
                         </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="top-font-align"
-                            id="top-font-align-02" value="center"
-                            ${content.topFontAlign == 'center' ? 'checked' : ""}> <label
-                            class="form-check-label" for="top-font-align-02">가운데</label>
+                        <div class="form-check form-check-inline px-2">
+                          <input class="name-position topFontAlign" type="radio" name="top-font-align"
+                            id="top-font-align-02 toggle" value="center"
+                            ${content.topFontAlign == 'center' ? 'checked' : ""}>
+                            <div class="name-position-box">
+							  <label class="name-position-check" for="top-font-align-02 toggle"></label>
+							</div>
                         </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="top-font-align"
-                            id="top-font-align-03" value="right"
-                            ${content.topFontAlign == 'right' ? 'checked' : ""}> <label
-                            class="form-check-label" for="top-font-align-03">오른쪽</label>
+                        <div class="form-check form-check-inline px-2">
+                          <input class="name-position topFontAlign" type="radio" name="top-font-align"
+                            id="top-font-align-03 toggle" value="right"
+                            ${content.topFontAlign == 'right' ? 'checked' : ""}>
+                            <div class="name-position-box">
+							  <label class="name-position-check" for="top-font-align-03 toggle"></label>
+							</div>
                         </div>
                       </div>
                     </div>
@@ -256,9 +278,9 @@
                       <h3 class="section-title">상단 이미지</h3>
                       <div class="section-content">
                         <div class="custom-file">
-                          <input type="hidden" name="top-img-file-str" id="top-img-file-str" value="${content.topImgFile}">
-                          <input type="hidden" name="top-img-file-addr" id="top-img-file-addr" value="${uploadPath}">
-                          <input type="file" class="custom-file-input" id="top-img-file" name="top-img-file" onchange="readURL(this);">
+                          <input type="hidden" name="top-img-file-str" class="topImgFileStr" id="top-img-file-str" value="${content.topImgFile}">
+                          <input type="hidden" name="top-img-file-addr" class="topImgFileAddr" id="top-img-file-addr" value="${uploadPath}">
+                          <input type="file" class="custom-file-input" class="topImgFile" id="top-img-file" name="top-img-file" onchange="readURL(this);">
                           <label class="custom-file-label" for="top-img-file">선택</label>
                         </div>
                         <div class="top-img-preview-wrap">
@@ -268,20 +290,25 @@
                     </div>
                     <div class="tabs-2-0-topImgAlign pb-3 border">
                       <h3 class="section-title">상단 이미지 배치 방식</h3>
-                      <div class="section-content">
+                      <div class="section-content d-flex">
                         <div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-img-align"
+                					<input class="form-check-input topImgAlign" type="radio" name="top-img-align"
                 						id="top-img-align-row" value="row"
                 						${content.topImgAlign == 'row' ? 'checked' : ""}> <label
                 						class="form-check-label" for="top-img-align-row">가로</label>
-                				</div>
-                				<div class="form-check form-check-inline">
-                					<input class="form-check-input" type="radio" name="top-img-align"
-                						id="top-img-align-col" value="col"
-                						${content.topImgAlign == 'col' ? 'checked' : ""}> <label
-                						class="form-check-label" for="top-img-align-col">세로</label>
-                				</div>
+                		</div>
+               			<div class="form-check form-check-inline">
+            				<input class="form-check-input topImgAlign" type="radio" name="top-img-align"
+            						id="top-img-align-col" value="col"
+            						${content.topImgAlign == 'col' ? 'checked' : ""}> <label
+            						class="form-check-label" for="top-img-align-col">세로</label>
+               			</div>
+	                	<div>
+							<img class="mx-2" src="../ex0417Builder/img/content/edit_img/page_img/horizontal.png" width="120px;" height="80px;">
+							<img class="mx-2" src="../ex0417Builder/img/content/edit_img/page_img/vertical.png" width="80px;" height="120px;">
+						</div>
                       </div>
+                      <p class="sub_txt tip mt-2" style="font-size:12px;">가로형 사진은 가로정렬(좌측/가운데/우측)정렬만 세로형 사진은 세로정렬(상단/가운데/하단)정렬만 적용됩니다.</p>
                     </div>
                   </div>
                 </div>
@@ -305,17 +332,17 @@
                       <h3 class="section-title">발표회 일자</h3>
                       <div class="section-content">
                         <!-- 행사 시작 날짜 -->
-                        <input type="date" name="info-date-start" value="${content.infoDateStart == '2000-01-01' ? '' : content.infoDateStart}">
+                        <input type="date" name="info-date-start" class="infoDateStart" value="${content.infoDateStart == '2000-01-01' ? '' : content.infoDateStart}">
                         <span> ~ </span>
                         <!-- 행사 종료 날짜 -->
-                        <input type="date" name="info-date-end" value="${content.infoDateEnd == '2000-01-01' ? '' : content.infoDateEnd}">
+                        <input type="date" name="info-date-end" class="infoDateEnd" value="${content.infoDateEnd == '2000-01-01' ? '' : content.infoDateEnd}">
                       </div>
                     </div>
                     <div class="tabs-3-1-infoDday pb-3 border">
                       <div class="card">
                         <div class="card-body p-2 d-flex justify-content-between align-items-center">
                           <span>D-DAY 사용 여부</span>
-                          <input type="checkbox" name="info-dday-chk" ${content.infoDdayChk == 1 ? 'checked' : ""}>
+                          <input type="checkbox" name="info-dday-chk" class="infoDdayChk" value="${content.infoDdayChk}" ${content.infoDdayChk == 1 ? 'checked' : ""}>
                         </div>
                       </div>
                     </div>
@@ -323,14 +350,14 @@
                       <h3 class="section-title">발표회 시간</h3>
                       <div class="section-content">
                         <!-- 행사 시간 -->
-                        <input type="text" class="form-control" name="info-time" value="${content.infoTime == '' ? '' : content.infoTime}">
+                        <input type="text" class="form-control infoTime" name="info-time" value="${content.infoTime == '' ? '' : content.infoTime}">
                       </div>
                     </div>
                     <div class="tabs-3-1-infoPlace pb-3 border">
                       <h3 class="section-title">발표회 장소</h3>
                       <div class="section-content">
                         <!-- 행사 장소 -->
-                        <input type="text" class="form-control" name="info-place" value="${content.infoPlace == '' ? '' : content.infoPlace}">
+                        <input type="text" class="form-control infoPlace" name="info-place" value="${content.infoPlace == '' ? '' : content.infoPlace}">
                       </div>
                     </div>
                   </div>
@@ -340,16 +367,16 @@
                       <h3 class="section-title">인사말</h3>
                       <div class="section-content">
                         <!-- 인사말 -->
-                        <textarea class="form-control textarea-welcome" name="add-info-welcome">${content.addInfoWelcome == '' ? '' : content.addInfoWelcome}</textarea>
+                        <textarea class="form-control textarea-welcome addInfoWelcome" name="add-info-welcome">${content.addInfoWelcome == '' ? '' : content.addInfoWelcome}</textarea>
                       </div>
                     </div>
                     <div class="tabs-3-2-addInfoImgProfile pb-3 border">
                       <h3 class="section-title">발표자(팀) 프로필 입력</h3>
                       <div class="section-content">
                         <!-- 발표자(팀) 프로필 입력 -->
-                        <input type="text" class="form-control mt-1" name="add-info-img-name" placeholder="발표자(팀) 이름" value="${content.addInfoImgName == '' ? '' : content.addInfoImgName}">
+                        <input type="text" class="form-control mt-1 addInfoImgName" name="add-info-img-name" placeholder="발표자(팀) 이름" value="${content.addInfoImgName == '' ? '' : content.addInfoImgName}">
                         <div class="custom-file mt-1">
-                          <input type="file" class="custom-file-input" id="add-info-img-profile" name="add-info-img-profile">
+                          <input type="file" class="custom-file-input addInfoImgProfile" id="add-info-img-profile" name="add-info-img-profile">
                           <label class="custom-file-label" for="add-info-img-profile">발표자 프로필 선택</label>
                         </div>
                       </div>
@@ -359,7 +386,7 @@
                       <div class="section-content">
                         <!-- 자리 배치도 이미지 첨부 -->
                         <div class="custom-file mt-1">
-                          <input type="file" class="custom-file-input" id="add-info-img-sit" name="add-info-img-sit" value="${content.addInfoImgSit == '' ? '' : content.addInfoImgSit}">
+                          <input type="file" class="custom-file-input addInfoImgSit" id="add-info-img-sit" name="add-info-img-sit" value="${content.addInfoImgSit == '' ? '' : content.addInfoImgSit}">
                           <label class="custom-file-label" for="add-info-img-sit">자리 배치도 이미지 선택</label>
                         </div>
                       </div>
@@ -370,10 +397,10 @@
                         <!-- 문의 정보 입력 -->
                         <div class="form-row">
                           <div class="col">
-                            <input type="text" class="form-control" placeholder="주최자(기관) 이름" name="add-info-call-name" value="${content.addInfoCallName == '' ? '' : content.addInfoCallName}">
+                            <input type="text" class="form-control addInfoCallName" placeholder="주최자(기관) 이름" name="add-info-call-name" value="${content.addInfoCallName == '' ? '' : content.addInfoCallName}">
                           </div>
                           <div class="col">
-                            <input type="text" class="form-control" placeholder="전화번호" name="add-info-call-number" value="${content.addInfoCallNumber == '' ? '' : content.addInfoCallNumber}">
+                            <input type="text" class="form-control addInfoCallNumber" placeholder="전화번호" name="add-info-call-number" value="${content.addInfoCallNumber == '' ? '' : content.addInfoCallNumber}">
                           </div>
                         </div>
                       </div>
@@ -384,22 +411,22 @@
                         <!-- 주최 기관 / 후원 이미지 -->
                         <div class="form-row mb-1">
                           <div class="col">
-                            <input type="text" class="form-control" placeholder="주최사 명" name="add-info-logo-hold-name" value="${content.addInfoLogoHoldName == '' ? '' : content.addInfoLogoHoldName}">
+                            <input type="text" class="form-control addInfoLogoHoldName" placeholder="주최사 명" name="add-info-logo-hold-name" value="${content.addInfoLogoHoldName == '' ? '' : content.addInfoLogoHoldName}">
                           </div>
                           <div class="col">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="add-info-hold-img" name="add-info-hold-img">
+                              <input type="file" class="custom-file-input addInfoHoldImg" id="add-info-hold-img" name="add-info-hold-img">
                               <label class="custom-file-label" for="add-info-hold-img">주최 기관 로고 선택</label>
                             </div>
                           </div>
                         </div>
                         <div class="form-row mb-1">
                           <div class="col">
-                            <input type="text" class="form-control" placeholder="후원사 명" name="add-info-logo-help-name" value="${content.addInfoLogoHelpName == '' ? '' : content.addInfoLogoHelpName}">
+                            <input type="text" class="form-control addInfoLogoHelpName" placeholder="후원사 명" name="add-info-logo-help-name" value="${content.addInfoLogoHelpName == '' ? '' : content.addInfoLogoHelpName}">
                           </div>
                           <div class="col">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="add-info-help-img" name="add-info-help-img">
+                              <input type="file" class="custom-file-input addInfoHelpImg" id="add-info-help-img" name="add-info-help-img">
                               <label class="custom-file-label" for="add-info-help-img">후원 기관 로고 선택</label>
                             </div>
                           </div>
@@ -413,7 +440,7 @@
                       <h3 class="section-title">발표회 장소 주소</h3>
                       <div class="section-content d-flex flex-column">
                         <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="발표회 장소 주소" name="info-address" value="${content.infoAddress == '' ? '' : content.infoAddress}">
+                          <input type="text" class="form-control infoAddress" placeholder="발표회 장소 주소" name="info-address" value="${content.infoAddress == '' ? '' : content.infoAddress}">
                           <div class="input-group-append">
                             <button class="btn btn-info" type="button">검색</button>
                           </div>
@@ -425,7 +452,7 @@
                       <div class="card">
                         <div class="card-body p-2 d-flex justify-content-between align-items-center">
                           <span>내비게이션 연결 사용</span>
-                          <input type="checkbox" name="info-navi" ${content.infoNavi == 1 ? 'checked' : ""}>
+                          <input type="checkbox" name="info-navi" value="${content.infoNavi}" class="infoNavi" ${content.infoNavi == 1 ? 'checked' : ""}>
                         </div>
                       </div>
                     </div>
@@ -433,19 +460,19 @@
                       <div class="card">
                         <div class="card-body p-2 d-flex justify-content-between align-items-center">
                           <span>길찾기 앱 바로가기 사용</span>
-                          <input type="checkbox" name="info-find" ${content.infoFind == 1 ? 'checked' : ""}>
+                          <input type="checkbox" name="info-find" value="${content.infoFind}" class="infoFind" ${content.infoFind == 1 ? 'checked' : ""}>
                         </div>
                       </div>
                     </div>
                     <div class="tabs-3-2-infoLoadImg pb-3 border">
                       <div class="p-2 d-flex justify-content-between align-items-center">
                         <h3 class="section-title">약도 이미지</h3>
-                        <input type="checkbox" name="info-load-img-chk" checked="checked" onclick="chkFuc('info-load-img-chk', 'custom-file')" ${content.infoLoadImgChk == 1 ? 'checked' : ""}>
+                        <input type="checkbox" name="info-load-img-chk" value="${content.infoLoadImgChk}" class="infoLoadImgchk" checked="checked" onclick="chkFuc('info-load-img-chk', 'custom-file')" ${content.infoLoadImgChk == 1 ? 'checked' : ""}>
                       </div>
                       <div class="section-content">
                         <!-- 약도 이미지 첨부 -->
                         <div class="custom-file mt-1">
-                          <input type="file" class="custom-file-input" id="info-load-img" name="info-load-img">
+                          <input type="file" class="custom-file-input infoLoadImg" id="info-load-img" name="info-load-img">
                           <label class="custom-file-label" for="info-load-img">약도 이미지 선택</label>
                         </div>
                       </div>
@@ -453,9 +480,9 @@
                     <div class="tabs-3-3-infoTrans pb-3 border">
                       <h3 class="section-title">교통 정보</h3>
                       <div class="section-content">
-                        <textarea class="form-control textarea-welcome my-3" name="info-bus" placeholder="버스 교통 안내" style="resize: none;">${content.infoBus == '' ? '' : content.infoBus}</textarea>
-                        <textarea class="form-control textarea-welcome my-3" name="info-subway" placeholder="지하철 교통 안내" style="resize: none;">${content.infoSubway == '' ? '' : content.infoSubway}</textarea>
-                        <textarea class="form-control textarea-welcome my-3" name="info-parking" placeholder="주차 안내" style="resize: none;">${content.infoParking == '' ? '' : content.infoParking}</textarea>
+                        <textarea class="form-control textarea-welcome my-3 infoBus" name="info-bus" placeholder="버스 교통 안내" style="resize: none;">${content.infoBus == '' ? '' : content.infoBus}</textarea>
+                        <textarea class="form-control textarea-welcome my-3 infoSubway" name="info-subway" placeholder="지하철 교통 안내" style="resize: none;">${content.infoSubway == '' ? '' : content.infoSubway}</textarea>
+                        <textarea class="form-control textarea-welcome my-3 infoParking" name="info-parking" placeholder="주차 안내" style="resize: none;">${content.infoParking == '' ? '' : content.infoParking}</textarea>
                       </div>
                     </div>
                   </div>
@@ -477,26 +504,26 @@
                   <div id="tabs-4-1">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>갤러리 사용</span>
-                      <input type="checkbox" class="ml-2" checked="checked" name="gallery-chk" onclick="chkFuc('gallery-chk', 'gallery-chk-div')" ${content.galleryChk == 1 ? 'checked' : ""}>
+                      <input type="checkbox" class="ml-2 galleryChk" value="${content.galleryChk}" checked="checked" name="gallery-chk" onclick="chkFuc('gallery-chk', 'gallery-chk-div')" ${content.galleryChk == 1 ? 'checked' : ""}>
                     </div>
                     <div class="gallery-chk-div">
                       <div class="tabs-4-1-gallery-type pb-3 border">
                         <h3 class="section-title">갤러리 종류 선택</h3>
                         <div class="section-content">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gallery-type"
-                              id="gallery-type-basic" value="gallery-type-basic" ${content.galleryType == 'gallery-type-basic' ? 'checked' : ""}> <label
-                              class="form-check-label" for="gallery-type-basic">기본형</label>
+                            <input class="form-check-input galleryType" type="radio" name="gallery-type"
+                              id="gallery-type-basic" value="basic" ${content.galleryType == 'basic' ? 'checked' : ""}> <label
+                              class="form-check-label galleryType" for="gallery-type-basic">기본형</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gallery-type"
-                              id="gallery-type-circle" value="gallery-type-circle" ${content.galleryType == 'gallery-type-circle' ? 'checked' : ""}> <label
-                              class="form-check-label" for="gallery-type-circle">원형</label>
+                            <input class="form-check-input galleryTypeCircle" type="radio" name="gallery-type"
+                              id="gallery-type-circle" value="circle" ${content.galleryType == 'circle' ? 'checked' : ""}> <label
+                              class="form-check-label galleryTypeCircle" for="gallery-type-circle">원형</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gallery-type"
-                              id="gallery-type-slide" value="gallery-type-slide" ${content.galleryType == 'gallery-type-slide' ? 'checked' : ""}> <label
-                              class="form-check-label" for="gallery-type-slide">슬라이드형</label>
+                            <input class="form-check-input galleryTypeSlide" type="radio" name="gallery-type"
+                              id="gallery-type-slide" value="slide" ${content.galleryType == 'slide' ? 'checked' : ""}> <label
+                              class="form-check-label galleryTypeSlide" for="gallery-type-slide">슬라이드형</label>
                           </div>
                         </div>
                       </div>
@@ -504,7 +531,7 @@
                         <h3 class="section-title">갤러리 사진 업로드</h3>
                         <div class="section-content">
                           <div class="custom-file mt-1">
-                            <input type="file" class="custom-file-input" id="gallery-upload-img" name="gallery-upload-img">
+                            <input type="file" class="custom-file-input galleryUploadImg" id="gallery-upload-img" name="gallery-upload-img">
                             <label class="custom-file-label" for="gallery-upload-img">갤러리 사진 선택</label>
                           </div>
                         </div>
@@ -515,13 +542,13 @@
                   <div id="tabs-4-2">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>동영상 사용</span>
-                      <input type="checkbox" class="ml-2" checked="checked" name="video-chk" onclick="chkFuc('video-chk', 'video-chk-div')" ${content.videoChk == 1 ? 'checked' : ""}>
+                      <input type="checkbox" class="ml-2 videoChk" value="${content.videoChk}" checked="checked" name="video-chk" onclick="chkFuc('video-chk', 'video-chk-div')" ${content.videoChk == 1 ? 'checked' : ""}>
                     </div>
                     <div class="video-chk-div">
                       <div class="tabs-4-1-video pb-3 border">
                         <h3 class="section-title">유튜브 공유 주소 입력</h3>
                         <div class="section-content">
-                          <input type="text" class="form-control" placeholder="유튜브 링크 주소" name="video-link" value="${content.videoLink == '' ? '' : content.videoLink}">
+                          <input type="text" class="form-control videoLink" placeholder="유튜브 링크 주소" name="video-link" value="${content.videoLink == '' ? '' : content.videoLink}">
                         </div>
                       </div>
                     </div>
@@ -543,7 +570,7 @@
                   <div id="tabs-5-0">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>계좌 연동</span>
-                      <input type="checkbox" class="ml-2" name="account-chk" checked="checked" onclick="chkFuc('account-chk', 'account-chk-div')" ${content.accountChk == 1 ? 'checked' : ""}>
+                      <input type="checkbox" class="ml-2 accountchk" value="${content.accountChk}" name="account-chk" onclick="chkFuc('account-chk', 'account-chk-div')" ${content.accountChk == 1 ? 'checked' : ""}>
                     </div>
                     <div class="account-chk-div">
                       <div class="tabs-5-0-account pb-3 border">
@@ -553,24 +580,28 @@
                             <div class="input-group-prepend">
                               <label class="input-group-text" for="inputGroupSelect01">계좌 선택</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect01" name="account-select">
-                              <option value="0" ${content.accountSelect == 0 ? 'checked' : ""}>계좌번호를 선택하세요</option>
-                              <option value="1" ${content.accountSelect == 1 ? 'checked' : ""}>[우리은행]홍길동(111-1111-1111)</option>
-                              <option value="2" ${content.accountSelect == 2 ? 'checked' : ""}>[하나은행]홍길순(222-2222-2222)</option>
-                              <option value="3" ${content.accountSelect == 3 ? 'checked' : ""}>[기업은행]홍길자(333-3333-3333)</option>
-                              <option value="4" ${content.accountSelect == 4 ? 'checked' : ""}>[카카오뱅크]홍길세(444-4444-4444)</option>
+                            <select class="custom-select" id="inputGroupSelect01" name="account-select" class="accountSelect">
+                              <option value="0" ${content.accountSelect == 0 ? 'selected' : ""}>계좌번호를 선택하세요</option>
+                              <option value="1" ${content.accountSelect == 1 ? 'selected' : ""}>[우리은행]홍길동(111-1111-1111)</option>
+                              <option value="2" ${content.accountSelect == 2 ? 'selected' : ""}>[하나은행]홍길순(222-2222-2222)</option>
+                              <option value="3" ${content.accountSelect == 3 ? 'selected' : ""}>[기업은행]홍길자(333-3333-3333)</option>
+                              <option value="4" ${content.accountSelect == 4 ? 'selected' : ""}>[카카오뱅크]홍길세(444-4444-4444)</option>
                             </select>
                           </div>
                           <div class="d-flex justify-content-end">
-                            <button class="btn btn-info">다른계좌 등록하기</button>
+                            <button type="button" class="btn btn-info">다른계좌 등록하기</button>
                           </div>
+                          
+                          <!-- toss 연습 -->
+                          	<button type='button' onclick="tossButton()" class="btn btn-success">toss</button>
+                          	<div id="tossLink"></div>
                         </div>
                       </div>
                       <div class="tabs-5-0-money pb-3 border">
                         <h3 class="section-title">관람료</h3>
                         <div class="section-content">
                           <div class="col-6 p-0 d-flex align-items-center">
-                            <input type="text" class="form-control" placeholder="액수 입력" name="account-money" value="${content.accountMoney == '' ? '' : content.accountMoney}"><span class="mx-2">원</span>
+                            <input type="text" class="form-control accountMoney" placeholder="액수 입력" name="account-money" value="${content.accountMoney == '' ? '' : content.accountMoney}"><span class="mx-2">원</span>
                           </div>
                         </div>
                       </div>
@@ -595,54 +626,86 @@
                   <div id="tabs-6-1">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>참석 여부 사용</span>
-                      <input type="checkbox" class="ml-2" name="attend-chk" ${content.attendChk == 1 ? 'checked' : ""}>
+                      <input type="checkbox" class="ml-2 attendChk" value="${content.attendChk}" name="attend-chk" ${content.attendChk == 1 ? 'checked' : ""}>
                     </div>
                   </div>
                   <!-- 하위 탭 6-2 방명록 -->
                   <div id="tabs-6-2">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>방명록 사용</span>
-                      <input type="checkbox" class="ml-2" name="comment-chk" ${content.commentChk == 1 ? 'checked' : ""}>
+                      <input type="checkbox" class="ml-2 commentChk" value="${content.commentChk}" name="comment-chk" ${content.commentChk == 1 ? 'checked' : ""}>
                     </div>
                   </div>
                   <!-- 하위 탭 6-3 SNS 공유 -->
                   <div id="tabs-6-3">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>SNS 공유하기 사용</span>
-                      <input type="checkbox" class="ml-2" name="sns-share-chk" onclick="chkFuc('sns-share-chk','sns-share-chk-div')" ${content.snsShareChk == 1 ? 'checked' : ""}>
+                      <input type="checkbox" class="ml-2 snsShereChk" value="${content.snsShareChk}" name="sns-share-chk" onclick="chkFuc('sns-share-chk','sns-share-chk-div')" ${content.snsShareChk == 1 ? 'checked' : ""}>
                     </div>
                     <div class="sns-share-chk-div">
                       <div class="tabs-6-3-selectSNS pb-3 border">
                         <h3 class="section-title">SNS 공유 선택</h3>
                         <div class="section-content">
-                          <div class="p-0 d-flex align-items-center">
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" name="select-sns" type="checkbox" id="select-sns-01" value="select-sns-01">
-                              <label class="form-check-label" for="select-sns-01">카카오톡</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" name="select-sns" type="checkbox" id="select-sns-02" value="select-sns-02">
-                              <label class="form-check-label" for="select-sns-02">카카오스토리</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" name="select-sns" type="checkbox" id="select-sns-03" value="select-sns-03">
-                              <label class="form-check-label" for="select-sns-03">네이버 밴드</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" name="select-sns" type="checkbox" id="select-sns-04" value="select-sns-04">
-                              <label class="form-check-label" for="select-sns-04">페이스북</label>
-                            </div>
+                        	<div class="p-0 d-flex align-items-center">
+                          	  <!--공유 아이콘 -->
+	                          <div class="form-check form-check-inline">
+	                          	<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-01" value="select-sns-01"
+	                              <c:forEach items="${selectSnsArr}" var="sns">
+	                              	<c:if test="${sns eq 'select-sns-01'}">checked="checked"</c:if>
+	                              </c:forEach>>
+	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakao_icon.png');">
+									<div class="sns-check-box">
+										<label class="sns-check-label" for="select-sns-01"></label>
+									</div>
+								</div>  
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-02" value="select-sns-02"
+	                              <c:forEach items="${selectSnsArr}" var="sns">
+	                              	<c:if test="${sns eq 'select-sns-02'}">checked="checked"</c:if>
+	                              </c:forEach>>
+	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakaoStory_icon.png');">
+									<div class="sns-check-box">
+										<label class="sns-check-label" for="select-sns-02"></label>
+									</div>
+								</div>  
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-03" value="select-sns-03"
+	                              <c:forEach items="${selectSnsArr}" var="sns">
+	                              	<c:if test="${sns eq 'select-sns-03'}">checked="checked"</c:if>
+	                              </c:forEach>>
+	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/naverBand_icon.png');">
+									<div class="sns-check-box">
+										<label class="sns-check-label" for="select-sns-03"></label>
+									</div>
+								</div>  
+							  </div>
+							  <div class="form-check form-check-inline">
+								<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-04" value="select-sns-04"
+	                              <c:forEach items="${selectSnsArr}" var="sns">
+	                              	<c:if test="${sns eq 'select-sns-04'}">checked="checked"</c:if>
+	                              </c:forEach>>
+	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/facebook_icon.png');">
+									<div class="sns-check-box">
+										<label class="sns-check-label" for="select-sns-04"></label>
+									</div>
+								</div>  
+							  </div>
                           </div>
                         </div>
                       </div>
                       <div class="tabs-6-3-snsMSG pb-3 border">
                         <div class="p-2 d-flex justify-content-between align-items-center">
                           <h3 class="section-title">카카오톡 공유 문구 삽입</h3>
-                          <input type="checkbox" checked="checked" name="sns-msg-chk" onclick="chkFuc('sns-msg-chk','textarea-content')" ${content.snsMsgChk == 1 ? 'checked' : ""}>
+                          <input type="checkbox" class="snsMsgChk onoff-box ml-2" id="toggle7" value="${content.snsMsgChk}" name="sns-msg-chk" onclick="chkFuc('sns-msg-chk','textarea-content')" ${content.snsMsgChk == 1 ? 'checked' : ""}>
+						  <div class="onoff-button">
+							<label class="onoff" for="toggle7"></label>
+						  </div>
                         </div>
                         <div class="section-content">
                           <!-- 카카오톡 공유 문구 삽입 -->
-                          <textarea class="form-control textarea-content" name="sns-msg-content" placeholder="<00대학교 00학부 제00회 음악 연주회>
+                          <textarea class="form-control textarea-content snsMsgContent" name="sns-msg-content" placeholder="<00대학교 00학부 제00회 음악 연주회>
 
   학생들의 음악 연주회에 초대합니다.
   바쁘시더라도 참석해주셔서 연주자의 아름다운 연주를 들으러 와주세요 :)
@@ -688,6 +751,7 @@
   } );
 
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 </body>
 </html>

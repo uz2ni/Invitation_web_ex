@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/test/Builder/sqlmap/UserMap.xml" />
 		<mapper resource="com/test/Builder/sqlmap/PaymentMap.xml" />
 		<mapper resource="com/test/Builder/sqlmap/LookMap.xml" />
+		<mapper resource="com/test/Builder/sqlmap/LookCmtMap.xml" />
 	</mappers>
 
 </configuration>  

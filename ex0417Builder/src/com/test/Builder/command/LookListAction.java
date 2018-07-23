@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.test.Builder.controller.CommandAction;
+import com.test.Builder.dao.LookCmtDBBean;
 import com.test.Builder.dao.LookDBBean;
 import com.test.Builder.dto.Look;
+import com.test.Builder.dto.LookCmt;
 
 public class LookListAction implements CommandAction {
 
@@ -17,22 +19,9 @@ public class LookListAction implements CommandAction {
 		
 		// DB 연동
 		LookDBBean lookProcess = LookDBBean.getInstance();
-		List<Look> list = lookProcess.selectList();
-		//List<String[]> tagList = null;
-		/*
-		for(Object obj : list) {
-			Look look = (Look)obj;
-			String tags = look.getLookHashTag();
-			// split
-			String[] tag = tags.split(",");
-			System.out.println("tags:"+tag);
-			tagList.add(tag);
-
-		}
-		*/
+		List<Look> looks = lookProcess.selectList();
 		
-		request.setAttribute("looks", list);
-//		request.setAttribute("tags", tagList);
+		request.setAttribute("looks", looks);
 		
 		return "lookList.jsp";
 	}

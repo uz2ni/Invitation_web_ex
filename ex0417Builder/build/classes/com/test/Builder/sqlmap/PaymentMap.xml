@@ -8,6 +8,28 @@
 
 <mapper namespace="com.test.Builder.sqlmap.PaymentMap">
 
+<resultMap type="com.test.Builder.dto.Payment" id="PaymentList">
+	<result property="paymentId" column="payment_id"/>
+	<result property="userId" column="user_id"/>
+	<result property="merchantUid" column="merchant_uid" />
+	<result property="paymentStyle" column="payment_style" />
+	<result property="paymentName" column="payment_name" />
+	<result property="paymentMonth" column="payment_month" />
+	<result property="paymentType" column="payment_type" />
+	<result property="paymentAmount" column="payment_amount" />
+	<result property="paymentUrlName" column="payment_url_name" />
+	<result property="paymentDate" column="payment_date" />
+	<result property="paymentImpUid" column="payment_imp_uid" />
+	<result property="paymentPg" column="payment_pg" />
+	<result property="paymentPayMethod" column="payment_pay_method" />
+	<result property="paymentBuyerEmail" column="payment_buyer_email" />
+	<result property="paymentBuyerName" column="payment_buyer_name" />
+	<result property="paymentBuyerTel" column="payment_buyer_tel" />
+	<result property="paymentStatus" column="payment_status" />
+	<result property="paymentAt" column="payment_at" />
+	<result property="paymentReceiptUrl" column="payment_receipt_url" />
+</resultMap>
+
 <!-- 결제 시 insert -->
 <insert id="paymentInsert" parameterType="com.test.Builder.dto.Payment">
 	insert into payment(user_id, merchant_uid, payment_style, payment_name, payment_month, payment_type, payment_amount, payment_url_name, payment_date)
@@ -26,6 +48,11 @@
 	   		payment_receipt_url = #{paymentReceiptUrl}
 	 where merchant_uid = #{merchantUid};
 </update>
+
+<!-- 서비스 신청 내역 select -->
+<select id="paymentSelectList" parameterType="int" resultMap="PaymentList">
+	select * from payment where user_id = #{userId} order by payment_at desc;
+</select>
 
 
 </mapper>

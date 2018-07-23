@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,29 +45,33 @@
 							aria-label="Checkbox for following text input"></th>
 						<th scope="col">신청일</th>
 						<th scope="col">구분</th>
+						<th scope="col">기간</th>
 						<th scope="col">서비스명</th>
 						<th scope="col">주소</th>
 						<th scope="col">결제금액</th>
 						<th scope="col">결제방식</th>
-						<th scope="col">결제상태</th>
 						<th scope="col">영수증</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td scope="row"><input type="checkbox"
-							aria-label="Checkbox for following text input"></th>
-						<td>2018-05-03</td>
-						<td>신규</td>
-						<td>FREE</td>
-						<td>URL</td>
-						<td>- 원</td>
-						<td>무료체험형</td>
-						<td>결제완료</td>
-						<td><a href="my_4"><button type="button"
-									class="btn btn-sm"
-									style="background: #333333; color: white;">출력</button></a></td>
-					</tr>
+					<c:forEach var="payment" items="${payments}">
+					<c:if test="${payment.paymentStatus eq 'paid'}">
+						<tr>
+							<td scope="row"><input type="checkbox"
+								aria-label="Checkbox for following text input"></th>
+							<td>${payment.paymentAt}</td>
+							<td>${payment.paymentStyle}</td>
+							<td>${payment.paymentMonth}개월</td>
+							<td>유료</td>
+							<td>${payment.paymentUrlName}</td>
+							<td>${payment.paymentAmount}</td>
+							<td>${payment.paymentPayMethod}</td>
+							<td><a href="my_4"><button type="button"
+										class="btn btn-sm"
+										style="background: #333333; color: white;">출력</button></a></td>
+						</tr>
+					</c:if>
+					</c:forEach>
 				</tbody>
 			</table>
 			<!--table_end-->

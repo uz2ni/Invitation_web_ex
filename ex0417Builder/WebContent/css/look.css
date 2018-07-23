@@ -27,10 +27,8 @@
 
 .container {
   position: relative;
-/*   width: 50%; 
- */
- 	cursor:pointer;
-	overflow: hidden;
+  overflow: hidden;
+
 }
 .card-img-top{
     opacity: 1.0;

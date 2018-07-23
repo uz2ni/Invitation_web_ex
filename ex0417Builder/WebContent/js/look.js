@@ -1,3 +1,8 @@
+// html 로드 완료 후 실행
+$(document).ready(function(){
+	commentInit();
+});
+  
 // 체크된 urlid 받아와서 제목 value값 변경
 function checkUrl(urlId, title, url) {
 	// url 변경하면 미리보기 title 내용 변경
@@ -10,4 +15,58 @@ function checkUrl(urlId, title, url) {
 	// input에 urlId 삽입
 	var inputUrlId = $("#url-id");
 	inputUrlId.val(urlId);
+}
+
+function commentInit() {
+	let wraps = $(".look-comment-wrap"); // div list
+	for(var i=0; i<wraps.length; i++) {
+		let idStr = $(wraps[i]).attr("id");
+		let lookId = idStr.split("-")[1];
+		commentSelect(lookId);
+	}
+}
+
+function commentSelect(lookId) {
+	jQuery.ajax({
+		url: "lookListCommentSelectAjax.ajax",
+		type: 'POST',
+		dataType: 'json',
+		data: {
+		    look_id : lookId
+		}
+	}).done(function(data) {
+		console.log(data["cmts"]);
+		commentRemove(lookId);
+		// Select append
+		for(var i=0; i<data["cmts"].length; i++) {
+			$("#look-" + lookId).append("<p id='look-" + lookId + "-comment-" + data["cmts"][i]["lookCmtId"] + "'>" + 
+				"<span>" + data["cmts"][i]["lookCmtUserName"] + "</span> :" +
+				"<span>" + data["cmts"][i]["lookCmtComment"] + "</span>" +
+				"</p>");
+		}
+	});
+}
+
+function commentRemove(lookId) {
+	$("#look-" + lookId).empty();
+}
+
+// comment insert AJAX
+function commentInsert(lookId) {
+	let lookCmtComment = $("#look-cmt-comment-"+lookId).val();
+	$("#look-cmt-comment-"+lookId).val(""); // 값 초기화
+	
+	jQuery.ajax({
+		url: "lookListCommentAjax.ajax",
+		type: 'POST',
+		dataType: 'json',
+		data: {
+		    look_id : lookId,
+		    look_cmt_comment : lookCmtComment
+		}
+	}).done(function(data) {
+		if(data["status"] == 'ok') {
+			commentSelect(lookId);			
+		}
+	});
 }

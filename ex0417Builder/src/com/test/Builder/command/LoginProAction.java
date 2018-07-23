@@ -28,7 +28,9 @@ public class LoginProAction implements CommandAction {
        String email = request.getParameter("user-email");
        String pw = request.getParameter("user-pw");
        // DB에서 아이디, 비밀번호 확인
+       System.out.println("위");
        UserDBBean userProcess = UserDBBean.getInstance();
+       System.out.println("아래");
        int chk = userProcess.loginCheck(email, pw);
        
        // URL 및 로그인 관련 메세지

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.test.Builder.dto.User" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +31,7 @@
 </jsp:include>
 <jsp:include page="/template/sidebar.jsp" flush="false" />
 
-<article class="center col-8 text-center" style="height: 150vh;">
+<article class="center col-8 text-center">
 	<!--Search-->
 	<h1 style="font-weight: bold; margin-top: 10px;">검색</h1>
 	<form action="lookListSearch.do" method="post" class="d-flex col-12 form-inline p-2 my-2 my-lg-0"
@@ -91,9 +93,9 @@
 	<!--***필수(모임/발표회/종교행사)***-->
 	<div class="tab-content" id="nav-tabContent">
 		<!--모임게시글-->
-		<div class="tab-pane fade show active col-12" id="nav-01" role="tabpanel" aria-labelledby="nav-01-tab">
+		<div class="tab-pane fade show active" id="nav-01" role="tabpanel" aria-labelledby="nav-01-tab">
 			<!--나열순서 : ※위치 애매함-->
-			<div class="tab-pane fade show active col-12" id="nav-home"
+			<div class="tab-pane fade show active" id="nav-home"
 				role="tabpanel" aria-labelledby="nav-home-tab">
 				<div class="col-12 text-right my-2">
 					<div class="btn-group p-1" role="group">
@@ -112,7 +114,7 @@
 				</div>
 			
 				<!--첫째줄-->
-				<div class="col d-flex mt-4">
+				<div class="col mt-4 mx-0 row">
 				<!--ex_1-->
 				<c:if test="${select != -1}">
 				<c:forEach var="look" items="${looks}">
@@ -120,7 +122,7 @@
 						<div class="container px-0"
 							style="border: 1px solid #dcd9d9; border-radius: 5% 5% 5% 5%;">
 							<img class="card-img-top" src="${look.lookImg}" style="width:280px; height:300px;">
-							<div class="check-mark" data-toggle="modal" data-target="#myModal"
+							<div class="check-mark" data-toggle="modal" data-target="#look-modal-${look.lookId}"
 								data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" style="padding:50% 30%;">
 								<img src="./img/info/look/check-mark_2.png" width="45" height="45"/>
 							</div>
@@ -145,7 +147,7 @@
 								</div>
 							</div>
 							<!--click-->
-							<div class="modal modal-center fade" id="myModal" tabindex="-1"
+							<div class="modal modal-center fade" id="look-modal-${look.lookId}" tabindex="-1"
 								role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog modal-center modal-fullsize modal-lg"
 									role="document">
@@ -159,8 +161,8 @@
 										</div>
 										<div class="modal-body d-flex">
 											<div class="col-6" style="border: 1px solid #dcd9d9;">
-												<div style="width: 100%; height: 100%; overflow-y: scroll;">
-													<img src="http://via.placeholder.com/320x595" />
+												<div class="h-100">
+													<iframe src="skin/skin1/index.html" width="100%" height="100%" frameborder="0" scroll="auto" id="preview_iframe"></iframe>
 												</div>
 											</div>
 											<div class="col-6" style="border: 1px solid #dcd9d9; font-size: 1.5em;">
@@ -214,9 +216,7 @@
 																<span>120</span>
 														</div>
 													</div>
-													<div class=""
-														style="height: 30vh; border: 1px solid #b0afaf;">댓글내용
-													</div>
+													
 													<div class="d-flex"
 														style="height: 8vh; background: #dcd9d9; border: 1px solid #b0afaf;">
 														<div class="col-2 p-2">
@@ -225,12 +225,22 @@
 														</div>
 														<div class="col-10 pt-3">
 															<div>
-																<input type="text" class=""
+																<input type="text" name="look-cmt-comment" id="look-cmt-comment-${look.lookId}"
 																	style="width: 250px; border-radius: 15px 15px 15px 15px;"
 																	placeholder=" 댓글을 입력하세요...">
+																<button onclick="commentInsert(${look.lookId})">입력</button>
 															</div>
 														</div>
 													</div>
+													<div id="look-${look.lookId}" class="look-comment-wrap" style="height: 30vh; border: 1px solid #b0afaf; overflow:scroll;">
+<%-- 														<c:forEach items="${cmts}" var="cmt">
+															<c:if test="${look.lookId == cmt.lookId}">
+																<p id="look-comment-${cmt.lookCmtId}"><span>${cmt.lookCmtUserName}</span> : <span>${cmt.lookCmtComment}</span></p>
+															</c:if>
+														</c:forEach>
+ --%>													</div>
+													
+
 												</div>
 											</div>
 										</div>
@@ -256,11 +266,11 @@
 				<!--첫째줄_end-->
 			</div>
 				<!--발표회-->
-				<div class="tab-pane fade show active col-12" id="nav-profile"
-					role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+				<div class="tab-pane fade show active" id="nav-profile"
+					role="tabpanel" aria-labelledby="nav-profile-tab"></div>
 				<!--종교행사-->
-				<div class="tab-pane fade show active col-12" id="nav-contact"
-					role="tabpanel" aria-labelledby="nav-contact-tab">..?</div>
+				<div class="tab-pane fade show active" id="nav-contact"
+					role="tabpanel" aria-labelledby="nav-contact-tab"></div>
 		</div>
 	</div>
 </article>
@@ -280,8 +290,7 @@
 <script type="text/javascript" src="js/top.js?v=<%=System.currentTimeMillis()%>"></script>
 <!-- side bar js -->
 <script type="text/javascript" src="js/sidebar.js?v=<%=System.currentTimeMillis()%>"></script>
-
 <!-- custom js -->
-
+<script type="text/javascript" src="js/look.js?v=<%=System.currentTimeMillis()%>"></script>
 </body>
 </html>

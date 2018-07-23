@@ -1,6 +1,7 @@
 package com.test.Builder.command;
 
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.Builder.controller.CommandAction;
 import com.test.Builder.dao.ContentEditDBBean;
 import com.test.Builder.dto.Content;
+
 
 
 // 기능 : form jsp 페이지 출력 전 db에서 id에 맞는 데이터 select, 필요한 값들 attribute를 통해 뷰페이지로 보냄
@@ -59,7 +61,18 @@ public class ContentEditFormAction implements CommandAction {
 		}
 		
 		request.setAttribute("content", content);
+		request.setAttribute("selectSnsArr", selectSnsArr(content.getSelectSns()));
+		
 		return "/contentEditForm.jsp";
+	}
+	
+	public String[] selectSnsArr (String str) {
+		System.out.println(str);
+		String[] arr = str.split(",");
+		for(int i=0; i<arr.length; i++) {
+			System.out.println(i + "->" + arr[i]);
+		}
+		return arr;
 	}
 
 }

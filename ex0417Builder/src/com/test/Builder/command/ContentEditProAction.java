@@ -173,8 +173,11 @@ public class ContentEditProAction implements CommandAction {
         	snsStr = "";
         }else {
         	String[] snsList = multi.getParameterValues("select-sns");
-            for(String val : snsList) {
-            	snsStr = snsStr + val + ";";
+            for(int i=0; i<snsList.length; i++) {
+            	if(i == snsList.length-1)
+            		snsStr = snsStr + snsList[i];
+            	else
+            		snsStr = snsStr + snsList[i] + ",";
             }
         }
         content.setSelectSns(snsStr);	
@@ -198,9 +201,10 @@ public class ContentEditProAction implements CommandAction {
 	
 	// checkbox 0, 1 처리	 함수
 	public int chkbox (MultipartRequest multi, String name) {
+		System.out.println(name +"=>" + multi.getParameter(name));
 		if(multi.getParameter(name) == null ) {
 			return 0;
-		}else if (multi.getParameter(name).equals("on")) {
+		}else if (multi.getParameter(name).equals("1")) {
 			return 1;
 		}else {
 			return -1;	

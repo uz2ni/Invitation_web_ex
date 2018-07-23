@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.LookCmtMap">
+
+<resultMap type="com.test.Builder.dto.LookCmt" id="LookCmtList">
+	<result property="lookCmtId" column="look_cmt_id"/>
+	<result property="lookId" column="look_id"/>
+	<result property="lookCmtUserId" column="look_cmt_user_id" />
+	<result property="lookCmtUserName" column="look_cmt_user_name" />
+	<result property="lookCmtComment" column="look_cmt_comment" />
+	<result property="lookCmtRegTime" column="look_cmt_reg_time" />
+</resultMap>
+
+<!-- 사용자 id와 글 내용 insert -->
+<insert id="lookCmtInsert" parameterType="com.test.Builder.dto.LookCmt">
+	insert into look_cmt(look_id, look_cmt_user_id, look_cmt_user_name, look_cmt_comment)
+	values(#{lookId}, #{lookCmtUserId}, #{lookCmtUserName}, #{lookCmtComment});
+</insert>
+
+<!-- 전체글 select - 최신순 -->
+<select id="lookCmtSelectList" parameterType="int" resultMap="LookCmtList">
+	select * from look_cmt
+	where look_id = #{lookId}
+	order by look_cmt_id desc;
+</select>
+
+</mapper>

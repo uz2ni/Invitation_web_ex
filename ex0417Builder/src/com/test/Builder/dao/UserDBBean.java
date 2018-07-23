@@ -4,7 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.test.Builder.config.SqlSessionManager;
-import com.test.Builder.dto.Content;
 import com.test.Builder.dto.User;
 
 public class UserDBBean {
