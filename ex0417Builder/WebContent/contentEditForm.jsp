@@ -65,12 +65,12 @@
         <div class="edit-block-tab">
         <!-- menu button list -->
           <ul class="p-0 pt-5">
-            <li class="border"><a href="#tabs-1"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_1.png');">스킨선택</span></a></li>
-            <li class="border"><a href="#tabs-2"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_2.png');">상단정보</span></a></li>
-            <li class="border"><a href="#tabs-3"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_3.png');">상세정보</span></a></li>
-            <li class="border"><a href="#tabs-4"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_4.png');">멀티미디어</span></a></li>
-            <li class="border"><a href="#tabs-5"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_5.png');">계좌연동</span></a></li>
-            <li class="border"><a href="#tabs-6"><span class="text-center" style="background-image: url('img/content/edit_img/page_img/edit_menu_6.png');">추가기능</span></a></li>
+            <li class="border"><a class="tab_m1" href="#tabs-1"><span id="tabs_1" class="tabs text-center"></span></a></li>
+            <li class="border"><a class="tab_m2" href="#tabs-2"><span id="tabs_2" class="tabs text-center"></span></a></li>
+            <li class="border"><a class="tab_m3" href="#tabs-3"><span id="tabs_3" class="tabs text-center"></span></a></li>
+            <li class="border"><a class="tab_m4" href="#tabs-4"><span id="tabs_4" class="tabs text-center"></span></a></li>
+            <li class="border"><a class="tab_m5" href="#tabs-5"><span id="tabs_5" class="tabs text-center"></span></a></li>
+            <li class="border"><a class="tab_m6" href="#tabs-6"><span id="tabs_6" class="tabs text-center"></span></a></li>
           </ul>
           <!-- complete button -->
           <ul class="p-0">
@@ -97,31 +97,31 @@
                       <li class="col-6 p-2">
                         <div class="hovereffect rounded img-thumbnail">
                           <img class="img-responsive" src="http://placehold.it/200x200" alt="">
-                              <div class="skin1 overlay">
+                              <label class="skin1 overlay" for="skin1">
                                  <h2>skin1</h2>
                                  <input type="radio" id="skin1" name="skin" value="skin1" ${content.skin == 'skin1' ? 'checked' : ""} class="skin free-label four col">
                                  <label class="free-label four col" for="skin1">적용하기1</label>       
-                              </div>
+                              </label>
                         </div>
                       </li>
                       <li class="col-6 p-2">
                         <div class="hovereffect rounded img-thumbnail">
                           <img class="img-responsive" src="http://placehold.it/200x200" alt="">
-                              <div class="skin2 overlay">
+                              <label class="skin2 overlay" for="skin2">
                                  <h2>skin2</h2>
 				                 <input type="radio" id="skin2" name="skin" value="skin2" ${content.skin == 'skin2' ? 'checked' : ""} class="skin free-label four col">
 				                 <label class="free-label four col" for="skin2">적용하기2</label> 
-				              </div>
+				              </label>
                         </div>
                       </li>
                       <li class="col-6 p-2">
                         <div class="hovereffect rounded img-thumbnail">
                           <img class="img-responsive" src="http://placehold.it/200x200" alt="">
-                              <div class="skin3 overlay">
+                              <label class="skin3 overlay" for="skin3">
                                  <h2>skin3</h2>
                                  <input type="radio" id="skin3" name="skin" value="skin3" ${content.skin == 'skin3' ? 'checked' : ""} class="skin free-label four col">
                                  <label class="free-label four col" for="skin3">적용하기3</label>
-                              </div>
+                              </label>
                         </div>
                       </li>
                     </ul>
@@ -247,29 +247,35 @@
                       <div class="section-content" style="margin-bottom:25px; margin-top:-20px;">
                         <div class="form-check form-check-inline pr-2">
                           <input class="name-position topFontAlign" type="radio" name="top-font-align"
-                            id="top-font-align-01 toggle" value="left"
+                            id="top-font-align-01" value="left"
                             ${content.topFontAlign == 'left' ? 'checked' : ""}>
                             <div class="name-position-box">
 								<a class="tooltips">
-							  		<label class="name-position-check" for="top-font-align-01 toggle"></label>
-							  		<span>좌측 기준 정렬</span>
+							  		<label class="name-position-check" for="top-font-align-01"></label>
+							  		<span class="array">좌측기준정렬</span>
 							  	</a>
 							</div>
                         </div>
                         <div class="form-check form-check-inline px-2">
                           <input class="name-position topFontAlign" type="radio" name="top-font-align"
-                            id="top-font-align-02 toggle" value="center"
+                            id="top-font-align-02" value="center"
                             ${content.topFontAlign == 'center' ? 'checked' : ""}>
                             <div class="name-position-box">
-							  <label class="name-position-check" for="top-font-align-02 toggle"></label>
+							  <a class="tooltips">
+								  <label class="name-position-check" for="top-font-align-02"></label>
+								  <span class="array">중앙기준정렬</span>
+							  </a>
 							</div>
                         </div>
                         <div class="form-check form-check-inline px-2">
                           <input class="name-position topFontAlign" type="radio" name="top-font-align"
-                            id="top-font-align-03 toggle" value="right"
+                            id="top-font-align-03" value="right"
                             ${content.topFontAlign == 'right' ? 'checked' : ""}>
                             <div class="name-position-box">
-							  <label class="name-position-check" for="top-font-align-03 toggle"></label>
+							 <a class="tooltips">
+								 <label class="name-position-check" for="top-font-align-03"></label>
+								 <span class="array">우측기준정렬</span>
+							 </a>
 							</div>
                         </div>
                       </div>
@@ -303,9 +309,19 @@
             						${content.topImgAlign == 'col' ? 'checked' : ""}> <label
             						class="form-check-label" for="top-img-align-col">세로</label>
                			</div>
-	                	<div>
-							<img class="mx-2" src="../ex0417Builder/img/content/edit_img/page_img/horizontal.png" width="120px;" height="80px;">
-							<img class="mx-2" src="../ex0417Builder/img/content/edit_img/page_img/vertical.png" width="80px;" height="120px;">
+	                	<div class="d-flex">
+	                		<div class="py-3 align-self-center justify-content-center mr-2" style="background-color:#f2f2f2;">
+								<a class="tooltips">
+									<img src="img/content/edit_img/page_img/horizontal.png" width="115px;" height="80px;">
+									<span class="img-place">가로사진인 경우</span>
+								</a>
+							</div>
+							<div class="px-3 align-self-center justify-content-center" style="background-color:#f2f2f2;">
+								<a class="tooltips">
+									<img src="img/content/edit_img/page_img/vertical.png" width="80px;" height="115px;">
+									<span class="img-place">세로사진인 경우</span>
+								</a>
+							</div>
 						</div>
                       </div>
                       <p class="sub_txt tip mt-2" style="font-size:12px;">가로형 사진은 가로정렬(좌측/가운데/우측)정렬만 세로형 사진은 세로정렬(상단/가운데/하단)정렬만 적용됩니다.</p>
@@ -342,7 +358,11 @@
                       <div class="card">
                         <div class="card-body p-2 d-flex justify-content-between align-items-center">
                           <span>D-DAY 사용 여부</span>
-                          <input type="checkbox" name="info-dday-chk" class="infoDdayChk" value="${content.infoDdayChk}" ${content.infoDdayChk == 1 ? 'checked' : ""}>
+                          <input class="onoff-box" type="checkbox" class="ml-2" id="toggle8" checked="checked" name="info-dday-chk" 
+							onclick="chkFuc('dday-chk', 'dday-chk-div')" ${content.infoDdayChk == 1 ? 'checked' : ""}>
+							<div class="onoff-button">
+							  <label class="onoff" for="toggle8"></label>
+							</div>
                         </div>
                       </div>
                     </div>
@@ -504,28 +524,34 @@
                   <div id="tabs-4-1">
                     <div class="d-flex justify-content-end align-items-center mb-3">
                       <span>갤러리 사용</span>
-                      <input type="checkbox" class="ml-2 galleryChk" value="${content.galleryChk}" checked="checked" name="gallery-chk" onclick="chkFuc('gallery-chk', 'gallery-chk-div')" ${content.galleryChk == 1 ? 'checked' : ""}>
+                      <a class="tooltips">
+						<input class="onoff-box" type="checkbox" id="toggle" class="ml-2" checked="checked" name="gallery-chk" 
+							onclick="chkFuc('gallery-chk', 'gallery-chk-div')" ${content.galleryChk == 1 ? 'checked' : ""}/>
+							<div class="onoff-button">
+							  <label class="onoff" for="toggle"></label>
+							  <span class="onoff-tooltip">갤러리 사용 ON/OFF</span>
+							</div>
+					  </a>
                     </div>
                     <div class="gallery-chk-div">
                       <div class="tabs-4-1-gallery-type pb-3 border">
                         <h3 class="section-title">갤러리 종류 선택</h3>
                         <div class="section-content">
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input galleryType" type="radio" name="gallery-type"
-                              id="gallery-type-basic" value="basic" ${content.galleryType == 'basic' ? 'checked' : ""}> <label
-                              class="form-check-label galleryType" for="gallery-type-basic">기본형</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input galleryTypeCircle" type="radio" name="gallery-type"
-                              id="gallery-type-circle" value="circle" ${content.galleryType == 'circle' ? 'checked' : ""}> <label
-                              class="form-check-label galleryTypeCircle" for="gallery-type-circle">원형</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input galleryTypeSlide" type="radio" name="gallery-type"
-                              id="gallery-type-slide" value="slide" ${content.galleryType == 'slide' ? 'checked' : ""}> <label
-                              class="form-check-label galleryTypeSlide" for="gallery-type-slide">슬라이드형</label>
-                          </div>
-                        </div>
+                          <label id="basic" class="gallery-layout form-check-inline" for="gallery-type-basic">
+                          	<input class="gallery-layout-input" type="radio" name="gallery-type"
+                              id="gallery-type-basic" value="gallery-type-basic" ${content.galleryType == 'gallery-type-basic' ? 'checked' : ""}> 
+                            <span class="gallery-layout-box">기본형</span>
+                          </label>
+                          <label id="circle" class="gallery-layout form-check-inline"  for="gallery-type-circle">
+                          	<input class="gallery-layout-input" type="radio" name="gallery-type"
+                              id="gallery-type-circle" value="gallery-type-circle" ${content.galleryType == 'gallery-type-circle' ? 'checked' : ""}> 
+                            <span class="gallery-layout-box">원형</span>
+                          </label>
+                          <label id="slide" class="gallery-layout form-check-inline" for="gallery-type-slide">
+                          	<input class="gallery-layout-input" type="radio" name="gallery-type"
+                              id="gallery-type-slide" value="gallery-type-slide" ${content.galleryType == 'gallery-type-slide' ? 'checked' : ""}> 
+                            <span class="gallery-layout-box">슬라이드형</span>
+                          </label>
                       </div>
                       <div class="tabs-4-1-gallery-upload pb-3 border">
                         <h3 class="section-title">갤러리 사진 업로드</h3>
@@ -538,6 +564,7 @@
                       </div>
                     </div>
                   </div>
+                 </div>
                   <!-- 하위 탭 4-2 동영상 -->
                   <div id="tabs-4-2">
                     <div class="d-flex justify-content-end align-items-center mb-3">
@@ -639,8 +666,11 @@
                   <!-- 하위 탭 6-3 SNS 공유 -->
                   <div id="tabs-6-3">
                     <div class="d-flex justify-content-end align-items-center mb-3">
-                      <span>SNS 공유하기 사용</span>
-                      <input type="checkbox" class="ml-2 snsShereChk" value="${content.snsShareChk}" name="sns-share-chk" onclick="chkFuc('sns-share-chk','sns-share-chk-div')" ${content.snsShareChk == 1 ? 'checked' : ""}>
+                      <input class="onoff-box" type="checkbox" id="toggle6" class="ml-2" checked="checked" name="sns-share-chk" 
+							onclick="chkFuc('sns-share-chk', 'sns-share-chk-div')" ${content.snsShareChk == 1 ? 'checked' : ""}/>
+						<div class="onoff-button">
+						  <label class="onoff" for="toggle6"></label>
+						</div>
                     </div>
                     <div class="sns-share-chk-div">
                       <div class="tabs-6-3-selectSNS pb-3 border">
@@ -653,44 +683,44 @@
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-01'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakao_icon.png');">
+	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakao_icon.png');" for="select-sns-01">
 									<div class="sns-check-box">
-										<label class="sns-check-label" for="select-sns-01"></label>
+										<div class="sns-check-label"></div>
 									</div>
-								</div>  
+								</label>  
 							  </div>
 							  <div class="form-check form-check-inline">
 								<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-02" value="select-sns-02"
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-02'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakaoStory_icon.png');">
+	                            <lavel class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakaoStory_icon.png');" for="select-sns-02">
 									<div class="sns-check-box">
-										<label class="sns-check-label" for="select-sns-02"></label>
+										<div class="sns-check-label"></div>
 									</div>
-								</div>  
+								</label>  
 							  </div>
 							  <div class="form-check form-check-inline">
 								<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-03" value="select-sns-03"
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-03'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/naverBand_icon.png');">
+	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/naverBand_icon.png');" for="select-sns-03">
 									<div class="sns-check-box">
-										<label class="sns-check-label" for="select-sns-03"></label>
+										<div class="sns-check-label"></div>
 									</div>
-								</div>  
+								</label>  
 							  </div>
 							  <div class="form-check form-check-inline">
 								<input class="form-check-input selectSns select-sns" name="select-sns" type="checkbox" id="select-sns-04" value="select-sns-04"
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-04'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <div class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/facebook_icon.png');">
+	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/facebook_icon.png');" for="select-sns-04">
 									<div class="sns-check-box">
-										<label class="sns-check-label" for="select-sns-04"></label>
+										<div class="sns-check-label"></div>
 									</div>
-								</div>  
+								</label>  
 							  </div>
                           </div>
                         </div>

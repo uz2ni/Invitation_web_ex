@@ -1,0 +1,582 @@
+/* edit.css */
+/*작성일 : 18.05.07 ~ 05.15
+ *작성자 : 송유진
+ *기능 : 편집 툴 페이지 CSS
+*/
+
+* {
+  text-decoration: none;
+  list-style: none;
+}
+a:hover {
+  text-decoration: none !important;
+}
+/* 상단 header */
+header {
+    height: 6vh;
+}
+header * {
+    font-size: 13px;
+}
+.header-btn {
+    font-size: 13px !important;
+    height: 30px;
+}
+.url-info {
+    height: 30px;
+}
+.url-info > a {
+    color: #444;
+    text-decoration: none;
+}
+.url-info > a:hover {
+    color: #444;
+    text-decoration: none;
+}
+.use-period {
+    height: 30px;
+}
+.btn-exit{
+    color: #A9A9A9;
+    text-decoration: none;
+}
+.btn-exit:hover{
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+/* section */
+section {
+    top: 6vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ui block - 왼쪽 */
+.ui-block {
+    background-color: #ccc;
+    top: 6vh;
+    left: 0;
+    right: 574px;
+    bottom: 0;
+    min-width: 360px;
+    z-index: 10;
+}
+.ui-block > .preview-wrap {
+  min-height: 100%;
+}
+.ui-block > .preview-wrap > img{
+  height: 90vh;
+  min-height: 550px;
+}
+.privew_frame {
+  width: 40vh;
+  height: 70vh;
+  min-width: 240px;
+  min-height: 425px;
+  overflow: scroll;
+}
+
+/* edit block - 오른쪽 */
+.edit-block {
+    top: 6vh;
+    right: 0;
+    bottom: 0;
+    width: 574px;
+    z-index: 20;
+}
+.edit-block-tab {
+    width: 84px;
+    min-height: 100%;
+    background-color:#565656;
+}
+.edit-block-tab > ul > li > a > span {
+  display: block;
+  width: 84px;
+  height: 70px;
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*font-weight: bold;*/
+  font-size: 12px;
+  color: white;
+  /*background: url('http://via.placeholder.com/84x70') 0 0 no-repeat;*/
+  cursor: pointer;
+}
+.edit-block-content {
+    width: 490px;
+    background-color: #fff;
+}
+.edit-block-content-box {
+    width: 490px;
+    top: 50px;
+    bottom: 50px;
+    right: 0;
+    background-color: #fff;
+    padding: 0;
+    overflow: auto;
+    overflow-y: scroll;
+}
+.edit-block-content-box > div {
+  border:1px solid black;
+  max-height: 100vh;
+  overflow: scroll;
+}
+.sub-tab-top {
+  height: 6vh;
+  background-color: #f0f0f0;
+}
+.sub-tab-section {
+}
+.sub-tab-top > ul > li span {
+  display: block;
+  width: 80px;
+}
+#tabs-1-1 input[type='checkbox'] {
+  /* display: none; */
+}
+
+.four { width: 32.26%; max-width: 32.26%;}
+
+.col {
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+
+.col:first-of-type { margin-left: 0; }
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+/* FORM */
+
+.form .plan li .hovereffect .overlay input{
+	display: none;
+}
+
+/*클릭시 css*/
+
+.form .plan li .hovereffect .overlay input:checked + label{
+  background-color:#f05228;
+  color:white;
+  border-radius:5px;
+} 
+
+.form .plan li .hovereffect .overlay input:checked + label:after{
+	content: "\2713";
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 0px solid #f05228;
+	background-color: #333;
+	z-index: 999;
+	position: absolute;
+	top: -50px;
+	right: -0px;
+}
+
+
+/*추추추추추가가가가가가*/
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  background-color: rgba(0,0,0,0.5);
+  -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+  transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+  transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  background: rgba(0,0,0,0.6);
+  -webkit-transform: translatey(-100px);
+  -ms-transform: translatey(-100px);
+  transform: translatey(-100px);
+  -webkit-transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+  transition: all 0.4s cubic-bezier(0.88,-0.99, 0, 1.81);
+  padding: 10px;
+}
+
+.hovereffect a.info {
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  margin: 50px 0 0;
+  padding: 7px 14px;
+}
+
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect:hover img {
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.hovereffect:hover h2,.hovereffect:hover a.info {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-transform: translatey(0);
+  -webkit-transform: translatey(0);
+  transform: translatey(0);
+}
+
+.hovereffect:hover a.info {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+
+/* 상단 선택 */
+.section-title {
+  font-size: 1.1rem;
+  color: #656565;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+/* 제목 색상 */
+/*작성자 : 박민정 
+*/
+.color-check-input[type="radio"] {
+  display: none;
+}
+
+.color-check-input[type="radio"]:checked ~ .color-box .form-check-label {
+  border:3px double white;
+}
+.color-check-input[type="radio"]:checked ~ .color-box .color-white {
+  border:3px double gray;
+}
+.color-check-input[type="radio"]:checked ~ .color-box .color-yellow {
+  border:3px double gray;
+}
+
+.color-white {
+  height: 30px;
+  width: 30px;
+  background: #f5f5f5;
+  border:1px solid #f2f2f2;
+  cursor: pointer;
+}
+.color-red {
+  height: 30px;
+  width: 30px;
+  background: red;
+  cursor: pointer;
+}
+.color-yellow {
+  height: 30px;
+  width: 30px;
+  background: yellow;
+  cursor: pointer;
+}
+.color-green {
+  height: 30px;
+  width: 30px;
+  background: green;
+  cursor: pointer;
+}
+.color-blue {
+  height: 30px;
+  width: 30px;
+  background: blue;
+  cursor: pointer;
+}
+.color-black {
+  height: 30px;
+  width: 30px;
+  background: black;
+  cursor: pointer;
+}
+
+/* 제목 정렬 */
+/*작성자 : 박민정 
+*/
+.name-position[type="radio"] {
+  display: none;
+}
+
+.name-position-check {
+  border-radius: 5px;
+}
+
+.name-position-check {
+  height: 30px;
+  width: 30px;
+  background: gray;
+  position: absolute;
+  cursor: pointer;
+}
+
+.name-position-check::before {
+  content: '';
+  height: 10px;
+  width: 3px;
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 2.5px);
+  transform: rotate(45deg);
+}
+
+.name-position-check::after {
+  content: '';
+  height: 3px;
+  width: 10px;
+  position: absolute;
+  top: calc(50% - 2.5px);
+  left: calc(50% - 30px);
+  transform: rotate(45deg);
+  
+}
+
+.name-position[type="radio"]:checked ~ .name-position-box .name-position-check::before{
+  height: 20px;
+  top: calc(55% - 12px);
+  left: calc(60% - 1px);
+  background: white;
+}
+.name-position[type="radio"]:checked ~ .name-position-box .name-position-check::after{
+  width: 10px;
+  top: calc(95% - 12px);
+  left: calc(22.5% - 2.5px);
+  background: white;
+}
+.name-position[type="radio"]:checked ~ .name-position-box .name-position-check{
+  background:#69c3d1;
+}
+/*말풍선*/
+a.tooltips {
+	position: relative;
+	display: inline;
+}
+a.tooltips span {
+	position: absolute;
+	width: 120px;
+	color: #FFFFFF;
+	background: #333;
+	height: 25px;
+	line-height: 20px;
+	text-align: center;
+	display: none;
+	border-radius: 6px;
+	font-weight:bold;
+	font-size:14px;
+}
+a.tooltips span:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+	width: 0;
+	height: 0;
+	border-top: 8px solid #333;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+a:hover.tooltips span {
+	display: block;
+	opacity: 1.0;
+	bottom: 6px;
+	left: 50%;
+	margin-left: -45px;
+	z-index: 999;
+}
+
+/* 상세 정보 */
+.textarea-welcome {
+  height: 120px;
+}
+
+/* 위치정보*/
+.custom-file-input {
+	cursor:pointer;
+}
+/* 카카오톡 공유 문구 */
+.textarea-content {
+  height: 200px;
+}
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+
+
+/*갤러리 사용 유무 버튼*/
+/*작성자 : 박민정 
+*/
+*::before,
+*::after {
+  transition: 400ms all ease-in-out 50ms;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+.onoff-box[type="checkbox"] {
+  display: none;
+}
+
+.onoff-box[type="checkbox"]:checked ~ .onoff-button {
+  background: rgba(240,82,40,1);
+  box-shadow: 0 0 2px rgba(240,82,40,1);
+}
+
+.onoff-box[type="checkbox"]:checked ~ .onoff-button .onoff {
+  left: 29px;
+  transform: rotate(360deg);
+}
+
+.onoff-button,
+.onoff {
+  border-radius: 50px;
+}
+
+.onoff-button {
+  height: 20px;
+  width: 50px;
+  background: rgba(191, 192, 192, 1);
+  position: relative;
+  box-shadow: 0 0 2px rgba(191, 192, 192,1);
+  
+}
+
+.onoff {
+  height: 17px;
+  width: 17px;
+  background: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 1px;
+  left: 3px;
+  cursor: pointer;
+}
+
+.onoff::before,
+.onoff::after{
+  background: rgba(43,43,43,1);
+  border-radius: 5px;
+}
+/*계좌연동*/
+.custom-select {
+	cursor:pointer;
+}
+
+/*공유 아이콘*/
+.select-sns[type="checkbox"] {
+  display: none;
+}
+
+.sns-check-label {
+  border-radius: 5px 0px 5px 5px;
+  height: 25px;
+  width: 25px;
+  /*border:3px solid #f0771f;*/
+  position: absolute;
+  cursor: pointer;
+}
+
+.sns-check-label::before {
+  content: '';
+  height: 10px;
+  width: 3px;
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 2.5px);
+  transform: rotate(45deg);
+}
+
+.sns-check-label::after {
+  content: '';
+  height: 3px;
+  width: 10px;
+  position: absolute;
+  top: calc(50% - 2.5px);
+  left: calc(50% - 30px);
+  transform: rotate(45deg);
+  
+}
+
+.select-sns[type="checkbox"]:checked ~ .sns-icon-box .sns-check-box .sns-check-label::before{
+  height: 19px;
+  top: calc(55% - 13px);
+  left: calc(60% - 1px);
+  background: white;
+}
+.select-sns[type="checkbox"]:checked ~ .sns-icon-box .sns-check-box .sns-check-label::after{
+  width: 9px;
+  top: calc(95% - 12px);
+  left: calc(22.5% - 4px);
+  background: white;
+}
+.select-sns[type="checkbox"]:checked ~ .sns-icon-box .sns-check-box .sns-check-label {
+  background:#f05228;
+}
+.select-sns[type="checkbox"]:checked ~ .sns-icon-box {
+  border:3px solid #f05228;
+}
+
+.sns-icon-box{
+  width: 80px;
+  height: 80px;
+  background-size:cover;
+  cursor: pointer;
+  border-radius:10px;
+}
+

@@ -44,7 +44,7 @@ private static UserDBBean instance = new UserDBBean();
 		
 		// id로 비밀번호 조회해서 가져온다.	
 		try { 
-    		dbPw = (sqlSession.selectOne("com.test.Builder.sqlmap.UserMap.userSelectPw", email)) == null ? "null" : (sqlSession.selectOne("com.test.Builder.sqlmap.UserMap.userSelectPw", email));
+    		dbPw = (String) ((sqlSession.selectOne("com.test.Builder.sqlmap.UserMap.userSelectPw", email)) == null ? "null" : (sqlSession.selectOne("com.test.Builder.sqlmap.UserMap.userSelectPw", email)));
     		if(dbPw.equals("null")) { // id가 존재하지 않는 경우
     			chk = -1;
     		}else if(dbPw.equals(pw)) { // dbPw와 입력한 pw가 같은 경우

@@ -393,3 +393,28 @@ function tossButton() {
 
 	request.send(JSON.stringify(body));
 }
+
+//생성일 : 18.07.23
+//작성자 : 박민정
+//함수 기능 : 메뉴 클릭시 class 'on' 추가하여 이미지 변환
+$('.tabs').click(function(){
+	var $this = $(this);
+	var tabId = $this.attr('id');
+	var tabPanel = tabId.replace('tabs_', 'tab_');
+	var selectedTab = tabPanel.replace('tab_','');
+
+	$('.uitabs').hide();
+	$('.tabs').removeClass('on');
+	$this.addClass('on');
+
+	$('#' + tabPanel).show();
+	$('#now_section').val(selectedTab);
+
+	if(tabId === 'tabs_basicinfo' ||
+	   tabId === 'tabs_basicinfo2' ||
+	   tabId === 'tabs_basicinfo3') {
+		maps_initialize()
+	}
+	//move_pop_preview(selectedTab);
+});
+

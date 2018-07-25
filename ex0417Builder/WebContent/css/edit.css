@@ -95,15 +95,28 @@ section {
   display: block;
   width: 84px;
   height: 70px;
-  background-size: 40px;
-  background-position: center;
-  background-repeat: no-repeat;
-  /*font-weight: bold;*/
   font-size: 12px;
   color: white;
-  /*background: url('http://via.placeholder.com/84x70') 0 0 no-repeat;*/
+  background-image: url('../img/content/edit_img/page_img/edit_side_menu.png');
+  background-size: 168px;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
+
+.edit-block-tab > ul > li > a.tab_m1 span {background-position: 0px 0px;}
+.edit-block-tab > ul > li > a.tab_m2 span {background-position: 0px -70px;}
+.edit-block-tab > ul > li > a.tab_m3 span {background-position: 0px -140px;}
+.edit-block-tab > ul > li > a.tab_m4 span {background-position: 0px -210px;}
+.edit-block-tab > ul > li > a.tab_m5 span {background-position: 0px -280px;}
+.edit-block-tab > ul > li > a.tab_m6 span {background-position: 0px -350px;}
+
+.edit-block-tab > ul > li > a.tab_m1 .on {background-position: -84px 0; }
+.edit-block-tab > ul > li > a.tab_m2 .on {background-position: -84px -70px;}
+.edit-block-tab > ul > li > a.tab_m3 .on {background-position: -84px -140px;}
+.edit-block-tab > ul > li > a.tab_m4 .on {background-position: -84px -210px;}
+.edit-block-tab > ul > li > a.tab_m5 .on {background-position: -84px -280px;}
+.edit-block-tab > ul > li > a.tab_m6 .on {background-position: -84px -350px;}
+
 .edit-block-content {
     width: 490px;
     background-color: #fff;
@@ -127,16 +140,13 @@ section {
   height: 6vh;
   background-color: #f0f0f0;
 }
-.sub-tab-section {
-}
+
 .sub-tab-top > ul > li span {
   display: block;
   width: 80px;
 }
-#tabs-1-1 input[type='checkbox'] {
-  /* display: none; */
-}
 
+/* 스킨 선택 - 스킨 이미지 호버 css */
 .four { width: 32.26%; max-width: 32.26%;}
 
 .col {
@@ -176,7 +186,9 @@ section {
   color:white;
   border-radius:5px;
 } 
-
+.form .plan li .hovereffect .overlay input:checked + overlay{
+	opacity:1;
+}
 .form .plan li .hovereffect .overlay input:checked + label:after{
 	content: "\2713";
 	width: 40px;
@@ -190,8 +202,7 @@ section {
 	right: -0px;
 }
 
-
-/*추추추추추가가가가가가*/
+/*추가*/
 .hovereffect {
   width: 100%;
   height: 100%;
@@ -399,6 +410,7 @@ section {
 .name-position[type="radio"]:checked ~ .name-position-box .name-position-check{
   background:#69c3d1;
 }
+
 /*말풍선*/
 a.tooltips {
 	position: relative;
@@ -406,36 +418,68 @@ a.tooltips {
 }
 a.tooltips span {
 	position: absolute;
-	width: 120px;
 	color: #FFFFFF;
-	background: #333;
-	height: 25px;
-	line-height: 20px;
+	background: rgba(33,33,33,0.8);
+	line-height: 30px;
 	text-align: center;
 	display: none;
 	border-radius: 6px;
-	font-weight:bold;
 	font-size:14px;
 }
 a.tooltips span:after {
 	content: '';
 	position: absolute;
 	top: 100%;
-	left: 50%;
 	margin-left: -8px;
 	width: 0;
 	height: 0;
 	border-top: 8px solid #333;
+	opacity:0.8;
 	border-right: 8px solid transparent;
 	border-left: 8px solid transparent;
 }
 a:hover.tooltips span {
 	display: block;
 	opacity: 1.0;
-	bottom: 6px;
 	left: 50%;
-	margin-left: -45px;
 	z-index: 999;
+}
+/*말풍선-제목정렬*/
+.array {
+	width: 95px;
+	height: 30px;
+}
+.array:after {
+	left: 20%;
+}
+a:hover.tooltips .array {
+	margin-left: -5px;
+	bottom: 10px;
+}
+
+/*말풍선-상단이미지배치방식*/
+.img-place {
+	width: 115px;
+	height: 30px;
+}
+.img-place:after {
+	left: 20%;
+}
+a:hover.tooltips .img-place {
+	margin-left: -55px;
+	bottom: 77px;
+}
+/*말풍선-갤러리ON/OFF*/
+.onoff-tooltip {
+	width: 145px;
+	height: 30px;
+}
+a:hover.tooltips .onoff-tooltip {
+	margin-left: -105px;
+	bottom: 30px;
+}
+.onoff-tooltip:after {
+	left: 70%;
 }
 
 /* 상세 정보 */
@@ -513,6 +557,38 @@ a:hover.tooltips span {
   background: rgba(43,43,43,1);
   border-radius: 5px;
 }
+
+/*갤러리종류선택*/
+.gallery-layout{
+	width:80px;
+	height:80px;
+	background-color:#8888;
+  	cursor: pointer;
+}
+.gallery-layout input{
+	display: none;
+}
+
+.gallery-layout span {
+    display: block;
+    width: 64px;
+    height: 48px;
+    margin: 1px 0 0 6px;
+    background: url('../img/content/edit_img/page_img/gallery_layout.png') no-repeat;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+#basic span {background-position: 18px 0px;}
+#circle span {background-position: -35px 0px;}
+#slide span {background-position: -103px 0px;}
+
+.gallery-layout input:checked + .gallery-layout-box{
+  background-color:#f0771f;
+} 
+
+
 /*계좌연동*/
 .custom-select {
 	cursor:pointer;
@@ -569,7 +645,7 @@ a:hover.tooltips span {
   background:#f05228;
 }
 .select-sns[type="checkbox"]:checked ~ .sns-icon-box {
-  border:3px solid #f05228;
+  border:2px solid #f05228;
 }
 
 .sns-icon-box{
@@ -579,4 +655,3 @@ a:hover.tooltips span {
   cursor: pointer;
   border-radius:10px;
 }
-
