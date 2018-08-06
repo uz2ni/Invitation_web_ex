@@ -120,6 +120,7 @@ section {
 .edit-block-content {
     width: 490px;
     background-color: #fff;
+    overflow: scroll;
 }
 .edit-block-content-box {
     width: 490px;

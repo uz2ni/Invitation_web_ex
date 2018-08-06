@@ -2,33 +2,88 @@
 
 /* service_2 css */ 
 
-
-/*버튼 클릭시 하트 색상 채워지기*/
-.checkbox input[type='checkbox'] {
-	display: none; /* 실제 라디오버튼 없애기 */
+/*팝업창*/
+.mainname {
+  color:#2d62cd;
+  font-size:17px;
+}
+.sidename{
+  font-size: 13px;
+}
+.profile{
+  border: 1px solid #b0afaf; 
+  border-radius: 100%; 
+  width: 50px; 
+  height: 50px; 
+}
+.popup-badge{
+	font-size:13px;
+  background-color: #b0afaf; 
+}
+.popup-badge:hover{
+  background-color: #6e9cf8;
+}
+/*하트*/
+.likeCheck input[type='checkbox'] {
+	display: none;
 }
 
-.checkbox input[type='checkbox']+label::before { /* 가짜 라디오버튼 만들기 */
+.likeCheck input[type='checkbox']+label::before { 
 	content: ' ';
 	display: inline-block;
-	width: 22px;
-	height: 17.6px;
-	vertical-align: middle; /* img 아이콘 항상 세로정렬을 하기 위함 */
-	margin: -5px 10px 0 0;
-	background: url('../img/common/heart_3.png');
+	width: 24px;
+	height: 23px;
+	vertical-align: middle;
+	background: url('../img/info/look/likeComent.png');
+	background-size:80px 23px;
+	cursor:pointer;
 }
 
-.checkbox input[type='checkbox']:checked+label::before { /* 가짜 라디오버튼 체크했을 때 */
- 	background-position: 22.15px 0;
-	width: 22px;
-	height: 17.6px;
-	background: url('../img/common/heart.png');
+#likeCheck[type='checkbox']:checked+label::before {
+	background-position: -24px 0;
+}
+#commentCheck[type='checkbox']+label::before {
+  background-position: -52px 0;
+}
+#commentCheck[type='checkbox']:checked+label::before {
+	background-position: -52px 0;
+}
+
+/*댓글폼*/
+.comment-bg{
+  position: relative;
+  height: 8vh;
+  background: #F2F2F2; 
+  border: 1px solid #E8E8E8;
+}
+
+.comment-bg:after, .comment-bg:before {
+	right: 100%;
+	top: 35%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.comment-bg:after {
+	border-color: rgba(242, 242, 242, 0);
+	border-right-color: #F2F2F2;
+	border-width: 10px;
+	margin-top: -10px;
+}
+.comment-bg:before {
+	border-color: rgba(0, 0, 0, 0);
+	border-right-color: #E8E8E8;;
+	border-width: 11px;
+	margin-top: -11px;
 }
 
 .container {
   position: relative;
   overflow: hidden;
-
 }
 .card-img-top{
     opacity: 1.0;

@@ -49,7 +49,6 @@ public class Controller extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("init진입");
 		//initParams에서 propertyConfig의 값을 읽어옴
 		String props = config.getInitParameter("propertyConfig");
 		String realFolder = "/property"; //properties 파일이 저장된 폴더
@@ -69,7 +68,6 @@ public class Controller extends HttpServlet {
 			f = new FileInputStream(realPath);
 			//command.properties의 내용을 Properties 객체 pr에 저장
 			pr.load(f);
-			System.out.println("try끝");
 		}catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -87,7 +85,6 @@ public class Controller extends HttpServlet {
 				Class<?> commandClass = Class.forName(className);
 				Object commandInstance = commandClass.newInstance();
 				commandMap.put(command, commandInstance);
-				System.out.println("try2끝");
 			}catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}catch (InstantiationException e) {
@@ -103,7 +100,6 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("doGet()");
 		requestPro(request, response); //요청 처리 메소드 호출
 		
 	}
@@ -114,20 +110,16 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		requestPro(request, response); //요청 처리 메소드 호출
-		System.out.println("doPost()");
 	}
 	
 	//웹 브라우저의 요청을 분석하고, 해당 로직의 처리를 할 모델 실행 및 처리 결과를 뷰에 보냄
 	private void requestPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("requestPro진입");
 		String view = null;
 		CommandAction com = null;
 		try {
 			String command = request.getRequestURI();
-			System.out.println("command되나");
 			if(command.indexOf(request.getContextPath()) == 0)
 				command = command.substring(request.getContextPath().length());
-			System.out.println("command:"+command);
 			com = (CommandAction)commandMap.get(command);
 			System.out.println("com:"+com);
 			// commandAction의 requestPro 메소드 호출
@@ -138,7 +130,6 @@ public class Controller extends HttpServlet {
 		}
 		request.setAttribute("cont", view);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -155,8 +155,8 @@ public class ContentEditProAction implements CommandAction {
         // 멀티미디어 - 동영상
         content.setVideoChk(chkbox(multi, "video-chk"));
         content.setVideoLink(multi.getParameter("video-link").trim());
-        System.out.println("되나요?6");
-
+        System.out.println("video-link:" + content.getVideoLink());
+       
         // 계좌 연동
         content.setAccountChk(chkbox(multi, "account-chk"));
         content.setAccountSelect(Integer.parseInt(multi.getParameter("account-select")==null ? "0" : multi.getParameter("account-select")));

@@ -17,6 +17,9 @@ function checkUrl(urlId, title, url) {
 	inputUrlId.val(urlId);
 }
 
+// 작성일 : 18.07.23
+// 작성자 : 송유진
+// 함수 기능 : 기존 comment select
 function commentInit() {
 	let wraps = $(".look-comment-wrap"); // div list
 	for(var i=0; i<wraps.length; i++) {
@@ -36,24 +39,33 @@ function commentSelect(lookId) {
 		}
 	}).done(function(data) {
 		console.log(data["cmts"]);
-		commentRemove(lookId);
+		$("#look-" + lookId).empty(); //select 전 초기화시키기
 		// Select append
 		for(var i=0; i<data["cmts"].length; i++) {
-			$("#look-" + lookId).append("<p id='look-" + lookId + "-comment-" + data["cmts"][i]["lookCmtId"] + "'>" + 
-				"<span>" + data["cmts"][i]["lookCmtUserName"] + "</span> :" +
-				"<span>" + data["cmts"][i]["lookCmtComment"] + "</span>" +
-				"</p>");
+			$("#look-" + lookId).append(
+					"<div id='look-" + lookId + "-comment-" + data["cmts"][i]["lookCmtId"] + "' class='d-flex py-1'>" +
+						"<div class='col-2 p-0'>" +
+							"<div class='profile'>" +
+							"</div>" +
+						"</div>" +
+						"<div class='comment-bg col-10' style='border-radius:10px;'>" +
+							"<span style='font-weight:bold; color:#2d62cd;'>" +
+							data["cmts"][i]["lookCmtUserName"] +
+							"</span>" +
+							"<div>" +
+							data["cmts"][i]["lookCmtComment"] +
+							"</div>" +
+						"</div>" +
+					"</div>");
 		}
 	});
 }
 
-function commentRemove(lookId) {
-	$("#look-" + lookId).empty();
-}
-
-// comment insert AJAX
+// 함수 기능 : comment insert
 function commentInsert(lookId) {
 	let lookCmtComment = $("#look-cmt-comment-"+lookId).val();
+	console.log(lookCmtComment);
+	console.log(lookId);
 	$("#look-cmt-comment-"+lookId).val(""); // 값 초기화
 	
 	jQuery.ajax({

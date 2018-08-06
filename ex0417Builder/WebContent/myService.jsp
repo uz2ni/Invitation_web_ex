@@ -39,7 +39,7 @@
 <article class="center col-8 text-center">
 
 	<!--part1-->
-	<div class="col" style="height:95vh">
+	<div class="col">
       <h4 class="title text-left my-2">나의 서비스</h4>
       <div class="row" style="height:30vh; margin-top:30px;">
                 <div class="form-group offset-sm-3 col-sm-3">
@@ -62,7 +62,7 @@
         <div class="row">
           <!-- url list -->
 		  <c:forEach var="content" items="${contents}">
-	          <div class="ex1 col-md-4" style="height:320px;">
+	          <div class="ex1 col-md-4 py-3">
 	            <div class="container px-0">
 	              <img class="card-img-top mx-0" src="${content.topImgFile}" width="280" height="300"/>
 	              <div class="overlay">

@@ -184,8 +184,6 @@ function requestPay(userId, pdName) { //유저아이디, 상품명
 			var msg = '아직 제대로 결제가 되지 않았습니다.';
 		}
 	});
-	
-	// 2) IMP.request_pay 호출
 }
 
 // json값, db에 넣을 값 정리
@@ -271,7 +269,9 @@ function openPay(result) {
 	    			msg += '\n결제 금액 : ' + rsp.paid_amount;
 	    			msg += '카드 승인번호 : ' + rsp.apply_num;
 	    			
-	    			alert(msg);
+	    			console.log(msg);
+	    			
+	    			window.location.href = "/"; 
 	    			
 	    			
 	    		} else {

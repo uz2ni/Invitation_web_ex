@@ -146,12 +146,13 @@
 									<!--하트 수/댓글 수/조회 수_end-->
 								</div>
 							</div>
+							
 							<!--click-->
-							<div class="modal modal-center fade" id="look-modal-${look.lookId}" tabindex="-1"
-								role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal modal-center" id="look-modal-${look.lookId}" tabindex="-1"
+										role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog modal-center modal-fullsize modal-lg"
-									role="document">
-									<div class="modal-content modal-fullsize">
+											role="document" style="height:100vh;">
+									<div class="modal-content modal-fullsize" style="height:100%;">
 										<div class="modal-header" style="background: #333333;">
 											<button type="button" class="close" data-dismiss="modal"
 												aria-label="Close">
@@ -160,87 +161,91 @@
 											<h4 class="modal-title" id="myModalLabel"></h4>
 										</div>
 										<div class="modal-body d-flex">
-											<div class="col-6" style="border: 1px solid #dcd9d9;">
-												<div class="h-100">
+											<div class="col-6 p-0" style="border: 1px solid #dcd9d9;">
+												<div style="width: 100%; height: 100%; overflow-y: scroll;">
 													<iframe src="skin/skin1/index.html" width="100%" height="100%" frameborder="0" scroll="auto" id="preview_iframe"></iframe>
 												</div>
 											</div>
-											<div class="col-6" style="border: 1px solid #dcd9d9; font-size: 1.5em;">
-												<div style="width: 100%; height: 100%; overflow-y: scroll;">
-													<div class="d-flex pt-1" style="height: 7vh;">
-														<div class="col-2 p-1">
-															<div
-																style="border: 1px solid #dcd9d9; border-radius: 100%; width: 45px; height: 45px; margin-top: -2px;"></div>
+											<div class="col-6 p-0" style="border: 1px solid #dcd9d9;">
+												<div style="width: 100%; height: 100%;">
+													<div class="d-flex pt-1" style="height:10%;">
+														<div class="col-2 pl-3 pt-1">
+															<div class="profile" style="margin-top: 2px;"></div>
 														</div>
-														<div class="col-10">
-															<div style="font-weight: bold;">${look.lookTitle}</div>
-															<div style="font-size: 12px;">박민정</div>
-														</div>
-													</div>
-													<div class="" style="height: 17vh;">
-														<span class="badge"
-															style="background-color: #dcd9d9; color: #2d62cd;">${look.lookHashTag}</span>
-													</div>
-													<HR>
-													<div class="d-flex" style="height: 4vh;">
-														<div class="col-4"></div>
-														<div class="col-4"
-															style="font-weight: bold; color: #333333;">
-															<img src="./img/info/look/comment.png" width="15"
-																height="15" />댓글달기
-														</div>
-														<div class="col-4 text-right">
-														<!--하트-->
-														<fieldset class="radio">
-															<input type="radio" name="frontend" value="high"
-																id="high"> <label for="high"></label>
-														</fieldset>
-														<!--하트_end-->
-														</div>
-													</div>
-													<div class="d-flex" style="height: 4vh;">
-														<div class="d-flex col-8 px-0">
-																<div class="mx-1">
-																	<img src="./img/info/look/like_2.png" width="15"
-																		height="15" />
-																</div>
-																<span>12</span>
-																<div class="mx-1">
-																	<img src="./img/info/look/comment_2.png" width="15"
-																		height="15" />
-																</div>
-																<span>12</span>
-																<div class="mx-1">
-																	조회수
-																</div>
-																<span>120</span>
-														</div>
-													</div>
-													
-													<div class="d-flex"
-														style="height: 8vh; background: #dcd9d9; border: 1px solid #b0afaf;">
-														<div class="col-2 p-2">
-															<div
-																style="border: 1px solid #b0afaf; border-radius: 100%; width: 45px; height: 45px; margin-top: -2px;"></div>
-														</div>
-														<div class="col-10 pt-3">
-															<div>
-																<input type="text" name="look-cmt-comment" id="look-cmt-comment-${look.lookId}"
-																	style="width: 250px; border-radius: 15px 15px 15px 15px;"
-																	placeholder=" 댓글을 입력하세요...">
-																<button onclick="commentInsert(${look.lookId})">입력</button>
+														<div class="col-10 mt-2">
+															<div class="mainname">${look.lookTitle}</div>
+															<div class="sidename">박민정</div>
+															<div class="sidename d-flex justify-content-end">
+																 <div class="mx-1">
+																		조회수&nbsp;<span>120</span>
+																	</div>
+																	<div class="mx-1">
+																		등록&nbsp;<span>${look.lookRegTime}</span>
+																	</div>
 															</div>
 														</div>
 													</div>
-													<div id="look-${look.lookId}" class="look-comment-wrap" style="height: 30vh; border: 1px solid #b0afaf; overflow:scroll;">
-<%-- 														<c:forEach items="${cmts}" var="cmt">
-															<c:if test="${look.lookId == cmt.lookId}">
-																<p id="look-comment-${cmt.lookCmtId}"><span>${cmt.lookCmtUserName}</span> : <span>${cmt.lookCmtComment}</span></p>
-															</c:if>
-														</c:forEach>
- --%>													</div>
+													<hr>
+													<div class="pl-2" style="height: 25%;">
+														<span class="popup-badge badge">${look.lookHashTag}</span>
+														<div>${look.lookTitle}</div>
+													</div>
 													
-
+													<HR>
+													 <!--하트-->
+													 <div class="d-flex px-2 mb-3" style="height: 3%;">
+																<fieldset class="likeCheck pr-2">
+  																<input type="checkbox" name="frontend" value="likeCheck" id="likeCheck">
+  																	    <label class="m-0" for="likeCheck"></label><span>${look.lookHit}</span>
+																</fieldset>
+																<fieldset class="likeCheck">
+  																<input type="checkbox" name="frontend" value="commentCheck" id="commentCheck">
+  																<label class="m-0" for="commentCheck"></label><span>12</span>
+																</fieldset>
+														</div>
+													<!--댓글폼-->
+													 <div class="d-flex comment-box" style="background: #F2F2F2; height:15%;">
+ 														<div class="col-2 pl-2 pt-2 mt-1">
+  															<div class="profile" style="margin-top: 2px;">
+  															</div>
+  														</div>
+														<div class="col-10 mt-3 px-1">
+  															
+  																<% if(session.getAttribute("user") == null) { %>
+	  																<div class="d-flex">
+	  																	<input readonly type="text" name="look-cmt-comment" id="look-cmt-comment-${look.lookId}" class="mr-1"
+	   																		style="width: 270px; border-radius: 5px; background: #d6d6d6;"
+	   																		placeholder="로그인 후, 댓글 작성이 가능합니다.">
+	   																	<button disabled type="button" onclick="commentInsert(${look.lookId})" class="btn btn-sm btn-danger">등 록</button>
+	   																</div>
+   																	<p style="font-size:12px;">댓글을 게시하려면 로그인을 해주세요.</p>
+  																<% }else { %>
+	  																<div class="d-flex">
+	  																	<input type="text" name="look-cmt-comment" id="look-cmt-comment-${look.lookId}" class="mr-1"
+	   																		style="width: 270px; border-radius: 5px;"
+	   																		placeholder="댓글을 작성하세요.">
+	   																	<button type="button" onclick="commentInsert(${look.lookId})" class="btn btn-sm btn-danger">등 록</button>
+	   																</div>
+	   																<p style="font-size:12px;">댓글을 게시하려면 등록 버튼을 눌러주세요.</p>
+  																<% } %>
+														</div>
+													  </div>
+													<!--댓글리스트-->
+													<div class="" style="height: 34%; border: 1px solid #b0afaf; overflow:scroll;">
+														 <!--*댓글이 없을 때-->
+														 <!--
+														 <div class="m-5 text-center">
+														   <img class="" src="./img/info/look/none_comment.png" style="width:200px; height:120px;">
+														 </div>
+														 -->
+														 <!--*댓글이 있을 때-->
+														 <div class="px-2" style="color:#727272;">
+														    이전 댓글 보기
+														 </div>
+														 <div id="look-${look.lookId}" class="p-2 look-comment-wrap" style="border: 1px solid #b0afaf;">
+														 </div>
+														 <!--댓글_end-->
+													 </div>
 												</div>
 											</div>
 										</div>

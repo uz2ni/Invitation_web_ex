@@ -284,13 +284,15 @@
                       <h3 class="section-title">상단 이미지</h3>
                       <div class="section-content">
                         <div class="custom-file">
+                        <!-- 
                           <input type="hidden" name="top-img-file-str" class="topImgFileStr" id="top-img-file-str" value="${content.topImgFile}">
                           <input type="hidden" name="top-img-file-addr" class="topImgFileAddr" id="top-img-file-addr" value="${uploadPath}">
+                        -->
                           <input type="file" class="custom-file-input" class="topImgFile" id="top-img-file" name="top-img-file" onchange="readURL(this);">
                           <label class="custom-file-label" for="top-img-file">선택</label>
                         </div>
                         <div class="top-img-preview-wrap">
-                        	<img src="#" class="top-img-preview" alt="상단 이미지 미리보기" height="150">
+                        	<img src="http://via.placeholder.com/100x100" class="top-img-preview" alt="상단 이미지 미리보기" height="150">
                         </div>
                       </div>
                     </div>
@@ -358,8 +360,8 @@
                       <div class="card">
                         <div class="card-body p-2 d-flex justify-content-between align-items-center">
                           <span>D-DAY 사용 여부</span>
-                          <input class="onoff-box" type="checkbox" class="ml-2" id="toggle8" checked="checked" name="info-dday-chk" 
-							onclick="chkFuc('dday-chk', 'dday-chk-div')" ${content.infoDdayChk == 1 ? 'checked' : ""}>
+                          <input class="onoff-box" type="checkbox" class="ml-2" id="toggle8" name="info-dday-chk" 
+							${content.infoDdayChk == 1 ? 'checked' : ""}>
 							<div class="onoff-button">
 							  <label class="onoff" for="toggle8"></label>
 							</div>
@@ -399,6 +401,9 @@
                           <input type="file" class="custom-file-input addInfoImgProfile" id="add-info-img-profile" name="add-info-img-profile">
                           <label class="custom-file-label" for="add-info-img-profile">발표자 프로필 선택</label>
                         </div>
+                        <div class="add-info-img-profile-preview-wrap">
+                        	<img src="http://via.placeholder.com/100x100" class="add-info-img-profile-preview" height="150">
+                        </div>
                       </div>
                     </div>
                     <div class="tabs-3-2-addInfoImgSit pb-3 border">
@@ -408,6 +413,9 @@
                         <div class="custom-file mt-1">
                           <input type="file" class="custom-file-input addInfoImgSit" id="add-info-img-sit" name="add-info-img-sit" value="${content.addInfoImgSit == '' ? '' : content.addInfoImgSit}">
                           <label class="custom-file-label" for="add-info-img-sit">자리 배치도 이미지 선택</label>
+                        </div>
+                        <div class="add-info-img-sit-preview-wrap">
+                        	<img src="http://via.placeholder.com/100x100" class="add-info-img-sit-preview" height="150">
                         </div>
                       </div>
                     </div>
@@ -439,6 +447,11 @@
                               <label class="custom-file-label" for="add-info-hold-img">주최 기관 로고 선택</label>
                             </div>
                           </div>
+                          <div class="col">
+	                        <div class="add-info-hold-img-preview-wrap">
+	                        	<img src="http://via.placeholder.com/100x100" class="add-info-hold-img-preview" height="150">
+	                        </div>
+                          </div>
                         </div>
                         <div class="form-row mb-1">
                           <div class="col">
@@ -449,6 +462,11 @@
                               <input type="file" class="custom-file-input addInfoHelpImg" id="add-info-help-img" name="add-info-help-img">
                               <label class="custom-file-label" for="add-info-help-img">후원 기관 로고 선택</label>
                             </div>
+                          </div>
+                          <div class="col">
+	                        <div class="add-info-help-img-preview-wrap">
+	                        	<img src="http://via.placeholder.com/100x100" class="add-info-help-img-preview" height="150">
+	                        </div>
                           </div>
                         </div>
                       </div>
@@ -462,7 +480,7 @@
                         <div class="input-group mb-3">
                           <input type="text" class="form-control infoAddress" placeholder="발표회 장소 주소" name="info-address" value="${content.infoAddress == '' ? '' : content.infoAddress}">
                           <div class="input-group-append">
-                            <button class="btn btn-info" type="button">검색</button>
+                            <button class="btn btn-info" name="info-address-btn" type="button">검색</button>
                           </div>
                         </div>
                         <img src="http://placehold.it/400x250" alt="지도" class="text-center">
@@ -487,13 +505,16 @@
                     <div class="tabs-3-2-infoLoadImg pb-3 border">
                       <div class="p-2 d-flex justify-content-between align-items-center">
                         <h3 class="section-title">약도 이미지</h3>
-                        <input type="checkbox" name="info-load-img-chk" value="${content.infoLoadImgChk}" class="infoLoadImgchk" checked="checked" onclick="chkFuc('info-load-img-chk', 'custom-file')" ${content.infoLoadImgChk == 1 ? 'checked' : ""}>
+                        <input type="checkbox" name="info-load-img-chk" value="${content.infoLoadImgChk}" class="infoLoadImgchk" checked="checked" onclick="chkFuc('info-load-img-chk', 'info-load-section')" ${content.infoLoadImgChk == 1 ? 'checked' : ""}>
                       </div>
-                      <div class="section-content">
+                      <div class="section-content info-load-section">
                         <!-- 약도 이미지 첨부 -->
                         <div class="custom-file mt-1">
                           <input type="file" class="custom-file-input infoLoadImg" id="info-load-img" name="info-load-img">
                           <label class="custom-file-label" for="info-load-img">약도 이미지 선택</label>
+                        </div>
+                        <div class="info-load-img-preview-wrap">
+                        	<img src="http://via.placeholder.com/100x100" class="info-load-img-preview" height="150">
                         </div>
                       </div>
                     </div>
@@ -561,6 +582,9 @@
                             <label class="custom-file-label" for="gallery-upload-img">갤러리 사진 선택</label>
                           </div>
                         </div>
+                        <div class="gallery-upload-img-preview-wrap">
+                        	<img src="http://via.placeholder.com/100x100" class="gallery-upload-img-preview" height="150">
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -575,7 +599,20 @@
                       <div class="tabs-4-1-video pb-3 border">
                         <h3 class="section-title">유튜브 공유 주소 입력</h3>
                         <div class="section-content">
-                          <input type="text" class="form-control videoLink" placeholder="유튜브 링크 주소" name="video-link" value="${content.videoLink == '' ? '' : content.videoLink}">
+                          <div class="input-group mb-3">
+                          	<input type="text" class="form-control videoLink" placeholder="유튜브 링크 주소" name="video-link" value="${content.videoLink == '' ? '' : content.videoLink}">
+                          	<div class="input-group-append">
+                            	<button class="btn btn-info" name="video-link-btn" type="button">완료</button>
+                        	</div>
+                          </div>
+                          <!-- 
+                          <div class="input-group mb-3">
+                          	<input type="text" class="form-control videoLink" placeholder="유튜브 링크 주소" name="video-link" value="${content.videoLink == '' ? '' : content.videoLink}">
+                          	<div class="input-group-append">
+                            	<button class="btn btn-info" name="video-link-btn" type="button">완료</button>
+                        	</div>
+                          </div>
+                          -->
                         </div>
                       </div>
                     </div>
@@ -596,6 +633,7 @@
                   <!-- 하위 5-0 -->
                   <div id="tabs-5-0">
                     <div class="d-flex justify-content-end align-items-center mb-3">
+                      <img src="img/content/edit_img/page_img/toss.jpg" width="50" alt="toss" style="margin-top:-10px" class="mr-1">
                       <span>계좌 연동</span>
                       <input type="checkbox" class="ml-2 accountchk" value="${content.accountChk}" name="account-chk" onclick="chkFuc('account-chk', 'account-chk-div')" ${content.accountChk == 1 ? 'checked' : ""}>
                     </div>
@@ -611,7 +649,7 @@
                               <option value="0" ${content.accountSelect == 0 ? 'selected' : ""}>계좌번호를 선택하세요</option>
                               <option value="1" ${content.accountSelect == 1 ? 'selected' : ""}>[우리은행]홍길동(111-1111-1111)</option>
                               <option value="2" ${content.accountSelect == 2 ? 'selected' : ""}>[하나은행]홍길순(222-2222-2222)</option>
-                              <option value="3" ${content.accountSelect == 3 ? 'selected' : ""}>[기업은행]홍길자(333-3333-3333)</option>
+                              <option value="3" ${content.accountSelect == 3 ? 'selected' : ""}>[기업]송유진(562-010407-01-012)</option>
                               <option value="4" ${content.accountSelect == 4 ? 'selected' : ""}>[카카오뱅크]홍길세(444-4444-4444)</option>
                             </select>
                           </div>
@@ -620,8 +658,15 @@
                           </div>
                           
                           <!-- toss 연습 -->
-                          	<button type='button' onclick="tossButton()" class="btn btn-success">toss</button>
-                          	<div id="tossLink"></div>
+                          <button type='button' onclick="tossButton()" class="btn btn-success">toss</button>
+                          <div id="tossLink"></div>
+                          
+                          <!-- 계좌 인증 연습 -->
+                          <input type="text" class="form-control" placeholder="예금주명" name="account-name">
+                          <input type="text" class="form-control" placeholder="생년월일(6자리)" name="account-birth">
+                          <input type="text" class="form-control" placeholder="계좌번호(-없이)" name="account-number">
+                          <button type="button" class="btn btn-danger" onclick="accountCreate()">계좌 등록</button>
+                          
                         </div>
                       </div>
                       <div class="tabs-5-0-money pb-3 border">
@@ -683,7 +728,7 @@
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-01'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakao_icon.png');" for="select-sns-01">
+	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/select-sns-01.png');" for="select-sns-01">
 									<div class="sns-check-box">
 										<div class="sns-check-label"></div>
 									</div>
@@ -694,7 +739,7 @@
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-02'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <lavel class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/kakaoStory_icon.png');" for="select-sns-02">
+	                            <lavel class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/select-sns-02.png');" for="select-sns-02">
 									<div class="sns-check-box">
 										<div class="sns-check-label"></div>
 									</div>
@@ -705,7 +750,7 @@
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-03'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/naverBand_icon.png');" for="select-sns-03">
+	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/select-sns-03.png');" for="select-sns-03">
 									<div class="sns-check-box">
 										<div class="sns-check-label"></div>
 									</div>
@@ -716,7 +761,7 @@
 	                              <c:forEach items="${selectSnsArr}" var="sns">
 	                              	<c:if test="${sns eq 'select-sns-04'}">checked="checked"</c:if>
 	                              </c:forEach>>
-	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/facebook_icon.png');" for="select-sns-04">
+	                            <label class="sns-icon-box" style="background-image:url('img/content/edit_img/page_img/shard_icon/select-sns-04.png');" for="select-sns-04">
 									<div class="sns-check-box">
 										<div class="sns-check-label"></div>
 									</div>
@@ -765,7 +810,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- custom javsScript -->
   <script type="text/javascript" src="js/edit.js?v=<%=System.currentTimeMillis() %>"></script>
-  <script type="text/javascript" src="js/common.js?v=<%=System.currentTimeMillis() %>"></script>
+  <script type="text/javascript" src="js/editFunc.js?v=<%=System.currentTimeMillis() %>"></script>
   <!-- jquery-ui.js -->
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
