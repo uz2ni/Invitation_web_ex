@@ -140,6 +140,7 @@ $(document).ready(function(){
 });
 
 function sendLink() {
+	let url = "http://localhost:8080/ex0417Builder/${content.urlName}.page";
 	// // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
     Kakao.Link.createDefaultButton({
       container: '#kakao-link-btn',
@@ -151,8 +152,8 @@ function sendLink() {
         description: '${content.addInfoWelcome}',
         imageUrl: '${content.topImgFile}',
         link: {
-          mobileWebUrl: 'http://localhost:8080/ex0417Builder/skin/skin1/index.html',
-          webUrl: 'http://localhost:8080/ex0417Builder/skin/skin1/index.html'
+          mobileWebUrl: url,
+          webUrl: url
         }
       },
       social: {
@@ -164,8 +165,8 @@ function sendLink() {
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: 'http://localhost:8080/ex0417Builder/skin/skin1/index.html',
-            webUrl: 'http://localhost:8080/ex0417Builder/skin/skin1/index.html'
+            mobileWebUrl: url,
+            webUrl: url
           }
         }
       ]

@@ -1,6 +1,13 @@
 /* ui 기능적인 부분 js */
 $(document).ready(function(){
 	insertSelected(1); // 처음 페이지 켰을 때 기능탭1 선택되도록 함.
+	
+	// messagePay 경우
+	if($("#type2").val() == "5") {
+		$(document).ready(function(){
+			$(pointTotalMoney(1000, 100));	
+		});
+	}
 });
 
 function btn(){
@@ -79,10 +86,10 @@ function selectEvent(selectObj) {
     changeContent(selectBtn, selectOption);
 }
 
-// select와 button 값 받아서 제공기능 내용 전환
+// select button 값 받아서 제공기능 내용 전환
+
 
 function changeContent(btnId, selectId) {
-    console.log(btnId+", "+selectId);
     var display1 = null;
     var display2 = null;
     var display3 = null;
@@ -102,32 +109,107 @@ function changeContent(btnId, selectId) {
 }
 
 // 가격 전역 변수
-var price = 0;
+var ServiceUsePrice = 0;
+var totalPrice = 0;
+var point = 0;
+
+// 가격 콤마 단위 찍기
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function totalMoney(selectId) {
-
+	
+	let serviceUsePriceNode = $('.service-use-price');
+	let totalPriceNode = $('.total-money');
+	const installPrice = 9900; // 설치 비용 가격
     if(selectId == 0){
-        var total = $('.total-money').text('0');
-    	price = 0;
+        serviceUsePrice = 0;
+        // 서비스 사용 비용
+        serviceUsePriceNode.text(numberWithCommas(serviceUsePrice));
+        // 총 합계
+        totalPrice = installPrice + serviceUsePrice;
+        totalPriceNode.text(numberWithCommas(totalPrice));
     }
     else if(selectId == 1){
-        var total = $('.total-money').text('2000');
-    	price = 2000;
+        serviceUsePrice = 3900;
+        // 서비스 사용 비용
+        serviceUsePriceNode.text(numberWithCommas(serviceUsePrice));
+        // 총 합계
+        totalPrice = installPrice + serviceUsePrice;
+        totalPriceNode.text(numberWithCommas(totalPrice));
     }
     else if(selectId == 2){
-        var total = $('.total-money').text('3000');
-        price = 3000;
+        serviceUsePrice = 5900;
+        // 서비스 사용 비용
+        serviceUsePriceNode.text(numberWithCommas(serviceUsePrice));
+        // 총 합계
+        totalPrice = installPrice + serviceUsePrice;
+        totalPriceNode.text(numberWithCommas(totalPrice));
     }
     else if(selectId == 3) {
-        var total = $('.total-money').text('4000');
-        price = 4000;
+        serviceUsePrice = 9900;
+        // 서비스 사용 비용
+        serviceUsePriceNode.text(numberWithCommas(serviceUsePrice));
+        // 총 합계
+        totalPrice = installPrice + serviceUsePrice;
+        totalPriceNode.text(numberWithCommas(totalPrice));
     }
     else if(selectId == 4) {
-        var total = $('.total-money').text('5000');
-        price = 5000;
+        serviceUsePrice = 18900;
+        // 서비스 사용 비용
+        serviceUsePriceNode.text(numberWithCommas(serviceUsePrice));
+        // 총 합계
+        totalPrice = installPrice + serviceUsePrice;
+        totalPriceNode.text(numberWithCommas(totalPrice));
     }
     
 }
+
+// 작성자 : 송유진
+// 작성일 : 18.09.05
+// 기능 : 연장 페이지(serviceExtend)에서 개월 수 선택 시 가격 출력
+function selectExtend(selectObj) {
+    var selectOption = parseInt(selectObj.value);
+    extendTotalMoney(selectOption);
+}
+
+function extendTotalMoney(selectId) {
+	let totalPriceNode = $('.total-money');
+	if(selectId == 0){
+        serviceUsePrice = 0;
+    }
+    else if(selectId == 1){
+        //serviceUsePrice = 3900;
+    	serviceUsePrice = 100;
+    }
+    else if(selectId == 2){
+        serviceUsePrice = 5900;
+    }
+    else if(selectId == 3) {
+        serviceUsePrice = 9900;
+    }
+    else if(selectId == 4) {
+        serviceUsePrice = 18900;
+    }
+    // 서비스 사용 비용
+//    serviceUsePriceNode.text(numberWithCommas(serviceUsePrice));
+    // 총 합계
+    totalPrice = serviceUsePrice;
+    totalPriceNode.text(numberWithCommas(totalPrice));
+}
+
+//작성자 : 송유진
+//작성일 : 18.09.06
+//기능 : 포인트 충전 페이지(messagePay)에서 포인트 가격 선택 시 총 금액 변경
+function pointTotalMoney(price, addPoint) {
+	let totalPriceNode = $('.total-money');
+	point = parseInt(addPoint);
+	totalPrice = parseInt(price);
+	totalPriceNode.text(numberWithCommas(totalPrice));
+}
+
+
 
 
 /* 결제 관련 기능 js */
@@ -156,7 +238,6 @@ function requestPay(userId, pdName) { //유저아이디, 상품명
 	
 	// db에 저장
 	jQuery.ajax({
-//		url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
 		url: "servicePayInsertAjax.ajax", // db에 저장하는 프로세스로 json 전달
 		type: 'POST',
 		dataType: 'json',
@@ -188,31 +269,50 @@ function requestPay(userId, pdName) { //유저아이디, 상품명
 
 // json값, db에 넣을 값 정리
 function insertList(userId, pdName) {
-	// 1) form -> Json
-	var formToJson = $('#service-pay-form').serializeObject();
-
-	// 2) 결과 json 값
+	var formToJson = null;
 	var result = new Object();
-	
 	var typeStr = "";
-	if(formToJson.paymentType == "1") {
-		typeStr = "모임";
-	}else if(formToJson.paymentType == "2") {
-		typeStr = "발표회";
-	}else if (formToJson.paymentType == "3") {
-		typeStr = "종교행사";
-	}
 	
+	if(pdName == '초대장') {
+		formToJson = $('#service-pay-form').serializeObject();
+		if(formToJson.paymentType == "1") {
+			typeStr = "모임";
+		}else if(formToJson.paymentType == "2") {
+			typeStr = "발표회";
+		}else if (formToJson.paymentType == "3") {
+			typeStr = "종교행사";
+		}
+		result.paymentStyle = "신규";
+		result.paymentName = "[" + typeStr + "]" + pdName + ":" + formToJson.paymentMonth + "개월"; // (종류+상품이름:개월수) 형식
+		result.paymentMonth = formToJson.paymentMonth;
+		result.paymentUrlName = formToJson.paymentUrlName; // url name
+		
+	}else if(pdName == '연장') {
+		formToJson = $('#service-extend-form').serializeObject();
+		if(formToJson.paymentType == '4') {
+			typeStr = "연장";
+		}
+		result.paymentStyle = "연장";
+		result.paymentName = "[" + typeStr + "]" + formToJson.paymentMonth + "개월"; // (종류+상품이름:개월수) 형식
+		result.paymentMonth = formToJson.paymentMonth;
+		result.paymentUrlName = formToJson.paymentUrlName; // url name
+	}else if(pdName == '포인트') {
+		formToJson = $('#message-pay-form').serializeObject();
+		if(formToJson.paymentType == '5') {
+			typeStr = '충전';
+		}
+		result.paymentStyle = "포인트";
+		var pointStr = point + "";
+		result.paymentName = "[" + typeStr + "]" + pdName + " : " + numberWithCommas(pointStr) + "p"; // (종류+상품이름:개월수) 형식
+		result.paymentMonth = 0;
+		result.paymentUrlName = "";
+
+	}
 	result.userId = userId; // user-id
-	result.paymentStyle = "신규";
-	result.paymentName = "[" + typeStr + "]" + pdName + ":" + formToJson.paymentMonth + "개월"; // (종류+상품이름:개월수) 형식
-	result.paymentMonth = formToJson.paymentMonth;
 	result.paymentType = formToJson.paymentType;
-	result.paymentAmount = price; // price 전역변수 값
-	result.paymentUrlName = formToJson.paymentUrlName; // url name
+	result.paymentAmount = totalPrice; // price 전역변수 값
 	result.paymentDate = getTimeStamp(new Date()); // 현재 날짜, 시간
 	result.merchantUid = 'merchant_' + new Date().getTime(); // 상품 번호
-	
 	
 	return result;
 }
@@ -262,16 +362,19 @@ function openPay(result) {
 	    			// DB 접근해서 url 생성
 	    			if(result.paymentStyle == "신규") {
 	    				createUrl(result, rsp);
+	    			}else if(result.paymentStyle == "연장") {
+	    				// urlName의 기간 늘리기
+	    				extendUrl(result);
+	    				console.log("연장 완료");
+	    			}else if(result.paymentStyle == "포인트") {
+	    				// user의 포인트 늘리기
+	    				addPoint(result);
+	    				console.log("포인트 충전 완료");
 	    			}
 	    			var msg = '결제가 완료되었습니다.';
-	    			msg += '\n고유ID : ' + rsp.imp_uid;
-	    			msg += '\n상점 거래ID : ' + rsp.merchant_uid;
-	    			msg += '\n결제 금액 : ' + rsp.paid_amount;
-	    			msg += '카드 승인번호 : ' + rsp.apply_num;
-	    			
 	    			console.log(msg);
 	    			
-	    			window.location.href = "/"; 
+	    			window.location.href = "/ex0417Builder"; 
 	    			
 	    			
 	    		} else {
@@ -305,6 +408,40 @@ function createUrl(result, rsp) {
 	}).done(function(data) {
 		if(data["status"] == "ok"){
 			alert("URL db삽입완료");
+		}
+	});
+}
+
+// url 기간 늘리는 함수
+function extendUrl(result) {
+	jQuery.ajax({
+		url: "urlExtendAjax.ajax",
+		type: "POST",
+		dataType: 'json',
+		data: {
+			url_name : result.paymentUrlName,
+			payment_month : result.paymentMonth
+		}
+	}).done(function(data) {
+		if(data["status"] == "ok"){
+			alert("URL 연장완료");
+		}
+	});
+}
+
+// user의 point 늘리는 함수
+function addPoint(result) {
+	jQuery.ajax({
+		url: "addPointAjax.ajax",
+		type: "POST",
+		dataType: 'json',
+		data: {
+			user_id : result.userId,
+			add_point : point
+		}
+	}).done(function(data) {
+		if(data["status"] == "ok"){
+			alert("URL 연장완료");
 		}
 	});
 }

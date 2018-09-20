@@ -53,7 +53,7 @@ public class Content {
 	private String videoLink;
 //	계좌 연동
 	private int accountChk;
-	private int accountSelect;
+	private String accountSelect;
 	private int accountMoney;
 //	추가 기능 - 참석 여부
 	private int attendChk;
@@ -312,10 +312,10 @@ public class Content {
 	public void setAccountChk(int accountChk) {
 		this.accountChk = accountChk;
 	}
-	public int getAccountSelect() {
+	public String getAccountSelect() {
 		return accountSelect;
 	}
-	public void setAccountSelect(int accountSelect) {
+	public void setAccountSelect(String accountSelect) {
 		this.accountSelect = accountSelect;
 	}
 	public int getAccountMoney() {

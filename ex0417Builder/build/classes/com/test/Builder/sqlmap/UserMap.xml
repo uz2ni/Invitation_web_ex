@@ -36,10 +36,25 @@
 	select * from user where user_email = #{email};
 </select>
 
+<!-- User select - id -->
+<select id="userSelectIdOne" parameterType="int" resultMap="UserResult">
+	select * from user where user_id = #{userId};
+</select>
+
+
 <update id="userUpdatePoint" parameterType="com.test.Builder.dto.User">
 	update user
 	   set 		   		
 	   		user_point = #{userPoint}
+	 where user_id = #{userId};
+</update>
+
+<update id="userUpdate" parameterType="com.test.Builder.dto.User">
+	update user
+	   set 		   		
+	   		user_pw = #{userPw},
+	   		user_phone = #{userPhone},
+	   		user_account = #{userAccount}
 	 where user_id = #{userId};
 </update>
 

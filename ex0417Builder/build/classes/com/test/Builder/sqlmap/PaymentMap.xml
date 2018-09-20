@@ -49,9 +49,18 @@
 	 where merchant_uid = #{merchantUid};
 </update>
 
-<!-- 서비스 신청 내역 select -->
+<!-- 서비스 신청 내역 select - 신규, 연장 -->
 <select id="paymentSelectList" parameterType="int" resultMap="PaymentList">
-	select * from payment where user_id = #{userId} order by payment_at desc;
+	select * from payment
+	where user_id = #{userId} and payment_style = '신규' or payment_style = '연장'
+	order by payment_at desc;
+</select>
+
+<!-- 서비스 신청 내역 select - 신규, 연장 -->
+<select id="paymentSelectPointList" parameterType="int" resultMap="PaymentList">
+	select * from payment
+	where user_id = #{userId} and payment_style = '포인트'
+	order by payment_at desc;
 </select>
 
 

@@ -1,10 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- 
-<%
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@page pageEncoding="utf-8" %>
+    
+<% 
+	//String title = java.net.URLDecoder.decode(request.getParameter("title"), "utf-8");
+	//title = (title == null) ? "" : title;
 	String title = request.getParameter("title");
 	String bg = request.getParameter("bg");
 %>    
+<head>
+<meta charset="utf-8">
+<meta http-e quiv="Content-type" CONTENT="text/html;charset=utf-8">
+</head>
 <!-- header -->
 <div -ms-overflow-style: none; id="section1" class="container-fluid p-0"
 	style="height: 100vh; background-image: url(./img/common/<%=bg%>); background-size: cover;">
@@ -34,6 +40,7 @@
 					</li>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="servicePay.do">제작 신청하기</a>
+						<a class="dropdown-item" href="messagePay.do">문자 포인트 충전</a>
 					</div>
 				</div>
 				<!--/drop down-->
@@ -47,20 +54,19 @@
 						<a class="nav-link" href="#">초대장 관리</a>
 					</li>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="myService.do">나의 서비스</a>
-						<a class="dropdown-item" href="sendMessage.do">문자 보내기</a>
+						<a class="dropdown-item" href="myService.do">초대장 관리</a>
+						<a class="dropdown-item" href="statistics.do">통계</a>
 					</div>
 				</div>
 				<!--/drop down-->
 				<!--drop down-->
 				<div class="dropdown">
 					<li class="nav-item-top dropdown-toggle" data-toggle="dropdown">
-						<a class="nav-link" href="#">마이 페이지</a>
+						<a class="nav-link" href="#">마이페이지</a>
 					</li>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="serviceInfo.do">서비스 신청 내역</a>
-						<a class="dropdown-item" href="pointInfo.do">포인트 충전내역</a>
-						<a class="dropdown-item" href="statistics.do">통계 관리</a>
+						<a class="dropdown-item" href="myPayUseInfo.do">결제/사용 내역</a>
+						<a class="dropdown-item" href="myInfo.do">내 정보</a>
 					</div>
 				</div>
 				<!--/drop down-->

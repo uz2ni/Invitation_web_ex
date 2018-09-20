@@ -71,12 +71,38 @@ private static UserDBBean instance = new UserDBBean();
 		return user;
 	}
 	
+	// User Select - id
+	public User getUserId(int userId) {
+		// mapper에 접근하기 위한 SQLsession
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		User user;
+		try {
+			user = sqlSession.selectOne("com.test.Builder.sqlmap.UserMap.userSelectIdOne", userId);
+		} finally {
+			sqlSession.close();
+		}
+		return user;
+	}
+	
     // 포인트 업데이트
     public void updatePoint(User user) {
     	int i = -1;
     	SqlSession sqlSession = sqlSessionFactory.openSession();
     	try {
     		i = sqlSession.update("com.test.Builder.sqlmap.UserMap.userUpdatePoint", user);
+    		System.out.println("i:"+i);
+    	} finally {
+    		sqlSession.commit();
+    		sqlSession.close();
+    	}
+    }
+    
+    // user 업데이트
+    public void updateUser(User user) {
+    	int i = -1;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try {
+    		i = sqlSession.update("com.test.Builder.sqlmap.UserMap.userUpdate", user);
     		System.out.println("i:"+i);
     	} finally {
     		sqlSession.commit();

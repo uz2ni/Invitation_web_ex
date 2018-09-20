@@ -54,7 +54,19 @@ public class ContentEditDBBean {
     	}
     	return content;
     }
-
+    
+    // urlName에 해당하는 URL 레코드 불러오기
+    public Content selectOne2(String urlName) {
+    	Content content;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try { 
+    		content = sqlSession.selectOne("com.test.Builder.sqlmap.ContentMap.contentSelectOne2", urlName);
+    	} finally {
+    		sqlSession.close();
+    	}
+    	return content;
+    }
+    
     // userId에 해당하는 URL 리스트 불러오기
     // 작성일 : 18.06.14
     public List<Content> selectList(int userId) {
@@ -68,6 +80,21 @@ public class ContentEditDBBean {
     	return list;
     }
     
+    // userId의 초대장 개수 count
+    public int selectCount(int userId) {
+    	List<Content> list;
+    	int cnt = 0;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try { 
+    		list = sqlSession.selectList("com.test.Builder.sqlmap.ContentMap.contentSelectList", userId);
+    		cnt = list.size();
+    		System.out.println("cnt:" + cnt);
+    	} finally {
+    		sqlSession.close();
+    	}
+    	return cnt;
+    }
+    
     // 편집 내용 업데이트
     public void update(Content content) {
     	int i = -1;
@@ -76,6 +103,19 @@ public class ContentEditDBBean {
     	try {
     		i = sqlSession.update("com.test.Builder.sqlmap.ContentMap.contentUpdate", content);
     		System.out.println("i:"+i);
+    	} finally {
+    		sqlSession.commit();
+    		sqlSession.close();
+    	}
+    }
+
+    // 연장 개월 수 업데이트
+    public void extendUpdate(Content content) {
+    	int i = -1;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	System.out.println("extend update: " + content.toString());
+    	try {
+    		i = sqlSession.update("com.test.Builder.sqlmap.ContentMap.contentExtendUpdate", content);
     	} finally {
     		sqlSession.commit();
     		sqlSession.close();

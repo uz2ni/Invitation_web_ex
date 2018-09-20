@@ -1,4 +1,3 @@
-/*
 $(document).ready(function(){
 	
 	// // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -62,4 +61,3 @@ jQuery.fn.serializeObject = function() {
   return obj;
 };
 
-*/

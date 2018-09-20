@@ -37,7 +37,7 @@
 
 	<article class="center col-8 text-center"
 		style="height:85vh; padding-top:9vh;">
-	<form action="joinPro.do" name="user-form" method="post">
+	<form action="joinPro.do" name="user-form" id="user-form" method="post">
 		<center class="col d-flex flex-column justify-content-center">
 			<!-- Join -->
 			<div>
@@ -61,20 +61,20 @@
 				<!--Id-->
 				<div class="col-sm-6 form-group row justify-content-center">
 					<div class="col-sm-9">
-						<input type="email" name="user-email" class="form-control"
+						<input type="text" name="user-email" id="user-email" class="form-control"
 							id="inputEmail" title="사용하실 아이디(이메일 주소)를 입력해주세요"
-							placeholder="아이디(이메일 주소)" required>
+							placeholder="아이디 [이메일 주소]" required>
 					</div>
 				</div>
 				<!--Password-->
 				<div class="col-sm-6 form-group row justify-content-center">
 					<div class="col-sm-9">
 						<input type="Password" class="form-control" id="Pw" name="user-pw"
-							title="숫자 7자 이상 ~ 14자 이내" placeholder="비밀번호(숫자 7자~14자)"
-							ng-model="user.password" ng-required="true"
-							ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/"> <input
-							type="Password" class="form-control" id="PwCheck" name="user-pw2"
-							title="비밀번호를 한번 더 동일하게 입력해주세요" placeholder="비밀번호 확인" required>
+							title="9자 이상 ~ 14자 이내" placeholder="비밀번호 [9자 ~ 14자]" 
+							ng-model="user.password" ng-required="true" onkeyup="toChekpwLength();" > 
+							
+							<input type="Password" class="form-control" id="PwCheck" name="user-pw2" onkeyup="toCheckPw();"
+							title="비밀번호를 한번 더 동일하게 입력해주세요" placeholder="비밀번호 확인" maxlength="14" required>
 						<p id="pwsame" style="color: red;"></p>
 					</div>
 				</div>
@@ -128,7 +128,7 @@
 					</div>
 				</div>
 				<div>
-					<input type="checkbox" name="req1"> <label
+					<input type="checkbox" name="req1" id="req1"> <label
 						for="chkProvision"> <a href="chkProvision"> <span
 							class="viewlaw" data-toggle="modal" data-target="#viewlaw1"
 							data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -137,7 +137,7 @@
 					</label>
 				</div>
 				<div>
-					<input type="checkbox" name="req2"> <label
+					<input type="checkbox" name="req2" id="req2"> <label
 						for="chkProvision"> <a href="chkProvision"> <span
 							class="viewlaw" data-toggle="modal" data-target="#viewlaw2"
 							data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -149,7 +149,7 @@
 				<!--Join-->
 				<div class="col-sm-6 form-group row justify-content-center">
 					<div class="col-auto">
-						<button type="submit" class="btn" onclick="chk()"
+						<button type="button" class="btn" onclick="send();"
 							style="background: #2d62cd; color: white; width: 360px;">가입하기</button>
 					</div>
 				</div>
@@ -181,6 +181,141 @@
 
 	<!-- custom js -->
 	<script type="text/javascript">
+	
+	
+		//비밀번호 길이제한
+		function toChekpwLength() {
+			
+			var pw = document.getElementById("Pw").value;
+			
+			if (pw.length > 14) {
+				document.getElementById('pwsame').style.color = "red";
+				document.getElementById('pwsame').innerHTML = '비밀번호는 14자 이하로 설정해 주세요.';
+				var tempt = pw.substring(0,14);
+				$('#Pw').val(tempt);
+				pw.focus();
+				return false;
+			}
+			else if((pw.length >= 1) && (pw.length < 9)){
+				document.getElementById('pwsame').style.color = "red";
+				document.getElementById('pwsame').innerHTML = '비밀번호는 9자 이상으로 설정해야 합니다.';
+				pw.focus();
+				return false;
+			}
+			else{
+				document.getElementById('pwsame').innerHTML = '';
+				return true;
+			}
+		}
+	
+		//비밀번호 확인 
+		function toCheckPw() {
+			var pw = document.getElementById("Pw").value;
+			var pwck = document.getElementById("PwCheck").value;
+			
+			if (pw != pwck) {
+				document.getElementById('pwsame').innerHTML = '비밀번호가 다릅니다.';
+				document.getElementById('pwsame').style.color = "red";
+				pwck.focus();
+				return false;
+			}
+			else {
+				if(pw.length == 0){
+					document.getElementById('pwsame').innerHTML = '';
+					return false;
+				}
+				document.getElementById('pwsame').innerHTML = '비밀번호가 일치합니다.';
+				document.getElementById('pwsame').style.color = "blue";
+				pwck.focus();
+				return true;
+			}
+		}
+		
+		// 유효성 검사 후 제출
+		function send(){
+			
+			// 이메일 유효성
+			var EmailTest = RegExp(/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/);  // 이메일 정규식
+			if ($('#user-email').val() == '') {
+				alert("이메일 주소를 입력하세요");
+				$('#user-email').focus();
+				return false;
+			}
+			if (!EmailTest.test($('#user-email').val())) {
+				alert("이메일 주소가 유효하지 않습니다");
+				$('#user-email').focus();
+				return false;
+			}
+
+			// 비번 유효성
+			if($('#Pw').val() == ''){
+				alert("비밀번호를 입력하세요");
+				$('#Pw').focus();
+				return false;
+			}
+			else if($('#Pw').val().length < 9){
+				alert("비밀번호는 9자 이상으로 설정해주세요");
+				$('#Pw').focus();
+				return false;
+			}
+			
+			// 비번확인 유효성
+			if($('#PwCheck').val() == ''){
+				alert("비빌번호 확인을 입력해주세요");
+				$('#PwCheck').focus();
+				return false;
+			}
+			else if($('#PwCheck').val() != $('#Pw').val()){
+				alert("비밀번호가 일치하지 않습니다");
+				$('#PwCheck').focus();
+				return false;
+			}
+			
+			// 이름 유효성
+			var NameTest = RegExp(/^[가-힣]+$/);
+			if($('#inputname').val() == ''){
+				alert("이름을 입력해주세요");
+				$('#inputname').focus();
+				return false;
+			}
+			else if(!NameTest.test($('#inputname').val())){
+				alert("이름이 올바르지 않습니다");
+				$('#inputname').focus();
+				return false;
+			}
+			
+			// 핸드폰번호 유효성
+			if($('#inputtel').val() == ''){
+				alert("핸드폰번호를 입력하세요");
+				$('#inputtel').focus();
+				return false;
+			}
+			else if($('#inputtel').val().length < 10){
+				alert("핸드폰번호가 올바르지 않습니다 ");
+				$('#inputtel').focus();
+				return false;
+			}
+				
+			// 약관 동의 유효성
+			var req1 = $('#req1');
+			var req2 = $('#req2');
+			
+			var num = 0;
+			
+			if((req1).is(":checked") == true) {
+				if((req2).is(":checked") == true) {
+					$('#user-form').attr('action','joinPro.do').submit();
+				} else {
+					$('#checkok').text('개인정보처리방침에 동의하셔야 합니다.');
+					req2.focus();
+				}
+			} else {
+				$('#checkok').text('서비스 이용약관에 동의하셔야 합니다.');
+				req1.focus();
+			}
+			
+		}
+		
 		function tocheckpw() {
 			//비밀번호 중복확인 2018-05-27 작성자 : 박민정
 			var pw = document.getElementById("Pw").value;
@@ -198,32 +333,23 @@
 
 		//이용약관동의 2018-05-27 작성자 : 박민정
 		function chk() {
-			var req1 = document.form.req1.checked;
+			var req1 = $('#req1');
+			var req2 = $('#req2');
+			
 			var num = 0;
-
-			if (req1 == true) {
-				num = 1;
-			}
-			if (num == 1) {
-				document.form.submit();
+			
+			if((req1).is(":checked") == true) {
+				if((req2).is(":checked") == true) {
+					$('#user-form').attr('action','joinPro.do').submit();
+				} else {
+					$('#checkok').text('개인정보처리방침에 동의하셔야 합니다.');
+					req2.focus();
+				}
 			} else {
-				document.getElementById('checkok').innerHTML = '서비스 이용약관에 동의하셔야 합니다.';
-				return false;
+				$('#checkok').text('서비스 이용약관에 동의하셔야 합니다.');
+				req1.focus();
 			}
-
-			var req2 = document.form.req2.checked;
-			var num = 0;
-
-			if (req2 == true) {
-				num = 1;
-			}
-			if (num == 1) {
-				document.form.submit();
-			} else {
-				document.getElementById('checkok').innerHTML = '개인정보처리방침에 동의하셔야 합니다.';
-				return false;
-			}
-		}
+		}		
 	</script>
 </body>
 </html>

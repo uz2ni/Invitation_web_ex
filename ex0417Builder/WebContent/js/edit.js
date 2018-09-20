@@ -53,25 +53,18 @@ function findChecked(inputName) {
 		var val;
 		for(var i=0; i<nodes.length; i++) {
 			if($(nodes[i]).is(":checked") == true) {
-				console.log("오징1");
 				val = $(nodes[i]).val(); 
 			}
 		}
 	}else if ($("input[name=" + inputName + "]").attr('type') == 'checkbox') {
 		var val = new Array();
-		console.log("nodes:");
-		console.log(nodes);
 		for(var i=0; i<nodes.length; i++) {
 			if($(nodes[i]).is(":checked") == true) {
-				console.log("오징2");
-				console.log("id:" + $(nodes[i]).attr('id'));
 				val.push($(nodes[i]).attr("id")); 
 				
 			}
 		}
 	}
-	console.log("val=");
-	console.log(val);
 	return val;
 }
 
@@ -92,6 +85,10 @@ function chkFuc(input_name, class_name) { // input_name:checkbox name, class_nam
 
 /******** form 현재값 get *********/
 
+function getSkin() {
+	var val = findChecked('skin');
+	return val;
+}
 function getTopTitle() {
 	var val = $("input[name='top-title']").val();
 	return val;
@@ -99,7 +96,6 @@ function getTopTitle() {
 function getTopFontColor() {
 	var val = findChecked('top-font-color');
 	return val;
-	
 }
 function getTopFontAlign() {
 	var val = findChecked('top-font-align');
@@ -209,8 +205,9 @@ function getGalleryChk() {
 	var val = $("input[name='gallery-chk']").val();
 	return val;
 }
-function getGalleryUploadImg() {
-	var val = $('.gallery-upload-img-preview-wrap > img').attr('src');
+function getGalleryUploadImg(num) {
+//	var val = $('.gallery-upload-img-preview-wrap > img').attr('src');
+	$('.gallery-upload-img')
 	return val;
 }
 function getGalleryType() {
@@ -258,7 +255,11 @@ function getSnsShareChk() {
 }
 function getSelectSns() {
 	var val = findChecked('select-sns');
-	console.log(val);
+	console.log("selectSns:" + val);
+	return val;
+}
+function getSnsMsgChk() {
+	var val = $("input[name='sns-msg-chk']").val();
 	return val;
 }
 function getSnsMsgContent() {
@@ -365,8 +366,10 @@ function getSectionInfoParking() {
 	var section = $('#preview_iframe').contents().find('.skin-info-parking');
 	return section;
 }
-function getSectionGallery() {
-	var section = $('#preview_iframe').contents().find('.skin-gallery');
+function getSectionGallery(num) {
+	var section = $('#preview_iframe').contents().find('.skin-gallery-' + num);
+	console.log('num:' + num);
+	console.log(section);
 	return section;
 }
 function getSectionVideo() {
@@ -398,6 +401,10 @@ function getSectionSnsShare() {
 /******** 이벤트 함수 *********/
 
 // input 수정 시 이벤트 함수 동작
+$("input[name='skin']").on('click', function () {
+	radioVal($(this));
+	skinUpdate(getSkin());
+});
 $("input[name='top-title']").on('keyup', function () {
 	topTitleUpdate(getTopTitle(), getSectionTopTitle());
 });
@@ -410,7 +417,11 @@ $("input[name='top-font-align']").on('change', function () {
 	topFontAlignUpdate(getTopFontAlign(), getSectionTopTitle());
 });
 $("input[name='top-img-file']").on('change', function () {
-	topImgUpdate(getTopImgFile(), getSectionTopImg());
+	readURL(this, '.top-img-preview-wrap', 1);
+	imgList(this, '.top-img-preview-wrap', 1);
+	setTimeout(function() {
+		topImgUpdate(getTopImgFile(), getSectionTopImg());
+		}, 300);
 });
 $("input[name='top-img-align']").on('change', function () {
 	radioVal($(this));
@@ -439,10 +450,18 @@ $("input[name='add-info-img-name']").on('keyup', function () {
 	addInfoImgNameUpdate(getAddInfoImgName(), getSectionAddInfoImgName());
 });
 $("input[name='add-info-img-profile']").on('change', function () {
-	addInfoImgNameUpdate(getAddInfoImgName(), getSectionAddInfoImgName());
+	readURL(this, '.add-info-img-profile-preview-wrap', 1);
+	imgList(this, '.add-info-img-profile-preview-wrap', 1);
+	setTimeout(function() {
+		addInfoImgNameUpdate(getAddInfoImgName(), getSectionAddInfoImgName());
+	}, 300);
 });
 $("input[name='add-info-img-sit']").on('change', function () {
-	addInfoImgSitUpdate(getAddInfoImgSit(), getSectionAddInfoImgSit());
+	readURL(this, '.add-info-img-sit-preview-wrap', 1);
+	imgList(this, '.add-info-img-sit-preview-wrap', 1);
+	setTimeout(function() {
+		addInfoImgSitUpdate(getAddInfoImgSit(), getSectionAddInfoImgSit());
+	}, 300);
 });
 $("input[name='add-info-call-name']").on('keyup', function () {
 	addInfoCallNameUpdate(getAddInfoCallName(), getSectionAddInfoCallName());
@@ -454,13 +473,21 @@ $("input[name='add-info-logo-hold-name']").on('keyup', function () {
 	addInfoLogoHoldNameUpdate(getAddInfoLogoHoldName(), getSectionAddInfoLogoHoldName());
 });
 $("input[name='add-info-hold-img']").on('change', function () {
-	addInfoHoldImgUpdate(getAddInfoHoldImg(), getSectionAddInfoHoldImg());
+	readURL(this, '.add-info-hold-img-preview-wrap', 1);
+	imgList(this, '.add-info-hold-img-preview-wrap', 1);
+	setTimeout(function() {
+		addInfoLogoHoldImgUpdate(getAddInfoLogoHoldImg(), getSectionAddInfoLogoHoldImg());
+	}, 300);
 });
 $("input[name='add-info-logo-help-name']").on('keyup', function () {
 	addInfoLogoHelpNameUpdate(getAddInfoLogoHelpName(), getSectionAddInfoLogoHelpName());
 });
 $("input[name='add-info-help-img']").on('change', function () {
-	addInfoHelpImgUpdate(getAddInfoHelpImg(), getSectionAddInfoHelpImg());
+	readURL(this, '.add-info-help-img-preview-wrap', 1);
+	imgList(this, '.add-info-help-img-preview-wrap', 1);
+	setTimeout(function() {
+		addInfoHelpImgUpdate(getAddInfoHelpImg(), getSectionAddInfoHelpImg());
+	}, 300);
 });
 $("button[name='info-address-btn']").on('click', function () {
 	infoAddressUpdate(getInfoAddress(), getSectionInfoAddress());
@@ -478,7 +505,11 @@ $("input[name='info-load-img-chk']").on('change', function () {
 	infoLoadImgChkUpdate(getInfoLoadImgChk(), getSectionInfoLoadImg());
 });
 $("input[name='info-load-img']").on('change', function () {
-	infoLoadImgUpdate(getInfoLoadImg(), getSectionInfoLoadImg());
+	readURL(this, '.info-load-img-preview-wrap', 1);
+	imgList(this, '.info-load-img-preview-wrap', 1);
+	setTimeout(function() {
+		infoLoadImgUpdate(getInfoLoadImg(), getSectionInfoLoadImg());
+	}, 300);	
 });
 $("textarea[name='info-bus']").on('keyup', function () {
 	infoBusUpdate(getInfoBus(), getSectionInfoBus());
@@ -493,8 +524,18 @@ $("input[name='gallery-chk']").on('change', function () {
 	checkboxVal($(this));
 	galleryChkUpdate(getGalleryChk(), getSectionGallery());
 });
-$("input[name='gallery-upload-img']").on('change', function () {
-	galleryUploadImgUpdate(getGalleryUploadImg(), getSectionGallery());
+$(".galleryUploadImg").on('change', function () {
+	var id = $(this).attr('id');
+	var num = id.charAt(id.length-1);
+	readURL(this, '.gallery-upload-img-preview-wrap', 6);
+	var src;
+	setTimeout(function() {
+		imgList2('.gallery-upload-img-preview-wrap');
+	}, 100);
+	setTimeout(function() {
+		var src = $("." + id).attr('src');
+		galleryUploadImgUpdate(src, getSectionGallery(num));
+	}, 300);	
 });
 $("input[name='gallery-type']").on('change', function () {
 	radioVal($(this));
@@ -532,6 +573,8 @@ $("input[name='sns-share-chk']").on('change', function () {
 	snsShareChkUpdate(getSnsShareChk(), getSectionSnsShare());
 });
 $("input[name='select-sns']").on('change', function () {
-	checkboxVal($(this));
 	selectSnsUpdate(getSelectSns(), getSectionSnsShare());
+});
+$("input[name='sns-msg-chk']").on('change', function () {
+	checkboxVal($(this));
 });

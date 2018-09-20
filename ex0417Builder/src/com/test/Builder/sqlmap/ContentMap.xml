@@ -69,49 +69,46 @@
 	</insert>
 
 	
-	<!-- urlId로 원하는 url select -->
+	<!-- urlId 로 원하는 url select -->
 	<select id="contentSelectOne" parameterType="int" resultMap="contentResult">
 		select * from url where url_id = #{urlId};
 	</select>
+
+	<!-- urlName 으로 원하는 url select -->
+	<select id="contentSelectOne2" parameterType="String" resultMap="contentResult">
+		select * from url where url_name = #{urlName};
+	</select>
 	
-	<!-- userId로 url 리스트 select -->
+	<!-- userId 로 url 리스트 select -->
 	<select id="contentSelectList" parameterType="int" resultMap="contentResult">
 		select * from url where user_id = #{userId};
 	</select>
 	
+	<!-- userId의 초대장 개수 -->
+	<select id="contentUserCount" parameterType="int" resultType="int">
+		select count(*) from url where user_id = ${userId};
+	</select>
 	
-	
-	<!-- 
 	<update id="contentUpdate" parameterType="com.test.Builder.dto.Content">
 		update url
-		   set (#{urlId}, #{memberId}, #{urlName}, #{type}, str_to_date(#{payDate}, '%Y-%m-%d %H:%i:%s'), str_to_date(#{lastDate}, '%Y-%m-%d %H:%i:%s'),
-		   		#{skin}, #{topTitle}, #{topImgFile}, #{topImgAlign}, #{topFontColor}, #{topFontAlign},
-		   		str_to_date(#{infoDateStart}, '%Y-%m-%d'), str_to_date(#{infoDateEnd}, '%Y-%m-%d'), #{infoDdayChk}, #{infoTime}, #{infoPlace},
-		   		#{addInfoWelcome}, #{addInfoImgName}, #{addInfoImgProfile}, #{addInfoImgSit}, #{addInfoCallName}, #{addInfoCallNumber}, #{addInfoLogoHoldName}, #{addInfoHoldImg}, #{addInfoLogoHelpName}, #{addInfoHelpImg},
-		   		#{infoAddress}, #{infoNavi}, #{infoFind}, #{infoLoadImgChk}, #{infoLoadImg}, #{infoBus}, #{infoSubway}, #{infoParking},
-		   		#{galleryChk}, #{galleryType}, #{galleryUploadImg},
-		   		#{videoChk}, #{videoLink},
-		   		#{accountChk}, #{accountSelect}, #{accountMoney},
-		   		#{attendChk}, #{commentChk}, #{snsShareChk}, #{selectSns}, #{snsMsgChk}, #{snsMsgContent})
-		 where member_id = #{memberId};
+		   set 		   		
+		   		skin = #{skin},
+		   		top_title = #{topTitle}, top_img_file = #{topImgFile}, top_img_align = #{topImgAlign}, top_font_color = #{topFontColor}, top_font_align = #{topFontAlign},
+		   		info_date_start = str_to_date(#{infoDateStart}, '%Y-%m-%d'), info_date_end = str_to_date(#{infoDateEnd}, '%Y-%m-%d'), info_dday_chk = #{infoDdayChk}, info_time = #{infoTime}, info_place = #{infoPlace},
+		   		add_info_welcome = #{addInfoWelcome}, add_info_img_name = #{addInfoImgName}, add_info_img_profile = #{addInfoImgProfile}, add_info_img_sit = #{addInfoImgSit}, add_info_call_name = #{addInfoCallName}, add_info_call_number =  #{addInfoCallNumber},
+		   		add_info_logo_hold_name = #{addInfoLogoHoldName}, add_info_hold_img = #{addInfoHoldImg}, add_info_logo_help_name = #{addInfoLogoHelpName}, add_info_help_img = #{addInfoHelpImg},
+		   		info_address = #{infoAddress}, info_navi = #{infoNavi}, info_find = #{infoFind}, info_load_img_chk = #{infoLoadImgChk}, info_load_img = #{infoLoadImg}, info_bus = #{infoBus}, info_subway = #{infoSubway}, info_parking = #{infoParking},
+		   		gallery_chk = #{galleryChk}, gallery_type = #{galleryType}, gallery_upload_img = #{galleryUploadImg},
+		   		video_chk = #{videoChk},video_link = #{videoLink},
+		   		account_chk = #{accountChk}, account_select = #{accountSelect}, account_money = #{accountMoney},
+		   		attend_chk = #{attendChk}, comment_chk = #{commentChk}, sns_share_chk = #{snsShareChk}, select_sns = #{selectSns}, sns_msg_chk = #{snsMsgChk}, sns_msg_content = #{snsMsgContent}
+		 where url_id = #{urlId};
 	</update>
-	 -->
-	 
-	<update id="contentUpdate" parameterType="com.test.Builder.dto.Content">
-	update url
-	   set 		   		
-	   		skin = #{skin},
-	   		top_title = #{topTitle}, top_img_file = #{topImgFile}, top_img_align = #{topImgAlign}, top_font_color = #{topFontColor}, top_font_align = #{topFontAlign},
-	   		info_date_start = str_to_date(#{infoDateStart}, '%Y-%m-%d'), info_date_end = str_to_date(#{infoDateEnd}, '%Y-%m-%d'), info_dday_chk = #{infoDdayChk}, info_time = #{infoTime}, info_place = #{infoPlace},
-	   		add_info_welcome = #{addInfoWelcome}, add_info_img_name = #{addInfoImgName}, add_info_img_profile = #{addInfoImgProfile}, add_info_img_sit = #{addInfoImgSit}, add_info_call_name = #{addInfoCallName}, add_info_call_number =  #{addInfoCallNumber},
-	   		add_info_logo_hold_name = #{addInfoLogoHoldName}, add_info_hold_img = #{addInfoHoldImg}, add_info_logo_help_name = #{addInfoLogoHelpName}, add_info_help_img = #{addInfoHelpImg},
-	   		info_address = #{infoAddress}, info_navi = #{infoNavi}, info_find = #{infoFind}, info_load_img_chk = #{infoLoadImgChk}, info_load_img = #{infoLoadImg}, info_bus = #{infoBus}, info_subway = #{infoSubway}, info_parking = #{infoParking},
-	   		gallery_chk = #{galleryChk}, gallery_type = #{galleryType}, gallery_upload_img = #{galleryUploadImg},
-	   		video_chk = #{videoChk},video_link = #{videoLink},
-	   		account_chk = #{accountChk}, account_select = #{accountSelect}, account_money = #{accountMoney},
-	   		attend_chk = #{attendChk}, comment_chk = #{commentChk}, sns_share_chk = #{snsShareChk}, select_sns = #{selectSns}, sns_msg_chk = #{snsMsgChk}, sns_msg_content = #{snsMsgContent}
-	 where url_id = #{urlId};
-</update>
+	<update id="contentExtendUpdate" parameterType="com.test.Builder.dto.Content">
+		update url
+		   set last_date = str_to_date(#{lastDate}, '%Y-%m-%d %H:%i:%s')
+		 where url_id = #{urlId};
+	</update>
 
 	
 	

@@ -9,8 +9,14 @@ public class MessagePayAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return "messagePay.jsp";
+		// 메시지 포인트 결제 페이지
+		
+		if(request.getSession().getAttribute("user") == null) { // 로그인 세션 없을 경우
+			return "loginForm.jsp";
+		}else {
+			return "messagePay.jsp";
+		}
+		
 	}
 
 }

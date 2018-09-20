@@ -52,7 +52,7 @@
           		   <div class="row">
 				     <div style="font-size:1.3em;" class="form-group col-12 text-left">사용중인 초대장 : x개<br>총 초대장 : x개</div>
 				   </div>
-                   <a href="my_3.html"><button type="button" class="btn12 btn btn-sm">수정하기</button></a>
+                   <a href="myInfo.do"><button type="button" class="btn12 btn btn-sm">수정하기</button></a>
                    <a href=""><button type="button" class="btn btn-sm" style="background:#f2f2f2;">탈퇴하기</button></a>
                 </div>
       </div>
@@ -64,7 +64,7 @@
 		  <c:forEach var="content" items="${contents}">
 	          <div class="ex1 col-md-4 py-3">
 	            <div class="container px-0">
-	              <img class="card-img-top mx-0" src="${content.topImgFile}" width="280" height="300"/>
+	              <img class="card-img-top mx-0" src="https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/topImgFile/${content.topImgFile}" width="280" height="300"/>
 	              <div class="overlay">
 	                <div class="text">
 	                  <div style="width:60%; margin:15px auto; border:1px solid white;"></div>

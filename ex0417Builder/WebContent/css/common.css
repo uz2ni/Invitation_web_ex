@@ -1,3 +1,25 @@
+
+#load {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	display: block;
+	opacity: 0.8;
+	background: white;
+	z-index: 99;
+	text-align: center;
+}
+
+#load > img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+}
+
+/*
 @media screen and (max-width:1024px) {
 	#wrap{width:90%;}
 }
@@ -9,12 +31,54 @@
 @media screen and (max-width:480px) {
 	#box_b{float:none;width:100%;}
 	#box_c{float:none;width:100%;}
+}*/
+
+/*@media test*/
+media (max-width: 1024px)
+.sublnb_wrap .lnb_menu {
+    position: absolute;
+    left: 150px;
+    right: 150px;
+}
+@media (max-width: 1024px)
+.sublnb_wrap, .sublnb_wrap .lnb_menu > nav > ul > div > li > a {
+    font-size: 15px;
 }
 
+@media (min-width: 769px)
+.sublnb_wrap .lnb_menu > ul > li.nav-item-top {
+    width: 16%;
+}
 
+@media (min-width: 769px)
+.sublnb_wrap {
+    width: 100%;
+    height: 80px;
+    margin-left: 0;
+    font-weight: bold;
+    overflow: visible;
+}
+
+@media (min-width: 769px)
+.sublnb_wrap .lnb_menu > nav > ul > div > li > a {
+    display: block;
+    height: 72px;
+    line-height: 72px;
+    padding: 0;
+    font-weight: bold;
+    text-align: center;
+    color: #555;
+    border-bottom: 4px solid rgba(0,0,0,0);
+    border-top: 4px solid rgba(242, 101, 34, 0);
+    transition: 0.5s border-top ease;
+    -webkit-transition: 0.5s border-top ease;
+}
+.sublnb_wrap {
+    position: relative;
+}
 /*nav*/
 .nav-item-top {
-    width:150px;
+    /*width:150px;*/
 }
 
 .nav-item-top a {
@@ -29,9 +93,13 @@
 }
 .nav-back{
     background:rgba(0,0,0,0.7);
-    height: 16vh;
     background-position: top center;
     background-repeat: repeat-x;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    height:100px;
 }  
 
 .nav-item-logo img{
@@ -41,16 +109,57 @@
 .banner img{
     padding:10px;
 }
-
+/*btn style 1*/
+/*
 a .login-btn {
     background:white; 
-    color:#575757; 
-    font-weight:bold; 
-    width:90px;
+    color:#444; 
+    border-radius:0px;
+}
+div .login-btn {
+    background:white; 
+    color:#444; 
+    border-radius:0px;
 }
 a .login-btn:hover {
     background:#b0afaf; 
     color:#333333;
+}*/
+
+/*btn style 2*/
+a .login-btn {
+    background:white; 
+    color:#444; 
+    border-radius:0px;
+}
+div .login-btn {
+    background:none;
+    color: #fff;
+    opacity:0.8;
+}
+.login-btn:hover {
+    opacity:1;
+}
+.login-edit {
+	background:white;
+	color:black;
+	margin:0 -5px; 
+	padding-right:4px;
+}
+.login-edit:hover{
+	background:#f0771f;
+	color:white;
+}
+
+.login-edit-list{
+	border:2px solid #080806;
+}
+.login-edit-list .dropdown-item:hover{
+	background:#f05228;
+	color:white;
+}
+.login-edit:after{
+	margin-left:0;
 }
 /*
 a .join-btn {
@@ -188,6 +297,150 @@ a .join-btn:hover {
     padding-top:3px;
     color:white;*/
     color:#4e4e4e;
-    font-size: 25px;
     font-weight: bold;
 }
+
+.index-s1-btn{
+background:#f0771f; 
+color: white; 
+font-weight: bold; 
+width:250px;
+}
+.index-s1-btn:hover {
+	background:#f05228;
+}
+.dot{
+	cursor:pointer;
+}
+
+/*radio Button*/
+.radiobtn[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+label{
+  cursor: pointer;
+}
+
+.radiobtn:hover label{
+	color: #ec5c26;
+}
+
+.check{
+  display: block;
+  position: absolute;
+  border: 3px solid #bcbcbc;
+  background: #f5f5f5;
+  border-radius: 100%;
+  height: 18px;
+  width: 18px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+tr td:hover .option {
+  border: 3px solid #ec5c26;
+  opacity:0.8;
+}
+
+.check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 7px;
+  width: 7px;
+  top: 0.15rem;
+  left: 0.15rem;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+.radiobtn[type=radio]:checked ~ .check {
+  border: 3px solid #ec5c26;
+  background: #f5f5f5;
+}
+
+.radiobtn[type=radio]:checked ~ .check::before{
+  background: #ec5c26;
+}
+.payment-type{
+	margin: 0;
+	padding-left:10px;
+}
+.payment-type:hover .check{
+	border: 3px solid #ec5c26;
+	opacity:0.8;
+}
+.payment-type-name {
+	padding-left:25px;
+	margin-top:2px;
+}
+
+/*탭 디자인*/
+.Info-container{
+	background: #ec5c26;
+}
+.tabbable{
+  margin: 0;
+  padding: 0;
+  max-height: 35px;
+}
+.tab-content {
+	padding: 0 35px;
+}
+
+ul.Info-nav-tabs{
+  margin: 0;
+  list-style-type : none;
+  line-height : 35px;
+  max-height: 35px;
+  overflow: hidden;
+  display: inline-block;
+  padding-right: 20px
+}
+
+ul.Info-nav-tabs > li.active{
+  z-index: 2;
+  background: #fff;
+  cursor:pointer;
+}
+
+ul.Info-nav-tabs > li.active:before{
+  border-color : transparent #efefef transparent transparent;
+}
+
+
+ul.Info-nav-tabs > li.active:after{
+  border-color : transparent transparent transparent #efefef;
+}
+
+ul.Info-nav-tabs > li{
+  float : right;
+  margin : 5px -10px 0;
+  border-top-right-radius: 25px 170px;
+  border-top-left-radius: 20px 90px;
+  padding : 0 30px 0 25px;
+  height: 170px;
+  background: #ddd;
+  position : relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,.5);
+  max-width : 200px;
+}
+
+ul.Info-nav-tabs > li:hover{
+	background: #bcbcbc;
+}
+
+ul.Info-nav-tabs > li > a{
+  display: inline-block;
+  max-width:100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: #222;
+}
+

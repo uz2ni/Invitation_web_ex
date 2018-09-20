@@ -20,3 +20,29 @@
 .table tbody {
     border-bottom:2px solid #f2f2f2;
 }
+/*Info 버튼*/
+.info-btn {
+	background:rgba(45,98,205,1); 
+	color:white; 
+	width:200px;
+	
+}
+.info-btn:hover{
+	background:#2955ae;
+}
+/*공지사항*/
+.point-info{
+	border-radius: 20px; 
+	background-color:#f5f5f5; 
+	color:#333333;
+}
+.point-info-ul {
+	padding: 10px 20px; 
+	line-height: 30px;
+}
+
+/* Clear Fix took for HTML 5 Boilerlate*/
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

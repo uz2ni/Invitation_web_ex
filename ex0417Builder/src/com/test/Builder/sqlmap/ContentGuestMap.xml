@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.ContentGuestMap">
+
+
+	<resultMap type="com.test.Builder.dto.ContentGuest" id="contentGuestResult">
+		<result property="urlGuestId" column="url_guest_id" />
+		<result property="urlId" column="url_id" />
+		<result property="urlGuestAt" column="url_guest_at" />
+		<result property="urlGuestName" column="url_guest_name" />
+		<result property="urlGuestPw" column="url_guest_pw" />
+		<result property="urlGuestText" column="url_guest_text" />
+	</resultMap>
+
+	<!-- 댓글 작성 시 insert -->
+	<insert id="contentGuestInsert" parameterType="com.test.Builder.dto.ContentGuest">
+		insert into url_guest(url_id, url_guest_name, url_guest_pw, url_guest_text)
+		values(#{urlId}, #{urlGuestName}, #{urlGuestPw}, #{urlGuestText});
+	</insert>
+	
+	<!-- urlId로 url 리스트 select -->
+	<select id="contentGuestSelectList" parameterType="int" resultMap="contentGuestResult">
+		select * from url_guest where url_id = #{urlId} order by url_guest_id desc;
+	</select>
+	
+	<update id="contentGuestUpdate" parameterType="com.test.Builder.dto.ContentGuest">
+		update url_guest
+		   set url_guest_text = #{urlGuestText}
+		 where url_guest_id = #{urlGuestId};
+	</update>
+	
+	<delete id="contentGuestDelete" parameterType="int">
+  		delete from url_guest where url_guest_id = #{urlGuestId};
+	</delete>
+	
+	<!-- 삭제 시 id에 해당하는 pw select -->
+	<select id="contentGuestSelectPw" parameterType="int" resultType="String">
+		select url_guest_pw from url_guest where url_guest_id = #{urlGuestId};
+	</select>
+		
+
+	
+	
+
+</mapper>

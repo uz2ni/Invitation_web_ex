@@ -31,6 +31,8 @@
 <jsp:include page="/template/sidebar.jsp" flush="false" />
 
 <!-- messagePay view -->
+<form method="POST" id="message-pay-form">
+<input type="hidden" id="type2" name="paymentType" value="5">
 
 <article class="center col-8 text-center" style="height:160vh;">
   <div class="col" style="height:160vh">
@@ -64,7 +66,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" selected value="0" type="radio" name="exampleRadios" value="option1" checked></td>
+                        <td><input class="form-check-input" type="radio" name="selectPoint" value="1000" checked onclick="pointTotalMoney(1000, 100)"></td>
                         <td scope="row">1,000원</th>
                         <td>100p</td>
                         <td>-</td>
@@ -73,7 +75,7 @@
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" selected value="0" type="radio" name="exampleRadios" value="option2" checked></td>
+                        <td><input class="form-check-input" type="radio" name="selectPoint" value="2000" onclick="pointTotalMoney(2000, 200)"></td>
                         <td scope="row">2,000원</th>
                         <td>200p</td>
                         <td>-</td>
@@ -82,7 +84,7 @@
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" selected value="0" type="radio" name="exampleRadios" value="option3" checked></td>
+                        <td><input class="form-check-input" type="radio" name="selectPoint" value="3000" onclick="pointTotalMoney(3000, 300)"></td>
                         <td scope="row">3,000원</th>
                         <td>300p</td>
                         <td>-</td>
@@ -91,7 +93,7 @@
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" selected value="0" type="radio" name="exampleRadios" value="option4" checked></td>
+                        <td><input class="form-check-input" type="radio" name="selectPoint" value="5000" onclick="pointTotalMoney(5000, 500)"></td>
                         <td scope="row">5,000원</th>
                         <td>500p</td>
                         <td>-</td>
@@ -100,7 +102,7 @@
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input  class="form-check-input"selected value="0" type="radio" name="exampleRadios" value="option5" checked></td>
+                        <td><input  class="form-check-input" type="radio" name="selectPoint" value="10000" onclick="pointTotalMoney(10000, 1000)"></td>
                         <td scope="row">10,000원</th>
                         <td>1,000p</td>
                         <td>-</td>
@@ -109,7 +111,7 @@
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" selected value="0" type="radio" name="exampleRadios" value="option6" checked></td>
+                        <td><input class="form-check-input" type="radio" name="selectPoint" value="15000" onclick="pointTotalMoney(15000, 1500)"></td>
                         <td scope="row">15,000원</th>
                         <td>1,500p</td>
                         <td>-</td>
@@ -136,7 +138,7 @@
               </div>
               <div class="row col-5" style="margin-top:35px;">
                 <div class="total col-6">총 결제 금액 :</div>
-                <div class="col-6"><span class="total-money">0 </span>원</div>
+                <div class="col-6"><span class="total-money">1,000</span>원</div>
             </div>
               </div>
           </div>
@@ -150,7 +152,7 @@
               <thead>
                    <tr>
                        <th class="total" style="padding-bottom:20px;" scope="row">결제금액</th>
-                       <td><h3 class="text-left m-1"><span class="total-money">0</span>원</h3></td>
+                       <td><h3 class="text-left m-1"><span class="total-money">1,000</span>원</h3></td>
                    </tr>
                 </thead>
               <!--결제 수단 선택-->
@@ -165,11 +167,11 @@
                                    <label class="form-check-label m-1" for="chargeway">신용카드</label>
                                </div>
                                <div class="form-check pr-2">
-                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;" checked>
+                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;">
                                    <label class="form-check-label m-1" for="chargeway">계좌이체</label>
                                </div>
                                <div class="form-check">
-                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;" checked>
+                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;">
                                    <label class="form-check-label m-1" for="chargeway"><img src="./img/pay/kakaopay.JPG" width="90" height="30"></label>
                                </div>
                            </div>
@@ -181,13 +183,14 @@
             <!--결제정보_end-->
             <div class="mt-4">
               <a href="application.html"><button type="button" class="btn btn-lg" style="background-color:#959595; color:white;">이전으로</button></a>
-              <button type="submit" class="btn btn-lg" style="background-color:#2d62cd; color:white;">결제하기</button>
+              <button type="button" class="btn btn-lg" onclick="requestPay('${sessionScope.user.userId}', '포인트')" style="background-color:#2d62cd; color:white;">결제하기</button>
             </div>
           </div>    
     </div>          
   </div>
 </article>
 
+</form>
 <!-- /messagePay view -->
 
 
@@ -202,8 +205,12 @@
 <!-- side bar js -->
 <script type="text/javascript" src="js/sidebar.js?v=<%=System.currentTimeMillis()%>"></script>
 
+<!-- iamport(결제) js -->
+<script src="https://service.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 <!-- custom js -->
-<script type="text/javascript" src="js/message.js?v=<%=System.currentTimeMillis()%>"></script>
+<script type="text/javascript" src="js/pay.js?v=<%=System.currentTimeMillis() %>"></script>
+<script>
 
+</script>
 </body>
 </html>

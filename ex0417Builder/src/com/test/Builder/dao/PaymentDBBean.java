@@ -69,5 +69,15 @@ public class PaymentDBBean {
     	return list;
     }
 
+    public List<Payment> selectPointList(int userId) {
+    	List<Payment> list;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try { 
+    		list = sqlSession.selectList("com.test.Builder.sqlmap.PaymentMap.paymentSelectPointList", userId);
+    	} finally {
+    		sqlSession.close();
+    	}
+    	return list;
+    }    
 
 }

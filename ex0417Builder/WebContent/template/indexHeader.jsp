@@ -29,6 +29,7 @@
 					</li>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="servicePay.do">제작 신청하기</a>
+						<a class="dropdown-item" href="messagePay.do">문자 포인트 충전</a>
 					</div>
 				</div>
 				<!--/drop down-->
@@ -42,8 +43,8 @@
 						<a class="nav-link" href="#">초대장 관리</a>
 					</li>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="myService.do">나의 서비스</a>
-						<a class="dropdown-item" href="sendMessage.do">문자 보내기</a>
+						<a class="dropdown-item" href="myService.do">초대장 관리</a>
+						<a class="dropdown-item" href="statistics.do">통계</a>
 					</div>
 				</div>
 				<!--/drop down-->
@@ -53,9 +54,8 @@
 						<a class="nav-link" href="#">마이 페이지</a>
 					</li>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="serviceInfo.do">서비스 신청 내역</a>
-						<a class="dropdown-item" href="pointInfo.do">포인트 충전내역</a>
-						<a class="dropdown-item" href="statistics.do">통계 관리</a>
+						<a class="dropdown-item" href="myPayUseInfo.do">결제/사용 내역</a>
+						<a class="dropdown-item" href="myInfo.do">내 정보</a>
 					</div>
 				</div>
 				<!--/drop down-->

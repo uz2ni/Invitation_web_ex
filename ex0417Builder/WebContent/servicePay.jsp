@@ -152,7 +152,7 @@
             <td colspan="3" class="form-group">
                 <!--link-->
                 <div class="d-flex justify-content-start">
-                  <a class="" style="font-weight:bold; padding-top:5px; padding-right:5px;">http://invitedu.com/</a>
+                  <a class="" style="font-weight:bold; padding-top:5px; padding-right:5px;">http://i-invite-you.com/</a>
                   <input type="text" name="paymentUrlName" class="form-control col-sm-4" id="inputPassword3" placeholder="도메인 입력"/>
                   <button type="button" class="confirm-btn">중복확인</button>
                 </div>
@@ -183,11 +183,11 @@
             <div class="col-9" style="margin:20px;">
               <div class="row">
                   <div class="col-8 text-left pb-1">설치 비용 :</div>
-                  <div class="col-4 text-right"><span> - </span>원</div><br>
+                  <div class="col-4 text-right"><span>9,900</span>원</div><br>
               </div>
               <div class="row">
                   <div class="col-8 text-left">서비스 사용 비용 :</div>
-                  <div class="col-4 text-right"><span> - </span>원</div>
+                  <div class="col-4 text-right"><span class="service-use-price"> - </span>원</div>
               </div>
             </div>
         </div>

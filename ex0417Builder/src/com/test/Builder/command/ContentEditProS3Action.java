@@ -6,6 +6,7 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.services.clouddirectory.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
@@ -18,20 +19,29 @@ import com.amazonaws.services.s3.transfer.Upload;
 // 날짜 : 18.05.31
 public class ContentEditProS3Action {
 
-	private AmazonS3 s3;
-    private String bucketName;
+	private static AmazonS3 s3;
+    private static String bucketName;
+    private String realBucketName;
     private static TransferManager tx;
     
-    @SuppressWarnings("deprecation")
-	String Upload(String subDir, String fileName) { //업로드된 위치, 업로드할 로컬에 올라간 파일이름
-        AWSCredentials credentials = new ProfileCredentialsProvider().getCredentials();
+	private static ContentEditProS3Action instance = new ContentEditProS3Action();
+	
+	public static ContentEditProS3Action getInstance() {
+		AWSCredentials credentials = new ProfileCredentialsProvider().getCredentials();
 
         s3 = AmazonS3ClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withRegion("ap-northeast-2")
                 .build();
-      
         bucketName = "invitecontent";
+
+        return instance;
+	}
+    
+    @SuppressWarnings("deprecation")
+	String Upload(String subDir, String fileName, String folderName) { //업로드된 위치, 업로드할 로컬에 올라간 파일이름
+              
+        realBucketName = bucketName + "/" + folderName;
         System.out.println("완료");
          
         this.tx = new TransferManager(s3);
@@ -48,14 +58,14 @@ public class ContentEditProS3Action {
         
         // 파일 key로 설정한 네임 값 반환
         return file.getName();
-        }
+     }
     
     // aws s3 접근하여 직접적 파일 업로드 되는 함수
     public void uploadFile(File file) {
         if (s3 != null) {
             try {
                 PutObjectRequest putObjectRequest =
-                        new PutObjectRequest(bucketName, file.getName(), file);
+                        new PutObjectRequest(realBucketName, file.getName(), file);
                 putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead); // file permission
                 s3.putObject(putObjectRequest); // upload file
                 
@@ -65,5 +75,12 @@ public class ContentEditProS3Action {
                 s3 = null;
             }
         }
+    }
+    
+    public void deleteFile(String folderName, String keyName) {
+    	String realBucketName = bucketName + "/" + folderName;
+    	System.out.println("realBucketName:" + realBucketName);
+    	System.out.println("keyname:" + keyName);
+    	s3.deleteObject(realBucketName, keyName);
     }
 }
