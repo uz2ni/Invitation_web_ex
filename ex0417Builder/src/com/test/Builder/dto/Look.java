@@ -3,7 +3,9 @@ package com.test.Builder.dto;
 public class Look {
 	int lookId;
 	int userId;
+	String userName;
 	int urlId;
+	int type;
 	String lookTitle;
 	String lookHashTag;
 	String lookUrlName;
@@ -12,6 +14,18 @@ public class Look {
 	int lookHeart;
 	String lookRegTime;
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	public int getLookId() {
 		return lookId;
 	}

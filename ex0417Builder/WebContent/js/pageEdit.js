@@ -106,8 +106,8 @@ function getSectionInfoParking() {
 	var section = $('.skin-info-parking');
 	return section;
 }
-function getSectionGallery() {
-	var section = $('.skin-gallery');
+function getSectionGallery(num) {
+	var section = $('.skin-gallery-' + num);
 	return section;
 }
 function getSectionVideo() {

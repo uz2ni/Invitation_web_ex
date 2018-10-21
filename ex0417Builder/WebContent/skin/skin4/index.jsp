@@ -43,7 +43,6 @@
 <body data-spy="scroll" data-target=".navbar-collapse">
 <input type="hidden" name="commonContext" value="${commonContext}">
 <input type="hidden" name="skinContext" value="${skinContext}">
-<input type="hidden" name="contentStr" value="${contentStr}">
 
 	<!--[if lt IE 8]>
      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -67,7 +66,7 @@
 											class="icon-bar"></span>
 									</button>
 									<a class="navbar-brand" href="#home">
-										<h3>무료 스킨1</h3>
+										<h3>${content.topTitle}</h3>
 									</a>
 								</div>
 
@@ -103,24 +102,27 @@
 		<div class="overlay"><!-- 반투명막 -->
 			<div class="d-flex" style="height:80vh; display:flex; align-items:center; justify-content:center">
 			<div class="title" style="background: url(${skinContext}img/welcome_img.png) no-repeat; background-position: 0 0; z-index:100;"></div>
-			<!-- <img class="welcome-img"alt="" src="../skin4/img/welcome_img.png">-->
 				<div class='square-box'>
 					<div class='square-content'>
 						<div class="col_third">	
 							<i class="fa fa-heart fa-5x icn_blue wow shake" data-wow-iteration="infinite" data-wow-duration="1500ms"></i>		
 						</div>
 						 <h3>D 
-						 <span class="skin-info-dday" style=""></span> Day
+						 <span class="skin-info-dday"></span> Day
 						 </h3>
 						 <p class="skin-top-title text-center"></p><!-- 제목 -->
+						 <div class="skin-top-img">
+						 	<!-- 기본 이미지 픽스 해야 함 -->
+						 	<img src="http://via.placeholder.com/100x100" alt="상단 이미지">
+						 </div>
 					</div>
 				</div>
 			</div>
 			<div class="d-flex program_box" style="height:20vh; text-align:center;">
 				<div style="margin:0 20px; background: white; border-radius:10px;">
 					<div class="skin-info-date skin-top-shadow" style="border-radius:10px;
-					background:url(../skin4/img/screw.png) no-repeat top left, url(${commonContext}img/screw.png) no-repeat top right, 
-							   url(../skin4/img/screw.png) no-repeat bottom left, url(${commonContext}img/screw.png) no-repeat bottom right; 
+					background:url(img/screw.png) no-repeat top left, url(img/screw.png) no-repeat top right, 
+							   url(img/screw.png) no-repeat bottom left, url(img/screw.png) no-repeat bottom right; 
 					background-size: 24px 24px,24px 24px;"><!-- 날짜 -->
 			              	<span class="skin-info-date-start"></span>
 			              	~
@@ -275,10 +277,11 @@
 						
 						<div class="whiseparator2"></div>
 						<i class="fas fa-map-marker-alt fa-2x" style="margin-right:7px; color:#223d61;"></i>
+						<!-- 주소 -->
 						<span class="skin-info-address"></span>
-						<span class="skin-info-map"></span>
+						<!-- 지도 api -->
+						<div id="info-address-map" style="width:100%;height:300px;" class="skin-info-map"></div>
 					</div>
-					<!-- <img src="http://placehold.it/300x250" alt="지도" class="text-center">-->
 					<!-- skin-info-navi"  -->
 					<div class="d-flex col-md-12 text-center" style="margin: 20px;">
 							<div class="col-xs-6 skin-info-navi"></div><!-- 네비 -->
@@ -287,7 +290,9 @@
 					<div class="d-flex col-md-12 text-center" style="padding-top:30px;">
 						<h2 style="color:#223d61;">약도</h2>
 						<div class="whiseparator2"></div>
-						<div class="skin-info-load-img"></div>
+						<div class="skin-info-load-img">
+							<img />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -333,37 +338,6 @@
 
 
 	<!-- skin-multi-section -->
-	<!-- <section id="gallery" class="skin-multi-section blog">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-10 col-sm-offset-1">
-					<div class="main_blog_area text-center sections">
-						<div class="head_title">
-							<h2>GALLERY</h2>
-							<div class="separator"></div>
-						</div>
-						 
-						<div class="main_blog_content">
-							<ul class="main_blog">
-								<li class="skin-gallery-upload-img single_blog_content"><img
-									class="img-responsive" src="img/team1.jpg" alt=""></li>
-								<li class="skin-gallery-upload-img single_blog_content"><img
-									class="img-responsive" src="img/team1.jpg" alt=""></li>
-									<li class="skin-gallery-upload-img single_blog_content"><img
-									class="img-responsive" src="img/team1.jpg" alt=""></li>
-								<li class="skin-gallery-upload-img single_blog_content"><img
-									class="img-responsive" src="img/team1.jpg" alt=""></li>
-									<li class="skin-gallery-upload-img single_blog_content"><img
-									class="img-responsive" src="img/team1.jpg" alt=""></li>
-								<li class="skin-gallery-upload-img single_blog_content"><img
-									class="img-responsive" src="img/team1.jpg" alt=""></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>-->
 	<section id="gallery" class="sections skin-multi-section blog p-0 program_box">
       <div class="container-fluid p-0">
       		<div class="head_title text-center">
@@ -376,23 +350,44 @@
 			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
 			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
 			  </ol>
 			
 			  <div class="carousel-inner"role="listbox">
 			    <div class="gallery-Frame item active">
-			      <img src="${skinContext}img/portfolio/thumbnails/1.jpg" alt="...">
+			      <img src="${skinContext}img/portfolio/thumbnails/1.jpg" alt="..." class="skin-gallery-1">
 			      <div class="carousel-caption">
 			        ...
 			      </div>
 			    </div>
 			    <div class="gallery-Frame item">
-			      <img src="${skinContext}img/portfolio/thumbnails/2.jpg" alt="...">
+			      <img src="${skinContext}img/portfolio/thumbnails/2.jpg" alt="..." class="skin-gallery-2">
 			      <div class="carousel-caption">
 			        ...
 			      </div>
 			    </div>
 			    <div class="gallery-Frame item">
-			      <img src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="...">
+			      <img src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="..." class="skin-gallery-3">
+			      <div class="carousel-caption">
+			        ...
+			      </div>
+			    </div>
+			    <div class="gallery-Frame item">
+			      <img src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="..." class="skin-gallery-4">
+			      <div class="carousel-caption">
+			        ...
+			      </div>
+			    </div>
+			    <div class="gallery-Frame item">
+			      <img src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="..." class="skin-gallery-5">
+			      <div class="carousel-caption">
+			        ...
+			      </div>
+			    </div>
+			    <div class="gallery-Frame item">
+			      <img src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="..." class="skin-gallery-6">
 			      <div class="carousel-caption">
 			        ...
 			      </div>
@@ -412,7 +407,7 @@
 		<div class="row skin-gallery-type-row">
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
             <a class="portfolio-box" href="${skinContext}img/portfolio/fullsize/1.jpg">
-              <img class="img-fluid" src="${skinContext}img/portfolio/thumbnails/1.jpg" alt="">
+              <img class="img-fluid skin-gallery-1" src="${skinContext}img/portfolio/thumbnails/1.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -427,7 +422,7 @@
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
             <a class="portfolio-box" href="${skinContext}img/portfolio/fullsize/2.jpg">
-              <img class="img-fluid" src="${skinContext}img/portfolio/thumbnails/2.jpg" alt="">
+              <img class="img-fluid skin-gallery-2" src="${skinContext}img/portfolio/thumbnails/2.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -442,7 +437,7 @@
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
             <a class="portfolio-box" href="${skinContext}img/portfolio/fullsize/3.jpg">
-              <img class="img-fluid" src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="">
+              <img class="img-fluid skin-gallery-3" src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -457,7 +452,7 @@
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
             <a class="portfolio-box" href="${skinContext}img/portfolio/fullsize/4.jpg">
-              <img class="img-fluid" src="${skinContext}img/portfolio/thumbnails/4.jpg" alt="">
+              <img class="img-fluid skin-gallery-4" src="${skinContext}img/portfolio/thumbnails/4.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -472,7 +467,7 @@
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
             <a class="portfolio-box" href="${skinContext}img/portfolio/fullsize/5.jpg">
-              <img class="img-fluid" src="${skinContext}img/portfolio/thumbnails/5.jpg" alt="">
+              <img class="img-fluid skin-gallery-5" src="${skinContext}img/portfolio/thumbnails/5.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -487,7 +482,7 @@
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
             <a class="portfolio-box" href="${skinContext}img/portfolio/fullsize/6.jpg">
-              <img class="img-fluid" src="${skinContext}img/portfolio/thumbnails/6.jpg" alt="">
+              <img class="img-fluid skin-gallery-6" src="${skinContext}img/portfolio/thumbnails/6.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -505,7 +500,7 @@
           <div class="row col-sm-10 skin-gallery-type-col">
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
 	              <a class="portfolio-box-col" href="${skinContext}img/portfolio/fullsize/1.jpg">
-	              <img class="img-fluid-col" src="${skinContext}img/portfolio/fullsize/1.jpg" alt="">
+	              <img class="img-fluid-col skin-gallery-1" src="${skinContext}img/portfolio/fullsize/1.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
 	                  <div class="project-category text-faded">
@@ -520,7 +515,7 @@
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
 	            <a class="portfolio-box-col" href="${skinContext}img/portfolio/fullsize/2.jpg">
-	              <img class="img-fluid-col" src="${skinContext}img/portfolio/thumbnails/2.jpg" alt="">
+	              <img class="img-fluid-col skin-gallery-2" src="${skinContext}img/portfolio/thumbnails/2.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
 	                  <div class="project-category text-faded">
@@ -535,7 +530,7 @@
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
 	            <a class="portfolio-box-col" href="${skinContext}img/portfolio/fullsize/3.jpg">
-	              <img class="img-fluid-col" src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="">
+	              <img class="img-fluid-col skin-gallery-3" src="${skinContext}img/portfolio/thumbnails/3.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
 	                  <div class="project-category text-faded">
@@ -550,7 +545,7 @@
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
 	            <a class="portfolio-box-col" href="${skinContext}img/portfolio/fullsize/4.jpg">
-	              <img class="img-fluid-col" src="${skinContext}img/portfolio/thumbnails/4.jpg" alt="">
+	              <img class="img-fluid-col skin-gallery-4" src="${skinContext}img/portfolio/thumbnails/4.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
 	                  <div class="project-category text-faded">
@@ -565,7 +560,7 @@
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
 	            <a class="portfolio-box-col" href="${skinContext}img/portfolio/fullsize/5.jpg">
-	              <img class="img-fluid-col" src="${skinContext}img/portfolio/thumbnails/5.jpg" alt="">
+	              <img class="img-fluid-col skin-gallery-5" src="${skinContext}img/portfolio/thumbnails/5.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
 	                  <div class="project-category text-faded">
@@ -580,7 +575,7 @@
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
 	            <a class="portfolio-box-col" href="${skinContext}img/portfolio/fullsize/6.jpg">
-	              <img class="img-fluid-col" src="${skinContext}img/portfolio/thumbnails/6.jpg" alt="">
+	              <img class="img-fluid-col skin-gallery-6" src="${skinContext}img/portfolio/thumbnails/6.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
 	                  <div class="project-category text-faded">
@@ -650,7 +645,9 @@
 							<div class="single_newsletter_head">
 								<h2>주최</h2>
 								<div class="whiseparator"></div>
-								<img src="http://via.placeholder.com/50x50" class="add-info-hold-img-preview">
+								<div class="skin-add-info-hold-img">
+									<img src="http://via.placeholder.com/50x50" class="add-info-hold-img-preview">
+								</div>
 								<span class="skin-add-info-logo-hold-name"></span>
 							</div>
 						</div>
@@ -659,18 +656,107 @@
 							<div class="single_newsletter_head">
 								<h2>후원</h2>
 								<div class="whiseparator"></div>
-								<img src="http://via.placeholder.com/50x50" class="add-info-hold-img-preview">
+								<div class="skin-add-info-help-img">
+									<img src="http://via.placeholder.com/50x50" class="add-info-hold-img-preview">
+								</div>
 								<span class="skin-add-info-logo-help-name"></span>
 							</div>
 						</div>
 						<div class="col-sm-12">
+							<!-- 참석 버튼 -->
 							<div class="col-sm-6" style="">
 								<div class="single_newsletter_head">
 									<div class="form-group skin-attend">
-										<button class="btn btn-primary"><i class="far fa-check-square fa-sm" style="margin-right:7px;"></i>참석여부</button>
+										<button type="button" class="btn btn-primary attend" data-toggle="modal" data-target="#attend-modal"><i class="far fa-check-square fa-sm" style="margin-right:7px;"></i>참석</button>
 									</div>
 								</div>
 							</div>
+							<!-- 불참석 버튼 -->
+							<div class="col-sm-6" style="">
+								<div class="single_newsletter_head">
+									<div class="form-group skin-attend">
+										<button class="btn btn-primary noattend" data-toggle="modal" data-target="#not-attend-modal"><i class="far fa-check-square fa-sm" style="margin-right:7px;"></i>불참석</button>
+									</div>
+								</div>
+							</div>
+							<!-- 모달 팝업1 -->
+							<div class="modal fade" id="attend-modal" tabindex="-1"
+								role="dialog" aria-labelledby="attend-modal-label"
+								aria-hidden="true" style="color:black;">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">
+												<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+											</button>
+											<h4 class="modal-title" id="attend-modal-label">참석</h4>
+										</div>
+										<div class="modal-body ">
+											<div class="form-group text-left">
+												<label for="attend-name">이름</label> <input type="text"
+													class="form-control" name="attend-name" placeholder="이름 입력 ">
+											</div>
+											<div class="form-group text-left">
+												<label for="attend-password">본인확인용 비밀번호 4자리 </label> <input
+													type="password" class="form-control" name="attend-password"
+													placeholder="비밀 번호를 입력해 주세요.">
+											</div>
+											<!-- 설문조사 양식 -->
+											<div id="attend-form" class="form-group text-left">
+											</div>
+										</div>
+										<!--End of modal body -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">취소</button>
+											<button type="button" class="btn btn-primary" onclick="attendBtn(1)">완료</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 모달 팝업2 -->
+							<div class="modal fade" id="not-attend-modal" tabindex="-1"
+								role="dialog" aria-labelledby="not-attend-modal-label"
+								aria-hidden="true" style="color:black;">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">
+												<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+											</button>
+											<h4 class="modal-title" id="not-attend-modal-label">불참</h4>
+										</div>
+										<div class="modal-body">
+											<form id="noattend-form">
+												<div class="form-group text-left">
+													<label for="not-attend-name text-left">이름</label> <input
+														type="text" class="form-control" name="not-attend-name"
+														aria-describedby="emailHelp" placeholder="이름 입력 ">
+												</div>
+												<div class="form-group text-left">
+													<label for="not-attend-password">본인확인용 비밀번호 4자리</label> <input
+														type="password" class="form-control"
+														name="not-attend-password" placeholder="비밀 번호를 입력해 주세요.">
+												</div>
+
+												<div class="noattend-reason text-left">
+													<label for="exampleFormControlTextarea1">불참 사유에
+														대해 작성해 주세요. </label>
+													<textarea class="form-control"
+														id="exampleFormControlTextarea1" rows="3" name="reason"></textarea>
+												</div>
+											</form>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">취소</button>
+											<button type="button" class="btn btn-primary" onclick="attendBtn(0)">완료</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 방명록 버튼 -->
 							<div class="col-sm-6" style="">
 								<div class="single_newsletter_head">
 									<div class="form-group skin-comment">
@@ -711,9 +797,6 @@
 					    
 						    <div class="list">
 						      <section class="first" >
-						        <div class="img">
-						          <img class="comment-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/36763/profile/profile-512_1.jpg" alt="" />
-						        </div>
 						        <div class="comments">
 						          <p>${contentGuest.urlGuestText}</p>
 						        </div>
@@ -791,10 +874,13 @@
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=28s_5H2hA1HcHCbdhEUr&submodules=geocoder&callback=CALLBACK_FUNCTION"></script>
   <!-- Kakao navi -->
   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
-
+  	
+  <script>
+	str = ${contentStr};
+  </script>
    <!-- edit js -->
    <script src="${commonContext}js/pageEdit.js"></script>
    <script src="${commonContext}js/pageEditFunc.js"></script>
-  	
+
 </body>
 </html>

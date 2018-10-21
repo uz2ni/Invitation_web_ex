@@ -41,13 +41,23 @@ public class MyInfoAction implements CommandAction {
 				account = userAccount.split("\\(")[1];
 				account = account.split("\\)")[0];
 			}
+			System.out.println("bankName:" + bankName);
+			
+			// birth
+			String userBirth = user.getUserBirth();
+			String birthYear = userBirth.split("\\-")[0];
+			String birthMonth = userBirth.split("\\-")[1];
+			String birthDay = userBirth.split("\\-")[2];
+			System.out.println("birthYear:" + birthYear + ", Month:" + birthMonth + ", day:" + birthDay);
 			
 			request.setAttribute("user", user);
 			request.setAttribute("invCnt", cnt);
 			request.setAttribute("bankName", bankName);
 			request.setAttribute("accountName", accountName);
 			request.setAttribute("account", account);
-			
+			request.setAttribute("birthYear", Integer.parseInt(birthYear));
+			request.setAttribute("birthMonth", Integer.parseInt(birthMonth));
+			request.setAttribute("birthDay", Integer.parseInt(birthDay));
 			
 			return "myInfo.jsp";
 		}

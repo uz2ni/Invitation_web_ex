@@ -57,6 +57,8 @@ public class Content {
 	private int accountMoney;
 //	추가 기능 - 참석 여부
 	private int attendChk;
+	private int pollChk;
+	private String pollContent;
 //	추가 기능 - 방명록
 	private int commentChk;
 //	추가 기능 - SNS사용여부
@@ -330,6 +332,18 @@ public class Content {
 	public void setAttendChk(int attendChk) {
 		this.attendChk = attendChk;
 	}
+	public int getPollChk() {
+		return pollChk;
+	}
+	public String getPollContent() {
+		return pollContent;
+	}
+	public void setPollContent(String pollContent) {
+		this.pollContent = pollContent;
+	}
+	public void setPollChk(int pollChk) {
+		this.pollChk = pollChk;
+	}
 	public int getCommentChk() {
 		return commentChk;
 	}
@@ -377,7 +391,7 @@ public class Content {
 				+ ", galleryChk=" + galleryChk + ", galleryType=" + galleryType + ", galleryUploadImg="
 				+ galleryUploadImg + ", videoChk=" + videoChk + ", videoLink=" + videoLink + ", accountChk="
 				+ accountChk + ", accountSelect=" + accountSelect + ", accountMoney=" + accountMoney + ", attendChk="
-				+ attendChk + ", commentChk=" + commentChk + ", snsShareChk=" + snsShareChk + ", selectSns=" + selectSns
+				+ attendChk + ", pollChk=" + pollChk + ", pollContent=" + pollContent + ", commentChk=" + commentChk + ", snsShareChk=" + snsShareChk + ", selectSns=" + selectSns
 				+ ", snsMsgChk=" + snsMsgChk + ", snsMsgContent=" + snsMsgContent + "]";
 	}
 	

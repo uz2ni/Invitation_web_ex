@@ -18,11 +18,6 @@
 <link rel="stylesheet" href="css/font.css?ver=1">
 <link rel="stylesheet" href="css/common.css?ver=1">
 <link rel="stylesheet" href="css/index.css?ver=1">
-<style>
-/* {
-	border: 0px solid black;
-} */
-</style>
 
 <title>초대해U</title>
 </head>

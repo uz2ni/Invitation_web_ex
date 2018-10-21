@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,20 +31,23 @@
 </jsp:include>
 <jsp:include page="/template/sidebar.jsp" flush="false" />
 
+
+
 <!-- messagePay view -->
+
+<article class="center col-8 text-center">
 <form method="POST" id="message-pay-form">
 <input type="hidden" id="type2" name="paymentType" value="5">
 
-<article class="center col-8 text-center" style="height:160vh;">
-  <div class="col" style="height:160vh">
-    <h4 class="title text-left my-2">포인트 충전하기</h3>
-    <div class="row my-5" style="height:130vh">
+	<div class="col">
+    	<h4 class="title text-left py-2">우표 충전하기</h4>
+		<div class="row my-4">
       <!--공지-->
 			<div class="col-11 text-left py-4 mx-auto"
 					style="border-radius: 20px; background-color:#f5f5f5; color:#333333; font-size:15px; margin-bottom:20px;">
-						<ul style="padding-left:40px;">
+						<ul style="padding-left:40px; margin: 0;">
 							<li>포인트는 기간에 상관없이 소진될 때까지 이용하실 수 있습니다.</li>
-							<li>문자 전송 포인트 : MMS ( 220 p ), LMS ( 60 p ), SMS ( 22 p )</li>
+							<li>문자 전송 포인트 : SMS ( 우표 1장 ), LMS ( 우표 3장 ), MMS ( 우표 6장 )</li>
 							<li>포인트 충전후 문자보내기 페이지에서 초기 1회 본인인증후 문자 발송이 가능합니다.</li>
 							<li>초대해U MMS(포토+장문)전송시 자동으로 초대장 사진과 문구가 생성됩니다.</li>
 							<li>초대해U MMS 전송은 초대장에 올려주신 이미지가 같이 첨부되어 지인에게 전달시에 최근 문제가 되는 스미싱등의 불필요한 오해도 줄일 수 있습니다.</li>
@@ -52,7 +56,7 @@
 			<!--공지_end-->
       <div class="col-12">
              <div class="">
-                 <h4 class="title text-left my-2">상품선택</h4>
+                 <h5 class="title text-left my-2">상품선택</h5>
              </div>
              <!--상품선택-->
              <table class="table table-bordered">
@@ -60,120 +64,106 @@
                       <tr>
                         <th scope="col"></th>
                         <th scope="col">상품</th>
-                        <th scope="col">충전포인트</th>
-                        <th scope="col">내용</th>
+                        <th scope="col">우표</th>
+                        <th scope="col" style="width:220px;">단문 (SMS)</th>
+                        <th scope="col" style="width:220px;">장문 (LMS)</th>
+                        <th scope="col" style="width:220px;">포토 + 장문 (MMS)</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" type="radio" name="selectPoint" value="1000" checked onclick="pointTotalMoney(1000, 100)"></td>
-                        <td scope="row">1,000원</th>
-                        <td>100p</td>
-                        <td>-</td>
-                        </td>
+                        <td><input class="radiobtn" type="radio" id="1-option" name="selectPoint" onclick="pointTotalMoney(1000, 100)" checked><label for="1-option" class="check option"></label></td>
+                        <td scope="row">1,000 원</td>
+                        <td>50 장</td>
+                        <td>50 건</td>
+                        <td>16 건</td>
+                        <td>8 건</td>
                       </tr>
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" type="radio" name="selectPoint" value="2000" onclick="pointTotalMoney(2000, 200)"></td>
-                        <td scope="row">2,000원</th>
-                        <td>200p</td>
-                        <td>-</td>
-                        </td>
+                        <td><input class="radiobtn" type="radio" id="2-option" name="selectPoint" onclick="pointTotalMoney(2000, 200)"><label for="2-option" class="check option"><div class="inside"></div></label></td>
+                        <td scope="row">2,000 원</td>
+                        <td>100 장</td>
+                        <td>100 건</td>
+                        <td>33 건</td>
+                        <td>16 건</td>
                       </tr>
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" type="radio" name="selectPoint" value="3000" onclick="pointTotalMoney(3000, 300)"></td>
-                        <td scope="row">3,000원</th>
-                        <td>300p</td>
-                        <td>-</td>
-                        </td>
+                        <td><input class="radiobtn" type="radio" id="3-option" name="selectPoint" onclick="pointTotalMoney(3000, 300)"><label for="3-option" class="check option"><div class="inside"></div></label></td>
+                        <td scope="row">3,000 원</td>
+                        <td>150 장</td>
+                        <td>150 건</td>
+                        <td>50 건</td>
+                        <td>25 건</td>
                       </tr>
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" type="radio" name="selectPoint" value="5000" onclick="pointTotalMoney(5000, 500)"></td>
-                        <td scope="row">5,000원</th>
-                        <td>500p</td>
-                        <td>-</td>
-                        </td>
+                        <td><input class="radiobtn" type="radio" id="4-option" name="selectPoint" onclick="pointTotalMoney(4000, 400)"><label for="4-option" class="check option"><div class="inside"></div></label></td>
+                        <td scope="row">5,000 원</td>
+                        <td>250 장</td>
+                        <td>250 건</td>
+                        <td>83 건</td>
+                        <td>41 건</td>
                       </tr>
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input  class="form-check-input" type="radio" name="selectPoint" value="10000" onclick="pointTotalMoney(10000, 1000)"></td>
-                        <td scope="row">10,000원</th>
-                        <td>1,000p</td>
-                        <td>-</td>
-                        </td>
+                        <td><input class="radiobtn" type="radio" id="5-option" name="selectPoint" onclick="pointTotalMoney(5000, 500)"><label for="5-option" class="check option"><div class="inside"></div></label></td>
+                        <td scope="row">10,000 원</td>
+                        <td>500 장</td>
+                        <td>500 건</td>
+                        <td>166 건</td>
+                        <td>83 건</td>
                       </tr>
                     </tbody>
                     <tbody>
                       <tr>
-                        <td><input class="form-check-input" type="radio" name="selectPoint" value="15000" onclick="pointTotalMoney(15000, 1500)"></td>
-                        <td scope="row">15,000원</th>
-                        <td>1,500p</td>
-                        <td>-</td>
-                        </td>
+                        <td><input class="radiobtn" type="radio" id="6-option" name="selectPoint" onclick="pointTotalMoney(6000, 600)"><label for="6-option" class="check option"><div class="inside"></div></label></td>
+                        <td scope="row">15,000 원</td>
+                        <td>750 장</td>
+                        <td>750 건</td>
+                        <td>250 건</td>
+                        <td>125 건</td>
                       </tr>
                     </tbody>
                   </table>
              <!--상품선택_end-->
           </div>
-      <!--내용제공-->
-      <div class="col-12">
-            <div class="container d-flex justify-content-center" style="border: 1px solid #dcd9d9;">
-              <div class="col-7" style="border-right: 1px solid #dcd9d9;">
-                  <div class="col-9" style="margin:20px;">
-                    <div class="row">
-                        <div class="col-8 text-left pb-1">설치 비용 :</div>
-                        <div class="col-4 text-right"><span> - </span>원</div><br>
-                    </div>
-                    <div class="row">
-                        <div class="col-8 text-left">서비스 사용 비용 :</div>
-                        <div class="col-4 text-right"><span> - </span>원</div>
-                    </div>
-                  </div>
-              </div>
-              <div class="row col-5" style="margin-top:35px;">
-                <div class="total col-6">총 결제 금액 :</div>
-                <div class="col-6"><span class="total-money">1,000</span>원</div>
-            </div>
-              </div>
-          </div>
-      <!--내용제공_end-->
       <!--결제정보-->
-      <div class="col-12 mt-3">
+      <div class="col-12 pt-4">
             <div class="">
-                 <h4 class="title text-left my-2">결제정보</h4>
+                 <h5 class="title text-left my-2">결제정보</h5>
              </div>
             <table class="table table-bordered">
               <thead>
                    <tr>
-                       <th class="total" style="padding-bottom:20px;" scope="row">결제금액</th>
-                       <td><h3 class="text-left m-1"><span class="total-money">1,000</span>원</h3></td>
+                       <th class="total" scope="row">결제금액</th>
+                       <td style="border:none;"><h3 class="text-left m-1"><span class="total-money">1,000</span>원</h3></td>
                    </tr>
                 </thead>
               <!--결제 수단 선택-->
               <tbody>
                     <tr>
-                        <th class="total" style="padding-top:20px;" scope="row">결제방법</th>
+                        <th class="total" scope="row">결제방법</th>
                         <td>
                         <!--결제방법-->
-                           <div class="row m-1">
-                               <div class="form-check pr-2">
-                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;" checked>
-                                   <label class="form-check-label m-1" for="chargeway">신용카드</label>
-                               </div>
-                               <div class="form-check pr-2">
-                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;">
-                                   <label class="form-check-label m-1" for="chargeway">계좌이체</label>
-                               </div>
-                               <div class="form-check">
-                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" style="margin-top:9px;">
-                                   <label class="form-check-label m-1" for="chargeway"><img src="./img/pay/kakaopay.JPG" width="90" height="30"></label>
-                               </div>
+                           <div class="row pl-3" style="align-items: center;">
+                               <label class="payment-type">
+                               	   <input class="radiobtn" type="radio" name="exampleRadios" id="1-payment" value="option1" checked>
+                                   <div class="check" for="1-payment"></div><div class="payment-type-name">신용카드</div>
+                               </label>
+                               <label class="payment-type">
+                                   <input class="radiobtn" type="radio" name="exampleRadios" id="2-payment" value="option1">
+                                   <div class="check" for="2-payment"></div><div class="payment-type-name">계좌이체</div>
+                               </label>
+                               <label class="payment-type" for="3-payment" style="padding-top:5px;">
+                                   <input class="radiobtn" type="radio" name="exampleRadios" id="3-payment" value="option1">
+                                   <div class="check" for="3-payment" style="margin-top: 5px;"></div><div class="payment-type-name"><img src="./img/pay/kakaopay.JPG" width="90" height="30"></div>
+                               </label>
                            </div>
                            <!--결제방법_end-->
                           </td>
@@ -183,14 +173,15 @@
             <!--결제정보_end-->
             <div class="mt-4">
               <a href="application.html"><button type="button" class="btn btn-lg" style="background-color:#959595; color:white;">이전으로</button></a>
-              <button type="button" class="btn btn-lg" onclick="requestPay('${sessionScope.user.userId}', '포인트')" style="background-color:#2d62cd; color:white;">결제하기</button>
+              <button type="button" class="btn btn-lg" style="background-color:#2d62cd; color:white;" onclick="requestPay('${sessionScope.user.userId}', '포인트')">결제하기</button>
             </div>
           </div>    
     </div>          
   </div>
+  
+  </form>
 </article>
 
-</form>
 <!-- /messagePay view -->
 
 
@@ -208,9 +199,8 @@
 <!-- iamport(결제) js -->
 <script src="https://service.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 <!-- custom js -->
+<script type="text/javascript" src="js/message.js?v=<%=System.currentTimeMillis()%>"></script>
 <script type="text/javascript" src="js/pay.js?v=<%=System.currentTimeMillis() %>"></script>
-<script>
 
-</script>
 </body>
 </html>

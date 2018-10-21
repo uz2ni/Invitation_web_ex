@@ -38,6 +38,18 @@ public class MyInfoUpdateAction implements CommandAction {
 			String accountNum = request.getParameter("account-num");
 			String bankReset = bankPro(bankName, accountName, accountNum);
 			
+			// birth 파라미터들 묶어서 넣기
+			String year = request.getParameter("user-year");
+			String month = request.getParameter("user-month");
+			String day = request.getParameter("user-day");
+			if(Integer.parseInt(month) < 10) {
+				month = "0" + month;
+			}else if (Integer.parseInt(day) < 10) {
+				day = "0" + day;
+			}
+			String birth = year + "-" + month + "-" + day;
+			user.setUserBirth(birth);
+			
 			user.setUserPw(userPw);
 			user.setUserPhone(userPhone);
 			user.setUserAccount(bankReset);
@@ -67,5 +79,5 @@ public class MyInfoUpdateAction implements CommandAction {
 		}
 		return str;
 	}
-
+	
 }

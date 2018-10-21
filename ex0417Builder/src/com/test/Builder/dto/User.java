@@ -66,5 +66,12 @@ public class User {
 	public void setUserPoint(int userPoint) {
 		this.userPoint = userPoint;
 	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userEmail=" + userEmail + ", userPw=" + userPw + ", userName=" + userName
+				+ ", userPhone=" + userPhone + ", userBirth=" + userBirth + ", userProfile=" + userProfile
+				+ ", userAccount=" + userAccount + ", userPoint=" + userPoint + "]";
+	}
+	
 
 }

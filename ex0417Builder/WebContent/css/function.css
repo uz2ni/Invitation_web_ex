@@ -56,35 +56,120 @@
     color:#369ea2;
     margin:-5px;
 }
-/*service_1*/
+
+/*
+@media screen and (min-width:1020px) {
+	.function{
+		height:300px;
+	}
+	.rounded-circle, .rounded-circle img, .rounded-circle-inner {
+		height:270px; 
+	    width:270px; 
+	}
+}
+
+@media screen and (max-width:992px) and (min-width:794px) {
+	.function{
+		height:300px;
+	}
+	.rounded-circle, .rounded-circle img, .rounded-circle-inner {
+		height:270px; 
+	    width:270px; 
+	}
+}
+
+@media screen and (max-width:793px) and (min-width:669px) {
+	.function{
+		height:300px;
+	}
+	.rounded-circle, .rounded-circle img, .rounded-circle-inner {
+		height:270px; 
+	    width:270px; 
+	}
+}
+
+@media screen and (max-width:668px) and (min-width:462px) {
+	.function{
+		height:250px;
+	}
+	.rounded-circle, .rounded-circle img, .rounded-circle-inner {
+		height:230px; 
+	    width:230px; 
+	}
+}
+@media screen and (max-width:463px) {
+	.function{
+		height:300px;
+	}
+	.rounded-circle, .rounded-circle img, .rounded-circle-inner {
+		height:270px; 
+	    width:270px; 
+	}
+}
+@media screen and (max-width:1020px) {
+	.function{
+		height:300px;
+	}
+}*/
+
+.function{
+	height:330px;
+	margin-top:25px;
+	margin-bottom: 25px;
+}
+
 .rounded-circle {
     position: absolute; 
+    height:300px; 
+	width:300px; 
     border-radius:50%; 
-    height:250px; 
-    width:250px; 
     overflow: hidden;
 }
 .rounded-circle img {
-    width:250px; 
-    height:250px;
+	height:300px; 
+	width:300px; 
 }
 .rounded-circle-inner {
     position: absolute; 
     border-radius:50%; 
-    height:250px; 
-    width:250px; 
+    height:300px; 
+	width:300px; 
     bottom: 0; 
     left: 0; 
     right: 0; 
     background:rgba(0,0,0,0.7);
 }
+.rounded-circle-inner:hover {
+    background:rgba(0,0,0,0.8);
+}
+
+@media screen and (max-width:1300px) and (min-width:480px) {
+	.function{
+		height:250px;
+	}
+	.rounded-circle {
+		height:230px; 
+	    width:230px; 
+	} 
+	.rounded-circle img {
+		height:230px; 
+	    width:230px; 
+	}
+	
+	.rounded-circle-inner {
+		height:230px; 
+	    width:230px; 
+	}
+}
+
 .rounded-circle-inner img {
-    margin-top:45px; 
-    width:100px; 
-    height:100px;
+    /*margin-top:45px; */
+    width:120px; 
+    height:120px;
 }
 .rounded-circle-inner p {
     color:white; 
+    font-size:16px;
     font-weight:bold;
     margin-top: 15px;
 }

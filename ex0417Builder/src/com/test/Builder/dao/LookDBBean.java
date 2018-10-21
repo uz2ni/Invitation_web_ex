@@ -35,6 +35,19 @@ public class LookDBBean {
     	return list;
     }
     
+    // selectList
+    public List<Look> selectTypeList(int type) {
+    	List<Look> list;
+    	SqlSession sqlSession = sqlSessionFactory.openSession();
+    	try { 
+    		list = sqlSession.selectList("com.test.Builder.sqlmap.LookMap.lookSelectTypeList1", type);
+    		
+    	} finally {
+    		sqlSession.close();
+    	}
+    	return list;
+    }    
+    
     // insert
 	public int insert(Look look) {
 

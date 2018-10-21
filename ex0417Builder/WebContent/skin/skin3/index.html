@@ -9,7 +9,7 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>${content.topTitle}</title>
+<title>Invited You</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -24,6 +24,7 @@
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i"
 	rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/iconfont.css">
 <link rel="stylesheet" href="css/slick/slick.css">
 <link rel="stylesheet" href="css/slick/slick-theme.css">
@@ -33,7 +34,6 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/magnific-popup.css">
 <!-- <link rel="stylesheet" href="css/font.css?ver=1"> -->
-<!-- <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
 <!--For Plugins external css-->
 <link rel="stylesheet" href="css/plugins.css" />
@@ -44,16 +44,18 @@
 <!--Theme Responsive css-->
 <link rel="stylesheet" href="css/responsive.css" />
 
-<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse">
+<body data-spy="
+	scroll" data-target=".navbar-collapse">
 	<!-- 로딩 될때 나오는 로드 이미지 preloader, loadeds-->
 	<!-- <div class='preloader'>
 		<div class='loaded'>&nbsp;</div>
@@ -116,23 +118,30 @@
 									<div class="main_home wow fadeInUp" data-wow-duration="600ms">
 										<div class="col-md-12 col-sm-6">
 											<img class="skin-top-img-file skin-top-title text-center"
-												alt="" width=600; />
+											alt="" width=600; />
 										</div>
-										<p class=" skin-top- font-color">
-										<h1 class="skin-top-title"></h1>
+										<p class=" skin-top-font-color">
+										<p>
+											<span class="skin-top-title"></span>
 										</p>
 										<div class="separator"></div>
-
 										<div class="skin-info-date">
-
-											<div class="skin-info-date">
+											<div>
 												<p>
-													<span class="skin-info-date-start"> <!-- 	<h2 class="skin-info-date-start"></h2> -->
-														<h1>~</h1> <!-- <h2 class="skin-info-date-end"></h2> --> <span
-														class="skin-info-date-start">
+													<span>행사일시</span>
 												</p>
-												</span>
 											</div>
+											<p>
+												<span class="skin-info-date-start"></span> <span>~</span> <span
+													class="skin-info-date-end"></span>
+											</p>
+
+											<p>
+												<span>행사 까지 남은 날짜</span>
+											</p>
+											<p>
+												<span>D </span><span class="skin-info-dday"></span>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -344,62 +353,38 @@
 							<h2>안내</h2>
 							<div class="separator"></div>
 						</div>
-
 						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">D-day</div>
-										<div class="m_t text-center">행사까지 남은 날짜</div>
-									</div>
-								</div>
-								<!-- dday -->
-								<div class="sub_body">
-									<h4 class="skin-info-dday"></h4>
-								</div>
-							</div>
-						</div>
-						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">시간</div>
-										<div class="m_t text-center">행사 시간</div>
-									</div>
-								</div>
-								<!-- 행사 시간 -->
-								<div class="sub_body">
-									<h4 class="skin-info-time"></h4>
+						<div class="col-sm-6">
+							<div class="single_sub1">
+								<div class="sub_head1">
+									<p>
+										<span class="m_t text-center">행사 시간</span>
+									</p>
+									<p>
+										<span class="skin-info-time"></span>
+									</p>
 								</div>
 							</div>
 						</div>
 
 						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">장소</div>
-										<div class="m_t text-center">행사 열릴 장소</div>
-									</div>
-								</div>
-								<!-- 행사 장소 -->
-								<div class="sub_body">
-									<h4 class="skin-info-place "></h4>
+						<div class="col-sm-6">
+							<div class="single_sub1">
+								<div class="sub_head1">
+									<p>
+										<span class="text-center">행사 열릴 장소</span>
+									</p>
+									<p>
+										<span class="skin-info-place"></span>
+									</p>
 								</div>
 							</div>
-						</div>
 
+						</div>
 					</div>
+					<!-- End off row -->
 				</div>
-				<!-- End off row -->
-			</div>
-			<!-- End off container -->
+				<!-- End off container -->
 		</section>
 		<!-- End off Pricing Section -->
 
@@ -571,10 +556,8 @@
 					<div class="col-sm-12">
 						<div class="single_navigation1">
 							<div class="navigation1_body">
-								<sapn>
-								<h4>행사 주소</h4>
-								<h4 class="skin-info-address"></h4>
-								</sapn>
+								<sapn> <span>행사장 주소</span> <span
+									class="skin-info-address"></span> </sapn>
 								<!-- 장소 지도 -->
 								<div class="skin-info-map"></div>
 							</div>
@@ -780,8 +763,6 @@
 											</div>
 										</div>
 									</div>
-									<!--  -->
-									<div class="main_madal">
 										<!-- 모달 팝업2 -->
 										<div class="modal fade" id="myModal2" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
@@ -841,7 +822,6 @@
 									  </div>
 									</div>
 									-->
-									</div>
 								</div>
 
 							</div>
@@ -872,107 +852,108 @@
 								<div class="col-sm-3">
 									<div class="panel panel-success post panel-shadow">
 										<div class="post-heading">
-											<!-- <div class="pull-left image">
-												<img src="http://bootdey.com/img/Content/user_1.jpg"
-													class="img-circle avatar" alt="user profile image">
-											</div> -->
 											<div class="pull-left meta">
 												<div class="title h5">
 													<b>NAME</b>
 												</div>
+
 												<h6 class="text-muted time">text쓴 시간</h6>
 											</div>
 										</div>
 										<div class="post-description">
 											<p>text,text</p>
 											<div class="stats">
-												<a href="#" class="btn btn-warning stat-item btn-block">
-													<i class="glyphicon glyphicon-thumbs-up"></i>2
-												</a> <a href="#" class="btn btn-danger stat-item btn-block">
-													<i class="glyphicon glyphicon-comment"></i>12
+												<a href="#" class="btn btn-info stat-item "> <i
+													class="glyphicon glyphicon-thumbs-up"></i>2
+												</a> <a href="#" class="btn btn-warning stat-item"> <i
+													class="glyphicon glyphicon-comment"></i>12
+												</a> <a href="#" class="btn btn-danger stat-item"> <i
+													class="glyphicon glyphicon-remove"></i>삭제
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
+								<!--  -->
 								<div class="col-sm-3">
 									<div class="panel panel-success post panel-shadow">
 										<div class="post-heading">
-											<!-- <div class="pull-left image">
-												<img src="http://bootdey.com/img/Content/user_1.jpg"
-													class="img-circle avatar" alt="user profile image">
-											</div> -->
 											<div class="pull-left meta">
 												<div class="title h5">
 													<b>NAME</b>
 												</div>
+
 												<h6 class="text-muted time">text쓴 시간</h6>
 											</div>
 										</div>
 										<div class="post-description">
 											<p>text,text</p>
 											<div class="stats">
-												<a href="#" class="btn btn-warning stat-item btn-block">
-													<i class="glyphicon glyphicon-thumbs-up"></i>2
-												</a> <a href="#" class="btn btn-danger stat-item btn-block">
-													<i class="glyphicon glyphicon-comment"></i>12
+												<a href="#" class="btn btn-info stat-item "> <i
+													class="glyphicon glyphicon-thumbs-up"></i>2
+												</a> <a href="#" class="btn btn-warning stat-item"> <i
+													class="glyphicon glyphicon-comment"></i>12
+												</a> <a href="#" class="btn btn-danger stat-item"> <i
+													class="glyphicon glyphicon-remove"></i>삭제
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
+								<!--  -->
 								<div class="col-sm-3">
 									<div class="panel panel-success post panel-shadow">
 										<div class="post-heading">
-											<!-- <div class="pull-left image">
-												<img src="http://bootdey.com/img/Content/user_1.jpg"
-													class="img-circle avatar" alt="user profile image">
-											</div> -->
 											<div class="pull-left meta">
 												<div class="title h5">
 													<b>NAME</b>
 												</div>
+
 												<h6 class="text-muted time">text쓴 시간</h6>
 											</div>
 										</div>
 										<div class="post-description">
 											<p>text,text</p>
 											<div class="stats">
-												<a href="#" class="btn btn-warning stat-item btn-block">
-													<i class="glyphicon glyphicon-thumbs-up"></i>2
-												</a> <a href="#" class="btn btn-danger stat-item btn-block">
-													<i class="glyphicon glyphicon-comment"></i>12
+												<a href="#" class="btn btn-info stat-item "> <i
+													class="glyphicon glyphicon-thumbs-up"></i>2
+												</a> <a href="#" class="btn btn-warning stat-item"> <i
+													class="glyphicon glyphicon-comment"></i>12
+												</a> <a href="#" class="btn btn-danger stat-item"> <i
+													class="glyphicon glyphicon-remove"></i>삭제
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
+								<!--  -->
 								<div class="col-sm-3">
 									<div class="panel panel-success post panel-shadow">
 										<div class="post-heading">
-											<!-- <div class="pull-left image">
-												<img src="http://bootdey.com/img/Content/user_1.jpg"
-													class="img-circle avatar" alt="user profile image">
-											</div> -->
 											<div class="pull-left meta">
 												<div class="title h5">
 													<b>NAME</b>
 												</div>
+
 												<h6 class="text-muted time">text쓴 시간</h6>
 											</div>
 										</div>
 										<div class="post-description">
 											<p>text,text</p>
 											<div class="stats">
-												<a href="#" class="btn btn-warning stat-item btn-block">
-													<i class="glyphicon glyphicon-thumbs-up"></i>2
-												</a> <a href="#" class="btn btn-danger stat-item btn-block">
-													<i class="glyphicon glyphicon-comment"></i>12
+												<a href="#" class="btn btn-info stat-item "> <i
+													class="glyphicon glyphicon-thumbs-up"></i>2
+												</a> <a href="#" class="btn btn-warning stat-item"> <i
+													class="glyphicon glyphicon-comment"></i>12
+												</a> <a href="#" class="btn btn-danger stat-item"> <i
+													class="glyphicon glyphicon-remove"></i>삭제
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
+								<!--end-->
+
 
 							</div>
 							<!-- End off commentbox -->
@@ -980,7 +961,7 @@
 								<div class="single_pricing">
 									<div class="pricing_body">
 										<div href="#" type="button"
-											class="btn btn-lg btn-success commentbtn">글쓰기</div>
+											class="btn btn-lg btn-info commentbtn">글쓰기</div>
 									</div>
 								</div>
 							</div>
@@ -1010,8 +991,8 @@
 
 							<div class="col-sm-6 col-xs-12">
 								<div class="copyright_text">
-									<p class=" wow fadeInRight" data-wow-duration="1s">Made by
-										InviteU</p>
+									<h5 class=" wow fadeInRight" data-wow-duration="1s">Made
+										by InviteU</h5>
 								</div>
 							</div>
 						</div>
@@ -1030,6 +1011,7 @@
 	</div>
 
 	<script src="js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.2.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 
 	<script src="js/jquery.magnific-popup.js"></script>
@@ -1048,21 +1030,8 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script
 		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<!-- 	<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script>
-	ie10-viewport-bug-workaround.js
-	<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script>
-	holder.js
- -->
-	<!-- slider_bootstrap-carousel -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-	<!-- slider_bootstrap-carousel js -->
-	<script>
-		$('.carousel').carousel({
-			interval : 1000
-		});
-	</script>
 
 </body>
 </html>

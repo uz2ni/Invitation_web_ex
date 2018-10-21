@@ -31,22 +31,49 @@
 <jsp:include page="/template/sidebar.jsp" flush="false" />
 
 <!-- FAQ view -->
-<article class="center col-8 text-center" style="height: 120vh;">
-	<div class="col" style="height: 120vh">
-		<div class="nav-item d-flex justify-content-end">
-			<a class="nav-link col-2 mt-2" href="FAQ.html"
-				style="background-color: #2d62cd; color: white; border-radius: 5px;">1:1
-				문의하기</a>
+<article class="center col-8 text-center">
+	<div class="row">
+		<h4 class="title text-left col my-2">고객 센터</h4>
+		<a class="nav-link col-2 mt-2" href="FAQ.html" style="background-color: #2d62cd; color: white; border-radius: 5px;">
+			1:1문의하기</a>
+	</div>
+	<div class="col">
+		<div class="row my-3" style="height: 300px;">
+			<div class="part col"
+				style="margin-right: 3px;">
+					<img src="./img/info/faq/client_1.png" style="width:100%; height:100%">
+			</div>
+			<div class="part col">
+				<img src="./img/info/faq/faq_kakaoplus.png" style="width:100%; height:100%">
+			</div>
 		</div>
-		<div class="row my-3" style="height: 100vh;">
-			<article class="part col"
-				style="margin-right: 3px; height: 33vh; ">
-					<img src="./img/info/faq/client_1.png" style="width:450px; height:250px;">
-			</article>
-			<article class="part col"
-				style="margin-left: 3px; height: 33vh;">문의
-				연락처</article>
-			<article class="part FAQ col-12"
+		
+		<div class="row mb-3">
+			<div class="part col" style="margin-right: 3px;">
+				<h4 class="title d-flex p-2">오시는 길</h4>
+				<div class="pb-2" style="font-size:18px;">방문시. 고객님의 본인 명의 계정에 한하여 상담이 가능하며<br> <strong>본인 확인을 위한 신분증을 반드시 지참</strong>하시기 바랍니다.</div>
+				<div class="d-flex col" style="font-size:15px;">- 지하철 : <a style="color:#36387a"> [1호선]명학역</a></div>
+				<div style="height:300px;">
+					<img src="./img/info/faq/subway_map.PNG" style="width:95%; height:100%; border:1px solid #f2f2f2">
+				</div>
+				<div class="py-2 text-left" style="font-size:15px;">
+					<div class="col">- 도보 : <a style="color:#36387a">[1호선]명학역</a> 1번 출구에서 성결대까지 걸어서 15분</div>
+					<div class="col">- 버스 : <a style="color:#36387a">[1호선]명학역</a> 1번 출구 앞 마을버스 <strong>10-1</strong> 또는 <strong>10-2</strong>번 승차 후 성결대 정류장 하차</div>
+				</div>
+			</div>
+			<div class="part col">
+				<div class="pt-2" style="height:400px;">
+					<img src="./img/info/faq/sungkyul_map.JPG" style="width:95%; height:100%; border:1px solid #f2f2f2">
+				</div>
+				<div class="py-2 text-left" style="font-size:15px;">
+					<div class="col">- 지번 주소 : 경기도 안양시 만안구 안양동 400-10 성결관 3층 303호</div>
+					<div class="col">- 도로명 주소 : 경기도 안양시 만안구 성결대학로 53 성결관 3층 303호</div>
+					<div class="col">- 운영시간 : 월-금 09:00 ~ 18:00</div>
+					<div class="col">(공휴일 휴무 / 점심시간 12:00 ~ 13:00)</div>
+				</div>
+			</div>
+		</div>
+			<!-- <article class="part FAQ col-12"
 				style="margin-top: 2px; height: 65vh;">
 				<h4 class="title text-left my-2">자주하는 질문</h4>
 				<table class="col text-left" id="report" style=" border: 2px solid #dcd9d9;">
@@ -79,8 +106,7 @@
 						<td colspan="2">수정하세요.</td>
 					</tr>
 				</table>
-			</article>
-		</div>
+			</article>-->
 	</div>
 </article>
 

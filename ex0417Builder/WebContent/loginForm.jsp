@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,36 +36,41 @@
 </jsp:include>
 <jsp:include page="/template/sidebar.jsp" flush="false" />
 
-
-<article class="center col-8 text-center"
-	style="height:60vh; padding-top:9vh;"> <!-- login -->
-	<div>
-		<h2 style="background: #f05228; color: white;">로그인</h2>
+<article class="center col-8 text-center"> <!-- login -->
+	<div class="login_select">
+		<li class="btn btn-lg on" style="border-radius: 0; color: white; width:400px">로그인</li>
 	</div>
 	<hr>
 	<center class="d-flex flex-column">
-		<form class="form-horizontal justify-content-center" method="post"
-			action="loginPro.do" style="width: 300px;">
-			<div class="form-group">
-				<input type="email" class="form-control" name="user-email"
-					title="사용하실 아이디(이메일 주소)를 입력해주세요" placeholder="아이디(이메일 주소)" required>
-			</div>
-			<div class="form-group">
-				<input type="password" class="form-control" name="user-pw"
-					title="숫자 7자 이상 ~ 14자 이내" placeholder="비밀번호(숫자 7자~14자)" required>
-			</div>
-
-			<div class="form-check text-left pb-3">
-				<input type="checkbox" id="chk_save_id" class="form-check-input">
-				<label class="form-check-label" for="dropdownCheck"> 아이디 저장
+		<form class="form-horizontal justify-content-center" method="post" action="loginPro.do">
+		<div class="row justify-content-left" style="width:400px;">
+			<input type="email" name="user-email" class="form-control my-1"
+					id="inputEmail" title="사용하실 아이디(이메일 주소)를 입력해주세요"
+					placeholder="아이디(이메일 주소)" required value="
+					<c:if test="${userEmail != ''}">${userEmail}</c:if>
+					">
+			<input type="password" class="form-control my-1" name="user-pw"
+					title="숫자 7자 이상 ~ 14자 이내" placeholder="비밀번호(숫자 7자~14자)"
+					ng-model="user.password" ng-required="true"
+					ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/"
+					>
+			<div class="form-check pb-3" style="width:100%">
+				<input type="checkbox" name="user-save" class="form-check-input"
+				<c:if test="${userSave == 'yes'}">checked</c:if>>
+				<label class="form-check-label" for="dropdownCheck" 
+				> 아이디 저장
 				</label>
 			</div>
-			<a href="login.html"><button id="lb" type="submit" class="btn"
-					style="background: #f05228; color: white; width: 300px;">로그인</button></a>
-		</form>
-		<!--<div class="dropdown-divider"></div>-->
-		<a class="dropdown-item" href="join.html">회원가입</a> <a
-			class="dropdown-item" href="password_search.html">비밀번호 찾기</a>
+		</div>
+		<!--login-->
+			<div class="col-sm-6 pb-3 row justify-content-center">
+				<div class="col-auto">
+					<button id="lb" type="submit" class="btn blue-submit-btn">로그인</button>
+				</div>
+			</div>
+			<a class="dropdown-item" href="joinForm.do">회원가입</a> 
+			<a class="dropdown-item" href="password_search.html">비밀번호 찾기</a>
+			</form>
 	</center>
 </article>
 

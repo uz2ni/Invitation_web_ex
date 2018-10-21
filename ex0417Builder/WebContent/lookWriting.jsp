@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- bootstrap CSS -->
@@ -39,7 +39,7 @@
 
 
 <article class="center col-8 text-center" >
-<form action="lookWritingPro.do" method="get">
+<form action="lookWritingPro.do" method="post">
   <input type="hidden" name="user-id" value="${userId}">
   <input type="hidden" name="url-id" id="url-id" value=""> <!-- 선택된 url-id 삽입 -->
   <h4 class="title text-left my-2">글 올리기</h4>
@@ -71,7 +71,11 @@
 				                              <div class="container">
 				                              <input class="select-content" type="radio" name="url-id-radio" id="${content.urlId}" value="${content.urlId}">
 			                                  <label for="${content.urlId}" class="m-0" onclick="checkUrl('${content.urlId}','${content.topTitle}', '${content.urlName}');">
-				                                  <img class="card-img-top" data-toggle="modal" data-target="#exampleModalCenter" src="${content.topImgFile}"/>
+				                                  <img class="card-img-top" data-toggle="modal" data-target="#exampleModalCenter"
+				                                  	src="
+				                                  		<c:if test="${content.topImgFile != ''}">https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/topImgFile/${content.topImgFile}</c:if>
+				                                  		<c:if test="${content.topImgFile == ''}">https://via.placeholder.com/150x150</c:if>
+				                                  "/>
 				                                  <div class="overlay">
 				                                      <div class="" style="padding:100px;"><img src="./img/info/look/check-mark.png" width="55" height="55"/></div>
 											  </div>
@@ -79,7 +83,7 @@
                               				  </div>
 			                          		  <div class="card-name text-left">
 				                                  <div class="col" style="font-weight:bold; font-size:14px;">${content.topTitle}</div>
-				                                  <div class="col" style="font-size:14px; color:#888888;">www.invitedu.com/${content.urlName}</div>
+				                                  <div class="col" style="font-size:14px; color:#888888;">www.i-invite-u.com/${content.urlName}</div>
 				                                  <div class="col" style="font-size:12px; color:#888888;">
 				                                  	<!-- type(1,2,3)에 따라 한글화(모임, 발표회, 종교행사) -->
 		                                     		<c:choose>

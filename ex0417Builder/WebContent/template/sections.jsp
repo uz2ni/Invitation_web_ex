@@ -5,37 +5,36 @@
 	<!--section2-->
 	<section  id = "section2" class="section2 align-self-center" >
 		<!--main-->
-		<article class="articel-center" style="height:90vh; ">
+		<article class="articel-center" style="height:100vh; background-image:url(./img/index/section2/index_section2_bg.jpg); background-size:cover;">
 			<!--종류 선택-->
-			<nav style="height:8vh; background:#FFFFFF ;">
-				<div class="nav nav-tabs justify-content-center pt-4 text-center" id="nav-tab"
+			<nav>
+				<div class="nav nav-tabs justify-content-center pt-4 text-center section2-tabs" id="nav-tab"
 								role="tablist">
 					<!--tab 4가지-->
-					<a class="nav-item nav-link active font-weight-bold"
-						id="nav-home-tab" data-toggle="tab" href="#nav-01" role="tab"
+					<a class="index-nav-item nav-link active font-weight-bold section2-tab" style="border-top-right-radius: 25px 170px; border-top-left-radius: 20px 90px;"
+						id="nav-home-tab1" data-toggle="tab" href="#nav-01" role="tab"
 						aria-controls="nav-01" aria-selected="true">ALL</a> 
 						
-					<a class="nav-item nav-link font-weight-bold"
-						id="nav-home-tab" data-toggle="tab" href="#nav-02" role="tab"
+					<a class="index-nav-item nav-link font-weight-bold section2-tab" style="border-top-right-radius: 25px 170px; border-top-left-radius: 20px 90px;"
+						id="nav-home-tab2" data-toggle="tab" href="#nav-02" role="tab"
 						aria-controls="nav-02" aria-selected="flase">모임</a> 
 						
-					<a class="nav-item nav-link font-weight-bold" id="nav-profile-tab"
-						data-toggle="tab" href="#nav-03" role="tab"
+					<a class="index-nav-item nav-link font-weight-bold section2-tab" style="border-top-right-radius: 25px 170px; border-top-left-radius: 20px 90px;"
+						id="nav-profile-tab3" data-toggle="tab" href="#nav-03" role="tab"
 						aria-controls="nav-03" aria-selected="false">발표회</a> 
 						
-					<a class="nav-item nav-link font-weight-bold" id="nav-contact-tab"
-						data-toggle="tab" href="#nav-04" role="tab"
+					<a class="index-nav-item nav-link font-weight-bold section2-tab" style="border-top-right-radius: 25px 170px; border-top-left-radius: 20px 90px;"
+						id="nav-contact-tab4" data-toggle="tab" href="#nav-04" role="tab"
 						aria-controls="nav-04" aria-selected="false">종교행사</a>
 				</div>
 			</nav>
 			<!--종류 선택_end-->
-			<div class="tab-content" style="height:82vh;" id="nav-tabContent"><!--***필수***-->
-				<!--nav01-->
+			<div class="tab-content" style="background: rgba(255,255,255,0.9); height: 100vh;" id="nav-tabContent"> <!--***필수***-->
 				<div class="tab-pane fade show active" id="nav-01" role="tabpanel" aria-labelledby="nav-01-tab">
 					<div class="row">
 						<c:forEach var="look" items="${looks}">
-							<div class="article-box col-3" style="padding-left:0px;">
-					                <img class="box-img mx-0 justify-content-center" src="${look.lookImg}" height="380">
+							<div class="article-box col-3" style="display: table;">
+					                <img class="box-img mx-0" src="${look.lookImg}" height="400">
 					                <div class="overlay">
 					                  	<div class="text">${look.lookTitle }</div>
 					                </div>
@@ -45,10 +44,32 @@
 				</div>
 				
 				<!--nav02-->
-			<div class="tab-pane fade" id="nav-02" role="tabpanel" aria-labelledby="nav-02-tab">
+			    <div class="tab-pane fade" id="nav-02" role="tabpanel" aria-labelledby="nav-02-tab">
 					<div class="row">
-					<div class="article-box col-3" style="padding-left:0px;">
-			                <img class="box-img mx-0 justify-content-center" src="./img/index/section2/index_section_2_club_7.png" height="400">
+						<!-- ex -->
+						<div class="article-box col-3" style="display: table;">
+			                <img class="box-img mx-0" src="./img/index/section2/index_section_2_club_7.png" height="400">
+			                <div class="overlay">
+			                  	<div class="text">모임</div>
+			                </div>
+						</div>
+						<!-- ex -->
+						<div class="article-box col-3" style="display: table;">
+			                <img class="box-img mx-0" src="./img/index/section2/index_section_2_club_7.png" height="400">
+			                <div class="overlay">
+			                  	<div class="text">모임</div>
+			                </div>
+						</div>
+						<!-- ex -->
+						<div class="article-box col-3" style="display: table;">
+			                <img class="box-img mx-0" src="./img/index/section2/index_section_2_club_7.png" height="400">
+			                <div class="overlay">
+			                  	<div class="text">모임</div>
+			                </div>
+						</div>
+						<!-- ex -->
+						<div class="article-box col-3" style="display: table;">
+			                <img class="box-img mx-0" src="./img/index/section2/index_section_2_club_7.png" height="400">
 			                <div class="overlay">
 			                  	<div class="text">모임</div>
 			                </div>
@@ -58,8 +79,8 @@
 				<!--nav3-->
 				<div class="tab-pane fade" id="nav-03" role="tabpanel" aria-labelledby="nav-03-tab">
 					<div class="row">
-						<div class="article-box col-3" style="padding-left:0px;">
-			                <img class="box-img mx-0" src="./img/index/section2/index_section2_concert_1.gif" height="370">
+						<div class="article-box col-3" style="display: table;">
+			                <img class="box-img mx-0" src="./img/index/section2/index_section2_concert_1.gif" height="400">
 			                <div class="overlay">
 			                  	<div class="text">모임</div>
 			                </div>
@@ -69,8 +90,8 @@
 				<!--nav04-->
 				<div class="tab-pane fade" id="nav-04" role="tabpanel" aria-labelledby="nav-04-tab">
 					<div class="row">
-						<div class="article-box col-3" style="padding-left:0px;">
-			                <img class="box-img mx-0" src="./img/index/section2/index_section2_regilon3.png" height="340">
+						<div class="article-box col-3" style="display: table;">
+			                <img class="box-img mx-0" src="./img/index/section2/index_section2_regilon3.png" height="400">
 			                <div class="overlay">
 			                  	<div class="text">모임</div>
 			                </div>
@@ -79,7 +100,7 @@
 				</div>
 			</div>
 		</article>
-		<article class="" style="height:10vh; background:#FFFFFF ;"></article>
+		<!-- <article class="" style="height:10vh; background:#FFFFFF ;"></article>-->
 	</section>	  	
 	<!-- /section 2 -->
 	
@@ -101,9 +122,9 @@
 	<section id="section4"
 		class="section3 fp-section fp-table row justify-content-center"
 		data-anchor="3rdPage"
-		style="height: 100vh; background:#FFF9F4 - ">
+		style="height: 88vh; background:#FFF9F4;">
 		<article class="d-flex flex-column justify-content-center text-center"
-			style="height: 90vh; width: 100%">
+			style="height: 90vh; width: 100%; margin: 0 50px;">
 			
 			<div class="nav nav-tabs justify-content-center pt-3 text-center" >
 				<h2 style="font-weight:"> 초대해U 사용방법</h2>
@@ -143,7 +164,7 @@
 					class="row col-10 buttom_title justify-content-center text-center pt-4"
 					href="servicePay.do">
 					<button type="button" class="btn btn-lg"
-						style="background:#f0771f; color: white; font-weight: bold; width:250px;">지금 바로 만들기</button>
+						style="background:#f0771f; color: white; width:250px;">지금 바로 만들기</button>
 				</a>
 			</div>
 		</div>

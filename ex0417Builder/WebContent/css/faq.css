@@ -14,6 +14,7 @@
     display:block;
 }
 .part {
+	padding:0;
     background: #f2f2f2; 
     border-radius: 5px; 
     background-size: cover; 

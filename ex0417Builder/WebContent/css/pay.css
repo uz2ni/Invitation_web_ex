@@ -1,36 +1,17 @@
-/* .container {
-    height: 100px;
-    background-color: #F2CE82;
-    font-weight: bold;
+ .service-list {
+	border: 1px solid #dcd9d9;
+	background-color:#f5f5f5;
+	font-size:1rem;
 }
 
-.side-back {
-    background-color: #f2f2f2;
-}
-.center {
-    background-color: white;
-}
-.table {
-    margin-top: 10px;
+#show_1, #show_2, #show_3 ul{
+	font-size:1rem;
 }
 
-.selectBtn {
-    background-color: #b0afaf
-}
-
- */
- 
- .select-box{
+ .select-box, .container, .side-back {
     background:#f2f2f2;
 }
 
-.container {
-    background:#f2f2f2;
-}
-
-.side-back {
-    background-color: #f2f2f2;
-}
 .center {
     background-color: white;
 }
@@ -44,8 +25,40 @@
 }
 
 .selectBtn {
-    width:25vh;
+    width: 170px;
     font-weight:bold;
+    border:1px solid #f05228;
+    background:white;
+    color:#f05228;
+}
+.selectBtn:hover{
+    background:#f05228;
+    color:white;
+}
+.selectBtn.active {
+	background:#f05228;
+    color:white;
+}
+/*option 선택*/
+.custom-select {
+	padding:0;
+	cursor:pointer;
+	background:#f6f6f6;
+	border:1px solid #0a8282;
+	color:#0a8282;
+	border-radius:5px;
+	text-align-last: center;
+	font-size:18px;
+}
+
+.custom-select option {
+	font-size:18px;
+}
+
+.custom-select option:checked, 
+.custom-select option:hover {
+	background: #0a8282;
+    color: #fff;
 }
 
 th {
@@ -54,12 +67,12 @@ th {
 }
 
 .confirm-btn {
+    margin-left:5px;
+    padding:5px;
+    cursor: pointer;
     background:#bcbcbc; 
     color:white;
-    margin-left:5px;
-    font-weight:bold;
     font-size:14px;
-    cursor: pointer;
 }
 .confirm-btn:hover{
     background:#959595;
@@ -70,16 +83,15 @@ span.care {
     font-size:12px;
 }
 .care-text{
-    font-weight: bold;
-    font-size:11px;
-    color:#888888;
+    font-size:13px;
+    color:#666666 !important;
 }
 .care-text-surve{
-    font-size:10px;
-    color:#888888;
+    font-size:12px;
+    color:#666666 !important;
 }
 .input-group{
-    width:500px;
+    width:300px;
 }
 
 .total{
@@ -95,4 +107,5 @@ input.form-check-input{
 }
 .form-check-input, #inputGroupSelect01 {
     cursor: pointer;
+    font-weight:bold;
 }

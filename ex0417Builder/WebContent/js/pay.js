@@ -9,6 +9,11 @@ $(document).ready(function(){
 		});
 	}
 });
+/*btn active*/
+$(".selectBtn").click(function() {
+	  $(".active").removeClass("active");
+	  $(this).addClass("active");
+	});
 
 function btn(){
     document.getElementById('show_2').innerHTML = '';

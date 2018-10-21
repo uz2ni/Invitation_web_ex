@@ -21,10 +21,12 @@ public class MyServiceAction implements CommandAction {
 		}else {
 			User user = (User) request.getSession().getAttribute("user");
 			int userId = user.getUserId();
-			
+
 			ContentEditDBBean contentProcess = ContentEditDBBean.getInstance();
+			int cnt = contentProcess.selectCount(user.getUserId());
 			List<Content> list = contentProcess.selectList(userId);
 			
+			request.setAttribute("cnt", cnt);
 			request.setAttribute("user", user);
 			request.setAttribute("contents", list);
 			

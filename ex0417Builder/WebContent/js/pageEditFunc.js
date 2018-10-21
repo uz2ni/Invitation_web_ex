@@ -1,31 +1,22 @@
 commonContext = $("input[name='commonContext']").val();
 skinContext = $("input[name='skinContext']").val();
 
-content = {};
+content = str;
 
 $(document).ready(function(){
-	ContentToObj();
+	contentLog();
 	init();
 });
 
-//기능 : url에 맞는 Content 객체 데이터 값 string -> Object
-function ContentToObj() {
-	let str = $("input[name='contentStr']").val();
-	let contentStr = str.split('Content [')[1];
-	contentStr = contentStr.substring(0,contentStr.length-1);
-	let lists =  contentStr.split(', ');
-	for(var i=0; i<lists.length; i++) {
-		// videoLink의 = 은 별도로 작업
-		if(lists[i].indexOf('videoLink') != -1) { //videoLink 부분일 경우
-			let [k, v, t] = lists[i].split('=');
-			v = v + "=" + t; 
-			content[k] = v;
-		}else {
-			let [k, v] = lists[i].split('=');
-			content[k] = v;
-		}
-	}
+// contentStr log
+function contentLog() {
 	console.log(content);
+}
+
+// string To Object
+function strToObj(str) {
+	const obj = JSON.parse(str);
+	return obj;
 }
 
 function init() {
@@ -66,7 +57,14 @@ function init() {
 	infoParkingUpdate(content["infoParking"], getSectionInfoParking());
 //	checkboxVal($("input[name='gallery-chk']"));
 	galleryChkUpdate(content["galleryChk"], getSectionGallery());
-	galleryUploadImgUpdate(content["galleryUploadImg"], getSectionGallery());
+
+	// gallery Img Update
+	var galleryImgs = content["galleryUploadImg"].split(",");
+	for(var i=0; i<galleryImgs.length; i++) {
+		console.log(galleryImgs[i]);
+		galleryUploadImgUpdate(galleryImgs[i], getSectionGallery(i+1));
+	}
+	
 	galleryTypeUpdate(content["galleryType"], getSectionGallery());
 //	checkboxVal($("input[name='video-chk']"));
 	videoChkUpdate(content["videoChk"], getSectionVideo());
@@ -77,6 +75,7 @@ function init() {
 	accountSelectUpdate(content["accountSelect"], getSectionAccount());
 //	checkboxVal($("input[name='attend-chk']"));
 	attendChkUpdate(content["attendChk"], getSectionAttend());
+	attendPollUpdate(content["pollContent"], getSectionAttend());
 //	checkboxVal($("input[name='comment-chk']"));
 	commentChkUpdate(content["commentChk"], getSectionComment());
 //	checkboxVal($("input[name='sns-share-chk']"));
@@ -121,10 +120,8 @@ function topFontAlignUpdate(val, section) {
 }
 // 상단 이미지
 function topImgUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	console.log(val); 
-	console.log($(section));
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/topImgFile/";
+	$(section).find("img").attr('src', path+val);
 }
 // 상단 이미지 정렬
 function topImgAlignUpdate(val, section) {
@@ -237,13 +234,13 @@ function addInfoImgNameUpdate(val, section) {
 }
 // 발표자 프로필
 function addInfoImgProfileUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/addInfoImgProfile/";
+	$(section).find("img").attr('src', path+val);
 }
 // 자리배치도
 function addInfoImgSitUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/addInfoImgSit/";
+	$(section).find("img").attr('src', path+val);
 }
 // 주최자 이름
 function addInfoCallNameUpdate(val, section) {
@@ -259,8 +256,8 @@ function addInfoLogoHoldNameUpdate(val, section) {
 }
 // 주최사 로고
 function addInfoHoldImgUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/addInfoHoldImg/";
+	$(section).find("img").attr('src', path+val);
 }
 // 후원사 이름
 function addInfoLogoHelpNameUpdate(val, section) {
@@ -268,14 +265,13 @@ function addInfoLogoHelpNameUpdate(val, section) {
 }
 // 후원사 로고
 function addInfoHelpImgUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/addInfoHelpImg/";
+	$(section).find("img").attr('src', path+val);
 }
 // 03-3 위치 정보
 // 행사 장소 주소
 function infoAddressUpdate(val, section) {
 	// 수정 필요
-	console.log(val);
 	$(section).text(val);
 	// 지도 연결
 	mapUpdate();
@@ -283,7 +279,7 @@ function infoAddressUpdate(val, section) {
 	infoFindLink(val);
 }
 function mapUpdate() {
-	var section = $('.skin-info-map');
+//	var section = $('.skin-info-map');
 //	var mapNode = $('#skin-info-address-map');
 //	section.append(mapNode);
 }
@@ -442,8 +438,8 @@ function infoLoadImgChkUpdate(val, section) {
 }
 // 약도 이미지
 function infoLoadImgUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/infoLoadImg/";
+	$(section).find("img").attr('src', path+val);
 }
 // 버스 교통 안내
 function infoBusUpdate(val, section) {
@@ -483,8 +479,10 @@ function galleryTypeUpdate(val, section) {
 }
 // 갤러리 업로드
 function galleryUploadImgUpdate(val, section) {
-	var val = "http://placehold.it/200x200";
-	$(section).append("<img src='" + val + "'>");
+	let path = "https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/galleryUploadImg/";
+	console.log(path+val);
+	
+	$(section).attr('src', path+val);
 }
 // 04-2 비디오
 function videoChkUpdate(val, section) {
@@ -577,6 +575,98 @@ function accountMoneyUpdate(val, section) {
 function attendChkUpdate(val, section) {
 	hideShowFunc(val, section);
 }
+// 06-1-2 참석 여부 팝업
+function attendPollUpdate(val, section) {
+	let attendForm = $('#attend-form');
+	let contentPoll = strToObj(val);
+	console.log(contentPoll);
+	let pollTitle = contentPoll["title"];
+	console.log(pollTitle);
+	let node = "<h3>" + pollTitle + "</h3>";
+	attendForm.append(node);
+	for(var i=0; i<contentPoll["content"].length; i++) {
+		let q, q1, q2, q3;
+		let qText, inputBox;
+		let inputRadio1, inputRadio2, inputRadio3;
+		if(contentPoll["content"][i]["type"] == "text") {
+			q = contentPoll["content"][i]["q"];
+			qText = "<p id='poll-q-" + i + "'>" + q + "</p>";
+			inputBox = "<textarea class='poll-a-" + i + "'></textarea>";
+			node = "<div class='form-group text-left poll-text'>" + qText + inputBox + "</div>";
+		}else if(contentPoll["content"][i]["type"] == "radio") {
+			q = contentPoll["content"][i]["q"];
+			q1 = contentPoll["content"][i]["q1"];
+			q2 = contentPoll["content"][i]["q2"];
+			q3 = contentPoll["content"][i]["q3"];
+			qText = "<p id='poll-q-'" + i + ">" + q + "</p>";
+			inputRadio1 = "<label for='poll-a1-" + i + "'>" + q1 + "</label><input type='radio' name='poll-a-" + i + "' id='poll-a1-" + i + "' value='" + q1 + "'></input>";
+			inputRadio2 = "<label for='poll-a2-" + i + "'>" + q2 + "</label><input type='radio' name='poll-a-" + i + "' id='poll-a2-" + i + "' value='" + q2 + "'></input>";
+			inputRadio3 = "<label for='poll-a3-" + i + "'>" + q3 + "</label><input type='radio' name='poll-a-" + i + "' id='poll-a3-" + i + "' value='" + q3 + "'></input>";
+			node = "<div class='form-group text-left poll-radio'>" + qText + inputRadio1 + inputRadio2 + inputRadio3 + "</div>";
+		}
+		attendForm.append(node);
+	}
+}
+// 참석 버튼
+function attendBtn(bool) {
+	let urlId, name, password, polls, urlAttendContent;
+	let pollObj = new Object();
+	urlId = content["urlId"];
+	if(bool == 1) {
+		name = $("input[name='attend-name']").val();
+		password = $("input[name='attend-password']").val();
+		polls = $("#attend-form > div");
+		for(var i=0; i<polls.length; i++) {
+			let a;
+			let index;
+			if ($(polls[i]).hasClass("poll-text")) {
+				a = $(polls[i]).find("textarea").val();
+			}else if ($(polls[i]).hasClass("poll-radio")) {
+				a = $(polls[i]).find("input:checked").attr('id');
+				index = a.indexOf('a')+1;
+				a = a.substr(index, 1);
+			}
+			pollObj["a" + i] = a;
+		}
+		urlAttendContent = JSON.stringify(pollObj);
+	} else if(bool == 0) {
+		name = $("input[name='not-attend-name']").val();
+		password = $("input[name='not-attend-password']").val();
+		urlAttendContent = $("textarea[name='reason'").val();
+		console.log('name:' + name + ", pw:" + password);
+	}
+		
+	
+ 	jQuery.ajax({
+		url: "urlAttendAjax.ajax",
+		type: 'POST',
+		dataType: 'json',
+		data: {
+		   url_id : urlId,
+		   url_attend_name : name,
+		   url_attend_password : password,
+		   url_attend_chk : bool,
+		   url_attend_content : urlAttendContent
+		}
+	}).done(function(data) {
+		if(data["status"] == 'success') {
+			// 팝업 닫기
+			if(bool == 1) {
+				$("#attend-modal").modal('hide');
+			} else if (bool == 0) {
+				$("#not-attend-modal").modal('hide');
+			}
+			console.log("설문조사 등록 완료");
+		}else {
+			console.log("설문조사 등록 실패");
+		}
+	});
+}
+// 불참 버튼
+function notAttendBtn() {
+	// 
+}
+
 // 06-2 방명록
 function commentChkUpdate(val, section) {
 	hideShowFunc(val, section);

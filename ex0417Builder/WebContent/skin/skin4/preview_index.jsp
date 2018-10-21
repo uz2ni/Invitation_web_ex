@@ -9,19 +9,18 @@
 <title class="skin-top-title"></title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <!--Google fonts Link-->
 <link
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i"
 	rel="stylesheet">
-<link rel="stylesheet" href="${skinContext}css/design.css">
-<link rel="stylesheet" href="${skinContext}css/skills/progressbar.css">
-<link rel="stylesheet" href="${skinContext}css/skills/style.css">
-<link rel="stylesheet" href="${skinContext}css/index.css">
-<link rel="stylesheet" href="${skinContext}css/fonticons.css">
-<link rel="stylesheet" href="${skinContext}css/font-awesome.min.css">
-<link rel="stylesheet" href="${skinContext}css/bootstrap.min.css">
+<link rel="stylesheet" href="css/design.css">
+<link rel="stylesheet" href="css/skills/progressbar.css">
+<link rel="stylesheet" href="css/skills/style.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/fonticons.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
 <!-- font awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
@@ -97,14 +96,13 @@
 		<div class="overlay"><!-- 반투명막 -->
 			<div class="d-flex" style="height:80vh; display:flex; align-items:center; justify-content:center">
 			<div class="title" style="background: url(../skin4/img/welcome_img.png) no-repeat; background-position: 0 0; z-index:100;"></div>
-			<!-- <img class="welcome-img"alt="" src="../skin4/img/welcome_img.png">-->
 				<div class='square-box'>
 					<div class='square-content'>
 						<div class="col_third">	
 							<i class="fa fa-heart fa-5x icn_blue wow shake" data-wow-iteration="infinite" data-wow-duration="1500ms"></i>		
 						</div>
 						 <h3>D 
-						 <span class="skin-info-dday" style=""></span> Day
+						 <span class="skin-info-dday"></span> Day
 						 </h3>
 						 <p class="skin-top-title text-center"></p><!-- 제목 -->
 						 <div class="skin-top-img">
@@ -259,7 +257,7 @@
 		        </div>
 				<div class="col-md-12">
 					<div class="form-group">
-						<input type="submit" value="TOSS로 바로 입금하기 " class="skin-account btn btn-primary">
+						<input type="button" value="TOSS로 바로 입금하기 " class="skin-account btn btn-primary">
 					</div>
 				</div>	
 			</div>
@@ -404,7 +402,7 @@
 		<!-- 가로 나열 -->
 		<div class="row skin-gallery-type-row">
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
-            <a class="portfolio-box" href="../skin1/img/portfolio/fullsize/1.jpg">
+            <a class="portfolio-box">
               <img class="img-fluid skin-gallery-1" src="../skin1/img/portfolio/thumbnails/1.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -419,7 +417,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
-            <a class="portfolio-box" href="../skin1/img/portfolio/fullsize/2.jpg">
+            <a class="portfolio-box">
               <img class="img-fluid skin-gallery-2" src="../skin1/img/portfolio/thumbnails/2.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -434,7 +432,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
-            <a class="portfolio-box" href="../skin1/img/portfolio/fullsize/3.jpg">
+            <a class="portfolio-box">
               <img class="img-fluid skin-gallery-3" src="../skin1/img/portfolio/thumbnails/3.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -449,7 +447,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
-            <a class="portfolio-box" href="../skin1/img/portfolio/fullsize/4.jpg">
+            <a class="portfolio-box">
               <img class="img-fluid skin-gallery-4" src="../skin1/img/portfolio/thumbnails/4.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -464,7 +462,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
-            <a class="portfolio-box" href="../skin1/img/portfolio/fullsize/5.jpg">
+            <a class="portfolio-box">
               <img class="img-fluid skin-gallery-5" src="../skin1/img/portfolio/thumbnails/5.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -479,7 +477,7 @@
             </a>
           </div>
           <div class="col-lg-4 col-sm-6" style="padding:0px;">
-            <a class="portfolio-box" href="../skin1/img/portfolio/fullsize/6.jpg">
+            <a class="portfolio-box">
               <img class="img-fluid skin-gallery-6" src="../skin1/img/portfolio/thumbnails/6.jpg" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
@@ -497,7 +495,7 @@
           <!-- 세로 나열-->
           <div class="row col-sm-10 skin-gallery-type-col">
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
-	              <a class="portfolio-box-col" href="../skin1/img/portfolio/fullsize/1.jpg">
+	              <a class="portfolio-box-col">
 	              <img class="img-fluid-col skin-gallery-1" src="../skin1/img/portfolio/fullsize/1.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
@@ -512,7 +510,7 @@
 	            </a>
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
-	            <a class="portfolio-box-col" href="../skin1/img/portfolio/fullsize/2.jpg">
+	            <a class="portfolio-box-col">
 	              <img class="img-fluid-col skin-gallery-2" src="../skin1/img/portfolio/thumbnails/2.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
@@ -527,7 +525,7 @@
 	            </a>
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
-	            <a class="portfolio-box-col" href="../skin1/img/portfolio/fullsize/3.jpg">
+	            <a class="portfolio-box-col">
 	              <img class="img-fluid-col skin-gallery-3" src="../skin1/img/portfolio/thumbnails/3.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
@@ -542,7 +540,7 @@
 	            </a>
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
-	            <a class="portfolio-box-col" href="../skin1/img/portfolio/fullsize/4.jpg">
+	            <a class="portfolio-box-col">
 	              <img class="img-fluid-col skin-gallery-4" src="../skin1/img/portfolio/thumbnails/4.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
@@ -557,7 +555,7 @@
 	            </a>
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
-	            <a class="portfolio-box-col" href="../skin1/img/portfolio/fullsize/5.jpg">
+	            <a class="portfolio-box-col">
 	              <img class="img-fluid-col skin-gallery-5" src="../skin1/img/portfolio/thumbnails/5.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
@@ -572,7 +570,7 @@
 	            </a>
 	          </div>
 	          <div class="col-xs-6 col-lg-4" style="padding:0;">
-	            <a class="portfolio-box-col" href="../skin1/img/portfolio/fullsize/6.jpg">
+	            <a class="portfolio-box-col">
 	              <img class="img-fluid-col skin-gallery-6" src="../skin1/img/portfolio/thumbnails/6.jpg" alt="">
 	              <div class="portfolio-box-caption">
 	                <div class="portfolio-box-caption-content">
@@ -707,9 +705,6 @@
 			    
 				    <div class="list">
 				      <section class="first">
-				        <div class="img">
-				          <img class="comment-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/36763/profile/profile-512_1.jpg" alt="" />
-				        </div>
 				        <div class="comments">
 				          <p>Damn, how awesome is Ionut's design?</p>
 				        </div>
@@ -734,9 +729,6 @@
 			    
 				    <div class="list">
 				      <section class="first">
-				        <div class="img">
-				          <img class="comment-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/36763/profile/profile-512_1.jpg" alt="" />
-				        </div>
 				        <div class="comments">
 				          <p>Damn, how awesome is Ionut's design?</p>
 				        </div>
@@ -761,9 +753,6 @@
 			    
 				    <div class="list">
 				      <section class="first">
-				        <div class="img">
-				          <img class="comment-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/36763/profile/profile-512_1.jpg" alt="" />
-				        </div>
 				        <div class="comments">
 				          <p>Damn, how awesome is Ionut's design?</p>
 				        </div>

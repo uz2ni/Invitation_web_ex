@@ -245,6 +245,10 @@ function getAttendChk() {
 	var val = $("input[name='attend-chk']").val();
 	return val;
 }
+function getPollChk() {
+	var val = $("input[name='poll-chk']").val();
+	return val;
+}
 function getCommentChk() {
 	var val = $("input[name='comment-chk']").val();
 	return val;
@@ -388,6 +392,10 @@ function getSectionAttend() {
 	var section = $('#preview_iframe').contents().find('.skin-attend');
 	return section;
 }
+function getSectionPoll() {
+	var section = $('#preview_iframe').contents().find('.skin-poll'); // 수정 필요
+	return section;
+}
 function getSectionComment() {
 	var section = $('#preview_iframe').contents().find('.skin-comment');
 	return section;
@@ -476,7 +484,7 @@ $("input[name='add-info-hold-img']").on('change', function () {
 	readURL(this, '.add-info-hold-img-preview-wrap', 1);
 	imgList(this, '.add-info-hold-img-preview-wrap', 1);
 	setTimeout(function() {
-		addInfoLogoHoldImgUpdate(getAddInfoLogoHoldImg(), getSectionAddInfoLogoHoldImg());
+		addInfoHoldImgUpdate(getAddInfoHoldImg(), getSectionAddInfoHoldImg());
 	}, 300);
 });
 $("input[name='add-info-logo-help-name']").on('keyup', function () {
@@ -564,6 +572,10 @@ $("input[name='attend-chk']").on('change', function () {
 	checkboxVal($(this));
 	attendChkUpdate(getAttendChk(), getSectionAttend());
 });
+$("input[name='poll-chk']").on('change', function () {
+	checkboxVal($(this));
+	pollChkUpdate(getPollChk(), getSectionPoll());
+});
 $("input[name='comment-chk']").on('change', function () {
 	checkboxVal($(this));
 	commentChkUpdate(getCommentChk(), getSectionComment());
@@ -577,4 +589,18 @@ $("input[name='select-sns']").on('change', function () {
 });
 $("input[name='sns-msg-chk']").on('change', function () {
 	checkboxVal($(this));
+});
+
+// scroll 기능
+function fnMove(section){
+    var offset = $('#preview_iframe').contents().find(section).offset();
+    $('#preview_iframe').contents().find('html, body').animate({scrollTop : offset.top+200}, 400);
+}
+
+$("li[aria-controls='tabs-2'").on('click', function () {
+	fnMove('.skin-top-title');
+});
+// 기본 정보
+$("li[aria-controls='tabs-9'").on('click', function () {
+	fnMove('.skin-info-date');
 });

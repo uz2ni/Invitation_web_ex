@@ -510,7 +510,7 @@ input::-ms-input-placeholder {
 
 .main_menu_bg .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
     color: #f6c23a;
-    background: url(../images/selectmenu.png) no-repeat bottom center;
+    /* background: url(../images/selectmenu.png) no-repeat bottom center; */
     padding-bottom: 20px;
 }
 
@@ -1105,7 +1105,7 @@ blockquote footer, blockquote small, blockquote .small {
 /*Home Pages Style tow*/
 
 .video{
-    background: url(../images/newsfourbg.jpg) no-repeat 100% 100%;
+    /* background: url(../images/newsfourbg.jpg) no-repeat 100% 100%; */
     background-size: cover;
 }
 

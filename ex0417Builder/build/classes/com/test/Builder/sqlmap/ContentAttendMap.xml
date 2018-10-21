@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.ContentAttendMap">
+
+	<resultMap type="com.test.Builder.dto.ContentAttend" id="contentAttendResult">
+		<result property="urlAttendId" column="url_attend_id" />
+		<result property="urlId" column="url_id" />
+		<result property="urlAttendAt" column="url_attend_at" />
+		<result property="urlAttendName" column="url_attend_name" />
+		<result property="urlAttendPassword" column="url_attend_password" />
+		<result property="urlAttendChk" column="url_attend_chk" />
+		<result property="urlAttendContent" column="url_attend_content" />
+	</resultMap>
+	
+	<!-- 댓글 작성 시 insert -->
+	<insert id="contentAttendInsert" parameterType="com.test.Builder.dto.ContentAttend">
+		insert into url_attend(url_id, url_attend_name, url_attend_password, url_attend_chk, url_attend_content)
+		values(#{urlId}, #{urlAttendName}, #{urlAttendPassword}, #{urlAttendChk}, #{urlAttendContent});
+	</insert>
+	
+	<!-- 참석자 수 cnt -->
+	<select id="contentAttendCnt" resultType="int" parameterType="com.test.Builder.dto.ContentAttend">
+		select count(*) from url_attend
+		where url_id = #{urlId} AND url_attend_chk = #{urlAttendChk};
+	</select>
+
+	<!-- 시간 별 참석/불참석 수 cnt -->
+	<select id="contentAttendCntTime" resultType="int" parameterType="com.test.Builder.dto.ContentAttend">
+		select count(*) from url_attend
+		where url_id = #{urlId} AND url_attend_chk = #{urlAttendChk} AND url_attend_at like CONCAT(#{urlAttendAt},'%');
+	</select>
+	
+	<!-- 참석자 / 불참석자 select -->
+	<select id="contentAttendSelect" resultMap="contentAttendResult" parameterType="com.test.Builder.dto.ContentAttend">
+		select * from url_attend
+		where url_id = #{urlId} AND url_attend_chk = #{urlAttendChk};
+	</select>
+	
+	<!-- 시간 별 select -->
+	<select id="contentAttendTimeSelect" resultMap="contentAttendResult" parameterType="com.test.Builder.dto.ContentAttend">
+		select * from url_attend
+		where url_id = #{urlId} AND url_attend_at like CONCAT(#{urlAttendAt},'%');
+	</select>
+
+	<!-- urlId에 해당하는 row delete -->
+	<delete id="contentAttendDelete" parameterType="int">
+		delete from url_attend where url_id = #{urlId};
+	</delete>
+</mapper>

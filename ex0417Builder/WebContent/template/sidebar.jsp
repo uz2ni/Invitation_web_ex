@@ -39,7 +39,7 @@
    			<ul>
    				<li><a href="serviceInfo.do">서비스 충전내역</a></li>
 				<li><a href="pointInfo.do">포인트 충전내역</a></li>
-   				<li><a href="statistics.do">통계관리</a></li>
+   				<li><a href="statisticAttend.do">통계관리</a></li>
    			</ul>
 	    </li>
      </ul>

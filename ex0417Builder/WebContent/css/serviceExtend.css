@@ -1,0 +1,32 @@
+/*serviceExtend.jsp*/
+.service-list {
+	border: 1px solid #dcd9d9;
+	background-color:#f5f5f5;
+}
+.table thead th {
+	vertical-align:middle;
+}
+.table th {
+	vertical-align:middle;
+}
+
+/*option 선택*/
+.custom-select {
+	padding:0;
+	cursor:pointer;
+	background:#f6f6f6;
+	border:1px solid #0a8282;
+	color:#0a8282;
+	border-radius:5px;
+	font-weight:bold;
+	text-align-last: center;
+}
+
+.custom-select option {
+	font-size:20px;
+}
+.custom-select option:checked, 
+.custom-select option:hover {
+	background: #0a8282;
+    color: #fff;
+}

@@ -1,0 +1,281 @@
+/*통계 페이지에 행사 참석자 명단 css */
+#table_div1 table, #table_div1 table.google-visualization-table-table {
+	font: 14px/20px Roboto, sans-serif;
+	text-align: center;
+	width: 100%;
+	margin: 16px 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: 0;
+}
+
+#table_div1 tr, #table_div1 table.google-visualization-table-table .google-visualization-table-tr-head,
+	#table_div1 table.google-visualization-table-table .google-visualization-table-tr-even,
+	#table_div1 table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border: 0;
+	text-align: center;
+	border-top: 1px solid #757575;
+	background: #757575;
+}
+
+#table_div1 table.google-visualization-table-table .google-visualization-table-th,
+	#table_div1 table.google-visualization-table-table .google-visualization-table-td
+	{
+	border: 1px solid #ebb53e;
+	text-align: center;
+	/* font-weight:bold; */
+	background: 0;
+}
+
+#table_div1 th {
+	font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+	height: 40px;
+	padding-bottom: 4px;
+	vertical-align: middle;
+	color: #fff;
+	font-size:20px;
+}
+
+#table_div1 th b, #table_div1 th strong, #table_div1 td b, #table_div1 td strong
+	{
+	font-weight: 200;
+}
+
+#table_div1 td, #table_div1 table.google-visualization-table-table .google-visualization-table-td
+	{
+	padding: 7px 8px 8px;
+	color: #212121;
+}
+
+#table_div1 td, #table_div1 table.google-visualization-table-table .google-visualization-table-td
+	{
+	height:40px;
+	vertical-align: top;
+	text-align: center;
+	background: rgba(255, 255, 255, .98);
+}
+
+#table_div1 table.google-visualization-table-table .google-visualization-table-tr-head,
+	#table_div1 table.google-visualization-table-table .google-visualization-table-tr-even,
+	#table_div1 table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border-top-color: #ebb53e;
+	background: #ebb53e;
+	text-align: center;
+}
+
+#table_div1 .google-visualization-table-th {
+/* 	padding-bottom: 0px; */
+}
+
+/*통계 페이지에 행사 불참석 이유 css */
+.table_div2 table, #table_div2 table.google-visualization-table-table {
+	font: 14px/20px Roboto, sans-serif;
+	text-align: center;
+	width: 100%;
+	margin: 16px 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: 0;
+}
+
+.table_div2 tr, #table_div2 table.google-visualization-table-table .google-visualization-table-tr-head,
+	#table_div2 table.google-visualization-table-table .google-visualization-table-tr-even,
+	#table_div2 table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border: 0;
+	text-align: center;
+	border-top: 1px solid #757575;
+	background: #757575;
+}
+
+#table_div2 table.google-visualization-table-table .google-visualization-table-th,
+	#table_div2 table.google-visualization-table-table .google-visualization-table-td
+	{
+	border: 1px solid #f96332;
+	text-align: center;
+	/* font-weight:bold; */
+	background: 0;
+}
+
+#table_div2 th {
+	font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+	height: 40px;
+	padding-bottom: 4px;
+	vertical-align: middle;
+	color: #fff;
+	font-size:20px;
+}
+
+#table_div2 th b, #table_div2 th strong, #table_div2 td b, #table_div2 td strong
+	{
+	font-weight: 200;
+}
+
+#table_div2 td, #table_div2 table.google-visualization-table-table .google-visualization-table-td
+	{
+	padding: 7px 8px 8px;
+	color: #212121;
+}
+
+#table_div2 td, #table_div2 table.google-visualization-table-table .google-visualization-table-td
+	{
+	height:40px;
+	vertical-align: top;
+	text-align: center;
+	background: rgba(255, 255, 255, .98);
+}
+
+#table_div2 table.google-visualization-table-table .google-visualization-table-tr-head,
+	#table_div2 table.google-visualization-table-table .google-visualization-table-tr-even,
+	#table_div2 table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border-top-color: #f96332;
+	background: #f96332;
+	text-align: center;
+}
+
+#table_div2 .google-visualization-table-th {
+/* 	padding-bottom: 0px; */
+}
+/* 설문 페이지 테이블  */
+#survey_table1  table, #survey_table1  table.google-visualization-table-table {
+	font: 14px/20px Roboto, sans-serif;
+	text-align: center;
+	width: 100%;
+	margin: 16px 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: 0;
+}
+
+#survey_table1  tr, #survey_table1  table.google-visualization-table-table .google-visualization-table-tr-head,
+	#survey_table1  table.google-visualization-table-table .google-visualization-table-tr-even,
+	#survey_table1  table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border: 0;
+	text-align: center;
+	border-top: 1px solid #757575;
+	background: #757575;
+}
+
+#survey_table1  table.google-visualization-table-table .google-visualization-table-th,
+	#survey_table1  table.google-visualization-table-table .google-visualization-table-td
+	{
+	border: 1px solid #3f67c5;
+	text-align: center;
+	/* font-weight:bold; */
+	background: 0;
+}
+
+#survey_table1  th {
+	font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+	height: 40px;
+	padding-bottom: 4px;
+	vertical-align: middle;
+	color: #fff;
+	font-size:20px;
+}
+
+#survey_table1  th b, #survey_table1  th strong, #survey_table1  td b, #survey_table1  td strong
+	{
+	font-weight: 200;
+}
+
+#survey_table1  td, #survey_table1  table.google-visualization-table-table .google-visualization-table-td
+	{
+	padding: 7px 8px 8px;
+	color: #212121;
+}
+
+#survey_table1  td, #survey_table1  table.google-visualization-table-table .google-visualization-table-td
+	{
+	height:40px;
+	vertical-align: top;
+	text-align: center;
+	background: rgba(255, 255, 255, .98);
+}
+
+#survey_table1  table.google-visualization-table-table .google-visualization-table-tr-head,
+	#survey_table1  table.google-visualization-table-table .google-visualization-table-tr-even,
+	#survey_table1  table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border-top-color: #3f67c5;
+	background: #3f67c5;
+	text-align: center;
+}
+
+#survey_table1  .google-visualization-table-th {
+/* 	padding-bottom: 0px; */
+}
+/* 피드백 페이지 테이블 css  */
+#survey_table2  table, #survey_table2  table.google-visualization-table-table {
+	font: 14px/20px Roboto, sans-serif;
+	text-align: center;
+	width: 100%;
+	margin: 16px 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: 0;
+}
+
+#survey_table2  tr, #survey_table2  table.google-visualization-table-table .google-visualization-table-tr-head,
+	#survey_table2  table.google-visualization-table-table .google-visualization-table-tr-even,
+	#survey_table2  table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border: 0;
+	text-align: center;
+	border-top: 1px solid #757575;
+	background: #757575;
+}
+
+#survey_table2  table.google-visualization-table-table .google-visualization-table-th,
+	#survey_table2  table.google-visualization-table-table .google-visualization-table-td
+	{
+	border: 1px solid #f96332;
+	text-align: center;
+	/* font-weight:bold; */
+	background: 0;
+}
+
+#survey_table2  th {
+	font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+	height: 40px;
+	padding-bottom: 4px;
+	vertical-align: middle;
+	color: #fff;
+	font-size:20px;
+}
+
+#survey_table2  th b, #survey_table2  th strong, #survey_table2  td b, #survey_table2  td strong
+	{
+	font-weight: 200;
+}
+
+#survey_table2  td, #survey_table2  table.google-visualization-table-table .google-visualization-table-td
+	{
+	padding: 7px 8px 8px;
+	color: #212121;
+}
+
+#survey_table2  td, #survey_table2  table.google-visualization-table-table .google-visualization-table-td
+	{
+	height:40px;
+	vertical-align: top;
+	text-align: center;
+	background: rgba(255, 255, 255, .98);
+}
+
+#survey_table2  table.google-visualization-table-table .google-visualization-table-tr-head,
+	#survey_table2  table.google-visualization-table-table .google-visualization-table-tr-even,
+	#survey_table2  table.google-visualization-table-table .google-visualization-table-tr-odd
+	{
+	border-top-color: #f96332;
+	background: #f96332;
+	text-align: center;
+}
+
+#survey_table2  .google-visualization-table-th {
+/* 	padding-bottom: 0px; */
+}

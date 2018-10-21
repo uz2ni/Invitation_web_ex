@@ -2,6 +2,7 @@ package com.test.Builder.command;
 
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,9 +29,7 @@ public class LoginProAction implements CommandAction {
        String email = request.getParameter("user-email");
        String pw = request.getParameter("user-pw");
        // DB에서 아이디, 비밀번호 확인
-       System.out.println("위");
        UserDBBean userProcess = UserDBBean.getInstance();
-       System.out.println("아래");
        int chk = userProcess.loginCheck(email, pw);
        
        // URL 및 로그인 관련 메세지
@@ -39,7 +38,27 @@ public class LoginProAction implements CommandAction {
        
        if(chk == 1) { // 로그인 성공
     	   User user = userProcess.getUser(email); // 로그인 성공 시 User 얻어옴
+    	   
+    	   // 쿠키 초기화
+		   Cookie[] cookies = request.getCookies() ;
+		   if(cookies != null){
+     		    Cookie c = new Cookie("userId", null) ;
+     		    c.setMaxAge(0) ;
+     		    response.addCookie(c);
+     		    System.out.println("쿠키 초기화");
+  		   }
+
+    	   // id 저장에 체크했을 경우 쿠키 추가
+		  if(request.getParameterValues("user-save") != null) {
+        	   String userId = user.getUserId() + "";
+        	   Cookie c = new Cookie("userId", userId);
+        	   c.setMaxAge(60*30); // 쿠키 유효기간 30분
+        	   response.addCookie(c);
+		   }
+
+    	   // 세션 추가
     	   HttpSession session = request.getSession();
+
     	   session.setAttribute("user",user);
     	   request.setAttribute("name", user.getUserName());
     	   request.setAttribute("point", user.getUserPoint());

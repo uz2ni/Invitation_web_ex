@@ -1,9 +1,6 @@
 package com.test.Builder.command;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.test.Builder.controller.CommandAction;
+import com.test.Builder.dao.ContentAttendDBBean;
 import com.test.Builder.dao.ContentEditDBBean;
 import com.test.Builder.dto.Content;
 
@@ -200,6 +198,13 @@ public class ContentEditProAction implements CommandAction {
         content.setAccountMoney(Integer.parseInt(multi.getParameter("account-money").trim().equals("") ? "0" : multi.getParameter("account-money")));
         // 추가 기능 - 참석 여부
         content.setAttendChk(chkbox(multi, "attend-chk"));
+        content.setPollChk(chkbox(multi, "poll-chk")); // 180925 유진 추가
+        content.setPollContent(multi.getParameter("poll-content").trim()); // 180925 유진 추가
+        //// 설문조사 내용 수정한 경우 기존 설문조사 답변 삭제
+        if(multi.getParameter("poll-update-chk").equals("update")) {
+            ContentAttendDBBean contentAttendProcess = ContentAttendDBBean.getInstance();
+            contentAttendProcess.delete(Integer.parseInt(multi.getParameter("url-id")));
+        }
         // 추가 기능 - 방명록
         content.setCommentChk(chkbox(multi, "comment-chk"));
         // 추가 기능 - SNS 사용여부

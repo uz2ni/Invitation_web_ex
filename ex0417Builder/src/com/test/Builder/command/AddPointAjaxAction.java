@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.test.Builder.controller.AjaxCommandAction;
+import com.test.Builder.dao.ContentEditDBBean;
 import com.test.Builder.dao.UserDBBean;
 import com.test.Builder.dto.User;
 
@@ -29,6 +30,10 @@ public class AddPointAjaxAction implements AjaxCommandAction {
 		System.out.println("newPoint:" + newPoint);
 		
 		userProcess.updatePoint(user);
+		// 세션 업데이트
+		User userSession = (User) request.getSession().getAttribute("user");
+		userSession.setUserPoint(newPoint);
+		
 		
 		HashMap<String, String> resultMap = new HashMap<String, String>();
 		resultMap.put("status", "ok");		

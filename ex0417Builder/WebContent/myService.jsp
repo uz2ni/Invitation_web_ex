@@ -15,7 +15,8 @@
 <!-- web-font -->
 <!-- Jua --> 
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gugi|Jua|Song+Myung|Sunflower:300" rel="stylesheet">
-
+<!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 <!-- custom CSS -->
 <link rel="stylesheet" href="css/font.css?ver=1">
 <link rel="stylesheet" href="css/sidebar.css?ver=1">
@@ -32,7 +33,6 @@
 </jsp:include>
 <jsp:include page="/template/sidebar.jsp" flush="false" />
 
-
 <!-- myService view -->
 
 <!--Main-->
@@ -40,37 +40,44 @@
 
 	<!--part1-->
 	<div class="col">
-      <h4 class="title text-left my-2">나의 서비스</h4>
-      <div class="row" style="height:30vh; margin-top:30px;">
-                <div class="form-group offset-sm-3 col-sm-3">
-      		         <div class="col" style="border:1px solid #888888; width:80%; height:80%; border-radius: 100%;"></div>
-      			    </div>
-                <div class="col-sm-6" style="margin-top:50px;">
-                   <div class="row">
-            	     <div style="font-size:1.5em;" class="form-group col-12 text-left" style="padding-left:20px;">${user.userName} (${user.userEmail})</div>
-            	   </div>
-          		   <div class="row">
-				     <div style="font-size:1.3em;" class="form-group col-12 text-left">사용중인 초대장 : x개<br>총 초대장 : x개</div>
-				   </div>
-                   <a href="myInfo.do"><button type="button" class="btn12 btn btn-sm">수정하기</button></a>
-                   <a href=""><button type="button" class="btn btn-sm" style="background:#f2f2f2;">탈퇴하기</button></a>
-                </div>
-      </div>
+      <h4 class="title text-left my-2">초대장 관리</h4>
+	      <div class="service-container">
+			<div class="profile">
+				<div class="profile-image">
+					<img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
+				</div>
+				<div class="profile-user-settings">
+					<h1 class="profile-user-name">${user.userName} (${user.userEmail})</h1>
+					<a href="/ex0417Builder/myInfo.do?urlId=${content.urlId}"><button class="btn profile-edit-btn">Edit Profile</button></a>
+					<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+				</div>
+				<div class="profile-stats">
+					<ul>
+						<li>사용중인 초대장 <span class="profile-stat-count">${cnt}</span> 개</li>
+						<li>총 초대장 <span class="profile-stat-count">${cnt}</span>개</li>
+						<li>보유 우표 <span class="profile-stat-count">${user.userPoint}</span> 장</li>
+					</ul>
+				</div>
+				<div class="profile-bio">
+					<p><span class="profile-real-name">Jane Doe</span> 반가워요~ </p>
+				</div>
+			</div>
+		</div>
       <hr>
-      <br>
-      <div class="tab-pane fade show active col-12" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="row">
+      <!-- <div class="tab-pane fade show active col-12 pb-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">-->
+        <div class="row" style="padding: 0 40px;">
           <!-- url list -->
 		  <c:forEach var="content" items="${contents}">
-	          <div class="ex1 col-md-4 py-3">
+	          <div class="ex1 flex-item col-sm-12 col-md-6 col-lg-4">
 	            <div class="container px-0">
-	              <img class="card-img-top mx-0" src="https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/topImgFile/${content.topImgFile}" width="280" height="300"/>
+	              <img class="myservice-img mx-0" src="
+	              	<c:if test="${content.topImgFile != ''}">https://s3.ap-northeast-2.amazonaws.com/invitecontent/edit/topImgFile/${content.topImgFile}</c:if>
+	              	<c:if test="${content.topImgFile == ''}">https://via.placeholder.com/150x150</c:if>
+	              "/>
 	              <div class="overlay">
-	                <div class="text">
-	                  <div style="width:60%; margin:15px auto; border:1px solid white;"></div>
-	                  <strong><span class="text1">${content.topTitle}</span></strong><br>
-	                  <span class="text2">http://www.invitedu.com/${content.urlName}</span><br>
-	                  <span class="text3">
+	                <div class="myservice-text">
+	                  <h4 id="toptitle"><span class="text1">${content.topTitle}</span></h4>
+	                  ( <span class="text3">
 		                  <c:choose>
 						    <c:when test="${content.type eq 1}">
 						        모임
@@ -82,16 +89,18 @@
 						        종교 행사
 						    </c:otherwise>
 						  </c:choose>
-	                  </span><br>
-	                  <span class="text4">${content.payDate}<br> ~ <br>${content.lastDate}</span>
-	                  <div style="width:60%; margin:15px auto; border:1px solid white;"></div>
+	                  </span> )<br>
+	                  <span class="text2">http://www.invitedu.com/${content.urlName}</span><br>
+	                  <span class="text4">${content.payDate} <br> ~ ${content.lastDate}</span>
 	                </div>
 	              </div>
 	            </div>
 	            <!--button-->
 	            <div class="button-box">
-	              <a href="/ex0417Builder/contentEditForm.do?urlId=${content.urlId}"><button type="button" class="btn12 btn btn-sm">편집</button></a>
-	              <a href="extension.html"><button type="button" class="btn12 btn btn-sm">연장</button></a>
+	              <a href="/ex0417Builder/contentEditForm.do?urlId=${content.urlId}"><button type="button" class="myservice-btn btn btn-sm">편집</button></a>
+	              <a href="/ex0417Builder/serviceExtend.jsp?urlId=${content.urlId}"><button type="button" class="myservice-btn btn btn-sm">연장</button></a>
+	              <a href="extension.html"><button type="button" class="myservice-btn btn btn-sm">통계</button></a>
+	              <a href="/ex0417Builder/contentEditComplete.do?urlId=${content.urlId}"><button type="button" class="myservice-btn btn btn-sm">공유</button></a>
 	              <!--delete-->
 	              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	                <div class="modal-dialog modal-dialog-centered" role="document">
@@ -115,11 +124,13 @@
 	                </div>
 	              </div>
 	              <!--button_end-->
-	            </div>
+	             </div>
 	          </div>
 	       </c:forEach>
+      		<!-- ex2, ex3...추가 -->
         </div>
-      </div>
+      
+      
     <div>
 </article>
 
@@ -133,6 +144,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+
 <!-- top js -->
 <script type="text/javascript" src="js/top.js?v=<%=System.currentTimeMillis()%>"></script>
 <!-- side bar js -->

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- myBatis를 통해 DB를 다룰때 사용할 파일이다. 실행하고자 할 쿼리 모음 -->
+
+<mapper namespace="com.test.Builder.sqlmap.UserCertifyMap">
+
+<resultMap type="com.test.Builder.dto.UserCertify" id="UserCertifyResult">
+	<result property="userCertifyId" column="user_certify_id" />
+	<result property="userCertifyEmail" column="user_certify_email" />
+	<result property="userCertifyNum" column="user_certify_num" />
+	<result property="userCertifyStatus" column="user_certify_status" />
+</resultMap>
+
+<!-- insert -->
+<insert id="userCertifyInsert" parameterType="com.test.Builder.dto.UserCertify" useGeneratedKeys="true" keyProperty="userCertifyId">
+	insert into user_certify(user_certify_email, user_certify_num)
+	values(#{userCertifyEmail}, #{userCertifyNum})
+</insert>
+
+<!-- select -->
+<select id="userCertifySelectOne" parameterType="int" resultMap="UserCertifyResult">
+	select * from user_certify where user_certify_id = #{certifyId};
+</select>
+
+<!-- update -->
+<update id="userCertifyUpdate" parameterType="com.test.Builder.dto.UserCertify">
+	update user_certify
+	  set
+	  	user_certify_status = ${userCertifyStatus}
+	where user_certify_id = ${userCertifyId};
+</update>
+
+</mapper>

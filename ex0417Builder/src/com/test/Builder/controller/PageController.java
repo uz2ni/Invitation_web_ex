@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.test.Builder.dao.ContentEditDBBean;
 import com.test.Builder.dao.ContentGuestDBBean;
 import com.test.Builder.dto.Content;
@@ -57,7 +58,6 @@ public class PageController extends HttpServlet {
 			String command = request.getRequestURI();
 			System.out.println("command:" + command);
 			System.out.println("contextpath:" + request.getContextPath());
-			System.out.println("length:" + request.getContextPath().length());
 			if(command.indexOf(request.getContextPath()) == 0) {
 				command = command.substring(request.getContextPath().length());
 				command = command.split("\\.")[0];
@@ -74,11 +74,15 @@ public class PageController extends HttpServlet {
 		Content content = getContent(urlName);
 		String skinName = content.getSkin();
 		
+		// url json string
+		Gson gson = new Gson();
+		String contentStr = gson.toJson(content);
+		
 		// urlId 로 content_guest 알아오기
 		List<ContentGuest> contentGuests = getContentGuest(content.getUrlId());
 		
 		// content 보내기
-		request.setAttribute("contentStr", content.toString());
+		request.setAttribute("contentStr", contentStr);
 		request.setAttribute("content", content);
 		
 		// content_guest 보내기

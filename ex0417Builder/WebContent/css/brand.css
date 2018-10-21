@@ -25,4 +25,49 @@
     display: block;
     position: relative;
     overflow: hidden;
+	height:300px; 
+	background-size:cover;
+	filter: gray;  
+	-webkit-filter: grayscale(1);
+	cursor: pointer;
 }
+
+.mj-img {background : url("../img/info/brand/pmj.jpg") no-repeat center center; background-size:cover;}
+.uj-img {background : url("../img/info/brand/syj.jpeg") no-repeat center center; background-size:cover;}
+.dw-img {background : url("../img/info/brand/sdw.jpeg") no-repeat center center; background-size:cover;}
+.kk-img {background : url("../img/info/brand/kkk.jpeg") no-repeat center right; background-size:cover;}
+
+
+.card-img-top{
+    opacity: 1.0;
+    transition:0.1s ease;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color:black;
+  overflow: hidden;
+  width: 100%;
+  height: 0%;
+  transition: .0.1s ease;
+}
+.container:hover .card-img-top{
+    transition:0.1s;
+}
+.container:hover .overlay {
+  height: 100%; 
+  width:100%;
+  background:rgba(0,0,0,0.6);
+}
+.profile-ch {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+

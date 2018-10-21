@@ -1,32 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="">
-<!--<![endif]-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>${content.topTitle}</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="viewport"
-	content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="shortcut icon"
-	href="http://www.templatemonster.com/favicon.ico">
-<link rel="icon" href="http://www.templatemonster.com/favicon.ico">
 
 <!--Google Fonts link-->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i"
 	rel="stylesheet">
-
+	
 <link rel="stylesheet" href="${skinContext}css/iconfont.css">
 <link rel="stylesheet" href="${skinContext}css/slick/slick.css">
 <link rel="stylesheet" href="${skinContext}css/slick/slick-theme.css">
@@ -44,24 +33,16 @@
 <!--Theme Responsive css-->
 <link rel="stylesheet" href="${skinContext}css/responsive.css" />
 
-<!-- <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> -->
-
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 <input type="hidden" name="commonContext" value="${commonContext}">
 <input type="hidden" name="skinContext" value="${skinContext}">
-<input type="hidden" name="contentStr" value="${contentStr}">
 
-	<!-- 로딩 될때 나오는 로드 이미지 preloader, loadeds-->
-	<!-- <div class='preloader'>
-		<div class='loaded'>&nbsp;</div>
-	</div> -->
 	<div class="culmn">
 		<header id="main_menu" class="header navbar-fixed-top">
 			<div class="main_menu_bg">
@@ -105,8 +86,8 @@
 				</div>
 			</div>
 		</header>
-		<!--End of header -->
-
+		<!--End of header -->	
+			
 		<!--skin-top-section -->
 		<section id="home" class="skin-top-section home">
 			<div class="overlay">
@@ -118,32 +99,41 @@
 									<!-- 상단 제목, 색상, 정렬 -->
 									<!-- 상단 이미지 선택, 배치 -->
 									<div class="main_home wow fadeInUp" data-wow-duration="600ms">
-										<div class="col-md-12 col-sm-6">
-											<img class="skin-top-img-file skin-top-title text-center"
-												alt="" width=600; />
+										<div class="col-md-12 col-sm-6 skin-top-img">
+											<img class="text-center skin-top-img-file"
+												alt="" width=600; src="http://bootdey.com/img/Content/user_1.jpg" />
 										</div>
-										<p class=" skin-top- font-color">
-											<h1 class="skin-top-title"></h1>
+										<p>
+											<span class="skin-top-title skin-top-font-color"></span>
 										</p>
 										<div class="separator"></div>
-
 										<div class="skin-info-date">
-
-											<div class="skin-info-date">
+											<div>
 												<p>
-													<span class="skin-info-date-start"></span>
-													<span>~</span>
-													<span class="skin-info-date-end"></span>
+													<span>행사일시</span>
 												</p>
 											</div>
-										</div>
+											<p>
+												<span class="skin-info-date-start"></span> <span>~</span> <span
+													class="skin-info-date-end"></span>
+											</p>
+
+											<p>
+												<span>행사 까지 남은 날짜</span>
+											</p>
+											<p>
+												<span>D</span><span class="skin-info-dday"></span>
+											</p>
+										</div>										
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
+		
 		<section id="home" class="history sections">
 			<div class="container">
 				<div class="row">
@@ -176,59 +166,6 @@
 				</div>
 				<!-- End off row -->
 			</div>
-			<!-- 산악회에서 필요 없는 부분이라 홀드  -->
-			<!-- <div id="profile" class="container">
-				<div class="row">
-					<div class="sections">
-						<div class="head_title text-center">
-							<h2>발표자 프로필</h2>
-							<div class="separator"></div>
-						</div>
-						End off Head_title
-						skin-add-info-img-name
-						<div class="col-sm-12">
-							<div class="single_pricing">
-								<div class="pricing_body">
-									<div class="col-sm-6">
-										<div class="skin-add-info-img-profile single_newsletter_head">
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<h4 class="skin-add-info-img-name text-center"></h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				End off row
-			</div> -->
-			<!-- 
-			skin-add-info-img-sit
-			<div class="container">
-				<div class="row">
-					<div class="main_pricing_area sections">
-						<div class="head_title text-center">
-							<h2>발표회 자리 배치도</h2>
-							<div class="separator"></div>
-						</div>
-						End off Head_title
-						<div class="col-sm-12">
-							<div class="single_pricing">
-								<div class="pricing_body">
-									<div class="col-sm-12">
-										<div class="single_sub">
-											자리 배치도 이미지
-											<div class="skin-add-info-img-sit"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				End off row
-			</div> -->
 			<!-- Design1 -->
 			<section id="design2" class="design2 ">
 				<div class="container">
@@ -251,10 +188,6 @@
 									<h4 class="skin-add-info-call-name"></h4>
 									<!-- 문의정보 - 주최자 번호 -->
 									<h4 class="skin-add-info-call-number"></h4>
-									<!-- 주최사명 -->
-									<h4 class="skin-add-info-logo-hold-name"></h4>
-									<!-- 주최사 로고 -->
-									<img class="skin-add-info-hold-img" />
 								</div>
 							</div>
 						</div>
@@ -275,10 +208,12 @@
 										<h2>주최기관</h2>
 									</div>
 									<div class="sub_body ">
-										<!-- 주최자 명 -->
-										<h4 class="skin-add-info-logo-help-name"></h4>
-										<!-- 주최자  로고 -->
-										<img class="skin-add-info-help-img" />
+										<!-- 주최사명 -->
+										<h4 class="skin-add-info-logo-hold-name"></h4>
+										<!-- 주최사 로고 -->
+										<div class="skin-add-info-hold-img">
+											<img />
+										</div>									
 									</div>
 								</div>
 							</div>
@@ -292,7 +227,9 @@
 										<!-- 후원사명 -->
 										<h4 class="skin-add-info-logo-help-name"></h4>
 										<!-- 후원사 로고 -->
-										<img class="skin-add-info-help-img" />
+										<div class="skin-add-info-help-img">
+											<img />
+										</div>
 									</div>
 								</div>
 							</div>
@@ -321,8 +258,7 @@
 									</p>
 									<p>
 										<!-- &nbsp; <span></span>  -->
-										<a href="#" class="skin-account btn btn-lg" tabindex="0">
-											TOSS로입금하기 </a>
+										<input type="submit" value="TOSS로 바로 입금하기 " tabindex="0" class="skin-account btn btn-lg">
 									</p>
 									<p>
 										<span>회비 </span> <span class="skin-account-money"></span> <span>원
@@ -349,55 +285,32 @@
 						</div>
 
 						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">D-day</div>
-										<div class="m_t text-center">행사까지 남은 날짜</div>
-									</div>
-								</div>
-								<!-- dday -->
-								<div class="sub_body">
-									<h4 class="skin-info-dday"></h4>
+						<div class="col-sm-6">
+							<div class="single_sub1">
+								<div class="sub_head1">
+									<p>
+										<span class="m_t text-center">행사 시간</span>
+									</p>
+									<p>
+										<span class="skin-info-time"></span>
+									</p>
 								</div>
 							</div>
 						</div>
+						
 						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">시간</div>
-										<div class="m_t text-center">행사 시간</div>
-									</div>
-								</div>
-								<!-- 행사 시간 -->
-								<div class="sub_body">
-									<h4 class="skin-info-time"></h4>
+						<div class="col-sm-6">
+							<div class="single_sub1">
+								<div class="sub_head1">
+									<p>
+										<span class="text-center">행사 열릴 장소</span>
+									</p>
+									<p>
+										<span class="skin-info-place"></span>
+									</p>
 								</div>
 							</div>
 						</div>
-
-						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">장소</div>
-										<div class="m_t text-center">행사 열릴 장소</div>
-									</div>
-								</div>
-								<!-- 행사 장소 -->
-								<div class="sub_body">
-									<h4 class="skin-info-place "></h4>
-								</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 				<!-- End off row -->
@@ -423,29 +336,40 @@
 								<div class="main_gallery_content">
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-1" src="${skinContext}img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-2" src="${skinContext}img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-3" src="${skinContext}img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-4" src="${skinContext}img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
-
+									<div class="col-xs-6 col-lg-3">
+										<div class="single_gallery_img_col">
+											<img class="skin-gallery-upload-img skin-gallery-5" src="${skinContext}img/blog1.jpg"
+												alt="" />
+										</div>
+									</div>
+									<div class="col-xs-6 col-lg-3">
+										<div class="single_gallery_img_col">
+											<img class="skin-gallery-upload-img skin-gallery-6" src="${skinContext}img/blog1.jpg"
+												alt="" />
+										</div>
+									</div>
 								</div>
 							</div>
 							<!-- 가로 형   -->
@@ -454,37 +378,37 @@
 									<div class="row">
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-1" src="${skinContext}img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-2" src="${skinContext}img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-3" src="${skinContext}img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-4" src="${skinContext}img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-5" src="${skinContext}img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="${skinContext}img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-6" src="${skinContext}img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
@@ -498,13 +422,6 @@
 										<div class="col-sm-12">
 											<div class="container">
 												<div id="carousel-example-generic" class="carousel slide">
-													<!--
-								            id="carousel-example-generic" 없으면 다음 페이지로 안넘어간다.
-								            class="carousel":이미지 양쪽의 화살표 보이게 하는것
-								                (화살표 없어도 그 부근 클릭하면 넘어간다.이 줄 없으면 아래 동그란 인티케이터도 안나타난다.) 
-								                 slide 없으면 슬라이드 효과 없이 그냥 이미지가 나타난다. 
-								                -->
-
 													<!-- Indicators(이미지 하단의 동그란것->class="carousel-indicators") -->
 													<ol class="carousel-indicators">
 														<li data-target="#carousel-example-generic"
@@ -513,25 +430,38 @@
 															data-slide-to="1"></li>
 														<li data-target="#carousel-example-generic"
 															data-slide-to="2"></li>
+														<li data-target="#carousel-example-generic"
+															data-slide-to="3"></li>
+														<li data-target="#carousel-example-generic"
+															data-slide-to="4"></li>
+														<li data-target="#carousel-example-generic"
+															data-slide-to="5"></li>
 													</ol>
-													<!-- 
-									                위의 data-slide-to가 0 2 2이면 두번째 동그라미 클릭해도 3번째 이미지가 나온다. 
-									                0 2 5이면 세번째 동그라미 클릭해도 아무 반응이 없다. 
-									                Indicators는 이미지 갯수와 같게 만들어야 한다. 
-									            -->
 													<!-- Carousel items -->
 													<div class="carousel-inner">
 														<!-- class="carousel-inner" : 없으면 이미지 3장이 모두 세로로 배치된다. -->
 														<div class="item active ">
-															<img class="center-block" src="${skinContext}img/delete1.jpg"
+															<img class="center-block skin-gallery-1" src="${skinContext}img/delete1.jpg"
 																alt="First slide">
 														</div>
 														<div class="item">
-															<img class="center-block" src="${skinContext}img/delete2.jpg"
+															<img class="center-block skin-gallery-2" src="${skinContext}img/delete2.jpg"
 																alt="Second slide">
 														</div>
 														<div class="item">
-															<img class="center-block" src="${skinContext}img/delete3.jpg"
+															<img class="center-block skin-gallery-3" src="${skinContext}img/delete3.jpg"
+																alt="Third slide">
+														</div>
+														<div class="item">
+															<img class="center-block skin-gallery-4" src="${skinContext}img/delete1.jpg"
+																alt="Third slide">
+														</div>
+														<div class="item">
+															<img class="center-block skin-gallery-5" src="${skinContext}img/delete2.jpg"
+																alt="Third slide">
+														</div>
+														<div class="item">
+															<img class="center-block skin-gallery-6" src="${skinContext}img/delete3.jpg"
 																alt="Third slide">
 														</div>
 													</div>
@@ -556,7 +486,6 @@
 				</div>
 			</div>
 		</section>
-	</div>
 
 	<!-- End off gallery sSection -->
 
@@ -574,21 +503,22 @@
 					<div class="col-sm-12">
 						<div class="single_navigation1">
 							<div class="navigation1_body">
-								<sapn>
-								<h4>행사 주소</h4>
-								<h4 class="skin-info-address"></h4>
-								</sapn>
+								<span>행사 주소</span>
+								<span class="skin-info-address"></span>
 								<!-- 장소 지도 -->
-								<div class="skin-info-map">
-									<div id="info-address-map" style="width:100%;height:300px;"></div>
-								</div>
+								<div id="info-address-map" style="width:100%;height:300px;" class="skin-info-map"></div>
 							</div>
 						</div>
 					</div>
 					<!-- skin-info-load-img-->
 					<div class="col-sm-4">
 						<div class="single_navigation1">
-							<div class="skin-info-load-img sub_body1"></div>
+							<div class="navigation1_body">
+								<span>약도</span>
+								<div class="skin-info-load-img sub_body1">
+									<img />
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -597,7 +527,7 @@
 							<div class="single_navigation1">
 								<div class="skin-info-navi sub_body1">
 									<a id="navi" href="#"> <img
-										src="${commonContext}img/content/edit_img/page_img/navi_icon.png" width=100
+										src="img/content/edit_img/page_img/navi_icon.png" width=100
 										height=150 />
 									</a>
 								</div>
@@ -607,22 +537,19 @@
 					<!-- skin-info-find   -->
 					<div class="col-sm-4">
 						<div class="single_navigation1">
-							<div class="skin-info-find  sub_body1">
+							<div class="skin-info-find sub_body1">
 								<a id="navi" href="#"> <img
-									src="${commonContext}img/content/edit_img/page_img/daum_icon.png" width=100
+									src="img/content/edit_img/page_img/daum_icon.png" width=100
 									height=150 />
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 		<!-- End off row -->
-		</div>
-		<!-- End off container -->
+	</section>
 
 		<!-- Design1 -->
 		<section id="design" class="design">
@@ -633,7 +560,9 @@
 			</div>
 		</section>
 
+	
 		<!-- 오시는 방법   -->
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="main_sub_area sections">
@@ -669,7 +598,6 @@
 							<!-- skin-info-subway -->
 							<div class="sub_body">
 								<h4 class="skin-info-subway"></h4>
-								<span>
 							</div>
 						</div>
 					</div>
@@ -718,9 +646,10 @@
 						</div>
 					</div>
 				</div>
-				<!-- End off row -->
 			</div>
-			<!-- End off container -->
+			<!-- End off row -->
+		</div>
+		<!-- End off container -->
 	</section>
 	<!-- End off video Section -->
 
@@ -741,15 +670,15 @@
 										aria-label="Basic example">
 										<button type="button"
 											class="btn btn-warning btn-secondary attend"
-											data-toggle="modal" data-target="#myModal1">참석</button>
+											data-toggle="modal" data-target="#attend-modal">참석</button>
 										<button type="button"
 											class="btn btn-danger btn-secondary noattend"
-											data-toggle="modal" data-target="#myModal2">참석안함</button>
+											data-toggle="modal" data-target="#not-attend-modal">참석안함</button>
 									</div>
 									<!-- End 참/불 -->
 									<!-- 모달 팝업1 -->
-									<div class="modal fade" id="myModal1" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel"
+									<div class="modal fade" id="attend-modal" tabindex="-1"
+										role="dialog" aria-labelledby="attend-modal-label"
 										aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
@@ -757,37 +686,34 @@
 													<button type="button" class="close" data-dismiss="modal">
 														<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 													</button>
-													<h4 class="modal-title" id="myModalLabel">참석</h4>
+													<h4 class="modal-title" id="attend-modal-label">참석</h4>
 												</div>
 												<div class="modal-body ">
-													<form id="attend-form">
-														<div class="form-group text-left">
-															<label for="attendname">이름</label> <input type="email"
-																class="form-control" id="attendname"
-																aria-describedby="emailHelp" placeholder="이름 입력 ">
-														</div>
-														<div class="form-group text-left">
-															<label for="attendpassword">본인확인용 비밀번호 4자리 </label> <input
-																type="password" class="form-control" id="attendpassword"
-																placeholder="비밀 번호를 입력해 주세요.">
-														</div>
-													</form>
-													<div>
-														<input placeholder="이곳에 설문조사 폼을 넣어주면 땡쿠땡큐 ">
+													<div class="form-group text-left">
+														<label for="attend-name">이름</label> <input type="text"
+															class="form-control" name="attend-name" placeholder="이름 입력 ">
+													</div>
+													<div class="form-group text-left">
+														<label for="attend-password">본인확인용 비밀번호 4자리 </label> <input
+															type="password" class="form-control" name="attend-password"
+															placeholder="비밀 번호를 입력해 주세요.">
+													</div>
+													<!-- 설문조사 양식 -->
+													<div id="attend-form" class="form-group text-left">
 													</div>
 												</div>
 												<!--End of modal body -->
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default"
 														data-dismiss="modal">취소</button>
-													<button type="button" class="btn btn-primary">완료</button>
+													<button type="button" class="btn btn-primary" onclick="attendBtn(1)">완료</button>
 												</div>
 											</div>
 										</div>
 									</div>
 									<!-- 모달 팝업2 -->
-									<div class="modal fade" id="myModal2" tabindex="-1"
-										role="dialog" aria-labelledby="myModalLabel"
+									<div class="modal fade" id="not-attend-modal" tabindex="-1"
+										role="dialog" aria-labelledby="not-attend-modal-label"
 										aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
@@ -795,26 +721,26 @@
 													<button type="button" class="close" data-dismiss="modal">
 														<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 													</button>
-													<h4 class="modal-title" id="myModalLabel">불참</h4>
+													<h4 class="modal-title" id="not-attend-modal-label">불참</h4>
 												</div>
 												<div class="modal-body">
 													<form id="noattend-form">
 														<div class="form-group text-left">
-															<label for="noattendname text-left">이름</label> <input
-																type="email" class="form-control" id="noattendname"
+															<label for="not-attend-name text-left">이름</label> <input
+																type="text" class="form-control" name="not-attend-name"
 																aria-describedby="emailHelp" placeholder="이름 입력 ">
 														</div>
 														<div class="form-group text-left">
-															<label for="noattendpassword">본인확인용 비밀번호 4자리</label> <input
+															<label for="not-attend-password">본인확인용 비밀번호 4자리</label> <input
 																type="password" class="form-control"
-																id="noattendpassword" placeholder="비밀 번호를 입력해 주세요.">
+																name="not-attend-password" placeholder="비밀 번호를 입력해 주세요.">
 														</div>
 
 														<div class="noattend-reason text-left">
 															<label for="exampleFormControlTextarea1">불참 사유에
 																대해 작성해 주세요. </label>
 															<textarea class="form-control"
-																id="exampleFormControlTextarea1" rows="3"></textarea>
+																id="exampleFormControlTextarea1" rows="3" name="reason"></textarea>
 														</div>
 													</form>
 
@@ -822,7 +748,7 @@
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default"
 														data-dismiss="modal">취소</button>
-													<button type="button" class="btn btn-primary">완료</button>
+													<button type="button" class="btn btn-primary" onclick="attendBtn(0)">완료</button>
 												</div>
 											</div>
 										</div>
@@ -958,22 +884,13 @@
 
 	<script src="${skinContext}js/jquery.magnific-popup.js"></script>
 	<script src="${skinContext}js/jquery.mixitup.min.js"></script>
-	<script src="${skinContext}js/jquery.easing.1.3.js"></script>
 	<script src="${skinContext}js/jquery.masonry.min.js"></script>
 
 	<!--slick slide js -->
 	<script src="${skinContext}css/slick/slick.js"></script>
-	<script src="${skinContext}css/slick/slick.min.js"></script>
 
 	<script src="${skinContext}js/plugins.js"></script>
 	<script src="${skinContext}js/index.js"></script>
-
-	<!-- slider_bootstrap-carousel js -->
-	<script>
-		$('.carousel').carousel({
-			interval : 1000
-		});
-	</script>
 
   <!-- API --> 
   <!-- imgareaselect js -->
@@ -982,10 +899,14 @@
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=28s_5H2hA1HcHCbdhEUr&submodules=geocoder&callback=CALLBACK_FUNCTION"></script>
   <!-- Kakao navi -->
   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
-   
+  
+  <script>
+	str = ${contentStr};
+  </script>
    <!-- edit js -->
-   <script src="${commonContext}js/pageEdit.js"></script>
-   <script src="${commonContext}js/pageEditFunc.js"></script>
+   <script src="js/pageEdit.js"></script>
+   <script src="js/pageEditFunc.js"></script>
+
 
 </body>
 </html>

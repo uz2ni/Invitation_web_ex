@@ -2,7 +2,6 @@
 
 section {
     height: auto; 
-    background-image:url(../Image/index/index_top.jpg); 
     background-size:cover;
 }
 .finish-box {
@@ -32,26 +31,35 @@ strong {
 }
 .procedure-box-text {
     height:30%; 
-    font-size:13px;
+    font-size:14px;
 }
-
-.btn-side {
+/*btn-complete*/
+.btn-complete {
     background-color:#333333; 
     color:white; 
     width:170px;
 }
-.btn-side:hover {
-    background-color:#474747; 
+.btn-complete:hover {
+    background-color:#161616; 
 }
-.btn-center {
-    background-color:#3244ca;
-    color:white; 
+.btn-complete-kakao {
+	background-color:#FFEB33;
+    color:#3b1e1e;
     width:170px;
 }
-.btn-center:hover {
-     background-color:#3c50e7;
+.btn-complete-kakao:hover {
+	background-color:#e3d12e;
 }
-.btn img {
+
+.btn-complete-center {
+    background-color:#3244ca;
+    color:white; 
+    padding: 10px 50px;
+}
+.btn-complete-center:hover {
+     background-color:#2d3cb1;
+}
+.btn-complete img {
     margin-bottom:5px;
 }
 /*말풍선*/
@@ -65,11 +73,10 @@ a.tooltips span {
 	color: #FFFFFF;
 	background:  #f05228;
 	height: 45px;
-	line-height: 20px;
+	line-height: 22px;
 	text-align: center;
 	display: none;
 	border-radius: 6px;
-	font-weight:bold;
 	font-size:14px;
 }
 a.tooltips span:after {

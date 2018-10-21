@@ -245,6 +245,8 @@ $(document).ready(function() {
  *     4)  add preview
  */
 $(document).ready(() => {
+	
+	
     const $surveyComponent = $('#survey-components li');
     const $canvas = $('#survey-canvas');
     let $placeholder = $('<p>Drag survey components here<br/>or click to add</p>').addClass('placeholder');
@@ -272,7 +274,7 @@ $(document).ready(() => {
     });
     
     $canvas.html($placeholder);
-    function makeSurveyComponent(componentType) {
+    function makeSurveyComponent(componentType, q, q1, q2, q3) {
     	console.log(componentType);
       let $component = $('<li></li>');
       const $x = $('<span></span>').addClass('x').text('×');
@@ -288,44 +290,69 @@ $(document).ready(() => {
       
       let random;
       switch (componentType) {
-        case ('Textbox'):
+      // 추가 case
+      case ('text'):
+          $component.addClass('type-text'); //추가
+	      $question = $('<label></label>')
+	        .addClass('default-text')
+	        .text(q)
+	        .attr('contenteditable', 'true');
+	      $inputElement = $('<textarea />').addClass('form-control');
+	      console.log('text완료');
+	      break;  
+      case ('radio'):
+          $component.addClass('type-radio'); //추가
+	      random = Math.floor(Math.random() * 100);
+	      $question = $('<label></label>')
+	        .addClass('default-text')
+	        .text(q)
+	        .attr('contenteditable', 'true');
+	      $inputElement = $('<div></div>').addClass('survey-radio')
+	        .append(`<input type="radio" name="q-${random}" value="` + q1 + `"><span contenteditable=true>` + q1 + `</span><br>`)
+	        .append(`<input type="radio" name="q-${random}" value="` + q2 + `"> <span contenteditable=true>` + q2 + `</span><br>`)
+	        .append(`<input type="radio" name="q-${random}" value="` + q3 + `"> <span contenteditable=true>` + q3 + `</span><br>`);
+	      console.log('radio완료');
+	      break;          	  
+      case ('단답형'):
           $question = $('<label></label>')
             .addClass('default-text')
-            .text('Textbox question')
-            .attr('contenteditable', 'true');
+            .text('제목 없는 질문')
+            .attr('contenteditable', 'true');;
           $inputElement = $('<input />').addClass('form-control');
-          console.log($inputElement);
           break;
-        case('Text Area'):
+        case('텍스트'):
+        	console.log('텍스트');
+          $component.addClass('type-text'); //추가
           $question = $('<label></label>')
             .addClass('default-text')
-            .text('Text area question')
+            .text('제목 없는 질문')
             .attr('contenteditable', 'true');
           $inputElement = $('<textarea />').addClass('form-control');
-          console.log($inputElement);
           break;
-        case('Checkboxes'):
+        case('체크박스'):
           random = Math.floor(Math.random() * 100);
           $question = $('<label></label>')
             .addClass('default-text')
-            .text('Checkbox question')
+            .text('제목 없는 질문')
             .attr('contenteditable', 'true');
           $inputElement = $('<div></div>').addClass('survey-checkbox')
-            .append(`<input type="checkbox" name="q-${random}" value="1"> <span contenteditable=true>Option 1</span><br>`)
-            .append(`<input type="checkbox" name="q-${random}" value="2"> <span contenteditable=true>Option 2</span><br>`)
-            .append(`<input type="checkbox" name="q-${random}" value="3"> <span contenteditable=true>Option 3</span><br>`);
+            .append(`<input type="checkbox" name="q-${random}" value="1"> <span contenteditable=true>옵션 1</span><br>`)
+            .append(`<input type="checkbox" name="q-${random}" value="2"> <span contenteditable=true>옵션 2</span><br>`)
+            .append(`<input type="checkbox" name="q-${random}" value="3"> <span contenteditable=true>옵션 3</span><br>`);
           break;
-        case('Radio Buttons'):
+        case('라디오'):
+        	console.log('라디오');
+          $component.addClass('type-radio'); //추가
           random = Math.floor(Math.random() * 100);
           $question = $('<label></label>')
             .addClass('default-text')
-            .text('Radio button question')
+            .text('제목 없는 질문')
             .attr('contenteditable', 'true');
           $inputElement = $('<div></div>').addClass('survey-radio')
-            .append(`<input type="radio" name="q-${random}" value="1"> <span contenteditable=true>Option 1</span><br>`)
-            .append(`<input type="radio" name="q-${random}" value="2"> <span contenteditable=true>Option 2</span><br>`)
-            .append(`<input type="radio" name="q-${random}" value="3"> <span contenteditable=true>Option 3</span><br>`);
-          break;
+            .append(`<input type="radio" name="q-${random}" value="1"> <span contenteditable=true>옵션 1</span><br>`)
+            .append(`<input type="radio" name="q-${random}" value="2"> <span contenteditable=true>옵션 2</span><br>`)
+            .append(`<input type="radio" name="q-${random}" value="3"> <span contenteditable=true>옵션 3</span><br>`);
+          break;      
         case('Select Box'):
           $question = $('<p></p>')
             .addClass('default-text')
@@ -362,6 +389,8 @@ $(document).ready(() => {
       
       $container.append($question).append($inputElement);
       $component.append($container);
+      console.log('component:');
+      console.log($component);
       return $component;
     }
     
@@ -369,6 +398,41 @@ $(document).ready(() => {
       $canvas.html($placeholder);
       unsaveSurvey();
     });
+    
+	//수정 : edit page 설문조사 데이터 초기화 추가
+    var data;
+	if(pollContent == "") {
+		console.log(pollContent);
+	}else {
+		// input hidden value 초기화
+		$("input[name='poll-content']").val(pollContent);
+		
+		data = JSON.parse(pollContent);
+		console.log("poll data:");
+		console.log(data);
+		
+		$canvas.find( ".placeholder" ).remove();
+		for(var i=0; i<data["content"].length; i++) {
+			if(data["content"][i]["type"] == 'text') {
+				makeSurveyComponent( '텍스트', data["content"][i]["q"])
+	            .appendTo( $canvas );
+			}else if(data["content"][i]["type"] == 'radio') {
+				makeSurveyComponent( '라디오', data["content"][i]["q"], data["content"][i]["q1"], data["content"][i]["q2"], data["content"][i]["q3"])
+	            .appendTo( $canvas );
+			}
+			  const $x = $('.x'); // DRY 0
+		      $x.click(function (e) {
+		        const $component = $( this ).parent().parent();
+		        $component.remove();
+		        const $container = $('.survey-canvas');
+		        if ($container.children('li').length === 0) {
+		          $container.append($placeholder);
+		        }
+		        unsaveSurvey();
+		      });
+		}
+	}
+	// 수정 끝
     
     $surveyComponent.click(function (e) {
       $canvas.find( ".placeholder" ).remove();

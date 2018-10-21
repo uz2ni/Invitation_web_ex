@@ -54,6 +54,8 @@
 		<result property="accountSelect" column="account_select" />
 		<result property="accountMoney" column="account_money" />
 		<result property="attendChk" column="attend_chk" />
+		<result property="pollChk" column="poll_chk" />
+		<result property="pollContent" column="poll_content" />
 		<result property="commentChk" column="comment_chk" />
 		<result property="snsShareChk" column="sns_share_chk" />
 		<result property="selectSns" column="select_sns" />
@@ -101,7 +103,7 @@
 		   		gallery_chk = #{galleryChk}, gallery_type = #{galleryType}, gallery_upload_img = #{galleryUploadImg},
 		   		video_chk = #{videoChk},video_link = #{videoLink},
 		   		account_chk = #{accountChk}, account_select = #{accountSelect}, account_money = #{accountMoney},
-		   		attend_chk = #{attendChk}, comment_chk = #{commentChk}, sns_share_chk = #{snsShareChk}, select_sns = #{selectSns}, sns_msg_chk = #{snsMsgChk}, sns_msg_content = #{snsMsgContent}
+		   		attend_chk = #{attendChk}, poll_chk = #{pollChk}, poll_content = #{pollContent}, comment_chk = #{commentChk}, sns_share_chk = #{snsShareChk}, select_sns = #{selectSns}, sns_msg_chk = #{snsMsgChk}, sns_msg_content = #{snsMsgContent}
 		 where url_id = #{urlId};
 	</update>
 	<update id="contentExtendUpdate" parameterType="com.test.Builder.dto.Content">

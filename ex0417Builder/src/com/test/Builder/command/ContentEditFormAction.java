@@ -79,6 +79,8 @@ public class ContentEditFormAction implements CommandAction {
 			request.setAttribute("selectSnsArr", strToArr(content.getSelectSns()));
 			request.setAttribute("galleryUploadImgArr", strToArr(content.getGalleryUploadImg()));
 			
+			if(content.getPollContent().equals(""));
+			
 			return "/contentEditForm.jsp";
 		}
 	}

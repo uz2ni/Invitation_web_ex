@@ -40,10 +40,10 @@
 	        <c:if test="${content.type == 3}">종교 행사</c:if>
         </button>
         <button type="button" class="btn btn-info disabled p-1 m-1 header-btn">유료형</button>
-        <div class="alert alert-secondary m-1 py-1 px-2 url-info" role="alert"><a href="#">http://webpage/<strong>${content.urlName}</strong></a></div>
+        <div class="alert alert-secondary m-1 py-1 px-2 url-info" role="alert"><a target="_black" href="http://dbwlsdlqh12.cafe24.com/${content.urlName}.page">http://dbwlsdlqh12.cafe24.com/<strong>${content.urlName}.page</strong></a></div>
       </div>
-      <div class="d-flex">
-        <a href="#" class="d-flex"><img src="http://via.placeholder.com/40x40"></a>
+      <div class="d-flex align-items-center">
+        <a href="#" class="d-flex"><img src="./img/common/main_logo_2.png"  width="100" height="50" alt="logo"></a>
       </div>
       <div class="d-flex align-items-center">
         <div class="alert alert-light border py-1 px-2 mx-3 my-1 use-period" role="alert">서비스 종료일 : ${content.lastDate} [잔여일 : ${diffDays}일]</div> 
@@ -77,13 +77,13 @@
           <!-- complete button -->
           <ul class="p-0">
             <li class="py-2">
-          		<div class=""> 
-			      <a href="#" class="btn btn-sm animated-button m-0 gibson-two">초기화</a> 
+          		<div> 
+			      <button type="button" class="btn btn-sm reset-button m-0 gibson-two">초기화</button> 
 			    </div>
 			</li>
           	<li class="">
-          		<div class=""> 
-			      <button type="submit" class="btn btn-sm animated-button m-0 victoria-one">완료</button> 
+          		<div> 
+          		  <button type="submit" class="btn btn-sm submit-button m-0 victoria-one">완료</button>
 			    </div>
           	</li>
           </ul>
@@ -219,7 +219,7 @@
                     <div class="tabs-2-0-topFontAlign px-2 pb-3 border">
                       <h3 class="section-title">제목 정렬</h3>
                       <div class="section-content" style="margin-bottom:25px; margin-top:-20px;">
-                        <div class="form-check form-check-inline pr-2">
+                        <div class="form-check form-check-inline pr-3">
                           <input class="name-position topFontAlign" type="radio" name="top-font-align"
                             id="top-font-align-01" value="left"
                             ${content.topFontAlign == 'left' ? 'checked' : ""}>
@@ -241,7 +241,7 @@
 							  </a>
 							</div>
                         </div>
-                        <div class="form-check form-check-inline px-2">
+                        <div class="form-check form-check-inline px-3">
                           <input class="name-position topFontAlign" type="radio" name="top-font-align"
                             id="top-font-align-03" value="right"
                             ${content.topFontAlign == 'right' ? 'checked' : ""}>
@@ -258,10 +258,6 @@
                       <h3 class="section-title">상단 이미지</h3>
                       <div class="section-content">
                         <div class="custom-file">
-                        <!-- 
-                          <input type="hidden" name="top-img-file-str" class="topImgFileStr" id="top-img-file-str" value="${content.topImgFile}">
-                          <input type="hidden" name="top-img-file-addr" class="topImgFileAddr" id="top-img-file-addr" value="${uploadPath}">
-                        -->
                           <input type="file" class="custom-file-input" class="topImgFile" id="top-img-file" name="top-img-file">
                           <input type="hidden" name="top-img-file-list" value="${content.topImgFile}">
                           <label class="custom-file-label" for="top-img-file">${content.topImgFile == "" ? "상단 이미지 선택" : content.topImgFile}</label>
@@ -303,7 +299,7 @@
                       <h3 class="section-title">상단 이미지 배치 연습</h3>
                       <div class="section-content">
                         <div class="border top-img-preview-crop-wrap">
-	                    	<img id="ferret" src="data:image/jpeg;base64,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" width="100%" alt="It's coming right for us!" title="It's coming right for us!" style=" margin-right: 10px;">
+	                    	<img style="height:300px" id="ferret" src="data:image/jpeg;base64,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" width="100%" alt="It's coming right for us!" title="It's coming right for us!" style=" margin-right: 10px;">
 							<div class="skin-top-img mt-5"></div>
                         </div>
                       </div>
@@ -472,7 +468,6 @@
                         </div>
                         <div id="info-address-map" style="width:100%;height:300px;"></div>
                         <div id="skin-info-address-map" style="width:100%;height:300px; color:black;"></div>
-                        <!-- <img src="http://placehold.it/400x250" alt="지도" class="text-center"> -->
                       </div>
                     </div>
                     <div class="tabs-3-3-infoNavi border">
@@ -583,6 +578,11 @@
                               id="gallery-type-slide" value="gallery-type-slide" ${content.galleryType == 'gallery-type-slide' ? 'checked' : ""}> 
                             <span class="gallery-layout-box">슬라이드형</span>
                           </label>
+                          <!-- 도움말 -->
+                          <p class="sub_txt tip mt-2" style="font-size:14px; color:#656565;">
+                              <i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+                              원하시는 갤러리 디자인 종류를 클릭하여 선택하시면 됩니다.
+                          </p>
                       </div>
                       <div class="tabs-4-1-gallery-upload pb-3 border">
                         <h3 class="section-title">갤러리 사진 업로드</h3>
@@ -695,17 +695,19 @@
                           <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-info">다른계좌 등록하기</button>
                           </div>
-                          
+                           
                           <!-- toss 연습 -->
+                          <!--
                           <button type='button' onclick="tossButton()" class="btn btn-success">toss</button>
                           <div id="tossLink"></div>
-                          
+                          -->
                           <!-- 계좌 인증 연습 -->
+                          <!-- 
                           <input type="text" class="form-control" placeholder="예금주명" name="account-name">
                           <input type="text" class="form-control" placeholder="생년월일(6자리)" name="account-birth">
                           <input type="text" class="form-control" placeholder="계좌번호(-없이)" name="account-number">
                           <button type="button" class="btn btn-danger" onclick="accountCreate()">계좌 등록</button>
-                          
+                            -->
                         </div>
                       </div>
                       <div class="tabs-5-0-money px-2 pb-3 border">
@@ -745,56 +747,99 @@
 							</label>
 						</a>
                     </div>
-                    <div class="attend-chk-div edit-servey" ng-app="SurveyBuilder">
-					  <!-- 도움말 -->
-                      <p class="sub_txt tip mt-2" style="font-size:14px; color:#656565;">
-                      	<i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
-                      	수신자에게 참석 여부를 표시할 수 있는 폼이 제공됩니다.
-                      </p>
-                      
-                       <div class="row">
-					    <!-- left sidebar -->
-					    <div class="col-sm-4 survey-elements">
-					      <ul class="survey-components text-center" id="survey-components">
-					        <h5>형식</h5>
-					        <li class="poll-form">Textbox</li>
-					        <li class="poll-form">Text Area</li>
-					        <li class="poll-form">Checkboxes</li>
-					        <li class="poll-form">Radio Buttons</li>
-					      </ul>
-					      <br/>
-					      <button id="reset" class="btn btn-default btn-block">Reset Survey</button>
-					      <br/>
-					    </div>
-					    <!-- right main canvas -->
-					    <div class="col-sm-8">
-					      <h5>
-					        <span="title" class="default-text" contenteditable="true">설문 조사</span> 
-					        <small contenteditable="false">created by you</small>
-					        <i class="fa fa-pencil"></i>
-					      </h5>
-					      <ul id="survey-canvas" class="survey-canvas">
-					      </ul>
-					      
-					      <button class="btn btn-default btn-lg btn-block">Submit</button>
-					    </div>
-					  </div>
+                    <div class="attend-chk-div">
+						<div class="tabs-6-1-selectSNS px-2 pb-3 border">
+	                        <h3 class="section-title">참석여부</h3>
+	                        <div class="section-content">
+	                        	<!-- 도움말 -->
+		                     	<p class="sub_txt tip mt-2" style="font-size:14px; color:#656565;">
+		                      		<i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+		                      		 초대받은 이의 행사 참석 여부를 알 수 있습니다.<br>
+		                      		 <i class="fas fa-info-circle fa-lg mx-1" style="opacity:0;"></i>
+		                      		 (성명과 비밀번호 입력 필수)<br>
+		                      		 <i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+		                      		 통계결과는 사용자의 통계기능에서 확인하실 수 있습니다.
+		                        </p>
+		                        <img src="img/content/edit_img/page_img/attend-modal.jpg" width="200px;" height="200px;">
+		                        <img src="img/content/edit_img/page_img/noattend-modal.jpg" width="200px;" height="240px;">
+	                        </div>
+						</div>
+						
+						<div class="tabs-6-1-selectPoll pb-3 border">
+							<div class="p-2 d-flex justify-content-between align-items-center">
+								<h3 class="section-title">설문조사</h3>
+								<a class="tooltips">
+				                    <input class="onoff-box pollChk ml-2" type="checkbox" id="toggle13" name="poll-chk" value="${content.pollChk}"
+										onclick="chkFuc('poll-chk','poll-chk-div')" ${content.pollChk == 1 ? 'checked' : ""}>
+									  <label class="onoff-button" for="toggle13">
+									  	  <div class="onoff"></div>
+										  <span class="onoff-tooltip">설문조사 ON/OFF</span>
+									  </label>
+								  </a>
+							</div>
+							<div class="section-content poll-chk-div">
+	                        	<div class="form-control" style="border:none;">
+	                        		<!-- 도움말 -->
+			                     	<p class="sub_txt tip mt-2" style="font-size:14px; color:#656565;">
+			                      		<i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+			                      		수신자에게 참석 여부를 표시할 수 있는 폼이 제공됩니다.
+			                        </p>
+		                       		<div class="row">
+									    <!-- left sidebar -->
+									  <div class="col-sm-4 survey-elements">
+									      <ul class="survey-components text-center" id="survey-components">
+									        <h5>형식</h5>
+									        <!-- <li class="poll-form">단답형</li>-->
+									        <li class="poll-form">텍스트</li>
+									        <!-- <li class="poll-form">체크박스</li>-->
+									        <li class="poll-form">라디오</li>
+									      </ul>
+									      <br>
+									      <button id="reset" class="btn btn-default btn-block">초기화</button>
+									      <br>
+									   </div>
+									    <!-- right main canvas -->
+									   <div class="col-sm-8">
+									      <h5>
+									        <span class="default-text survey-title" contenteditable="true">설문조사</span> 
+									        <i class="fa fa-pencil"></i>
+									      </h5>
+									      <ul id="survey-canvas" class="survey-canvas"></ul>
+									      <input type="hidden" name="poll-content"> <!-- form 내용 들어갈 input -->
+									      <input type="hidden" name="poll-update-chk" value="default"> <!-- 설문조사 수정할 경우 update 기존 값일 경우 default -->
+									      <button type="button" class="btn btn-default btn-lg btn-block" onclick="surveySave()">완료</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
                   </div>
                   <!-- 하위 탭 6-2 방명록 -->
-                  <div id="tabs-6-2">
-                    <div class="d-flex justify-content-end align-items-center mb-3">
-                      <a class="tooltips">
-	                    <input class="onoff-box commentChk ml-2" type="checkbox" id="toggle13" checked="checked" name="comment-chk" value="${content.commentChk}"
-							onclick="chkFuc('comment-chk', 'comment-chk-div')" ${content.commentChk == 1 ? 'checked' : ""}>
-						  <label class="onoff-button" for="toggle13">
-						  	  <div class="onoff"></div>
-							  <span class="onoff-tooltip">방명록 사용 ON/OFF</span>
-						  </label>
-						<div class="comment-chk-div">추가</div>
-					  </a>
-                    </div>
-                  </div>
+				  <div id="tabs-6-2">
+				   <div class="d-flex justify-content-end align-items-center mb-3">
+				     <a class="tooltips">
+				        <input class="onoff-box commentChk ml-2" type="checkbox" id="toggle14" checked="checked" name="comment-chk" value="${content.commentChk}"
+				            onclick="chkFuc('comment-chk', 'comment-chk-div')" ${content.commentChk == 1 ? 'checked' : ""}>
+				          <label class="onoff-button" for="toggle14">
+				                <div class="onoff"></div>
+				              <span class="onoff-tooltip">방명록 사용 ON/OFF</span>
+				          </label>
+				      </a>
+				   </div>
+				   <div class="comment-chk-div">
+			          <!-- 도움말 -->
+			          <p class="sub_txt tip mt-2" style="font-size:14px; color:#656565;">
+			              <i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+			              방명록을 쓸 수 있는 버튼과 방명록 내용이 추가 됩니다. <br>
+			              <i class="fas fa-info-circle fa-lg mx-1" style="opacity:0;"></i>
+			              ( 성함 / 비밀번호 4자리 / 내용 )<br>
+			              <i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+			              방명록은 초대장에서 가입 없이 축하 글을 남길 수 있습니다.
+		  	          </p>
+			          <img src="img/content/edit_img/page_img/skin_comment_ex.png" width="200px;" height="320px;" style="border:1px solid rgb(217,217,217);">
+			   	   </div>
+				</div>
                   <!-- 하위 탭 6-3 SNS 공유 -->
                   <div id="tabs-6-3">
                     <div class="d-flex justify-content-end align-items-center mb-3">
@@ -870,6 +915,11 @@
 								</a>
 							  </div>
                           </div>
+                          <!-- 도움말 -->
+                          <p class="sub_txt tip mt-2" style="font-size:14px; color:#656565;">
+                              <i class="fas fa-info-circle fa-lg mx-1" style="color: #f0771f;"></i>
+                              SNS공유 기능은 초대장을 카카오스토리, 밴드, 페이스북에 올려서 공유할 수 있으며 카카오톡은 친구들에게 초대장을 보낼 수 있습니다.
+                          </p>
                         </div>
                       </div>
                       <div class="tabs-6-3-snsMSG pb-3 border">
@@ -930,24 +980,21 @@
   
   
   <!-- custom javsScript -->
+  <script>
+  /* surveyInit 변수 */
+  pollContent = '${content.pollContent}';
+  </script>
+  <script src="js/editDesign.js?v=<%=System.currentTimeMillis() %>"></script>
   <script type="text/javascript" src="js/edit.js?v=<%=System.currentTimeMillis() %>"></script>
   <script type="text/javascript" src="js/editFunc.js?v=<%=System.currentTimeMillis() %>"></script>
-  <script src="js/editDesign.js?v=<%=System.currentTimeMillis() %>"></script>
-  
   <script>
-
   $( function() {
-	  
     $( "#tabs" ).tabs();
     $( "#sub-tabs-1" ).tabs();
     $( "#sub-tabs-3" ).tabs();
     $( "#sub-tabs-4" ).tabs();
     $( "#sub-tabs-6" ).tabs();
-    
   });
   </script>
- 	
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
 </body>
 </html>

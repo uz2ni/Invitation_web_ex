@@ -1,24 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@page pageEncoding="utf-8" %>
-    
-<% 
-	//String title = java.net.URLDecoder.decode(request.getParameter("title"), "utf-8");
-	//title = (title == null) ? "" : title;
-	String title = request.getParameter("title");
-	String bg = request.getParameter("bg");
-%>    
-<head>
-<meta charset="utf-8">
-<meta http-e quiv="Content-type" CONTENT="text/html;charset=utf-8">
-</head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%
+/* String title = java.net.URLDecoder.decode(request.getParameter("title"), "utf-8"); */
+// String title = (title == null) ? "" : title;
+String title = request.getParameter("title");
+String bg = request.getParameter("bg");
+%>
+
 <!-- header -->
 <div -ms-overflow-style: none; id="section1" class="container-fluid p-0"
 	style="height: 100vh; background-image: url(./img/common/<%=bg%>); background-size: cover;">
 	
-	<header id="menu" class="nav-back row justify-content-end m-0">
-		<nav class="nav-back-center col-8 mx-5 my-3 text-center"
-			style="height: 12vh;">
-			<ul class="card-img-overlay nav justify-content-center">
+	<header id="menu" class="nav-back d-flex">
+		<div style="width:20vh;"></div>
+		<div class="d-flex col" style="width:60vh;">
+		<nav class="nav-back-center text-center">
+			<ul class="card-img-overlay nav justify-content-center" id="navbarSupportedContent">
 				<!--drop down-->
 				<div class="dropdown">
 					<li class="nav-item-top dropdown-toggle" data-toggle="dropdown">
@@ -45,7 +43,7 @@
 				</div>
 				<!--/drop down-->
 				<li class="nav-item-logo" style="margin-top: -40px;">
-					<a class="nav-link pt-3" href="index.do"><img src="./img/common/logo_8.png" width="200" height="90" /></a>
+					<a class="nav-link pt-3" href="/"><img src="./img/common/main_logo_1.png" width="200" height="90" /></a>
 				</li>
 				<!--/drop down-->
 				<!--drop down-->
@@ -72,14 +70,25 @@
 				<!--/drop down-->
 			</ul>
 		</nav>
-		<div class="nav-right mx-3">
+		</div>
+		<div class="nav-right d-flex" style="width:20vh;">
 			<!-- 로그인 세션 여부에 따라 다른 버튼 보여주기 -->
 	    	<% if(session.getAttribute("user") == null) { %> <!-- 로그인 세션 없을 경우 -->
-		    	<a href="loginForm.do"><button type="button" class="btn login-btn mt-1">로그인</button></a>
-				<a href="joinForm.do"><button type="button" class="btn login-btn mt-1" style="">회원가입</button></a>
+		    	<a href="loginForm.do"><button type="button" class="btn login-btn mt-1" style="width:60px;">로그인</button></a>
+				<a href="joinForm.do"><button type="button" class="btn login-btn mt-1">회원가입</button></a>
 	    	<% } else { %> <!-- 로그인 세션 있을 경우 -->
-		    	<a href="contentEditForm.do"><button type="button" class="btn login-btn mt-1">초대장 편집</button></a>
-				<a href="logoutPro.do" onclick="alert('로그아웃 성공');"><button type="button" class="btn login-btn mt-1" style="">로그아웃</button></a>
+		    	<!-- <a href="contentEditForm.do"><button type="button" class="btn login-edit mt-1" style="background:white;">초대장 편집</button></a>-->
+		    	<div class="dropdown"><!-- href="contentEditForm.do" -->
+						<button class="btn dropdown-toggle login-edit mt-1" type="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						     초대장 편집
+						</button>
+						<div class="login-edit-list dropdown-menu">
+						    <a class="dropdown-item" href="#">초대장1</a>
+						    <a class="dropdown-item" href="#">초대장2</a>
+						    <a class="dropdown-item" href="#">초대장3</a>
+						</div>
+				</div>
+				<a href="logoutPro.do" onclick="alert('로그아웃 성공');"><button type="button" class="btn login-btn mt-1">로그아웃</button></a>
 	    	<% } %>
 		</div>
 	</header>

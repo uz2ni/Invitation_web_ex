@@ -14,4 +14,54 @@ input.ng-invalid {
 .viewlaw:hover{
   color:#f05228; 
 }
+/*2018-09-27 박민정 추가*/
+#overlap {
+	width: 100px;
+	background: #2d62cd;
+	color:white;
+}
+#overlap:hover {
+	background: #254b9a;
+}
+.confirm-btn {
+	margin-left:5px;
+    background:#bcbcbc; 
+    color:white;
+    font-size:14px;
+    cursor: pointer;
+}
+.confirm-btn:hover{
+    background:#959595;
+    color:white;
+}
+
+/* 유진 : margin:8px 로 수정 */
+.email-confirm{
+	width:100%; 
+	margin: 8px; 
+	font-size:14px;
+}
+.login_select{
+    margin: 20px 0 20px;
+}
+.login_select li {
+    float: inherit;
+    display: inline-block;
+    width: 30%;
+    background-color:#f5f5f5;
+}
+.login_select li span {
+	color:#333333;
+}
+.login_select li.on {
+	background-color:#f05228;
+}
+.login_select li.on span{
+	color:white;
+}
+.join_title {
+	margin: 19px 0 8px;
+	font-size: 14px;
+    font-weight: 700;
+}
 

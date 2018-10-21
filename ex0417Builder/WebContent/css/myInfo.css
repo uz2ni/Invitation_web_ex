@@ -62,14 +62,13 @@
     font-weight: 600;
 }
 
-
 /* 180919 유진 추가 */
 /* link color */
 a {
-	color: black;
-	text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 a:hover {
-	color: #fe4f00;
-	text-decoration: none;
+    color: #fe4f00;
+    text-decoration: none;
 }

@@ -13,7 +13,6 @@ $(document).ready(function(){
 	editInit();
 	mapNode = $('#info-address-map');
 	mapClone = mapNode.clone();
-
 });
 
 // iframe 이동할 때 skin일 경우 init 다시 하기
@@ -77,6 +76,8 @@ function editInit() {
 	accountSelectUpdate(getAccountSelect(), getSectionAccount());
 	checkboxVal($("input[name='attend-chk']"));
 	attendChkUpdate(getAttendChk(), getSectionAttend());
+	checkboxVal($("input[name='poll-chk']"));
+	pollChkUpdate(getPollChk(), getSectionPoll());
 	checkboxVal($("input[name='comment-chk']"));
 	commentChkUpdate(getCommentChk(), getSectionComment());
 	checkboxVal($("input[name='sns-share-chk']"));
@@ -136,6 +137,7 @@ function topFontAlignUpdate(val, section) {
 // 상단 이미지
 function topImgUpdate(val, section) {
 	// 이미지 셋팅
+	console.log($(section));
 	$(section).find("img").attr('src', val);
 	
 }
@@ -360,7 +362,7 @@ function searchAddressToCoordinate(address) {
         address: address
     }, function(status, response) {
         if (status === naver.maps.Service.Status.ERROR) {
-            return alert('주소를 정확하게 입력하세요^^^^^^');
+            return alert('주소를 정확하게 입력하세요');
         }
 
         var item = response.result.items[0],
@@ -428,7 +430,9 @@ function infoLoadImgChkUpdate(val, section) {
 }
 // 약도 이미지
 function infoLoadImgUpdate(val, section) {
-	$(section).append("<img src='" + val + "'>");
+	console.log(val);
+	$(section).find("img").attr('src', val);
+	console.log($(section).find("img"));
 }
 // 버스 교통 안내
 function infoBusUpdate(val, section) {
@@ -518,6 +522,10 @@ function accountMoneyUpdate(val, section) {
 // 06 추가 기능
 // 06-1 참석 여부
 function attendChkUpdate(val, section) {
+	hideShowFunc(val, section);
+}
+// 06-1-2 참석 여부 - 설문 조사
+function pollChkUpdate(val, section) {
 	hideShowFunc(val, section);
 }
 // 06-2 방명록
@@ -637,3 +645,49 @@ function imgList2(wrapName) {
 	console.log("str: " + str);
 	$("input[name=gallery-upload-img-list").val(str);
 }
+
+// 작성자 : 송유진
+// 작성일 : 18.09.25
+// 기능 : edit page 설문조사 데이터 뽑는 함수
+function surveySave() {
+  // 수정하는 경우 poll update chk -> update 설정
+  $("input[name='poll-update-chk']").val("update");
+	
+  // 객체, 리스트 생성
+  let surveyObj = new Object(); // survey object
+  let surveyTitle = ""; // survey obj(title)
+  let surveyArr = new Array(); // survey obj(content-array)
+  
+  // title
+  surveyTitle = $('.survey-title').text();
+  surveyObj["title"] = surveyTitle;
+  
+  // content
+  let contents = $('#survey-canvas > li'); // question list
+  for(var i=0; i<contents.length; i++) {
+	  if($(contents[i]).hasClass('type-text')) {
+		  let surveyContent = new Object(); // survey obj(content-array-object)
+		  surveyContent['type'] = 'text';
+		  surveyContent['q'] = $(contents[i]).find('label').text();
+		  surveyArr.push(surveyContent);
+	  }else if($(contents[i]).hasClass('type-radio')) {
+		  let surveyContent = new Object(); // survey obj(content-array-object)
+		  surveyContent['type'] = 'radio';
+		  surveyContent['q'] = $(contents[i]).find('label').text();
+		  const radioVal = $(contents[i]).find('label').text();
+		  const radioQs = $(contents[i]).find('.survey-radio > span');
+		  let radioQ1, radioQ2, radioQ3;			  
+		  for(var j=0; j<radioQs.length; j++) {
+			  if(j==0) surveyContent['q1'] = $(radioQs[j]).text();
+			  else if(j==1) surveyContent['q2'] = $(radioQs[j]).text();
+			  else if(j==2) surveyContent['q3'] = $(radioQs[j]).text();
+		  }
+		  surveyArr.push(surveyContent);
+	  }
+  }
+  surveyObj['content'] = surveyArr;
+  $("input[name='poll-content']").val(JSON.stringify(surveyObj));
+	  console.log(surveyObj);
+}
+
+

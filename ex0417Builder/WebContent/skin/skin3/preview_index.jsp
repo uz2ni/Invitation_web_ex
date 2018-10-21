@@ -1,66 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="ko">
-<!--<![endif]-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>${content.topTitle}</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="viewport"
-	content="width=device-width,initial-scale=1.0,user-scalable=no">
-<link rel="shortcut icon"
-	href="http://www.templatemonster.com/favicon.ico">
-<link rel="icon" href="http://www.templatemonster.com/favicon.ico">
 
 <!--Google Fonts link-->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i"
 	rel="stylesheet">
-
-<link rel="stylesheet" href="${skinContext}css/iconfont.css">
-<link rel="stylesheet" href="${skinContext}css/slick/slick.css">
-<link rel="stylesheet" href="${skinContext}css/slick/slick-theme.css">
-<link rel="stylesheet" href="${skinContext}css/jquery.fancybox.css">
-<link rel="stylesheet" href="${skinContext}css/bootstrap.css">
-<link rel="stylesheet" href="${skinContext}css/bootstrap.min.css">
-<link rel="stylesheet" href="${skinContext}css/magnific-popup.css">
+	
+<link rel="stylesheet" href="css/iconfont.css">
+<link rel="stylesheet" href="css/slick/slick.css">
+<link rel="stylesheet" href="css/slick/slick-theme.css">
+<link rel="stylesheet" href="css/jquery.fancybox.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
 
 <!--For Plugins external css-->
-<link rel="stylesheet" href="${skinContext}css/plugins.css" />
+<link rel="stylesheet" href="css/plugins.css" />
 
 <!--Theme custom css -->
-<link rel="stylesheet" href="${skinContext}css/index.css">
+<link rel="stylesheet" href="css/index.css">
 
 <!--Theme Responsive css-->
-<link rel="stylesheet" href="${skinContext}css/responsive.css" />
-
-<!-- <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> -->
+<link rel="stylesheet" href="css/responsive.css" />
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
-<input type="hidden" name="commonContext" value="${commonContext}">
-<input type="hidden" name="skinContext" value="${skinContext}">
-<input type="hidden" name="contentStr" value="${contentStr}">
 
-	<!-- 로딩 될때 나오는 로드 이미지 preloader, loadeds-->
-	<!-- <div class='preloader'>
-		<div class='loaded'>&nbsp;</div>
-	</div> -->
 	<div class="culmn">
 		<header id="main_menu" class="header navbar-fixed-top">
 			<div class="main_menu_bg">
@@ -117,33 +96,41 @@
 									<!-- 상단 제목, 색상, 정렬 -->
 									<!-- 상단 이미지 선택, 배치 -->
 									<div class="main_home wow fadeInUp" data-wow-duration="600ms">
-										<div class="col-md-12 col-sm-6">
-											<img class="skin-top-img-file skin-top-title text-center"
-												alt="" width=600; />
+										<div class="col-md-12 col-sm-6 skin-top-img">
+											<img class="text-center skin-top-img-file"
+												alt="" width=600; src="http://bootdey.com/img/Content/user_1.jpg" />
 										</div>
-										<p class=" skin-top- font-color">
-										<h1 class="skin-top-title"></h1>
+										<p>
+											<span class="skin-top-title skin-top-font-color"></span>
 										</p>
 										<div class="separator"></div>
-
 										<div class="skin-info-date">
-
-											<div class="skin-info-date">
+											<div>
 												<p>
-													<span class="skin-info-date-start"> <!-- 	<h2 class="skin-info-date-start"></h2> -->
-														<h1>~</h1> <!-- <h2 class="skin-info-date-end"></h2> --> <span
-														class="skin-info-date-start">
+													<span>행사일시</span>
 												</p>
-												</span>
 											</div>
-										</div>
+											<p>
+												<span class="skin-info-date-start"></span> <span>~</span> <span
+													class="skin-info-date-end"></span>
+											</p>
+
+											<p>
+												<span>행사 까지 남은 날짜</span>
+											</p>
+											<p>
+												<span>D</span><span class="skin-info-dday"></span>
+											</p>
+										</div>										
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
+		
 		<section id="home" class="history sections">
 			<div class="container">
 				<div class="row">
@@ -176,59 +163,6 @@
 				</div>
 				<!-- End off row -->
 			</div>
-			<!-- 산악회에서 필요 없는 부분이라 홀드  -->
-			<!-- <div id="profile" class="container">
-				<div class="row">
-					<div class="sections">
-						<div class="head_title text-center">
-							<h2>발표자 프로필</h2>
-							<div class="separator"></div>
-						</div>
-						End off Head_title
-						skin-add-info-img-name
-						<div class="col-sm-12">
-							<div class="single_pricing">
-								<div class="pricing_body">
-									<div class="col-sm-6">
-										<div class="skin-add-info-img-profile single_newsletter_head">
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<h4 class="skin-add-info-img-name text-center"></h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				End off row
-			</div> -->
-			<!-- 
-			skin-add-info-img-sit
-			<div class="container">
-				<div class="row">
-					<div class="main_pricing_area sections">
-						<div class="head_title text-center">
-							<h2>발표회 자리 배치도</h2>
-							<div class="separator"></div>
-						</div>
-						End off Head_title
-						<div class="col-sm-12">
-							<div class="single_pricing">
-								<div class="pricing_body">
-									<div class="col-sm-12">
-										<div class="single_sub">
-											자리 배치도 이미지
-											<div class="skin-add-info-img-sit"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				End off row
-			</div> -->
 			<!-- Design1 -->
 			<section id="design2" class="design2 ">
 				<div class="container">
@@ -251,10 +185,6 @@
 									<h4 class="skin-add-info-call-name"></h4>
 									<!-- 문의정보 - 주최자 번호 -->
 									<h4 class="skin-add-info-call-number"></h4>
-									<!-- 주최사명 -->
-									<h4 class="skin-add-info-logo-hold-name"></h4>
-									<!-- 주최사 로고 -->
-									<img class="skin-add-info-hold-img" />
 								</div>
 							</div>
 						</div>
@@ -275,10 +205,12 @@
 										<h2>주최기관</h2>
 									</div>
 									<div class="sub_body ">
-										<!-- 주최자 명 -->
-										<h4 class="skin-add-info-logo-help-name"></h4>
-										<!-- 주최자  로고 -->
-										<img class="skin-add-info-help-img" />
+										<!-- 주최사명 -->
+										<h4 class="skin-add-info-logo-hold-name"></h4>
+										<!-- 주최사 로고 -->
+										<div class="skin-add-info-hold-img">
+											<img />
+										</div>									
 									</div>
 								</div>
 							</div>
@@ -292,7 +224,9 @@
 										<!-- 후원사명 -->
 										<h4 class="skin-add-info-logo-help-name"></h4>
 										<!-- 후원사 로고 -->
-										<img class="skin-add-info-help-img" />
+										<div class="skin-add-info-help-img">
+											<img />
+										</div>
 									</div>
 								</div>
 							</div>
@@ -349,55 +283,32 @@
 						</div>
 
 						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">D-day</div>
-										<div class="m_t text-center">행사까지 남은 날짜</div>
-									</div>
-								</div>
-								<!-- dday -->
-								<div class="sub_body">
-									<h4 class="skin-info-dday"></h4>
+						<div class="col-sm-6">
+							<div class="single_sub1">
+								<div class="sub_head1">
+									<p>
+										<span class="m_t text-center">행사 시간</span>
+									</p>
+									<p>
+										<span class="skin-info-time"></span>
+									</p>
 								</div>
 							</div>
 						</div>
+						
 						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">시간</div>
-										<div class="m_t text-center">행사 시간</div>
-									</div>
-								</div>
-								<!-- 행사 시간 -->
-								<div class="sub_body">
-									<h4 class="skin-info-time"></h4>
+						<div class="col-sm-6">
+							<div class="single_sub1">
+								<div class="sub_head1">
+									<p>
+										<span class="text-center">행사 열릴 장소</span>
+									</p>
+									<p>
+										<span class="skin-info-place"></span>
+									</p>
 								</div>
 							</div>
 						</div>
-
-						<!-- End off Head_title -->
-						<div class="col-sm-4">
-							<div class="single_sub">
-								<div class="sub_head">
-									<h3>세부 내용</h3>
-									<div class="sub_price">
-										<div class="p_r text-center">장소</div>
-										<div class="m_t text-center">행사 열릴 장소</div>
-									</div>
-								</div>
-								<!-- 행사 장소 -->
-								<div class="sub_body">
-									<h4 class="skin-info-place "></h4>
-								</div>
-							</div>
-						</div>
-
 					</div>
 				</div>
 				<!-- End off row -->
@@ -423,29 +334,40 @@
 								<div class="main_gallery_content">
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-1" src="img/blog1.jpg" class=""
 												alt="" />
 										</div>
 									</div>
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-2" src="img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-3" src="img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
 									<div class="col-xs-6 col-lg-3">
 										<div class="single_gallery_img_col">
-											<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+											<img class="skin-gallery-upload-img skin-gallery-4" src="img/blog1.jpg"
 												alt="" />
 										</div>
 									</div>
-
+									<div class="col-xs-6 col-lg-3">
+										<div class="single_gallery_img_col">
+											<img class="skin-gallery-upload-img skin-gallery-5" src="img/blog1.jpg"
+												alt="" />
+										</div>
+									</div>
+									<div class="col-xs-6 col-lg-3">
+										<div class="single_gallery_img_col">
+											<img class="skin-gallery-upload-img skin-gallery-6" src="img/blog1.jpg"
+												alt="" />
+										</div>
+									</div>
 								</div>
 							</div>
 							<!-- 가로 형   -->
@@ -454,37 +376,37 @@
 									<div class="row">
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-1" src="img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-2" src="img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-3" src="img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-4" src="img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-5" src="img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-sm-6">
 											<div class="single_gallery_img_row">
-												<img class="skin-gallery-upload-img" src="img/blog1.jpg"
+												<img class="skin-gallery-upload-img skin-gallery-6" src="img/blog1.jpg"
 													alt="" />
 											</div>
 										</div>
@@ -498,13 +420,6 @@
 										<div class="col-sm-12">
 											<div class="container">
 												<div id="carousel-example-generic" class="carousel slide">
-													<!--
-								            id="carousel-example-generic" 없으면 다음 페이지로 안넘어간다.
-								            class="carousel":이미지 양쪽의 화살표 보이게 하는것
-								                (화살표 없어도 그 부근 클릭하면 넘어간다.이 줄 없으면 아래 동그란 인티케이터도 안나타난다.) 
-								                 slide 없으면 슬라이드 효과 없이 그냥 이미지가 나타난다. 
-								                -->
-
 													<!-- Indicators(이미지 하단의 동그란것->class="carousel-indicators") -->
 													<ol class="carousel-indicators">
 														<li data-target="#carousel-example-generic"
@@ -513,25 +428,38 @@
 															data-slide-to="1"></li>
 														<li data-target="#carousel-example-generic"
 															data-slide-to="2"></li>
+														<li data-target="#carousel-example-generic"
+															data-slide-to="3"></li>
+														<li data-target="#carousel-example-generic"
+															data-slide-to="4"></li>
+														<li data-target="#carousel-example-generic"
+															data-slide-to="5"></li>
 													</ol>
-													<!-- 
-									                위의 data-slide-to가 0 2 2이면 두번째 동그라미 클릭해도 3번째 이미지가 나온다. 
-									                0 2 5이면 세번째 동그라미 클릭해도 아무 반응이 없다. 
-									                Indicators는 이미지 갯수와 같게 만들어야 한다. 
-									            -->
 													<!-- Carousel items -->
 													<div class="carousel-inner">
 														<!-- class="carousel-inner" : 없으면 이미지 3장이 모두 세로로 배치된다. -->
 														<div class="item active ">
-															<img class="center-block" src="img/delete1.jpg"
+															<img class="center-block skin-gallery-1" src="img/delete1.jpg"
 																alt="First slide">
 														</div>
 														<div class="item">
-															<img class="center-block" src="img/delete2.jpg"
+															<img class="center-block skin-gallery-2" src="img/delete2.jpg"
 																alt="Second slide">
 														</div>
 														<div class="item">
-															<img class="center-block" src="img/delete3.jpg"
+															<img class="center-block skin-gallery-3" src="img/delete3.jpg"
+																alt="Third slide">
+														</div>
+														<div class="item">
+															<img class="center-block skin-gallery-4" src="img/delete1.jpg"
+																alt="Third slide">
+														</div>
+														<div class="item">
+															<img class="center-block skin-gallery-5" src="img/delete2.jpg"
+																alt="Third slide">
+														</div>
+														<div class="item">
+															<img class="center-block skin-gallery-6" src="img/delete3.jpg"
 																alt="Third slide">
 														</div>
 													</div>
@@ -556,7 +484,6 @@
 				</div>
 			</div>
 		</section>
-	</div>
 
 	<!-- End off gallery sSection -->
 
@@ -574,10 +501,8 @@
 					<div class="col-sm-12">
 						<div class="single_navigation1">
 							<div class="navigation1_body">
-								<sapn>
-								<h4>행사 주소</h4>
-								<h4 class="skin-info-address"></h4>
-								</sapn>
+								<span>행사 주소</span>
+								<span class="skin-info-address"></span>
 								<!-- 장소 지도 -->
 								<div class="skin-info-map"></div>
 							</div>
@@ -586,7 +511,12 @@
 					<!-- skin-info-load-img-->
 					<div class="col-sm-4">
 						<div class="single_navigation1">
-							<div class="skin-info-load-img sub_body1"></div>
+							<div class="navigation1_body">
+								<span>약도</span>
+								<div class="skin-info-load-img sub_body1">
+									<img />
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -605,8 +535,8 @@
 					<!-- skin-info-find   -->
 					<div class="col-sm-4">
 						<div class="single_navigation1">
-							<div class="skin-info-find  sub_body1">
-								<a id="navi" href="#"> <img
+							<div class="skin-info-find sub_body1">
+								<a id="daum" href="#"> <img
 									src="../../img/content/edit_img/page_img/daum_icon.png" width=100
 									height=150 />
 								</a>
@@ -614,13 +544,10 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 		<!-- End off row -->
-		</div>
-		<!-- End off container -->
+	</section>
 
 		<!-- Design1 -->
 		<section id="design" class="design">
@@ -631,7 +558,9 @@
 			</div>
 		</section>
 
+	
 		<!-- 오시는 방법   -->
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="main_sub_area sections">
@@ -667,7 +596,6 @@
 							<!-- skin-info-subway -->
 							<div class="sub_body">
 								<h4 class="skin-info-subway"></h4>
-								<span>
 							</div>
 						</div>
 					</div>
@@ -716,9 +644,10 @@
 						</div>
 					</div>
 				</div>
-				<!-- End off row -->
 			</div>
-			<!-- End off container -->
+			<!-- End off row -->
+		</div>
+		<!-- End off container -->
 	</section>
 	<!-- End off video Section -->
 
@@ -827,26 +756,8 @@
 												</div>
 											</div>
 										</div>
-										<!--  -->
-										<!-- 참석 여부 바꾸려고 할때, 띄울 모달창
-									<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									      <div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-										<h4 class="modal-title" id="myModalLabel">이미 선택한 참석 여부가 있습니다. 수정 하시겠습니까?</h4>
-									      </div>
-									      <div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-										<button type="button" class="btn btn-primary">수정</button>
-									      </div>
-									    </div>
-									  </div>
-									</div>
-									-->
 									</div>
 								</div>
-
 							</div>
 						</div>
 					</div>
@@ -991,6 +902,8 @@
 					</div>
 					<!-- End off row -->
 				</div>
+			</div>
+		</div>
 	</section>
 
 
@@ -1013,7 +926,7 @@
 							<div class="col-sm-6 col-xs-12">
 								<div class="copyright_text">
 									<p class=" wow fadeInRight" data-wow-duration="1s">Made by
-										InviteU</p>
+										Invite U</p>
 								</div>
 							</div>
 						</div>
@@ -1023,7 +936,7 @@
 		</div>
 	</section>
 	<!-- End off footer Section-->
-	</div>
+</div>
 
 	<!-- START SCROLL TO TOP  -->
 
@@ -1036,7 +949,6 @@
 
 	<script src="js/jquery.magnific-popup.js"></script>
 	<script src="js/jquery.mixitup.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
 	<script src="js/jquery.masonry.min.js"></script>
 
 	<!--slick slide js -->
@@ -1044,13 +956,5 @@
 
 	<script src="js/plugins.js"></script>
 	<script src="js/index.js"></script>
-
-	<!-- slider_bootstrap-carousel js -->
-	<script>
-		$('.carousel').carousel({
-			interval : 1000
-		});
-	</script>
-
 </body>
 </html>

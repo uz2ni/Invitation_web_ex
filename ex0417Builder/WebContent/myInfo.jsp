@@ -64,7 +64,7 @@
 											<ul>
 												<li><a href="myService.do">사용중인 초대장 <span class="profile-stat-count">${invCnt}</span> 개</a></li>
 												<li><a href="myService.do">총 초대장 <span class="profile-stat-count">${invCnt}</span>개</a></li>
-												<li>보유 우표 <span class="profile-stat-count">${user.userPoint}</span> 장</li>
+												<li><a href="myPayUseInfo.do#tab2">보유 우표 <span class="profile-stat-count">${user.userPoint}</span> 장</a></li>
 											</ul>
 										</div>
 									</div>
@@ -117,6 +117,55 @@
                     </tbody>
                     <tbody>
                       <tr>
+                        <th scope="row">생년월일</th>
+                        <td>
+                            <div class="form-group d-flex col-sm-6 mx-auto my-3">
+							    <select name="user-year" class="form-control">
+									<%
+										int birthYear = Integer.parseInt(request.getParameter("birthYear"));
+										int birthMonth = Integer.parseInt(request.getParameter("birthMonth"));
+										int birthDay = Integer.parseInt(request.getParameter("birthDay"));
+
+									for (int i = 2018; i > 1949; i--) {
+									%>
+									<option value="<%=i%>"
+									<%
+										if( birthYear == i ) {
+									%>
+										selected
+									<%
+										}
+									%>
+									><%=i%>년</option>
+									<%
+										}
+									%>
+								</select> <select name="user-month" class="form-control">
+									<%
+										for (int i = 1; i < 13; i++) {
+									%>
+									<option value="<%=i%>"><%=i%>월
+									</option>
+									<%
+										}
+									%>
+								</select> <select name="user-day" class="form-control">
+		
+									<%
+										for (int i = 1; i < 31; i++) {
+									%>
+									<option value="<%=i%>"><%=i%>일
+									</option>
+									<%
+										}
+									%>
+								</select>
+							</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
                         <th scope="row">계좌등록</th>
                         <td>
                         	<div class="form-group col-sm-6 mx-auto my-3">
@@ -125,10 +174,10 @@
                             <div class="form-group col-sm-6 mx-auto my-3">
 	                                <select class="custom-select" name="bank-name">
 	                                  <option selected value="none" <c:if test="${bankName eq 'none'}>selected="selected"</c:if>>은행/증권사 선택</option>
-	                                  <option value="국민" ${bankName == 'KB국민' ? 'selected' : ""}>KB국민</option>
+	                                  <option value="국민" ${bankName == '국민' ? 'selected' : ""}>KB국민</option>
 	                                  <option value="우리" ${bankName == '우리' ? 'selected' : ""}>우리</option>
-	                                  <option value="NH농협" ${bankName == 'NH농협' ? 'selected' : ""}>NH농협</option>
-	                                  <option value="기업" ${bankName == 'IBK기업' ? 'selected' : ""}>IBK기업</option>
+	                                  <option value="NH농협" ${bankName == '농협' ? 'selected' : ""}>NH농협</option>
+	                                  <option value="기업" ${bankName == '기업' ? 'selected' : ""}>IBK기업</option>
 	                                  <option value="새마을" ${bankName == '새마을' ? 'selected' : ""}>새마을</option>
 	                                  <option value="카카오뱅크" ${bankName == '카카오뱅크' ? 'selected' : ""}>카카오뱅크</option>
 	                                  <option value="신한" ${bankName == '신한' ? 'selected' : ""}>신한</option>

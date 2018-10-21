@@ -1,7 +1,6 @@
 package com.test.Builder.command;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +10,7 @@ import com.test.Builder.dao.ContentEditDBBean;
 import com.test.Builder.dao.LookDBBean;
 import com.test.Builder.dto.Content;
 import com.test.Builder.dto.Look;
+import com.test.Builder.dto.User;
 
 public class LookWritingProAction implements CommandAction {
 
@@ -18,15 +18,16 @@ public class LookWritingProAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		// 한글 처리
+		/*한글처리*/
 		try {
-            request.setCharacterEncoding("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-       response.setContentType("text/html;charset=UTF-8");
-       
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		response.setContentType("text/html;charset=utf-8");
+		
+		User user = (User) request.getSession().getAttribute("user");
+
 		int userId = Integer.parseInt(request.getParameter("user-id"));
 		int urlId = Integer.parseInt(request.getParameter("url-id"));
 		String title = request.getParameter("title");
@@ -43,16 +44,16 @@ public class LookWritingProAction implements CommandAction {
 		look.setLookHashTag(tags);
 		look.setLookUrlName(content.getUrlName());
 		look.setLookImg(content.getTopImgFile());
+		look.setType(content.getType());
+		look.setUserName(user.getUserName());
 		
-		System.out.println("look"+look.toString());
+		System.out.println(look.toString());
 		
 		// DB 연동
 		LookDBBean lookProcess = LookDBBean.getInstance();
-		int cnt = lookProcess.insert(look);
+		lookProcess.insert(look);
 		
-
-		
-		return "lookList.jsp";
+		return "lookWritingPro.jsp";
 	}
 
 }

@@ -69,7 +69,6 @@ a, button, a span {
 .btn:focus, .btn:active {
 	outline: inherit;
 }
-
 *, *:before, *:after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -84,15 +83,24 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"],
 	.uneditable-input {
 	outline: none;
 }
+ span {
+	color: #fff;
+	font-size: 2.1rem;
+	font-weight: 500;
+}
 
 /*글씨체 */
 p {
 	margin: 0 0 15px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 p {
 	line-height: 2rem;
 	font-size: 0.875rem;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 h1, h2, h3 {
@@ -212,7 +220,7 @@ section .subtitle-half h5 {
 }
 
 .overlay {
-	background-color: rgba(10, 15, 35, 0.15);
+	background-color: rgba(1, 8, 10, 0.28);
 	width: 100%;
 	height: 100%;
 }
@@ -423,20 +431,20 @@ input::-ms-input-placeholder {
 	left: 0;
 	right: 0;
 	z-index: 300;
-	background-color: #c6e183;
+	background-color: #6ba85c;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
-	height: 100px;
+	height: 50px; 
 }
 
 .main_menu_bg {
-	background-color: #c6e183;
+	background-color: #6ba85c;
 }
 
 .main_menu_bg .navbar-default {
-	background-color: #c6e183;
-	border-color: #c6e183;
+	background-color: #6ba85c;
+	border-color: #6ba85c;
 	transition: all .6s;
 	margin: 15px auto;
 }
@@ -457,7 +465,7 @@ input::-ms-input-placeholder {
     border-color: #fff;
 }
 .navbar-nav>.active>a:hover{
-	color: #e74c3c !important;
+	color: #6ba85c !important;
 	background: transparent;
 }
 .main_menu_bg .navbar-default 
@@ -555,11 +563,13 @@ input::-ms-input-placeholder {
 /*home section*/
 .home {
 	background: url(../img/homebg.jpg) no-repeat center center;
+	height:600px;
 	background-size: cover;
 }
 
 .home_skew_border {
 	position: relative;
+	height:600px;
 }
 
 .home_skew_border:after {
@@ -585,8 +595,8 @@ input::-ms-input-placeholder {
 }
 
 .main_home {
-	padding-top: 100px;
-	padding-bottom: 50px;
+	padding-top: 180px;
+	padding-bottom: 180px;
 	display: block;
 }
 
@@ -614,6 +624,15 @@ input::-ms-input-placeholder {
 .main_sub_area {
 	overflow: hidden;
 	text-align: center;
+}
+.single_sub1 {
+	text-align: center;
+	margin-top: 20px;
+	transition: all 0.35s ease-in-out;
+	-moz-transition: all 0.35s ease-in-out;
+	-webkit-transition: all 0.35s ease-in-out;
+	-o-transition: all 0.35s ease-in-out;
+	-ms-transition: all 0.35s ease-in-out;
 }
 
 .single_sub {
@@ -643,12 +662,19 @@ input::-ms-input-placeholder {
 }
 
 .sub_head {
-	padding: 30px 0px;
-	background: #c6e183;
+	padding: 10px 0px;
+	background: #fff;
 	position: relative;
 	height: 100px;
 }
 
+.sub_head1 {
+	padding: 10px 0px;
+	background: #6ba85c;
+	position: relative;
+	height: 100px;
+	font-color:#000;
+}
 .sub_head h3 {
 	text-transform: uppercase;
 	color: #fff;
@@ -691,6 +717,7 @@ input::-ms-input-placeholder {
 /*=====================================================================
                     counter section css = account
 =======================================================================*/
+
 .account {
 	background: url(../img/design2.jpg) no-repeat top center;
 	background-size: cover;
@@ -700,7 +727,7 @@ input::-ms-input-placeholder {
 	padding: 50px 20px;
 }
 
-.main_account_area .single_account h2, span {
+.main_account_area .single_account h2{
 	color: #fff;
 	font-size: 2.0rem;
 	font-weight: bold;
@@ -810,6 +837,12 @@ input::-ms-input-placeholder {
 .sub_business .btn-md {
 	background: #e74c3c;
 }
+.sub_head {
+	padding: 18px 0px;
+	background: #f5c239;
+	position: relative;
+	height: 100px;
+}
 
 .sub_head {
 	padding: 18px 0px;
@@ -834,7 +867,6 @@ input::-ms-input-placeholder {
 	border-radius: 50%;
 	box-shadow: 0px 0px 0px 10px rgba(244, 245, 249, 0.6);
 }
-
 .sub_head .sub_price .p_r {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 700;
@@ -865,7 +897,7 @@ input::-ms-input-placeholder {
                             gallery Section
 ===================================================================*/
 .gallery {
-	background: #c6e183;
+	background: #fff;
 	text-align: center;
 }
 
@@ -923,22 +955,22 @@ input::-ms-input-placeholder {
 }
 
 .single_gallery_img_col{
-	height: 600px;
+	height: 260px;
     object-fit: cover;
     object-position: top;
-    max-width:650px;
+    max-width:200px;
     position:relative;
 }
 
 .single_gallery_img_col img{
-	width: 350px; 
-	height: 450px;
+	width: 200px; 
+	height: 240px;
     object-fit: cover;
-    object-position: top;;
+    object-position: top;
 }
 
 .single_gallery_img_row{
-	height: 300px;
+	height: 280px;
     object-fit: cover;
     object-position: top;
     max-width:650px;
@@ -946,8 +978,8 @@ input::-ms-input-placeholder {
 }
 
 .single_gallery_img_row img{
-	width: 450px; 
-	height: 300px;
+	width: 350px; 
+	height: 260px;
     object-fit: cover;
     object-position: top;;
 }
@@ -997,7 +1029,7 @@ input::-ms-input-placeholder {
 }
 
 .navigation1_body {
-	background: #c6e183;
+	background:#6ba85c;
 	padding: 10px 0px 5px 0px;
 }
 
@@ -1022,7 +1054,7 @@ input::-ms-input-placeholder {
 }
 
 .video_body {
-	background: #c6e183;
+	background: #f5c239S;
 	padding: 30px 0px 30px 0px;
 }
 
@@ -1053,6 +1085,7 @@ input::-ms-input-placeholder {
     background-color: #f00;
 }
  */
+ 
 /*=================================================================
                        comment box
 ===================================================================*/
@@ -1062,6 +1095,7 @@ input::-ms-input-placeholder {
 .glyphicon glyphicon-thumbs-up{
 	padding: 5px , 5px , 5px ,5px;
 	}
+	
 .panel{
 	margin-bottom: 20px;
     background-color: #c6e183;
@@ -1123,7 +1157,7 @@ input::-ms-input-placeholder {
   margin-top: 20px;
 }
 .post .post-description .stats .stat-item {
-  display: inline-block;
+  display: inline;
   margin-right: 5px;
 }
 .post .post-description .stats .stat-item {
@@ -1177,7 +1211,7 @@ input::-ms-input-placeholder {
                         footer section
 ===================================================================*/
 .footer {
-	background: #c6e183;
+	background: #6ba85c;
 }
 
 .main_footer img {
@@ -1188,7 +1222,7 @@ input::-ms-input-placeholder {
 
 .main_footer {
 	overflow: hidden;
-	padding: 20px 0px;
+	padding: 10px 0px;
 }
 
 .main_footer .flowus a i {
@@ -1211,11 +1245,11 @@ input::-ms-input-placeholder {
 	text-align: right;
 }
 
-.copyright_text p {
-	color: #e74c3c;
-	line-height: 25px;
+.copyright_text h5 {
+	color: #fff;
+	line-height: 30px;
 	max-width: 100%;
-	padding-top: 15px;
+	padding-top: 1px;
 }
 
 .copyright_text p a {

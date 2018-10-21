@@ -19,9 +19,27 @@ public class LookListAction implements CommandAction {
 		
 		// DB 연동
 		LookDBBean lookProcess = LookDBBean.getInstance();
+		
+		// 전체
 		List<Look> looks = lookProcess.selectList();
+		// 모임
+		List<Look> looksType1 = lookProcess.selectTypeList(1); 
+		// 발표회
+		List<Look> looksType2 = lookProcess.selectTypeList(2); 
+		// 종교 행사
+		List<Look> looksType3 = lookProcess.selectTypeList(3); 
 		
 		request.setAttribute("looks", looks);
+		request.setAttribute("looksType1", looksType1);
+		request.setAttribute("looksType2", looksType2);
+		request.setAttribute("looksType3", looksType3);
+		
+		System.out.println("type1 :");
+		System.out.println(looksType1);
+		System.out.println("type2 :");
+		System.out.println(looksType2);
+		System.out.println("type3 :");
+		System.out.println(looksType3);
 		
 		return "lookList.jsp";
 	}
